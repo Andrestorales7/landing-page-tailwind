@@ -65,18 +65,18 @@ const Navbar: React.FC = () => {
         <header
             className={`fixed top-0 w-full z-50 transition-all duration-300 ${
                 isScrolled
-                    ? "bg-white/90 text-gray-700 backdrop-blur-md shadow-md"
+                    ? "bg-white/90 text-gray-800 backdrop-blur-md shadow-md"
                     : "bg-transparent text-white"
             }`}
         >
             <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-20 items-center justify-between">
                     <div className="flex-1 md:flex md:items-center md:gap-12">
-                        <Link href="/Hero" className="block" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link href="/" className="block" onClick={() => setIsMobileMenuOpen(false)}>
                             <span className="sr-only">Home</span>
                             <div className="flex items-center space-x-2">
                                 <img 
-                                    src="/images/logo2.png" 
+                                    src="/images/logo8.png" 
                                     alt="Company Logo" 
                                     className="h-16 w-auto object-contain" 
                                 />
@@ -91,7 +91,7 @@ const Navbar: React.FC = () => {
                                     <Link 
                                         href="/" 
                                         className={`transition-colors font-medium ${
-                                            isActive("/") ? "text-teal-600" : "hover:text-teal-600"
+                                            isActive("/") ? "text-green-600" : "hover:text-green-700"
                                         }`}
                                         onClick={() => scrollToSection("hero")}
                                     >
@@ -102,7 +102,7 @@ const Navbar: React.FC = () => {
                                     <button
                                         onClick={() => scrollToSection("soluciones")}
                                         className={`transition-colors font-medium ${
-                                            isActive("soluciones") ? "text-teal-600" : "hover:text-teal-600"
+                                            isActive("soluciones") ? "text-green-600" : "hover:text-green-700"
                                         }`}
                                     >
                                         Soluciones
@@ -110,18 +110,21 @@ const Navbar: React.FC = () => {
                                 </li>
 
                                 <li className="relative group">
-                                    <button className="flex items-center hover:text-teal-600 font-medium transition-colors">
+                                    <button
+                                        onClick={() => router.push("/productos")}
+                                        className="flex items-center font-medium transition-colors hover:text-green-700"
+                                    >
                                         Productos
                                         <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                         </svg>
                                     </button>
-                                    <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-md p-2 min-w-[220px] z-10 border border-gray-100 text-gray-700">
+                                    <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-md p-2 min-w-[220px] z-10 border border-gray-100 text-gray-800">
                                         {productSubcategories.map((subcategory) => (
                                             <button
                                                 key={subcategory.id}
                                                 onClick={() => scrollToSection(subcategory.id)}
-                                                className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-50 hover:text-teal-600"
+                                                className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-50 hover:text-green-600"
                                             >
                                                 {subcategory.name}
                                             </button>
@@ -133,7 +136,7 @@ const Navbar: React.FC = () => {
                                     <button
                                         onClick={() => scrollToSection("Nosotros")}
                                         className={`transition-colors font-medium ${
-                                            isActive("nosotros") ? "text-teal-600" : "hover:text-teal-600"
+                                            isActive("nosotros") ? "text-green-600" : "hover:text-green-700"
                                         }`}
                                     >
                                         Nosotros
@@ -143,7 +146,7 @@ const Navbar: React.FC = () => {
                                     <Link 
                                         href="/blog" 
                                         className={`transition-colors font-medium ${
-                                            isActive("/blog") ? "text-teal-600" : "hover:text-teal-600"
+                                            isActive("/blog") ? "text-green-600" : "hover:text-green-700"
                                         }`}
                                     >
                                         Blog
@@ -156,7 +159,7 @@ const Navbar: React.FC = () => {
                             <div className="sm:flex sm:gap-4">
                                 <button
                                     onClick={() => scrollToSection("footer")}
-                                    className="rounded-md bg-teal-600 px-6 py-3 text-sm font-medium text-white shadow hover:bg-teal-700 transition-colors"
+                                    className="rounded-md bg-green-600 px-6 py-3 text-sm font-medium text-white shadow hover:bg-green-700 transition-colors"
                                 >
                                     Contacto
                                 </button>
@@ -165,7 +168,7 @@ const Navbar: React.FC = () => {
                             <div className="block md:hidden">
                                 <button 
                                     onClick={toggleMobileMenu}
-                                    className="rounded bg-gray-100 p-2 text-gray-700 hover:text-teal-600 transition-colors"
+                                    className="rounded bg-gray-100 p-2 text-gray-700 hover:text-green-600 transition-colors"
                                     aria-label="Toggle menu"
                                 >
                                     {isMobileMenuOpen ? (
@@ -191,13 +194,13 @@ const Navbar: React.FC = () => {
                                     scrollToSection("hero");
                                     setIsMobileMenuOpen(false);
                                 }}
-                                className="block w-full text-left text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50 rounded-md px-4 py-3"
+                                className="block w-full text-left text-base font-medium text-gray-800 hover:text-green-600 hover:bg-gray-50 rounded-md px-4 py-3"
                             >
                                 Inicio
                             </button>
                             
                             <div className="px-4 py-3">
-                                <button className="w-full text-left text-base font-medium text-gray-700 hover:text-teal-600 flex justify-between items-center">
+                                <button className="w-full text-left text-base font-medium text-gray-800 hover:text-green-600 flex justify-between items-center">
                                     Productos
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -211,7 +214,7 @@ const Navbar: React.FC = () => {
                                                 scrollToSection(subcategory.id);
                                                 setIsMobileMenuOpen(false);
                                             }}
-                                            className="block w-full text-left px-4 py-2 text-sm text-gray-600 hover:text-teal-600 hover:bg-gray-50 rounded-md"
+                                            className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:text-green-600 hover:bg-gray-50 rounded-md"
                                         >
                                             {subcategory.name}
                                         </button>
@@ -224,7 +227,7 @@ const Navbar: React.FC = () => {
                                     scrollToSection("nosotros");
                                     setIsMobileMenuOpen(false);
                                 }}
-                                className="block w-full text-left px-4 py-3 text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50 rounded-md"
+                                className="block w-full text-left px-4 py-3 text-base font-medium text-gray-800 hover:text-green-600 hover:bg-gray-50 rounded-md"
                             >
                                 Nosotros
                             </button>
@@ -232,7 +235,7 @@ const Navbar: React.FC = () => {
                             <Link 
                                 href="/blog" 
                                 onClick={() => setIsMobileMenuOpen(false)}
-                                className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50 rounded-md"
+                                className="block px-4 py-3 text-base font-medium text-gray-800 hover:text-green-600 hover:bg-gray-50 rounded-md"
                             >
                                 Blog
                             </Link>
@@ -242,7 +245,7 @@ const Navbar: React.FC = () => {
                                     scrollToSection("contacto");
                                     setIsMobileMenuOpen(false);
                                 }}
-                                className="block w-full text-center px-4 py-3 text-base font-medium text-white bg-teal-600 rounded-md hover:bg-teal-700"
+                                className="block w-full text-center px-4 py-3 text-base font-medium text-white bg-green-600 rounded-md hover:bg-green-700"
                             >
                                 Contacto
                             </button>

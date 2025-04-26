@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
                                     <div className="flex items-center space-x-2 text-2xl font-medium">
                                         <span>
                                             <Image
-                                                src="/images/logo2.png"
+                                                src="/images/logo8.png"
                                                 alt="CMP Agro"
                                                 width={100}
                                                 height={100}
