@@ -76,7 +76,7 @@ const Navbar: React.FC = () => {
                             <span className="sr-only">Home</span>
                             <div className="flex items-center space-x-2">
                                 <img 
-                                    src="/images/logo8.png" 
+                                    src="/images/logos/cmp-logo8.png" 
                                     alt="Company Logo" 
                                     className="h-16 w-auto object-contain" 
                                 />
