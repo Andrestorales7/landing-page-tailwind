@@ -46,13 +46,13 @@ const Navbar: React.FC = () => {
     };
 
     const productSubcategories = [
-        { name: "Horticultura", id: "horticultura" },
-        { name: "Ensilaje", id: "ensilaje" },
-        { name: "Agropecuaria", id: "agropecuaria" },
-        { name: "Envases", id: "envases" },
-        { name: "Maquinas Cerradoras", id: "maquinas-cerradoras" },
-        { name: "Geomembranas", id: "geomembranas" },
-        { name: "Tesa", id: "tesa" }
+        { name: "Horticultura", id: "horticultura", path: "/productos/horticultura" },
+        { name: "Ensilaje", id: "ensilaje", path: "/productos/" },
+        { name: "Agropecuaria", id: "agropecuaria", path: "/productos/agropecuaria" },
+        { name: "Envases", id: "envases", path: "/productos/envases" },
+        { name: "Maquinas Cerradoras", id: "maquinas-cerradoras", path: "/productos/maquinas-cerradoras" },
+        { name: "Geomembranas", id: "geomembranas", path: "/productos/geomembranas" },
+        { name: "Tesa", id: "tesa", path: "/productos/tesa" }
     ];
 
     // Check if link is active
@@ -93,14 +93,14 @@ const Navbar: React.FC = () => {
                                         className={`transition-colors font-medium ${
                                             isActive("/") ? "text-green-600" : "hover:text-green-700"
                                         }`}
-                                        onClick={() => scrollToSection("hero")}
+                                        onClick={() => scrollToSection("/")}
                                     >
                                         Inicio
                                     </Link>
                                 </li>
                                 <li>
                                     <button
-                                        onClick={() => scrollToSection("soluciones")}
+                                        onClick={() => scrollToSection("productSect")}
                                         className={`transition-colors font-medium ${
                                             isActive("soluciones") ? "text-green-600" : "hover:text-green-700"
                                         }`}
@@ -123,7 +123,7 @@ const Navbar: React.FC = () => {
                                         {productSubcategories.map((subcategory) => (
                                             <button
                                                 key={subcategory.id}
-                                                onClick={() => scrollToSection(subcategory.id)}
+                                                onClick={() => router.push(subcategory.path)}
                                                 className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-50 hover:text-green-600"
                                             >
                                                 {subcategory.name}
@@ -211,7 +211,7 @@ const Navbar: React.FC = () => {
                                         <button
                                             key={subcategory.id}
                                             onClick={() => {
-                                                scrollToSection(subcategory.id);
+                                                router.push(subcategory.path);
                                                 setIsMobileMenuOpen(false);
                                             }}
                                             className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:text-green-600 hover:bg-gray-50 rounded-md"

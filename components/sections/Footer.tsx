@@ -14,10 +14,10 @@ const Footer: React.FC = () => {
                                     <div className="flex items-center space-x-2 text-xl font-medium">
                                         <span>
                                             <Image
-                                                src="/images/logo8.png"
+                                                src="/images/logos/cmp-logo8.png"
                                                 alt="CMP Agro"
-                                                width={80}
-                                                height={80}
+                                                width={100}
+                                                height={100}
                                                 className="w-20 h-20"
                                                 priority
                                             />
@@ -85,7 +85,7 @@ const Footer: React.FC = () => {
                     {/* Copyright */}
                     <div className="mt-8 border-t border-gray-600 pt-4">
                         <div className="text-sm text-center text-gray-400">
-                            Copyright © 2024. Crafted  by Ipwntrolz.
+                            Copyright © 2024. Crafted  by Andres.
                         </div>
                     </div>
                 </div>

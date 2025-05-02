@@ -17,7 +17,7 @@ const logos: LogoProps[] = [
   { src: '/images/logos/logo5.png', alt: 'Logo Marca 5' },
   { src: '/images/logos/logo6.png', alt: 'Logo Marca 6' },
   { src: '/images/logos/logo7.png', alt: 'Logo Marca 7' },
-  { src: '/images/logos/logo8.png', alt: 'Logo Marca 8' },
+  { src: '/images/logos/logo20.png', alt: 'Logo Marca 8' },
   { src: '/images/logos/logo9.png', alt: 'Logo Marca 9' },
   { src: '/images/logos/logo10.png', alt: 'Logo Marca 10' },
   { src: '/images/logos/logo11.png', alt: 'Logo Marca 11' },
@@ -34,11 +34,19 @@ const logos: LogoProps[] = [
 
 const Marcas = () => {
   return (
-    <section className="bg-gradient-to-b from-gray-50 to-gray-100 py-16">
+    <section
+      className="bg-gradient-to-b from-black/80 via-green-800/60 to-gray-100 py-16"
+      style={{
+        backgroundImage: `url('/images/background3.jpg')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+      }}
+    >
       <div className="container mx-auto px-6">
-        {/* <h2 className="text-3xl font-extrabold text-center mb-12 text-gray-800">
-          Con CMP Agro. estás respaldado por marcas líderes en el mercado.
-        </h2> */}
+        <h2 className="text-3xl font-extrabold text-center mb-12 text-white bg-gradient-to-b from-green-900/20 via-green-800/60 to-black/80 backdrop-blur-sm p-1 rounded-lg shadow-lg">
+          Respaldado por marcas líderes en el mercado.
+        </h2>
         <Swiper
           modules={[Autoplay]}
           spaceBetween={20}

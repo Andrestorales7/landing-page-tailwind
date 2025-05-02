@@ -1,195 +1,129 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+'use client';
 
-interface SolucionesProps {
-  soluciones: Array<{
-    image: string;
-    title: string;
-    description: string;
-    link: string;
-  }>;
+import React from 'react';
+import Link from 'next/link';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useKeenSlider } from 'keen-slider/react';
+import { FaWhatsapp } from 'react-icons/fa';
+import 'keen-slider/keen-slider.min.css';
+
+interface Solucion {
+  image: string;
+  title: string;
+  description: string;
+  link: string;
 }
 
-const SolucionesSection: React.FC<SolucionesProps> = ({ soluciones }) => {
+interface SolucionesSectionProps {
+  soluciones: Solucion[];
+}
+
+const SolucionesSection: React.FC<SolucionesSectionProps> = ({ soluciones }) => {
+  const [sliderRef, slider] = useKeenSlider<HTMLDivElement>({
+    loop: true,
+    mode: 'snap',
+    slides: { perView: 2, spacing: 18 },
+    breakpoints: {
+      1024: { slides: { perView: 3, spacing: 18 } },
+    },
+  });
+
   return (
-    <section id="soluciones" className="relative px-4 py-16 sm:px-6 lg:px-8 xl:px-12 bg-gray-200 font-sans">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12">
-          <div>
-            <h2 className="text-green-600 text-sm font-semibold tracking-widest uppercase mb-2 font-sans">
-              Soluciones
-            </h2>
-            <h3 className="text-4xl font-extrabold leading-tight text-balance text-gray-900 mb-4 font-sans">
-              Innovación Agrícola para el Futuro del Campo
-            </h3>
-            <p className="text-lg text-gray-700 font-medium mb-3 font-sans">
-              Excelencia en Productos y Servicios Agrícolas
-            </p>
-            <p className="text-gray-600 text-base leading-relaxed font-sans">
-              Ofrecemos soluciones integrales para optimizar su producción agrícola con tecnología de vanguardia
-              y respeto por el medio ambiente. Nuestros productos están diseñados para mejorar el rendimiento
-              y la sostenibilidad de su actividad agropecuaria.
-            </p>
-          </div>
+    <section
+      id="productSect"
+      className="relative text-white py-20 lg:py-32 flex items-center justify-center"
+      style={{
+        backgroundImage: `url('/images/background3.jpg')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+      }}
+    >
+      <div className="absolute inset-15 bg-gradient-to-br from-green-900/20 via-green-800/60 to-black/80 backdrop-blur-sm"></div>
 
-          <div className="space-y-8">
-            <div className="flex items-start gap-5">
-              <div className="bg-green-600 text-white w-12 h-12 flex items-center justify-center rounded-xl shadow">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-1">
-                  Todo lo que Necesita en un Solo Lugar
-                </h4>
-                <p className="text-gray-600 text-base leading-relaxed">
-                  Reciba todos los insumos y soluciones agrícolas desde un solo proveedor – semillas, fertilizantes, maquinaria y asesoría técnica.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-5">
-              <div className="bg-green-600 text-white w-12 h-12 flex items-center justify-center rounded-xl shadow">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                </svg>
-              </div>
-              <div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-1">
-                  Enfoque Centrado en el Productor
-                </h4>
-                <p className="text-gray-600 text-base leading-relaxed">
-                  Personalizamos su plan agrícola para adaptarse a sus metas. Le ofrecemos soluciones sostenibles y rentables con acompañamiento experto.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto">
-        {/* Eliminando el título "Productos" y reduciendo el margen superior */}
-        <div className="mt-6 md:mt-12"> {/* Reducido desde mt-10 md:mt-20 */}
-          <div className="relative">
-            <Swiper
-              modules={[Navigation, Pagination]}
-              spaceBetween={30}
-              slidesPerView={1}
-              loop={true}
-              navigation={{
-                nextEl: '.custom-swiper-button-next',
-                prevEl: '.custom-swiper-button-prev',
-              }}
-              pagination={{
-                clickable: true,
-                el: '.custom-swiper-pagination',
-                type: 'bullets',
-              }}
-              breakpoints={{
-                640: { slidesPerView: 2, spaceBetween: 20 },
-                768: { slidesPerView: 2, spaceBetween: 30 },
-                1024: { slidesPerView: 3, spaceBetween: 30 },
-                1280: { slidesPerView: 4, spaceBetween: 30 },
-              }}
+      <div className="relative z-20 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20 px-6">
+        <div className="lg:w-1/2 text-left space-y-6">
+          <h2 className="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-white drop-shadow-lg">
+            Soluciones Innovadoras para el Agro-Negocio
+          </h2>
+          <p className="text-lg text-green-100 max-w-md leading-relaxed">
+            Explora nuestras soluciones agrícolas diseñadas para optimizar el rendimiento con las mejores marcas Internacionales.
+          </p>
+          <div className="mt-6 flex gap-4">
+            <Link
+              href="/productos"
+              className="inline-flex items-center px-7 py-3 bg-gradient-to-r from-lime-300 to-green-400 text-green-900 font-bold text-sm rounded-full shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
-              {soluciones.map((solucion, index) => (
-                <SwiperSlide key={index}>
-                  <div className="h-full flex flex-col">
-                    <div className="bg-gradient-to-br from-green-100 to-gray-200 rounded-2xl border border-gray-300/50 p-5 h-full flex flex-col shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
-                      <div className="h-52 flex items-center justify-center mb-4 rounded-xl overflow-hidden relative">
-                        <img 
-                          src={solucion.image} 
-                          alt={solucion.title} 
-                          className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" 
-                          loading="lazy"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-                      </div>
-                      <h4 className="text-lg font-bold mt-2 min-h-[56px] flex items-center text-gray-800">
-                        {solucion.title}
-                      </h4>
-                      <div className="flex-grow">
-                        <p className="mt-2 text-gray-600 line-clamp-3 min-h-[72px] text-sm leading-relaxed">
-                          {solucion.description}
-                        </p>
-                      </div>
-                      <a 
-                        href={solucion.link} 
-                        className="inline-flex items-center mt-4 text-green-600 hover:text-green-700 font-medium transition-all duration-300 group self-start"
-                      >
-                        <span>Ver más</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-
-            {/* Custom Navigation Buttons */}
-            <button className="custom-swiper-button-next absolute top-1/2 -right-4 z-10 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors focus:outline-none">
-              <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-            <button className="custom-swiper-button-prev absolute top-1/2 -left-4 z-10 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors focus:outline-none">
-              <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-
-            {/* Custom Pagination */}
-            <div className="custom-swiper-pagination mt-6 flex justify-center gap-2" />
+              Ver - Productos
+            </Link>
+            <Link
+              href="https://wa.me/1234567890" // Reemplaza con tu número real
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-7 py-3 bg-gradient-to-r from-green-400 to-green-600 text-white font-bold text-sm rounded-full shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <FaWhatsapp className="w-5 h-5" />
+              WhatsApp
+            </Link>
           </div>
         </div>
 
-        <div className="mt-12 text-center">
-          <a
-            href="/productos"
-            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+        <div className="relative lg:w-1/2 w-full">
+          <button
+            onClick={() => slider.current?.prev()}
+            className="absolute z-20 left-0 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-green-700/50 p-2 rounded-full shadow-lg backdrop-blur-md transition-all"
+            aria-label="Anterior"
           >
-            Ver Todos los Productos
-          </a>
+            <ChevronLeft className="text-white w-6 h-6" />
+          </button>
+
+          <div ref={sliderRef} className="keen-slider">
+            {soluciones.map((item, index) => (
+              <div key={index} className="keen-slider__slide px-1">
+                <div className="group relative bg-white/5 border border-green-600/30 rounded-2xl p-5 shadow-md hover:shadow-2xl backdrop-blur-md transition-all duration-500 ease-in-out transform hover:scale-[1.03] flex flex-col h-full">
+                  <div className="h-48 rounded-xl overflow-hidden relative">
+                    <Link href={item.link}>
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+                    </Link>
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mt-4">
+                    <Link
+                      href={item.link}
+                      className="hover:text-lime-400 transition-colors"
+                    >
+                      {item.title}
+                    </Link>
+                  </h3>
+                  <p className="text-sm text-green-100 mt-2 line-clamp-3">
+                    {item.description || 'Conoce más sobre nuestras soluciones especializadas.'}
+                  </p>
+                  <div className="mt-4">
+                    <Link
+                      href={item.link}
+                      className="text-lime-400 text-sm font-medium hover:underline"
+                    >
+                      Ver más
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <button
+            onClick={() => slider.current?.next()}
+            className="absolute z-20 right-0 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-green-700/30 p-2 rounded-full shadow-lg backdrop-blur-md transition-all"
+            aria-label="Siguiente"
+          >
+            <ChevronRight className="text-white w-6 h-6" />
+          </button>
         </div>
       </div>
-      
-      <style jsx global>{`
-        .soluciones-carousel {
-          padding-bottom: 50px;
-        }
-
-        .custom-swiper-pagination .swiper-pagination-bullet {
-          width: 10px;
-          height: 10px;
-          background: #d1d5db;
-          opacity: 1;
-          transition: all 0.3s;
-        }
-
-        .custom-swiper-pagination .swiper-pagination-bullet-active {
-          width: 24px;
-          background: #059669;
-          border-radius: 4px;
-        }
-
-        @media (max-width: 640px) {
-          .custom-swiper-button-next,
-          .custom-swiper-button-prev {
-            display: none;
-          }
-        }
-
-        .swiper-slide {
-          height: auto;
-        }
-      `}</style>
     </section>
   );
 };

@@ -1,60 +1,101 @@
 import React from 'react';
+import Image from 'next/image';
 
-// Definimos la interfaz para las propiedades
-interface AboutUsProps {
-  image1: string;
-  image2: string;
-}
-
-// Componente funcional que acepta las propiedades
-const AboutUs: React.FC<AboutUsProps> = ({ image1, image2 }) => {
+const AboutUs = () => {
   return (
-    <section id="Nosotros" className="relative bg-white py-16 px-6 sm:px-12 lg:px-20">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        {/* Contenido */}
-        <div className="text-center lg:text-left">
-          <h2 className="text-4xl font-extrabold text-green-700 mb-6">
-            Bienvenidos a CMP AGRO
+    <section id="Nosotros" className="relative py-20 overflow-hidden bg-white">
+      {/* Decorative elements */}
+      <div className="absolute top-0 right-0 -mt-20 -mr-20 hidden lg:block">
+        <svg width="404" height="384" fill="none" viewBox="0 0 404 384" className="text-green-50">
+          <defs>
+            <pattern id="de316486-4a29-4312-bdfc-fbce2132a2c1" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+              <rect x="0" y="0" width="4" height="4" className="text-green-200" fill="currentColor" />
+            </pattern>
+          </defs>
+          <rect width="404" height="384" fill="url(#de316486-4a29-4312-bdfc-fbce2132a2c1)" />
+        </svg>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center space-x-2">
+            <span className="h-px w-8 bg-green-500"></span>
+            <span className="font-medium text-green-600 uppercase tracking-wider text-sm">Nosotros</span>
+            <span className="h-px w-8 bg-green-500"></span>
+          </div>
+          <h2 className="mt-6 text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+            Innovación y tecnología<br />
+            <span className="text-green-600">para el agro del futuro</span>
           </h2>
-          <p className="text-gray-700 text-lg leading-relaxed mb-4">
-            En CMP AGRO, nos dedicamos a seleccionar las mejores marcas internacionales para ofrecer un portafolio de productos de alta calidad. Nuestro compromiso es brindar soluciones innovadoras y tecnológicas que impulsen el desarrollo del agronegocio en Paraguay.
-          </p>
-          <p className="text-gray-700 text-lg leading-relaxed mb-6">
-            Con un equipo técnico altamente capacitado, estamos aquí para asesorarte y garantizar que encuentres las herramientas adecuadas para tus necesidades agrícolas.
-          </p>
-          <button className="mt-4 px-6 py-3 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700">
-            Conoce más
-          </button>
         </div>
-
-        {/* Imágenes */}
-        <div className="relative flex justify-center items-center">
-          <div
-            className="rounded-lg w-80 h-80 bg-cover bg-center shadow-lg transform translate-y-4 lg:translate-y-0 lg:translate-x-4"
-            style={{ backgroundImage: `url(${image1})` }}
-            role="img"
-            aria-label="Campos de cultivo"
-          ></div>
-          <div
-            className="rounded-lg w-64 h-64 bg-cover bg-center shadow-md absolute top-0 left-0 transform -translate-x-6 -translate-y-6"
-            style={{ backgroundImage: `url(${image2})` }}
-            role="img"
-            aria-label="Cosecha de productos frescos"
-          ></div>
+        
+        {/* Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Image with enhanced visibility */}
+          <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl transform transition-all hover:scale-[1.02]">
+            <Image 
+              src="/images/nosotros/nosotros1.jpeg" 
+              alt="CMP Agro" 
+              layout="fill" 
+              objectFit="cover" 
+              className="rounded-xl"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <div className="absolute bottom-6 left-6 right-6">
+              <span className="bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold">Desde 2015</span>
+            </div>
+          </div>
+          
+          {/* Text content */}
+          <div className="text-lg text-gray-700 space-y-8">
+            <div className="flex items-start">
+              <div className="flex-shrink-0">
+                <svg className="h-6 w-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <p className="ml-3">
+                <span className="text-gray-900 font-medium">Nuestra visión:</span> CMP AGRO nació con la visión de llevar la mejor tecnología agrícola mundial a Paraguay, empoderando a agricultores, empresas y comunidades con innovaciones que maximizan la productividad y sostenibilidad.
+              </p>
+            </div>
+            
+            <div className="flex items-start">
+              <div className="flex-shrink-0">
+                <svg className="h-6 w-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <p className="ml-3">
+                <span className="text-gray-900 font-medium">Colaboración global:</span> Trabajamos con líderes mundiales para garantizar que nuestros clientes siempre tengan acceso a soluciones de vanguardia, con un equipo de profesionales dedicados a dar forma al futuro de la agricultura.
+              </p>
+            </div>
+            
+            <div className="flex items-start">
+              <div className="flex-shrink-0">
+                <svg className="h-6 w-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <p className="ml-3">
+                <span className="text-gray-900 font-medium">Compromiso:</span> Gracias por confiar en nosotros para ser parte de su camino hacia la excelencia en el agro paraguayo.
+              </p>
+            </div>
+            
+            <div className="pt-6">
+              <a href="#contacto" className="inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700 transition-colors">
+                Contáctanos
+                <svg className="ml-2 -mr-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-// Componente principal que pasa las imágenes como propiedades
-const Nosotros = () => {
-  return (
-    <AboutUs
-      image1="https://images.unsplash.com/photo-1587502536263-929f8300a1a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
-      image2="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
-    />
-  );
-};
-
-export default Nosotros;
+export default AboutUs;
