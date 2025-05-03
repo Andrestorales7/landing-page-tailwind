@@ -12,33 +12,33 @@ const HorticulturaProductPage = () => {
   const products = [
     {
       name: 'Películas para Invernadero',
+      slug: 'peliculas-para-invernadero',
       image: 'https://images.unsplash.com/photo-1637987327476-5c77df3cb16d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      link: '/productos/horticultura/peliculas-para-invernadero',
     },
     {
       name: 'Media Sombra',
+      slug: 'media-sombra',
       image: 'https://www.greataussiepatios.com.au/sites/greataussiepatioscomau/assets/public/Image/Patio-of-week-blogs/Nursery_with_Shade_Cloth_for_Shade.jpg',
-      link: '/productos/horticultura/media-sombra',
     },
     {
       name: 'Mulching',
+      slug: 'mulching',
       image: '/images/horticultura/mulching/mulching1.jpeg',
-      link: '/productos/horticultura/mulching',
     },
     {
       name: 'Mantas para Cultivo',
+      slug: 'mantas-para-cultivo',
       image: '/images/horticultura/mantas-cultivo/mantas-cultivos1.jpg',
-      link: '/productos/horticultura/mantas-para-cultivo',
     },
     {
       name: 'Hilos para Tutorado',
+      slug: 'hilos-para-tutorado',
       image: '/images/horticultura/hilos-tutorado/hilo1.jpg',
-      link: '/productos/horticultura/hilos-para-tutorado',
     },
     {
       name: 'Mantas de Solarización',
+      slug: 'mantas-de-solarizacion',
       image: '/images/horticultura/manta-solarizacion/manta2.jpg',
-      link: '/productos/horticultura/mantas-de-solarizacion',
     },
   ];
 
@@ -53,11 +53,6 @@ const HorticulturaProductPage = () => {
       profileImage: '/images/perfil1.png',
       whatsappLink: 'https://wa.me/0987654321',
     },
-    {
-      name: 'Carlos Gómez',
-      profileImage: '/images/perfil1.png',
-      whatsappLink: 'https://wa.me/1122334455',
-    },
   ];
 
   return (
@@ -67,7 +62,8 @@ const HorticulturaProductPage = () => {
         <div
           className="relative text-white py-24 px-6 sm:px-12 lg:px-32 text-center bg-cover bg-center"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1708796705570-33fd29ef67d0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1708796705570-33fd29ef67d0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
           }}
         >
           <div className="absolute inset-0 bg-black opacity-40"></div>
@@ -88,7 +84,7 @@ const HorticulturaProductPage = () => {
                 className="group relative bg-white/5 border border-green-600/30 rounded-2xl p-5 shadow-md hover:shadow-2xl backdrop-blur-md transition-all duration-500 ease-in-out transform hover:scale-[1.03] flex flex-col h-full"
               >
                 <div className="h-48 rounded-xl overflow-hidden relative">
-                  <Link href={product.link}>
+                  <Link href={`/productos/horticultura/${product.slug}`}>
                     <img
                       src={product.image}
                       alt={product.name}
@@ -98,13 +94,16 @@ const HorticulturaProductPage = () => {
                   </Link>
                 </div>
                 <h3 className="text-lg font-semibold text-gray-800 mt-4 group-hover:text-green-600 transition-colors">
-                  <Link href={product.link} className="hover:text-lime-400 transition-colors">
+                  <Link
+                    href={`/productos/horticultura/${product.slug}`}
+                    className="hover:text-lime-400 transition-colors"
+                  >
                     {product.name}
                   </Link>
                 </h3>
                 <div className="mt-4">
                   <Link
-                    href={product.link}
+                    href={`/productos/horticultura/${product.slug}`}
                     className="text-lime-400 text-sm font-medium hover:underline"
                   >
                     Ver producto
@@ -116,6 +115,7 @@ const HorticulturaProductPage = () => {
         </div>
       </div>
 
+      {/* Secciones adicionales */}
       <Marcas />
 
       <NoticeSlider
@@ -126,26 +126,9 @@ const HorticulturaProductPage = () => {
           },
         ]}
       />
-      <WhatsappContacts
-        contacts={[
-          {
-            name: "Juan Pérez",
-            profileImage: "/images/perfil1.png",
-            whatsappLink: "https://wa.me/1234567890",
-          },
-          {
-            name: "María López",
-            profileImage: "/images/perfil1.png",
-            whatsappLink: "https://wa.me/0987654321",
-          },
-        ]}
-      
-      
-      />
-      
 
+      <WhatsappContacts contacts={contacts} />
     </>
-    
   );
 };
 

@@ -28,7 +28,7 @@ const NoticeSlider: React.FC<NoticeSliderProps> = ({
   return (
     <section 
       className={`notice-slider ${className}`}
-      aria-label="Latest updates"
+      aria-label="Últimas actualizaciones"
     >
       <div 
         className="marquee-content"
@@ -44,9 +44,9 @@ const NoticeSlider: React.FC<NoticeSliderProps> = ({
         ))}
       </div>
 
-      {/* Accessibility: Hidden live region for screen readers */}
+      {/* Región oculta para lectores de pantalla */}
       <div aria-live="polite" className="visually-hidden">
-        Latest updates: {notices.map(n => n.text).join(', ')}
+        Últimas actualizaciones: {notices.map(n => n.text).join(', ')}
       </div>
     </section>
   );
@@ -55,10 +55,14 @@ const NoticeSlider: React.FC<NoticeSliderProps> = ({
 const styles = `
   .notice-slider {
     background: rgba(255, 255, 255, 0.9);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding: 8px 0;
     overflow: hidden;
-    position: relative;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
     font-size: 0.9rem;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
@@ -105,3 +109,4 @@ const styles = `
 `;
 
 export default NoticeSlider;
+

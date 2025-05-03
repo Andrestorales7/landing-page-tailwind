@@ -35,7 +35,7 @@ const WhatsappContacts: React.FC<WhatsappContactsProps> = ({ contacts }) => {
   };
 
   return (
-    <div className="fixed bottom-5 right-5 z-50">
+    <div className="fixed bottom-[50px] right-3 z-50"> 
       {/* Floating Button */}
       {!isOpen && (
         <button
