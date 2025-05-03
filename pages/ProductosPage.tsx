@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Marcas from '@/components/sections/Marcas';
+import WhatsappContacts from '@/components/layout/WhatsappContacts';
 
 const categorias = [
     {
@@ -94,7 +95,25 @@ const ProductosPage = () => {
                     ))}
                 </div>
             </div>
-        </div><Marcas /></>
+        </div><Marcas />
+        <WhatsappContacts
+        contacts={[
+          {
+            name: "Juan Pérez",
+            profileImage: "/images/perfil1.png",
+            whatsappLink: "https://wa.me/1234567890",
+          },
+          {
+            name: "María López",
+            profileImage: "/images/perfil1.png",
+            whatsappLink: "https://wa.me/0987654321",
+          },
+        ]}
+      
+      
+      />
+        </>
+        
     );
 };
 
