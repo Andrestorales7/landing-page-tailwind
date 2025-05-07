@@ -47,7 +47,7 @@ const SolucionesSection: React.FC<SolucionesSectionProps> = ({ soluciones }) => 
         backgroundAttachment: 'fixed',
       }}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-green-900/40 via-green-800/70 to-black/80 backdrop-blur-sm z-0"></div>
+      <div className="absolute inset-15 bg-gradient-to-br from-green-900/40 via-green-800/70 to-black/80 backdrop-blur-sm z-0"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-start gap-10">

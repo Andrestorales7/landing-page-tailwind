@@ -5,6 +5,7 @@ import SolucionesSection from "@/components/sections/Soluciones";
 import Nosotros from "@/components/sections/Nosotros";
 import Marcas from "@/components/sections/Marcas";
 import WhatsappContacts from "@/components/layout/WhatsappContacts";
+import Noticias from "@/components/sections/Noticias";
 
 
 export default function HomePage() {
@@ -67,6 +68,8 @@ export default function HomePage() {
       />
       <Marcas />
       <Nosotros />
+      <Noticias/>
+      
       <WhatsappContacts
         contacts={[
           {

@@ -1,98 +1,109 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { AcademicCapIcon } from "@heroicons/react/24/outline";
 
-const AboutUs = () => {
+const AboutUs: React.FC = () => {
   return (
-    <section id="Nosotros" className="relative py-20 overflow-hidden bg-white">
-      {/* Decorative elements */}
-      <div className="absolute top-0 right-0 -mt-20 -mr-20 hidden lg:block">
-        <svg width="404" height="384" fill="none" viewBox="0 0 404 384" className="text-green-50">
-          <defs>
-            <pattern id="de316486-4a29-4312-bdfc-fbce2132a2c1" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-              <rect x="0" y="0" width="4" height="4" className="text-green-200" fill="currentColor" />
-            </pattern>
-          </defs>
-          <rect width="404" height="384" fill="url(#de316486-4a29-4312-bdfc-fbce2132a2c1)" />
-        </svg>
-      </div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2">
-            <span className="h-px w-8 bg-green-500"></span>
-            <span className="font-medium text-green-600 uppercase tracking-wider text-sm">Nosotros</span>
-            <span className="h-px w-8 bg-green-500"></span>
-          </div>
-          <h2 className="mt-6 text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
-            Innovación y tecnología<br />
-            <span className="text-green-600">para el agro del futuro</span>
-          </h2>
-        </div>
-        
-        {/* Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Image with enhanced visibility */}
-          <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl transform transition-all hover:scale-[1.02]">
-            <Image 
-              src="/images/nosotros/nosotros1.jpeg" 
-              alt="CMP Agro" 
-              layout="fill" 
-              objectFit="cover" 
-              className="rounded-xl"
+    <section className="relative overflow-hidden bg-gradient-to-b from-green-50 to-white py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid gap-16 lg:grid-cols-2">
+          {/* Sección de Imagen con Efecto Flotante */}
+          <motion.div
+            className="relative h-[500px] rounded-[2rem] shadow-2xl"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <div className="absolute inset-0 -right-14 -top-14 rounded-[2rem] border-2 border-green-100/30" />
+            <Image
+              src="https://images.unsplash.com/photo-1590682680695-43b964a3ae17?q=80&w=2000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Tecnología Agrícola"
+              fill
+              className="rounded-[2rem] object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            <div className="absolute bottom-6 left-6 right-6">
-              <span className="bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold">Desde 2015</span>
-            </div>
-          </div>
-          
-          {/* Text content */}
-          <div className="text-lg text-gray-700 space-y-8">
-            <div className="flex items-start">
-              <div className="flex-shrink-0">
-                <svg className="h-6 w-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-              </div>
-              <p className="ml-3">
-                <span className="text-gray-900 font-medium">Nuestra visión:</span> CMP AGRO nació con la visión de llevar la mejor tecnología agrícola mundial a Paraguay, empoderando a agricultores, empresas y comunidades con innovaciones que maximizan la productividad y sostenibilidad.
-              </p>
-            </div>
             
-            <div className="flex items-start">
-              <div className="flex-shrink-0">
-                <svg className="h-6 w-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-              </div>
-              <p className="ml-3">
-                <span className="text-gray-900 font-medium">Colaboración global:</span> Trabajamos con líderes mundiales para garantizar que nuestros clientes siempre tengan acceso a soluciones de vanguardia, con un equipo de profesionales dedicados a dar forma al futuro de la agricultura.
-              </p>
+            {/* Insigncia con Efecto Vidrio */}
+            <div className="absolute bottom-6 left-6 backdrop-blur-sm bg-white/30 px-4 py-2 rounded-2xl shadow-sm">
+              <span className="font-bold text-emerald-800 text-sm">
+                <AcademicCapIcon className="h-4 w-4 mr-2 inline-block text-emerald-600" />
+                Innovación agrícola desde 2015
+              </span>
             </div>
-            
-            <div className="flex items-start">
-              <div className="flex-shrink-0">
-                <svg className="h-6 w-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-              </div>
-              <p className="ml-3">
-                <span className="text-gray-900 font-medium">Compromiso:</span> Gracias por confiar en nosotros para ser parte de su camino hacia la excelencia en el agro paraguayo.
-              </p>
+          </motion.div>
+
+          {/* Sección de Contenido */}
+          <motion.div
+            className="flex flex-col justify-center space-y-8"
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+          >
+            {/* Elementos Decorativos Animados */}
+            <div className="relative">
+              <div className="absolute -left-4 -top-4 h-24 w-24 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full opacity-10 blur-3xl" />
+              <span className="inline-block text-sm font-medium uppercase tracking-widest text-emerald-600">
+                <span className="text-emerald-500">//</span> Nuestra historia
+              </span>
             </div>
-            
-            <div className="pt-6">
-              <a href="#contacto" className="inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700 transition-colors">
-                Contáctanos
-                <svg className="ml-2 -mr-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </a>
+
+            <h2 className="text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl">
+              Cultivando el futuro con{' '}
+              <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+                tecnología sostenible
+              </span>
+            </h2>
+
+            <p className="text-lg leading-relaxed text-gray-600">
+              En AgroTec, combinamos tradición agrícola con innovación tecnológica para 
+              impulsar una agricultura más eficiente y sustentable. Nuestras soluciones 
+              inteligentes y más de 8 años de experiencia en el campo nos permiten 
+              optimizar recursos y maximizar cosechas en armonía con el medio ambiente.
+            </p>
+
+            {/* Estadísticas Agrícolas */}
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+              {[
+                { number: '25k+', label: 'Hectáreas cultivadas' },
+                { number: '95%', label: 'Clientes satisfechos' },
+                { number: '150+', label: 'Proyectos activos' },
+                { number: '18+', label: 'Tecnologías aplicadas' },
+              ].map((stat, idx) => (
+                <motion.div
+                  key={stat.label}
+                  className="p-4 bg-white/50 backdrop-blur-sm rounded-xl border border-green-100"
+                  whileHover={{ y: -4 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div className="text-2xl font-bold text-emerald-600">{stat.number}</div>
+                  <div className="text-sm text-gray-600">{stat.label}</div>
+                </motion.div>
+              ))}
             </div>
-          </div>
+
+            {/* Botón Principal */}
+            <div className="flex flex-wrap gap-4">
+              <motion.a
+                href="/nosotros"
+                className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-emerald-600 to-green-600 px-6 py-4 text-white shadow-lg transition-all hover:shadow-xl hover:scale-[1.02]"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span>Nosotros</span>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </motion.a>
+            </div>
+          </motion.div>
         </div>
+      </div>
+
+      {/* Patrón de Fondo Temático */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="h-full w-full opacity-10 [background-image:linear-gradient(#d1fae5_1px,transparent_1px),linear-gradient(to_right,#d1fae5_1px,transparent_1px)] bg-[size:4rem_4rem]" />
       </div>
     </section>
   );

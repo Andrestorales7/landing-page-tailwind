@@ -144,12 +144,12 @@ const Navbar: React.FC = () => {
                                 </li>
                                 <li>
                                     <Link 
-                                        href="/blog" 
+                                        href="#Noticias" 
                                         className={`transition-colors font-medium ${
                                             isActive("/blog") ? "text-green-600" : "hover:text-green-700"
                                         }`}
                                     >
-                                        Blog
+                                        Noticias
                                     </Link>
                                 </li>
                             </ul>
