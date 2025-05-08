@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
 
     const productSubcategories = [
         { name: "Horticultura", id: "horticultura", path: "/productos/horticultura" },
-        { name: "Ensilaje", id: "ensilaje", path: "/productos/" },
+        { name: "Ensilaje", id: "ensilaje", path: "/productos/ensilaje" },
         { name: "Agropecuaria", id: "agropecuaria", path: "/productos/agropecuaria" },
         { name: "Envases", id: "envases", path: "/productos/envases" },
         { name: "Maquinas Cerradoras", id: "maquinas-cerradoras", path: "/productos/maquinas-cerradoras" },
@@ -134,7 +134,7 @@ const Navbar: React.FC = () => {
 
                                 <li>
                                     <button
-                                        onClick={() => scrollToSection("Nosotros")}
+                                        onClick={() => scrollToSection("nosotros")}
                                         className={`transition-colors font-medium ${
                                             isActive("nosotros") ? "text-green-600" : "hover:text-green-700"
                                         }`}
@@ -143,14 +143,14 @@ const Navbar: React.FC = () => {
                                     </button>
                                 </li>
                                 <li>
-                                    <Link 
-                                        href="#Noticias" 
+                                <button
+                                        onClick={() => scrollToSection("noticias")}
                                         className={`transition-colors font-medium ${
-                                            isActive("/blog") ? "text-green-600" : "hover:text-green-700"
+                                            isActive("noticias") ? "text-green-600" : "hover:text-green-700"
                                         }`}
                                     >
                                         Noticias
-                                    </Link>
+                                    </button>
                                 </li>
                             </ul>
                         </nav>

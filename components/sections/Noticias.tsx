@@ -38,7 +38,10 @@ const Noticias: React.FC = () => {
     ];
 
     return (
-        <section className="relative bg-gradient-to-b from-white to-emerald-50 py-20 sm:py-28">
+        <section
+            id="noticias"
+            className="relative bg-gradient-to-b from-white to-emerald-50 py-20 sm:py-28"
+        >
             <div className="absolute inset-0 -z-10 overflow-hidden">
                 <div className="h-full w-full opacity-10 [background-image:linear-gradient(#d1fae5_1px,transparent_1px),linear-gradient(to_right,#d1fae5_1px,transparent_1px)] bg-[size:4rem_4rem]" />
             </div>

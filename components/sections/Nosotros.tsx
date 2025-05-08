@@ -5,7 +5,10 @@ import { AcademicCapIcon } from "@heroicons/react/24/outline";
 
 const AboutUs: React.FC = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-green-50 to-white py-24">
+    <section
+      id="nosotros" // Added id attribute
+      className="relative overflow-hidden bg-gradient-to-b from-green-50 to-white py-24"
+    >
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-16 lg:grid-cols-2">
           {/* Sección de Imagen con Efecto Flotante */}

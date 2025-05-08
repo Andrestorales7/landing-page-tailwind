@@ -14,31 +14,37 @@ const HorticulturaProductPage = () => {
       name: 'Películas para Invernadero',
       slug: 'peliculas-para-invernadero',
       image: 'https://images.unsplash.com/photo-1637987327476-5c77df3cb16d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      description: 'Protege tus cultivos con películas de alta calidad para invernaderos.',
     },
     {
       name: 'Media Sombra',
       slug: 'media-sombra',
       image: 'https://www.greataussiepatios.com.au/sites/greataussiepatioscomau/assets/public/Image/Patio-of-week-blogs/Nursery_with_Shade_Cloth_for_Shade.jpg',
+      description: 'Crea sombra parcial para tus plantas con nuestras mallas de sombra.',
     },
     {
       name: 'Mulching',
       slug: 'mulching',
       image: '/images/horticultura/mulching/mulching1.jpeg',
+      description: 'Mejora la retención de humedad y controla las malezas con mulching.',
     },
     {
       name: 'Mantas para Cultivo',
       slug: 'mantas-para-cultivo',
       image: '/images/horticultura/mantas-cultivo/mantas-cultivos1.jpg',
+      description: 'Protege tus cultivos del frío y las plagas con nuestras mantas.',
     },
     {
       name: 'Hilos para Tutorado',
       slug: 'hilos-para-tutorado',
       image: '/images/horticultura/hilos-tutorado/hilo1.jpg',
+      description: 'Soporta el crecimiento de tus plantas con hilos resistentes.',
     },
     {
       name: 'Mantas de Solarización',
       slug: 'mantas-de-solarizacion',
       image: '/images/horticultura/manta-solarizacion/manta2.jpg',
+      description: 'Elimina patógenos del suelo con nuestras mantas de solarización.',
     },
   ];
 
@@ -76,38 +82,38 @@ const HorticulturaProductPage = () => {
         </div>
 
         {/* Product List */}
-        <div className="max-w-7xl mx-auto py-16 px-6 sm:px-12 lg:px-20">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {products.map((product, index) => (
               <div
                 key={index}
-                className="group relative bg-white/5 border border-green-600/30 rounded-2xl p-5 shadow-md hover:shadow-2xl backdrop-blur-md transition-all duration-500 ease-in-out transform hover:scale-[1.03] flex flex-col h-full"
+                className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-xl transition duration-300 flex flex-col overflow-hidden"
               >
-                <div className="h-48 rounded-xl overflow-hidden relative">
-                  <Link href={`/productos/horticultura/${product.slug}`}>
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
-                  </Link>
-                </div>
-                <h3 className="text-lg font-semibold text-gray-800 mt-4 group-hover:text-green-600 transition-colors">
-                  <Link
-                    href={`/productos/horticultura/${product.slug}`}
-                    className="hover:text-lime-400 transition-colors"
-                  >
-                    {product.name}
-                  </Link>
-                </h3>
-                <div className="mt-4">
-                  <Link
-                    href={`/productos/horticultura/${product.slug}`}
-                    className="text-lime-400 text-sm font-medium hover:underline"
-                  >
-                    Ver producto
-                  </Link>
+                <Link href={`/productos/horticultura/${product.slug}`}>
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="h-48 w-full object-cover"
+                  />
+                </Link>
+
+                <div className="p-4 flex flex-col flex-grow">
+                  <h3 className="text-lg font-semibold text-gray-800 hover:text-green-600 transition-colors">
+                    <Link href={`/productos/horticultura/${product.slug}`}>
+                      {product.name}
+                    </Link>
+                  </h3>
+                  <p className="text-sm text-gray-600 mb-3">
+                    {product.description}
+                  </p>
+                  <div className="mt-4">
+                    <Link
+                      href={`/productos/horticultura/${product.slug}`}
+                      className="block text-center text-lime-500 text-sm font-medium hover:underline bg-gray-100 px-3 py-2 rounded transition-colors hover:bg-gray-200"
+                    >
+                      Ver producto
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
