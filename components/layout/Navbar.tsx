@@ -143,17 +143,17 @@ const Navbar: React.FC = () => {
                                     </button>
                                 </li>
                                 <li>
-                                <button
-                                        onClick={() => scrollToSection("noticias")}
+                                    <button
+                                        onClick={() => router.push('/noticias')}
                                         className={`transition-colors font-medium ${
-                                            isActive("noticias") ? "text-green-600" : "hover:text-green-700"
+                                        router.pathname === '/noticias' ? "text-green-600" : "hover:text-green-700"
                                         }`}
                                     >
                                         Noticias
                                     </button>
                                 </li>
-                            </ul>
-                        </nav>
+                                </ul>
+                                </nav>
 
                         <div className="flex items-center gap-4">
                             <div className="sm:flex sm:gap-4">
