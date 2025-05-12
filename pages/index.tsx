@@ -23,7 +23,7 @@ export default function HomePage() {
       <SolucionesSection
         soluciones={[
           {
-            image: "/images/Horticultura/invernaderos/foto1.jpg",
+            image: "/images/horticultura/mulching/mulching1.jpeg",
             title: "Horticultura",
             description: "",
             link: "/productos/horticultura",
