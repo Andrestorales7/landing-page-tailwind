@@ -111,7 +111,7 @@ const Navbar: React.FC = () => {
 
                                 <li className="relative group">
                                     <button
-                                        onClick={() => router.push("/ProductosPage")}
+                                        onClick={() => router.push("/productos")}
                                         className="flex items-center font-medium transition-colors hover:text-green-700"
                                     >
                                         Productos
