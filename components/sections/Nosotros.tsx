@@ -60,7 +60,7 @@ const AboutUs: React.FC = () => {
             </h2>
 
             <p className="text-lg leading-relaxed text-gray-600">
-              En AgroTec, combinamos tradición agrícola con innovación tecnológica para 
+              En CMP agro, combinamos tradición agrícola con innovación tecnológica para 
               impulsar una agricultura más eficiente y sustentable. Nuestras soluciones 
               inteligentes y más de 8 años de experiencia en el campo nos permiten 
               optimizar recursos y maximizar cosechas en armonía con el medio ambiente.
