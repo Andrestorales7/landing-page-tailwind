@@ -6,6 +6,7 @@ import { BookOpenIcon, CalendarIcon, ClockIcon } from "@heroicons/react/24/outli
 const Noticias: React.FC = () => {
     const articles = [
         {
+            id: 1, // Añadimos IDs a cada artículo para facilitar la navegación
             title: "Tecnología en Agricultura de Precisión",
             description: "Descubre cómo las nuevas tecnologías están revolucionando los cultivos y mejorando la eficiencia en el campo.",
             category: "Innovación",
@@ -16,6 +17,7 @@ const Noticias: React.FC = () => {
             authorImage: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=256",
         },
         {
+            id: 2,
             title: "Cultivos Orgánicos Sostenibles",
             description: "Conoce las técnicas líderes en producción orgánica y su impacto positivo en el medio ambiente.",
             category: "Sostenibilidad",
@@ -26,6 +28,7 @@ const Noticias: React.FC = () => {
             authorImage: "https://images.unsplash.com/photo-1511367461989-f85a21fda167?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=256",
         },
         {
+            id: 3,
             title: "Nuevas Tendencias en Agroindustria",
             description: "Análisis de las últimas tendencias tecnológicas aplicadas a la producción agrícola a gran escala.",
             category: "Tendencias",
@@ -73,6 +76,18 @@ const Noticias: React.FC = () => {
                         <AnimatedCard key={index} article={article} />
                     ))}
                 </div>
+                
+                {/* Botón para ver todas las noticias */}
+                <div className="mt-12 text-center">
+                    <a href="/noticias">
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            className="px-6 py-3 bg-emerald-600 text-white rounded-lg shadow-md hover:bg-emerald-700 transition-colors font-semibold"
+                        >
+                            Ver todas las noticias
+                        </motion.button>
+                    </a>
+                </div>
             </div>
         </section>
     );
@@ -110,64 +125,72 @@ const AnimatedCard: React.FC<{ article: any }> = ({ article }) => {
             variants={cardVariants}
             className="group relative overflow-hidden rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
         >
-            <div className="relative h-56 overflow-hidden">
-                <img
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    src={article.image}
-                    alt={article.title}
-                />
-                <div className="absolute top-4 right-4">
-                    <span className="inline-flex items-center rounded-full bg-white/80 backdrop-blur-sm px-3 py-1 text-sm font-medium text-emerald-700 border border-emerald-100">
-                        {article.category}
-                    </span>
-                </div>
-            </div>
-
-            <div className="p-6">
-                <div className="flex-1 space-y-4">
-                    <h3 className="text-xl font-semibold text-gray-900 hover:text-emerald-600 transition-colors">
-                        {article.title}
-                    </h3>
-                    <p className="text-gray-600 line-clamp-3">
-                        {article.description}
-                    </p>
-                </div>
-
-                <div className="mt-6 border-t border-emerald-50 pt-4">
-                    <div className="flex items-center gap-4">
-                        <div className="relative">
-                            <img
-                                className="h-10 w-10 rounded-full border-2 border-white shadow-lg"
-                                src={article.authorImage}
-                                alt={article.author}
-                            />
-                            <div className="absolute -right-1 -bottom-1 h-4 w-4 rounded-full bg-emerald-500 border-2 border-white" />
-                        </div>
-                        
-                        <div className="flex-1">
-                            <p className="text-sm font-medium text-gray-900">{article.author}</p>
-                            <div className="flex items-center gap-3 mt-1 text-xs text-gray-500">
-                                <div className="flex items-center gap-1">
-                                    <CalendarIcon className="h-4 w-4 text-emerald-500" />
-                                    <span>{new Date(article.date).toLocaleDateString()}</span>
-                                </div>
-                                <div className="flex items-center gap-1">
-                                    <ClockIcon className="h-4 w-4 text-emerald-500" />
-                                    <span>{article.readTime}</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <motion.button 
-                            whileHover={{ scale: 1.05 }}
-                            className="flex items-center gap-1 text-emerald-600 hover:text-emerald-700 text-sm font-semibold"
-                        >
-                            <BookOpenIcon className="h-5 w-5" />
-                            <span>Leer</span>
-                        </motion.button>
+            {/* Hacemos que toda la tarjeta sea clickeable */}
+            <a href={`/noticias?id=${article.id}`} className="block h-full">
+                <div className="relative h-56 overflow-hidden">
+                    <img
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        src={article.image}
+                        alt={article.title}
+                    />
+                    <div className="absolute top-4 right-4">
+                        <span className="inline-flex items-center rounded-full bg-white/80 backdrop-blur-sm px-3 py-1 text-sm font-medium text-emerald-700 border border-emerald-100">
+                            {article.category}
+                        </span>
                     </div>
                 </div>
-            </div>
+
+                <div className="p-6">
+                    <div className="flex-1 space-y-4">
+                        <h3 className="text-xl font-semibold text-gray-900 hover:text-emerald-600 transition-colors">
+                            {article.title}
+                        </h3>
+                        <p className="text-gray-600 line-clamp-3">
+                            {article.description}
+                        </p>
+                    </div>
+
+                    <div className="mt-6 border-t border-emerald-50 pt-4">
+                        <div className="flex items-center gap-4">
+                            <div className="relative">
+                                <img
+                                    className="h-10 w-10 rounded-full border-2 border-white shadow-lg"
+                                    src={article.authorImage}
+                                    alt={article.author}
+                                />
+                                <div className="absolute -right-1 -bottom-1 h-4 w-4 rounded-full bg-emerald-500 border-2 border-white" />
+                            </div>
+                            
+                            <div className="flex-1">
+                                <p className="text-sm font-medium text-gray-900">{article.author}</p>
+                                <div className="flex items-center gap-3 mt-1 text-xs text-gray-500">
+                                    <div className="flex items-center gap-1">
+                                        <CalendarIcon className="h-4 w-4 text-emerald-500" />
+                                        <span>{new Date(article.date).toLocaleDateString()}</span>
+                                    </div>
+                                    <div className="flex items-center gap-1">
+                                        <ClockIcon className="h-4 w-4 text-emerald-500" />
+                                        <span>{article.readTime}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <motion.div 
+                                whileHover={{ scale: 1.05 }}
+                                className="flex items-center gap-1 text-emerald-600 hover:text-emerald-700 text-sm font-semibold"
+                                onClick={(e) => {
+                                    e.preventDefault(); // Evitar la navegación por defecto
+                                    e.stopPropagation(); // Evitar que el clic se propague a la tarjeta
+                                    window.location.href = `/noticias?id=${article.id}`;
+                                }}
+                            >
+                                <BookOpenIcon className="h-5 w-5" />
+                                <span>Leer</span>
+                            </motion.div>
+                        </div>
+                    </div>
+                </div>
+            </a>
         </motion.div>
     );
 };
