@@ -13,7 +13,7 @@ const Noticias: React.FC = () => {
             author: "Juan Pérez",
             date: "2023-11-15",
             readTime: "5 min",
-            image: "https://images.unsplash.com/photo-1581090700227-3a9b7c8c6c91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+            image: "https://i.pinimg.com/736x/3a/4b/4c/3a4b4cc1dadee5ba0bf5ac2b9616a9b9.jpg",
             authorImage: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=256",
         },
         {
@@ -24,7 +24,7 @@ const Noticias: React.FC = () => {
             author: "María Gómez",
             date: "2023-11-10",
             readTime: "7 min",
-            image: "https://images.unsplash.com/photo-1598514983023-58e6e3e6f8b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+            image: "https://i.pinimg.com/736x/b8/a3/79/b8a37985105e70064183c02f72550676.jpg",
             authorImage: "https://images.unsplash.com/photo-1511367461989-f85a21fda167?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=256",
         },
         {
@@ -35,7 +35,7 @@ const Noticias: React.FC = () => {
             author: "Carlos Rojas",
             date: "2023-11-05",
             readTime: "6 min",
-            image: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+            image: "https://i.pinimg.com/736x/bc/62/57/bc6257fdfd27cdecb361f9bc2b2acc3a.jpg",
             authorImage: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=256",
         },
     ];
