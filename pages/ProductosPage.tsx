@@ -69,7 +69,7 @@ const ProductosPage = () => {
                             className="text-center"
                         >
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">
-                                Somos aliados de su Negocio
+                            Soluciones agrícolas hechas para el productor.
                             </h1>
                             <p className="mt-6 text-lg md:text-xl text-white max-w-2xl drop-shadow mx-auto">
                                 Soluciones de calidad para la agricultura moderna, diseñadas para maximizar tu productividad y eficiencia.
