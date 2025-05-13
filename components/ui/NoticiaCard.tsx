@@ -1,7 +1,7 @@
 // NoticiaCard.tsx
 import React from 'react';
 import { Clock, Calendar, BookOpen } from 'lucide-react';
-import { Noticia } from '../sections/NoticiasSection';
+import { Noticia } from '../../pages/NoticiasPage';
 
 interface NoticiaCardProps {
   noticia: Noticia;
