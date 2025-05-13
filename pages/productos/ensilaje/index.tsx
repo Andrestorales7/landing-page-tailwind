@@ -1,12 +1,18 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Marcas from '@/components/sections/Marcas';
 import NoticeSlider from '@/components/sections/NoticeSlider';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
 
 const AgroProductPage = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
   const products = [
     {
       name: 'Inoculante',
@@ -119,7 +125,7 @@ const AgroProductPage = () => {
           }}
         >
           <div className="absolute inset-0 bg-black opacity-40"></div>
-          <div className="relative z-10">
+          <div className={`relative z-10 transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h1 className="text-5xl font-extrabold leading-tight">Ensilaje</h1>
             <p className="mt-6 text-xl max-w-3xl mx-auto">
               Soluciones especializadas para el almacenamiento y protección de cultivos y forrajes.
@@ -133,9 +139,12 @@ const AgroProductPage = () => {
             {products.map((product, index) => (
               <div
                 key={index}
-                className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-xl transition duration-300 flex flex-col overflow-hidden"
+                className={`bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-xl transition-all duration-700 ease-out flex flex-col overflow-hidden ${
+                  isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
+                }`}
+                style={{ transitionDelay: `${index * 150}ms` }}
               >
-                <Link href={`/productos/agricolas/${product.slug}`}>
+                <Link href={`/productos/ensilaje/${product.slug}`}>
                   <img
                     src={product.image}
                     alt={product.name}
@@ -145,7 +154,7 @@ const AgroProductPage = () => {
 
                 <div className="p-4 flex flex-col flex-grow">
                   <h3 className="text-lg font-semibold text-gray-800 hover:text-green-600 transition-colors">
-                    <Link href={`/productos/agricolas/${product.slug}`}>
+                    <Link href={`/productos/ensilaje/${product.slug}`}>
                       {product.name}
                     </Link>
                   </h3>
@@ -175,14 +184,25 @@ const AgroProductPage = () => {
       </div>
 
       {/* Additional Sections */}
-      <Marcas />
-      <NoticeSlider
-        notices={[
-          { id: 1, text: 'Contáctanos para asesoría personalizada' },
-          { id: 2, text: 'Envíos a todo el país' },
-        ]}
-      />
-      <WhatsappContacts contacts={[]} />
+      <div className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+           style={{ transitionDelay: '500ms' }}>
+        <Marcas />
+      </div>
+
+      <div className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+           style={{ transitionDelay: '600ms' }}>
+        <NoticeSlider
+          notices={[
+            { id: 1, text: 'Contáctanos para asesoría personalizada' },
+            { id: 2, text: 'Envíos a todo el país' },
+          ]}
+        />
+      </div>
+
+      <div className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+           style={{ transitionDelay: '700ms' }}>
+        <WhatsappContacts contacts={[]} />
+      </div>
     </>
   );
 };

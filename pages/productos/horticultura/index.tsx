@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Marcas from '@/components/sections/Marcas';
 import NoticeSlider from '@/components/sections/NoticeSlider';
@@ -8,6 +8,11 @@ import WhatsappContacts from '@/components/layout/WhatsappContacts';
 
 const HorticulturaProductPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   const products = [
     {
@@ -73,7 +78,7 @@ const HorticulturaProductPage = () => {
           }}
         >
           <div className="absolute inset-0 bg-black opacity-40"></div>
-          <div className="relative z-10">
+          <div className={`relative z-10 transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h1 className="text-5xl font-extrabold leading-tight">Productos de Horticultura</h1>
             <p className="mt-6 text-xl max-w-3xl mx-auto">
               Descubre nuestra amplia gama de productos diseñados para mejorar tus cultivos y optimizar tu producción agrícola.
@@ -87,7 +92,10 @@ const HorticulturaProductPage = () => {
             {products.map((product, index) => (
               <div
                 key={index}
-                className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-xl transition duration-300 flex flex-col overflow-hidden"
+                className={`bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-xl transition-all duration-700 ease-out flex flex-col overflow-hidden ${
+                  isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
+                }`}
+                style={{ transitionDelay: `${index * 150}ms` }}
               >
                 <Link href={`/productos/horticultura/${product.slug}`}>
                   <img
@@ -106,7 +114,7 @@ const HorticulturaProductPage = () => {
                   <p className="text-sm text-gray-600 mb-3">
                     {product.description}
                   </p>
-                  <div className="mt-4">
+                  <div className="mt-4 mt-auto">
                     <Link
                       href={`/productos/horticultura/${product.slug}`}
                       className="block text-center text-lime-500 text-sm font-medium hover:underline bg-gray-100 px-3 py-2 rounded transition-colors hover:bg-gray-200"
@@ -122,18 +130,27 @@ const HorticulturaProductPage = () => {
       </div>
 
       {/* Secciones adicionales */}
-      <Marcas />
+      <div className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+           style={{ transitionDelay: '500ms' }}>
+        <Marcas />
+      </div>
 
-      <NoticeSlider
-        notices={[
-          {
-            id: 1,
-            text: 'Contáctanos por WhatsApp',
-          },
-        ]}
-      />
+      <div className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+           style={{ transitionDelay: '600ms' }}>
+        <NoticeSlider
+          notices={[
+            {
+              id: 1,
+              text: 'Contáctanos por WhatsApp',
+            },
+          ]}
+        />
+      </div>
 
-      <WhatsappContacts contacts={contacts} />
+      <div className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+           style={{ transitionDelay: '700ms' }}>
+        <WhatsappContacts contacts={contacts} />
+      </div>
     </>
   );
 };

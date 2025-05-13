@@ -43,7 +43,7 @@ const Noticias: React.FC = () => {
     return (
         <section
             id="noticias"
-            className="relative bg-gradient-to-b from-white to-emerald-50 py-20 sm:py-28"
+            className="relative bg-gradient-to-b from-white to-emerald-50 py-18 sm:py-4"
         >
             <div className="absolute inset-0 -z-10 overflow-hidden">
                 <div className="h-full w-full opacity-10 [background-image:linear-gradient(#d1fae5_1px,transparent_1px),linear-gradient(to_right,#d1fae5_1px,transparent_1px)] bg-[size:4rem_4rem]" />
@@ -79,7 +79,7 @@ const Noticias: React.FC = () => {
                 
                 {/* Botón para ver todas las noticias */}
                 <div className="mt-12 text-center">
-                    <a href="/noticias">
+                    <a href="/NoticiasPage">
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             className="px-6 py-3 bg-emerald-600 text-white rounded-lg shadow-md hover:bg-emerald-700 transition-colors font-semibold"
