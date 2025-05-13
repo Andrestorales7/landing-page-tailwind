@@ -32,16 +32,14 @@ const Footer: React.FC = () => {
                 className="flex items-center gap-4"
                 whileHover={{ scale: 1.02 }}
               >
-                <div className="p-2.5 bg-[#2a3832] rounded-xl">
-                  <Image
-                    src="/images/logos/cmp-logo8.png"
-                    alt="CMP Agro"
-                    width={44}
-                    height={44}
-                    className="w-11 h-11"
-                    priority
-                  />
-                </div>
+                <Image
+                  src="/images/logos/cmp-logo3.png"
+                  alt="CMP Agro"
+                  width={66}
+                  height={66}
+                  className="w-22 h-11"
+                  priority
+                />
                 <span className="text-2xl font-bold text-gray-100">
                   CMP <span className="text-[#6a9d83]">Agro</span>
                 </span>

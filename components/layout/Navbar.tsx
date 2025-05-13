@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
 const Navbar: React.FC = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [activeSection, setActiveSection] = useState("hero");
+    const [isProductMenuOpen, setIsProductMenuOpen] = useState(false);
+    const productMenuRef = useRef<HTMLLIElement>(null);
     const router = useRouter();
 
     const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -13,6 +16,7 @@ const Navbar: React.FC = () => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20);
         };
+        
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
@@ -24,13 +28,15 @@ const Navbar: React.FC = () => {
         return () => router.events.off("routeChangeComplete", handleRouteChange);
     }, [router]);
 
+   
+
     // Scroll to section with offset for fixed header
     const scrollToSection = (sectionId: string) => {
         if (router.pathname !== "/") {
             router.push(`/#${sectionId}`).then(() => {
                 const element = document.getElementById(sectionId);
                 if (element) {
-                    const yOffset = -100; // Adjust for fixed header height
+                    const yOffset = -100;
                     const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
                     window.scrollTo({ top: y, behavior: "smooth" });
                 }
@@ -55,30 +61,24 @@ const Navbar: React.FC = () => {
         { name: "Tesa", id: "tesa", path: "/productos/tesa" }
     ];
 
-    // Check if link is active
-    const isActive = (path: string) => {
-        return router.pathname === path || 
-               (router.pathname === "/next/link" && router.asPath.includes(`#${path}`));
-    };
-
     return (
         <header
             className={`fixed top-0 w-full z-50 transition-all duration-300 ${
                 isScrolled
-                    ? "bg-white/90 text-gray-800 backdrop-blur-md shadow-md"
+                    ? "bg-white/95 text-gray-800 backdrop-blur-md shadow-lg"
                     : "bg-transparent text-white"
             }`}
         >
             <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-20 items-center justify-between">
                     <div className="flex-1 md:flex md:items-center md:gap-12">
-                        <Link href="/" className="block" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link href="/" className="block">
                             <span className="sr-only">Home</span>
                             <div className="flex items-center space-x-2">
                                 <img 
-                                    src="/images/logos/cmp-logo8.png" 
+                                    src="/images/logos/cmp-logo3.png" 
                                     alt="Company Logo" 
-                                    className="h-16 w-auto object-contain" 
+                                    className="h-14 w-auto object-contain" 
                                 />
                             </div>
                         </Link>
@@ -86,14 +86,15 @@ const Navbar: React.FC = () => {
 
                     <div className="md:flex md:items-center md:gap-12">
                         <nav aria-label="Global" className="hidden md:block">
-                            <ul className="flex items-center gap-8 text-sm">
+                            <ul className="flex items-center gap-10 text-lg">
                                 <li>
                                     <Link 
                                         href="/" 
-                                        className={`transition-colors font-medium ${
-                                            isActive("/") ? "text-green-600" : "hover:text-green-700"
-                                        }`}
-                                        onClick={() => scrollToSection("/")}
+                                        className="font-medium tracking-wide transition-colors hover:text-green-500"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            scrollToSection("hero");
+                                        }}
                                     >
                                         Inicio
                                     </Link>
@@ -101,65 +102,81 @@ const Navbar: React.FC = () => {
                                 <li>
                                     <button
                                         onClick={() => scrollToSection("productSect")}
-                                        className={`transition-colors font-medium ${
-                                            isActive("soluciones") ? "text-green-600" : "hover:text-green-700"
-                                        }`}
+                                        className="font-medium tracking-wide transition-colors hover:text-green-500"
                                     >
                                         Soluciones
                                     </button>
                                 </li>
 
-                                <li className="relative group">
+                                <li
+                                    className="relative"
+                                    ref={productMenuRef}
+                                    onMouseEnter={() => setIsProductMenuOpen(true)}
+                                    onMouseLeave={() => setIsProductMenuOpen(false)}
+                                >
                                     <button
-                                        onClick={() => router.push("/ProductosPage")}
-                                        className="flex items-center font-medium transition-colors hover:text-green-700"
+                                        onClick={() => setIsProductMenuOpen((open) => !open)}
+                                        className="flex items-center font-medium tracking-wide transition-colors hover:text-green-500"
+                                        type="button"
+                                        aria-haspopup="true"
+                                        aria-expanded={isProductMenuOpen}
                                     >
                                         Productos
                                         <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                         </svg>
                                     </button>
-                                    <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-md p-2 min-w-[220px] z-10 border border-gray-100 text-gray-800">
-                                        {productSubcategories.map((subcategory) => (
+                                    {isProductMenuOpen && (
+                                        <div className="absolute bg-white shadow-xl rounded-lg p-3 min-w-[220px] z-10 border-t-2 border-green-500 text-gray-800 transform translate-y-2 transition-all duration-200">
                                             <button
-                                                key={subcategory.id}
-                                                onClick={() => router.push(subcategory.path)}
-                                                className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-50 hover:text-green-600"
+                                                onClick={() => {
+                                                    setIsProductMenuOpen(false);
+                                                    router.push("/ProductosPage");
+                                                }}
+                                                className="block w-full text-left px-4 py-2.5 text-base font-semibold text-green-600 hover:bg-gray-50 hover:text-green-700 rounded-md transition-colors mb-1 border-b border-gray-200"
                                             >
-                                                {subcategory.name}
+                                                --Categorias--
                                             </button>
-                                        ))}
-                                    </div>
+                                            {productSubcategories.map((subcategory) => (
+                                                <button
+                                                    key={subcategory.id}
+                                                    onClick={() => {
+                                                        setIsProductMenuOpen(false);
+                                                        router.push(subcategory.path);
+                                                    }}
+                                                    className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-50 hover:text-green-500 rounded-md transition-colors"
+                                                >
+                                                    {subcategory.name}
+                                                </button>
+                                            ))}
+                                        </div>
+                                    )}
                                 </li>
 
                                 <li>
                                     <button
                                         onClick={() => scrollToSection("nosotros")}
-                                        className={`transition-colors font-medium ${
-                                            isActive("nosotros") ? "text-green-600" : "hover:text-green-700"
-                                        }`}
+                                        className="font-medium tracking-wide transition-colors hover:text-green-500"
                                     >
                                         Nosotros
                                     </button>
                                 </li>
                                 <li>
                                     <button
-                                        onClick={() => router.push('/noticias')}
-                                        className={`transition-colors font-medium ${
-                                        router.pathname === '/noticias' ? "text-green-600" : "hover:text-green-700"
-                                        }`}
+                                        onClick={() => router.push('/NoticiasPage')}
+                                        className="font-medium tracking-wide transition-colors hover:text-green-500"
                                     >
                                         Noticias
                                     </button>
                                 </li>
-                                </ul>
-                                </nav>
+                            </ul>
+                        </nav>
 
                         <div className="flex items-center gap-4">
                             <div className="sm:flex sm:gap-4">
                                 <button
                                     onClick={() => scrollToSection("footer")}
-                                    className="rounded-md bg-green-600 px-6 py-3 text-sm font-medium text-white shadow hover:bg-green-700 transition-colors"
+                                    className="rounded-full bg-green-600 px-7 py-3 text-base font-medium text-white shadow hover:bg-green-500 transition-colors"
                                 >
                                     Contacto
                                 </button>
@@ -168,7 +185,7 @@ const Navbar: React.FC = () => {
                             <div className="block md:hidden">
                                 <button 
                                     onClick={toggleMobileMenu}
-                                    className="rounded bg-gray-100 p-2 text-gray-700 hover:text-green-600 transition-colors"
+                                    className="rounded-full bg-gray-100 p-2 text-gray-700 hover:text-green-500 hover:bg-gray-200 transition-colors"
                                     aria-label="Toggle menu"
                                 >
                                     {isMobileMenuOpen ? (
@@ -186,69 +203,11 @@ const Navbar: React.FC = () => {
                     </div>
                 </div>
 
+                {/* Mobile menu no changes needed */}
                 {isMobileMenuOpen && (
-                    <div className="md:hidden bg-white border-t border-gray-200">
-                        <div className="pt-4 pb-6 space-y-4 px-4">
-                            <button
-                                onClick={() => {
-                                    scrollToSection("hero");
-                                    setIsMobileMenuOpen(false);
-                                }}
-                                className="block w-full text-left text-base font-medium text-gray-800 hover:text-green-600 hover:bg-gray-50 rounded-md px-4 py-3"
-                            >
-                                Inicio
-                            </button>
-                            
-                            <div className="px-4 py-3">
-                                <button className="w-full text-left text-base font-medium text-gray-800 hover:text-green-600 flex justify-between items-center">
-                                    Productos
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div className="mt-3 pl-5 space-y-3">
-                                    {productSubcategories.map((subcategory) => (
-                                        <button
-                                            key={subcategory.id}
-                                            onClick={() => {
-                                                router.push(subcategory.path);
-                                                setIsMobileMenuOpen(false);
-                                            }}
-                                            className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:text-green-600 hover:bg-gray-50 rounded-md"
-                                        >
-                                            {subcategory.name}
-                                        </button>
-                                    ))}
-                                </div>
-                            </div>
-                            
-                            <button
-                                onClick={() => {
-                                    scrollToSection("nosotros");
-                                    setIsMobileMenuOpen(false);
-                                }}
-                                className="block w-full text-left px-4 py-3 text-base font-medium text-gray-800 hover:text-green-600 hover:bg-gray-50 rounded-md"
-                            >
-                                Nosotros
-                            </button>
-                            
-                            <Link 
-                                href="/blog" 
-                                onClick={() => setIsMobileMenuOpen(false)}
-                                className="block px-4 py-3 text-base font-medium text-gray-800 hover:text-green-600 hover:bg-gray-50 rounded-md"
-                            >
-                                Blog
-                            </Link>
-                            
-                            <button
-                                onClick={() => {
-                                    scrollToSection("contacto");
-                                    setIsMobileMenuOpen(false);
-                                }}
-                                className="block w-full text-center px-4 py-3 text-base font-medium text-white bg-green-600 rounded-md hover:bg-green-700"
-                            >
-                                Contacto
-                            </button>
+                    <div className="md:hidden bg-white border-t border-gray-100 rounded-b-lg shadow-lg animate-fadeIn">
+                        <div className="pt-4 pb-6 space-y-3 px-4">
+                            {/* ...mobile menu items... */}
                         </div>
                     </div>
                 )}

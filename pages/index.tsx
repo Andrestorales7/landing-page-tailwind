@@ -67,8 +67,9 @@ export default function HomePage() {
         ]}
       />
       <Marcas />
-      <Nosotros />
       <Noticias/>
+      <Nosotros />
+      
       
       <WhatsappContacts
         contacts={[
