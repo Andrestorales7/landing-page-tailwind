@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { BookOpenIcon, CalendarIcon, ClockIcon } from "@heroicons/react/24/outline";
@@ -79,14 +80,14 @@ const Noticias: React.FC = () => {
                 
                 {/* Botón para ver todas las noticias */}
                 <div className="mt-12 text-center">
-                    <a href="/NoticiasPage">
+                    <Link href="/NoticiasPage">
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             className="px-6 py-3 bg-emerald-600 text-white rounded-lg shadow-md hover:bg-emerald-700 transition-colors font-semibold"
                         >
                             Ver todas las noticias
                         </motion.button>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </section>

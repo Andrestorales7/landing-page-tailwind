@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 import Marcas from '@/components/sections/Marcas';
 import NoticeSlider from '@/components/sections/NoticeSlider';
@@ -172,7 +171,7 @@ const TanquesPage = () => {
   const tanquesOrdenados = [...tanques].sort((a, b) => a.capacity - b.capacity);
 
   const [selected, setSelected] = useState(tanquesOrdenados[0]);
-  const [capacityRange, setCapacityRange] = useState(tanquesOrdenados[0].capacity);
+  const [capacityRange] = useState(tanquesOrdenados[0].capacity);
 
   useEffect(() => {
     const closestTank = tanquesOrdenados.reduce((prev, curr) => {

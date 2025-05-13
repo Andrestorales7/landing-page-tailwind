@@ -6,7 +6,7 @@ import { AcademicCapIcon } from "@heroicons/react/24/outline";
 const AboutUs: React.FC = () => {
   return (
     <section
-      id="nosotros" // Added id attribute
+      id="nosotros" 
       className="relative overflow-hidden bg-gradient-to-b from-green-50 to-white py-24"
     >
       <div className="mx-auto max-w-7xl px-6">
@@ -74,7 +74,7 @@ const AboutUs: React.FC = () => {
                 { number: '95%', label: 'Clientes satisfechos' },
                 { number: '150+', label: 'Proyectos activos' },
                 { number: '18+', label: 'Tecnologías aplicadas' },
-              ].map((stat, idx) => (
+              ].map((stat) => (
                 <motion.div
                   key={stat.label}
                   className="p-4 bg-white/50 backdrop-blur-sm rounded-xl border border-green-100"

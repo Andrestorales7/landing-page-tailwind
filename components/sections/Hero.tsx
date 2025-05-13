@@ -1,6 +1,4 @@
 import React from 'react';
-import 'keen-slider/keen-slider.min.css';
-import { useKeenSlider } from 'keen-slider/react';
 import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {

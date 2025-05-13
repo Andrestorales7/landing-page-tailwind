@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 const Navbar: React.FC = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
-    const [activeSection, setActiveSection] = useState("hero");
     const [isProductMenuOpen, setIsProductMenuOpen] = useState(false);
     const productMenuRef = useRef<HTMLLIElement>(null);
     const router = useRouter();
