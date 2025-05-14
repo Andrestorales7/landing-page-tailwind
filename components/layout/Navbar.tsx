@@ -6,7 +6,6 @@ const Navbar: React.FC = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isProductMenuOpen, setIsProductMenuOpen] = useState(false);
-    const productMenuRef = useRef<HTMLLIElement>(null);
     const router = useRouter();
 
     const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -15,21 +14,17 @@ const Navbar: React.FC = () => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20);
         };
-        
+
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Close mobile menu when route changes
     useEffect(() => {
         const handleRouteChange = () => setIsMobileMenuOpen(false);
         router.events.on("routeChangeComplete", handleRouteChange);
         return () => router.events.off("routeChangeComplete", handleRouteChange);
     }, [router]);
 
-   
-
-    // Scroll to section with offset for fixed header
     const scrollToSection = (sectionId: string) => {
         if (router.pathname !== "/") {
             router.push(`/#${sectionId}`).then(() => {
@@ -92,7 +87,7 @@ const Navbar: React.FC = () => {
                                         className="font-medium tracking-wide transition-colors hover:text-green-500"
                                         onClick={(e) => {
                                             e.preventDefault();
-                                            scrollToSection("hero");
+                                            scrollToSection("Hero");
                                         }}
                                     >
                                         Inicio
@@ -109,24 +104,27 @@ const Navbar: React.FC = () => {
 
                                 <li
                                     className="relative"
-                                    ref={productMenuRef}
                                     onMouseEnter={() => setIsProductMenuOpen(true)}
                                     onMouseLeave={() => setIsProductMenuOpen(false)}
                                 >
-                                    <button
-                                        onClick={() => setIsProductMenuOpen((open) => !open)}
-                                        className="flex items-center font-medium tracking-wide transition-colors hover:text-green-500"
-                                        type="button"
-                                        aria-haspopup="true"
-                                        aria-expanded={isProductMenuOpen}
-                                    >
-                                        Productos
-                                        <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                        </svg>
-                                    </button>
-                                    {isProductMenuOpen && (
-                                        <div className="absolute bg-white shadow-xl rounded-lg p-3 min-w-[220px] z-10 border-t-2 border-green-500 text-gray-800 transform translate-y-2 transition-all duration-200">
+                                    <div className="flex flex-col">
+                                        <Link
+                                            href="/ProductosPage"
+                                            className="flex items-center font-medium tracking-wide transition-colors hover:text-green-500"
+                                            aria-haspopup="true"
+                                            aria-expanded={isProductMenuOpen}
+                                            onClick={() => setIsProductMenuOpen(false)}
+                                        >
+                                            Productos
+                                            <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                        </Link>
+                                        <div
+                                            className={`absolute left-0 top-full bg-white shadow-xl rounded-lg p-3 min-w-[220px] z-10 border-t-2 border-green-500 text-gray-800 transition-all duration-200 ${
+                                                isProductMenuOpen ? "block" : "hidden"
+                                            }`}
+                                        >
                                             <button
                                                 onClick={() => {
                                                     setIsProductMenuOpen(false);
@@ -149,7 +147,7 @@ const Navbar: React.FC = () => {
                                                 </button>
                                             ))}
                                         </div>
-                                    )}
+                                    </div>
                                 </li>
 
                                 <li>
@@ -202,11 +200,10 @@ const Navbar: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Mobile menu no changes needed */}
                 {isMobileMenuOpen && (
                     <div className="md:hidden bg-white border-t border-gray-100 rounded-b-lg shadow-lg animate-fadeIn">
                         <div className="pt-4 pb-6 space-y-3 px-4">
-                            {/* ...mobile menu items... */}
+                            {/* Puedes implementar aquí el menú móvil si lo necesitas */}
                         </div>
                     </div>
                 )}
