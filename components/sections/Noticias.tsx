@@ -4,6 +4,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { BookOpenIcon, CalendarIcon, ClockIcon } from "@heroicons/react/24/outline";
 
+
 const Noticias: React.FC = () => {
     const articles = [
         {

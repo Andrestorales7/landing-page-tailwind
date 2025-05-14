@@ -36,7 +36,7 @@ const SolucionesSection: React.FC<SolucionesSectionProps> = ({ soluciones }) => 
         slides: { perView: 2.5, spacing: 24 },
       },
       '(min-width: 1280px)': {
-        slides: { perView: 3, spacing: 28 },
+        slides: { perView: 2, spacing: 24 },
       },
     },
     slideChanged(s) {
