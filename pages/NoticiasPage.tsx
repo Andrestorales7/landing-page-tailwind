@@ -4,6 +4,8 @@ import { Search } from 'lucide-react';
 import NoticiaCard from '../components/ui/NoticiaCard';
 import Marcas from '@/components/sections/Marcas';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
+import NoticeSlider from '@/components/sections/NoticeSlider';
+import { motion } from 'framer-motion';
 
 // Tipos
 export type CategoriaNoticia = 'Innovación' | 'Sostenibilidad' | 'Tendencias' | 'Ganadería' | 'Horticultura' | 'Agricultura' | 'Eventos';
@@ -152,15 +154,14 @@ const NoticiasPage: React.FC = () => {
   const [mostrarTodas, setMostrarTodas] = useState<boolean>(false);
   const [noticiaSeleccionada, setNoticiaSeleccionada] = useState<Noticia | null>(null);
   // Estado para controlar el efecto de carga
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [animatedCards, setAnimatedCards] = useState<boolean>(false);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
   
   // Extraemos todas las categorías únicas para el filtro
   const categorias: CategoriaNoticia[] = Array.from(
     new Set(noticiasData.map(noticia => noticia.categoria))
   ) as CategoriaNoticia[];
   
-  // Efecto para manejar parámetros de URL (para cuando se navega desde la página principal)
+  // Efecto para manejar parámetros de URL y carga de página
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
     const noticiaId = searchParams.get('id');
@@ -171,18 +172,14 @@ const NoticiasPage: React.FC = () => {
       
       if (noticia) {
         setNoticiaSeleccionada(noticia);
-        
-        // Si hay una categoría asociada a la noticia, la seleccionamos
         if (noticia.categoria) {
           setCategoriaSeleccionada(noticia.categoria);
         }
         
-        // Hacemos scroll hasta la noticia seleccionada después de que se renderice
         setTimeout(() => {
           const element = document.getElementById(`noticia-${id}`);
           if (element) {
             element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            // Añadimos una clase para destacar brevemente la noticia
             element.classList.add('noticia-destacada');
             setTimeout(() => {
               element.classList.remove('noticia-destacada');
@@ -192,14 +189,9 @@ const NoticiasPage: React.FC = () => {
       }
     }
     
-    // Simulamos una pequeña carga y luego mostramos el contenido con animación
+    // Simulamos una pequeña carga
     setTimeout(() => {
-      setIsLoading(false);
-      
-      // Add a slight delay before animating cards
-      setTimeout(() => {
-        setAnimatedCards(true);
-      }, 200);
+      setIsLoaded(true);
     }, 300);
   }, []);
   
@@ -223,12 +215,11 @@ const NoticiasPage: React.FC = () => {
     }
   }, [busqueda, categoriaSeleccionada, mostrarTodas]);
   
-  // Manejador para el botón "Ver más"
+  // Manejadores
   const handleVerMas = () => {
     setMostrarTodas(true);
   };
   
-  // Manejador para limpiar filtros y volver al estado inicial
   const handleLimpiarFiltros = () => {
     setBusqueda('');
     setCategoriaSeleccionada('');
@@ -237,159 +228,236 @@ const NoticiasPage: React.FC = () => {
   
   return (
     <>
-      <div 
-        id="NoticiasPage" 
-        className={`min-h-screen bg-gray-50 transition-opacity duration-700 ease-in-out ${
-          isLoading ? 'opacity-0' : 'opacity-100'
-        }`}
-      >
-        {/* Hero Section similar a ProductosPage */}
-        <div
-          className="relative text-white py-24 px-6 sm:px-12 lg:px-32 text-center bg-cover bg-center"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1593106441259-69e345a949f0?q=80&w=2070&auto=format&fit=crop')",
-          }}
-        >
-          <div className="absolute inset-0 bg-black opacity-40"></div>
-          <div className="relative z-10">
-            <h1 className="text-5xl font-extrabold leading-tight">Noticias y Actualidad</h1>
-            <p className="mt-6 text-xl max-w-3xl mx-auto">
-              Mantente informado con las últimas novedades del sector agroindustrial.
-            </p>
+      <div id="NoticiasPage" className="min-h-screen bg-gradient-to-b from-green-50 to-gray-50">
+        {/* Hero Section - Actualizado al estilo AgroPecuaria */}
+        <div className="relative min-h-[52vh] bg-gradient-to-br from-green-900/70 via-green-800/60 to-green-700/50 overflow-hidden">
+          {/* Imagen de fondo con overlay */}
+          <div
+            className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-100"
+            style={{
+              backgroundImage: "url('https://images.unsplash.com/photo-1593106441259-69e345a949f0?q=80&w=2070&auto=format&fit=crop')",
+            }}
+          ></div>
+          {/* Overlay gradient */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent pointer-events-none"></div>
+          
+          {/* Contenido del Hero */}
+          <div className="relative z-10 pt-42 pb-22 px-6 sm:px-12 lg:px-18 max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center"
+            >
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">
+                Noticias y Actualidad
+              </h1>
+              <p className="mt-6 text-lg md:text-xl text-white max-w-2xl drop-shadow mx-auto">
+                Mantente informado con las últimas novedades del sector agroindustrial.
+              </p>
+            </motion.div>
+          </div>
+          
+          {/* SVG Wave divider */}
+          <div className="absolute bottom-0 left-0 right-0 overflow-hidden">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" 
+                 className="w-full h-[10vw] min-h-[60px] max-h-[120px]">
+              <path
+                d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V56.44Z"
+                className="fill-[#f9fafb] relative opacity-90"
+              ></path>
+              <path
+                d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3"
+                className="fill-none stroke-white stroke-[2px] opacity-50 relative z-10"
+              ></path>
+            </svg>
+          </div>
+        </div>
+
+        {/* Destacados - Sección nueva similar a AgroPecuaria */}
+        <div className="relative z-10 max-w-6xl mx-auto px-4 -mt-16 mb-12">
+          <div className="bg-white rounded-2xl shadow-xl p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { title: 'Actualidad del Sector', icon: '📰', description: 'Noticias relevantes del ámbito agroindustrial.' },
+              { title: 'Contenido Clasificado', icon: '🏷️', description: 'Artículos organizados por categorías temáticas.' },
+              { title: 'Eventos y Tendencias', icon: '📅', description: 'Información actualizada sobre eventos del sector.' }
+            ].map((item, i) => (
+              <div key={i} className="flex items-center space-x-4 p-3">
+                <div className="text-4xl">{item.icon}</div>
+                <div>
+                  <h3 className="font-bold text-gray-900">{item.title}</h3>
+                  <p className="text-sm text-gray-600">{item.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
         {/* Sección de noticias */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12 transform transition-all duration-700 ease-in-out delay-100 translate-y-0">
-              <span className="inline-block py-1 px-3 rounded-full bg-green-100 text-green-800 text-sm font-medium mb-2">
-                ACTUALIDAD AGRÍCOLA
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-green-700 mb-4">
-                Noticias del Sector
-              </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Mantente actualizado con las últimas innovaciones y desarrollos en agricultura tecnológica
-              </p>
-            </div>
+        <section className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-center mb-12"
+          >
+            <span className="inline-block py-1 px-3 rounded-full bg-green-100 text-green-800 text-sm font-medium mb-2">
+              ACTUALIDAD AGRÍCOLA
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-green-700 mb-4">
+              Noticias del Sector
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Mantente actualizado con las últimas innovaciones y desarrollos en agricultura tecnológica
+            </p>
+          </motion.div>
             
-            {/* Barra de búsqueda y filtros */}
-            <div className="max-w-4xl mx-auto mb-12">
-              <div className="flex flex-col md:flex-row gap-4">
-                {/* Buscador */}
-                <div className="flex-1 relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Search className="h-5 w-5 text-gray-400" />
-                  </div>
-                  <input 
-                    type="text"
-                    placeholder="Buscar noticias..."
-                    className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-150 ease-in-out"
-                    value={busqueda}
-                    onChange={(e) => setBusqueda(e.target.value)}
-                  />
+          {/* Barra de búsqueda y filtros */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="max-w-4xl mx-auto mb-12"
+          >
+            <div className="flex flex-col md:flex-row gap-4">
+              {/* Buscador */}
+              <div className="flex-1 relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <Search className="h-5 w-5 text-gray-400" />
                 </div>
-                
-                {/* Filtro por categoría */}
-                <div className="md:w-64">
-                  <select
-                    className="block w-full py-3 px-3 border border-gray-300 rounded-lg leading-5 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-150 ease-in-out"
-                    value={categoriaSeleccionada}
-                    onChange={(e) => setCategoriaSeleccionada(e.target.value)}
-                  >
-                    <option value="">Todas las categorías</option>
-                    {categorias.map((cat) => (
-                      <option key={cat} value={cat}>{cat}</option>
-                    ))}
-                  </select>
-                </div>
+                <input 
+                  type="text"
+                  placeholder="Buscar noticias..."
+                  className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-150 ease-in-out"
+                  value={busqueda}
+                  onChange={(e) => setBusqueda(e.target.value)}
+                />
               </div>
-            </div>
-            
-            {/* Grid de noticias */}
-            {noticiasVisibles.length > 0 ? (
-              <>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {noticiasVisibles.map((noticia, index) => (
-                    <div 
-                      id={`noticia-${noticia.id}`}
-                      key={noticia.id}
-                      className={`transition-all duration-500 transform ${
-                        animatedCards 
-                          ? 'opacity-100 translate-y-0' 
-                          : 'opacity-0 translate-y-10'
-                      } transition-all duration-700 delay-${Math.min(index * 100, 700)} ${
-                        noticiaSeleccionada?.id === noticia.id 
-                          ? 'ring-4 ring-green-400 ring-offset-2 scale-105' 
-                          : ''
-                      }`}
-                    >
-                      <NoticiaCard noticia={noticia} />
-                    </div>
-                  ))}
-                </div>
-                
-                {/* Botón Ver Más */}
-                {!mostrarTodas && noticiasData.length > 12 && (
-                  <div className="text-center mt-12">
-                    <button 
-                      onClick={handleVerMas}
-                      className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors duration-200"
-                    >
-                      Ver más noticias
-                    </button>
-                  </div>
-                )}
-              </>
-            ) : (
-              <div className="text-center py-16">
-                <svg 
-                  className="mx-auto h-12 w-12 text-gray-400" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
-                  stroke="currentColor"
+              
+              {/* Filtro por categoría */}
+              <div className="md:w-64">
+                <select
+                  className="block w-full py-3 px-3 border border-gray-300 rounded-lg leading-5 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-150 ease-in-out"
+                  value={categoriaSeleccionada}
+                  onChange={(e) => setCategoriaSeleccionada(e.target.value)}
                 >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={1.5}
-                    d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" 
-                  />
-                </svg>
-                <h3 className="mt-2 text-sm font-medium text-gray-900">No se encontraron resultados</h3>
-                <p className="mt-1 text-sm text-gray-500">No hay noticias que coincidan con tu búsqueda.</p>
-                <div className="mt-6">
-                  <button
-                    type="button"
-                    className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
-                    onClick={handleLimpiarFiltros}
-                  >
-                    Limpiar filtros
-                  </button>
-                </div>
+                  <option value="">Todas las categorías</option>
+                  {categorias.map((cat) => (
+                    <option key={cat} value={cat}>{cat}</option>
+                  ))}
+                </select>
               </div>
-            )}
-          </div>
+            </div>
+          </motion.div>
+          
+          {/* Grid de noticias */}
+          {noticiasVisibles.length > 0 ? (
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {noticiasVisibles.map((noticia, index) => (
+                  <motion.div 
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.6, delay: 0.3 + (index * 0.1) }}
+                    id={`noticia-${noticia.id}`}
+                    key={noticia.id}
+                    className={`bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 ${
+                      noticiaSeleccionada?.id === noticia.id 
+                        ? 'ring-4 ring-green-400 ring-offset-2 scale-105' 
+                        : ''
+                    }`}
+                  >
+                    <NoticiaCard noticia={noticia} />
+                  </motion.div>
+                ))}
+              </div>
+              
+              {/* Botón Ver Más */}
+              {!mostrarTodas && noticiasData.length > 12 && (
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                  className="text-center mt-12"
+                >
+                  <button 
+                    onClick={handleVerMas}
+                    className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors duration-200"
+                  >
+                    Ver más noticias
+                  </button>
+                </motion.div>
+              )}
+            </>
+          ) : (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={isLoaded ? { opacity: 1 } : {}}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-center py-16"
+            >
+              <svg 
+                className="mx-auto h-12 w-12 text-gray-400" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={1.5}
+                  d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" 
+                />
+              </svg>
+              <h3 className="mt-2 text-sm font-medium text-gray-900">No se encontraron resultados</h3>
+              <p className="mt-1 text-sm text-gray-500">No hay noticias que coincidan con tu búsqueda.</p>
+              <div className="mt-6">
+                <button
+                  type="button"
+                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                  onClick={handleLimpiarFiltros}
+                >
+                    Limpiar filtros
+                </button>
+              </div>
+            </motion.div>
+          )}
         </section>
       </div>
       
-      {/* Secciones adicionales como en ProductosPage */}
-      <Marcas />
-      <WhatsappContacts
-        contacts={[
-          {
-            name: "Juan Pérez",
-            profileImage: "/images/perfil1.png",
-            whatsappLink: "https://wa.me/1234567890",
-          },
-          {
-            name: "María López",
-            profileImage: "/images/perfil1.png",
-            whatsappLink: "https://wa.me/0987654321",
-          },
-        ]}
-      />
+      {/* Secciones adicionales con animación de entrada */}
+      <div className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+           style={{ transitionDelay: '500ms' }}>
+        <Marcas />
+      </div>
+
+      <div className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+           style={{ transitionDelay: '600ms' }}>
+        <NoticeSlider
+          notices={[
+            { id: 1, text: 'Mantente informado de las últimas noticias del sector agroindustrial' },
+            { id: 2, text: 'Suscríbete a nuestro boletín para recibir actualizaciones' },
+          ]}
+        />
+      </div>
+
+      <div className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+           style={{ transitionDelay: '700ms' }}>
+        <WhatsappContacts
+          contacts={[
+            {
+              name: "Juan Pérez",
+              profileImage: "/images/perfil1.png",
+              whatsappLink: "https://wa.me/1234567890",
+            },
+            {
+              name: "María López",
+              profileImage: "/images/perfil1.png",
+              whatsappLink: "https://wa.me/0987654321",
+            },
+          ]}
+        />
+      </div>
     </>
   );
 };

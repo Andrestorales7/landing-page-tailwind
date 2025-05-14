@@ -183,7 +183,7 @@ const AnimatedCard: React.FC<{ article: any }> = ({ article }) => {
                                 onClick={(e) => {
                                     e.preventDefault(); // Evitar la navegación por defecto
                                     e.stopPropagation(); // Evitar que el clic se propague a la tarjeta
-                                    window.location.href = `/noticias?id=${article.id}`;
+                                    window.location.href = `/NoticiasPage?id=${article.id}`;
                                 }}
                             >
                                 <BookOpenIcon className="h-5 w-5" />
