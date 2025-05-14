@@ -197,31 +197,45 @@ const TanquesPage = () => {
     <>
       <div id="tanques" className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
         {/* Hero Section */}
-        <div
-          className="relative text-white py-16 sm:py-24 px-4 sm:px-12 lg:px-32 text-center bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/images/logos/tanque-hero-bg.jpg')",
-            backgroundPosition: 'center 70%',
-          }}
-        >
-          <div className="absolute inset-0 bg-green-900 bg-opacity-70"></div>
-          <div className="relative z-10 max-w-4xl mx-auto">
-            <motion.h1 
-              initial={{ opacity: 0, y: -20 }}
+        <div className="relative min-h-[52vh] bg-gradient-to-br from-green-900/70 via-green-800/60 to-green-700/50 overflow-hidden">
+          {/* Imagen de fondo */}
+          <div
+            className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-100"
+            style={{
+              backgroundImage:
+                "url('/images/logos/tanque-hero-bg.jpg')",
+            }}
+          ></div>
+          {/* Overlay gradient */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent pointer-events-none"></div>
+          {/* Contenido del Hero */}
+          <div className="relative z-10 pt-42 pb-22 px-6 sm:px-12 lg:px-18 max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight"
+              transition={{ duration: 0.8 }}
+              className="text-center"
             >
-              Tanques Rotomoldeados
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-4 sm:mt-6 text-lg sm:text-xl max-w-3xl mx-auto"
-            >
-              Soluciones de almacenamiento resistentes y duraderas para múltiples aplicaciones
-            </motion.p>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">
+                Tanques Rotomoldeados
+              </h1>
+              <p className="mt-6 text-lg md:text-xl text-white max-w-2xl drop-shadow mx-auto">
+                Soluciones de almacenamiento resistentes y duraderas para múltiples aplicaciones.
+              </p>
+            </motion.div>
+          </div>
+          {/* Divisoria SVG */}
+          <div className="absolute bottom-0 left-0 right-0 overflow-hidden">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-[10vw] min-h-[60px] max-h-[120px]">
+              <path
+                d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V56.44Z"
+                className="fill-[#f9fafb] relative opacity-90"
+              ></path>
+              <path
+                d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3"
+                className="fill-none stroke-white stroke-[2px] opacity-50 relative z-10"
+              ></path>
+            </svg>
           </div>
         </div>
 

@@ -139,9 +139,10 @@ const Navbar: React.FC = () => {
                                                     key={subcategory.id}
                                                     onClick={() => {
                                                         setIsProductMenuOpen(false);
+                                                        setIsMobileMenuOpen(false);
                                                         router.push(subcategory.path);
                                                     }}
-                                                    className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-50 hover:text-green-500 rounded-md transition-colors"
+                                                    className="block w-full text-left px-4 py-2 text-sm text-gray-800 hover:text-green-500 rounded-md transition-colors"
                                                 >
                                                     {subcategory.name}
                                                 </button>
@@ -203,7 +204,91 @@ const Navbar: React.FC = () => {
                 {isMobileMenuOpen && (
                     <div className="md:hidden bg-white border-t border-gray-100 rounded-b-lg shadow-lg animate-fadeIn">
                         <div className="pt-4 pb-6 space-y-3 px-4">
-                            {/* Puedes implementar aquí el menú móvil si lo necesitas */}
+                            <Link
+                                href="/"
+                                className="block font-medium text-gray-800 py-2 hover:text-green-500"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    setIsMobileMenuOpen(false);
+                                    scrollToSection("Hero");
+                                }}
+                            >
+                                Inicio
+                            </Link>
+                            <button
+                                onClick={() => {
+                                    setIsMobileMenuOpen(false);
+                                    scrollToSection("productSect");
+                                }}
+                                className="block w-full text-left font-medium text-gray-800 py-2 hover:text-green-500"
+                            >
+                                Soluciones
+                            </button>
+                            <div className="relative">
+                                <button
+                                    onClick={() => setIsProductMenuOpen((open) => !open)}
+                                    className="block w-full text-left font-medium text-gray-800 py-2 hover:text-green-500 flex items-center justify-between"
+                                >
+                                    Productos
+                                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </button>
+                                {isProductMenuOpen && (
+                                    <div className="bg-white border rounded-lg shadow-lg mt-2">
+                                        <button
+                                            onClick={() => {
+                                                setIsProductMenuOpen(false);
+                                                setIsMobileMenuOpen(false);
+                                                router.push("/ProductosPage");
+                                            }}
+                                            className="block w-full text-left px-4 py-2.5 text-base font-semibold text-green-600 hover:bg-gray-50 hover:text-green-700 rounded-md transition-colors mb-1 border-b border-gray-200"
+                                        >
+                                            --Categorias--
+                                        </button>
+                                        {productSubcategories.map((subcategory) => (
+                                            <button
+                                                key={subcategory.id}
+                                                onClick={() => {
+                                                    setIsProductMenuOpen(false);
+                                                    setIsMobileMenuOpen(false);
+                                                    router.push(subcategory.path);
+                                                }}
+                                                className="block w-full text-left px-4 py-2 text-sm text-gray-800 hover:text-green-500 rounded-md transition-colors"
+                                            >
+                                                {subcategory.name}
+                                            </button>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                            <button
+                                onClick={() => {
+                                    setIsMobileMenuOpen(false);
+                                    scrollToSection("nosotros");
+                                }}
+                                className="block w-full text-left font-medium text-gray-800 py-2 hover:text-green-500"
+                            >
+                                Nosotros
+                            </button>
+                            <button
+                                onClick={() => {
+                                    setIsMobileMenuOpen(false);
+                                    router.push('/NoticiasPage');
+                                }}
+                                className="block w-full text-left font-medium text-gray-800 py-2 hover:text-green-500"
+                            >
+                                Noticias
+                            </button>
+                            <button
+                                onClick={() => {
+                                    setIsMobileMenuOpen(false);
+                                    scrollToSection("footer");
+                                }}
+                                className="block w-full text-left rounded-full bg-green-600 px-7 py-3 text-base font-medium text-white shadow hover:bg-green-500 transition-colors mt-2"
+                            >
+                                Contacto
+                            </button>
                         </div>
                     </div>
                 )}
