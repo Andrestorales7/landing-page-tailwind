@@ -128,7 +128,7 @@ const AnimatedCard: React.FC<{ article: any }> = ({ article }) => {
             className="group relative overflow-hidden rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
         >
             {/* Hacemos que toda la tarjeta sea clickeable */}
-            <a href={`/noticias?id=${article.id}`} className="block h-full">
+            <a href={`/NoticiasPage?id=${article.id}`} className="block h-full">
                 <div className="relative h-56 overflow-hidden">
                     <img
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
