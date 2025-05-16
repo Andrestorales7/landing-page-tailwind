@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { BookOpenIcon, CalendarIcon, ClockIcon } from "@heroicons/react/24/outline";
+import { BookOpenIcon, CalendarIcon } from "@heroicons/react/24/outline";
 
 
 const Noticias: React.FC = () => {
