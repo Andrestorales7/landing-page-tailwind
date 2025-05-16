@@ -19,7 +19,7 @@ const AboutUsPage: React.FC = () => {
           <div
             className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-100"
             style={{
-              backgroundImage: "url('https://images.unsplash.com/photo-1590682680695-43b964a3ae17?q=80&w=2000&auto=format&fit=crop')",
+              backgroundImage: "url('/images/nosotros.JPG')",
             }}
           ></div>
           {/* Overlay gradient */}
@@ -88,7 +88,7 @@ const AboutUsPage: React.FC = () => {
               >
                 <div className="absolute inset-0 -right-14 -top-14 rounded-[2rem] border-2 border-green-100/30" />
                 <Image
-                  src="https://images.unsplash.com/photo-1590682680695-43b964a3ae17?q=80&w=2000&auto=format&fit=crop"
+                  src="/images/nosotros.JPG"
                   alt="Tecnología Agrícola"
                   fill
                   className="rounded-[2rem] object-cover"
