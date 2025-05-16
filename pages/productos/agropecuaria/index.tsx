@@ -1,14 +1,14 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
 import Marcas from '@/components/sections/Marcas';
 import NoticeSlider from '@/components/sections/NoticeSlider';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const AgroPecuariaPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   useEffect(() => {
     setIsLoaded(true);
@@ -115,10 +115,10 @@ const AgroPecuariaPage = () => {
               className="text-center"
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">
-                Soluciones AGRO PECUARIAS
+                AGROPECUARIA
               </h1>
               <p className="mt-6 text-lg md:text-xl text-white max-w-2xl drop-shadow mx-auto">
-                Productos especializados para el sector agropecuario.
+                Productos especializados para el sector Agropecuario.
               </p>
             </motion.div>
           </div>
@@ -158,59 +158,112 @@ const AgroPecuariaPage = () => {
 
         {/* Product Grid */}
         <div className="max-w-7xl mx-auto pt-8 pb-16 px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Productos</h2>
-          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {products.map((product, index) => (
-              <div
+              <motion.div
                 key={index}
-                className={`bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-xl transition-all duration-700 ease-out flex flex-col overflow-hidden ${
+                layout
+                transition={{ layout: { duration: 0.4, type: "spring" } }}
+                className={`group bg-white border border-green-200 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 ease-out flex flex-col overflow-hidden cursor-pointer relative ${
                   isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
                 }`}
-                style={{ transitionDelay: `${index * 150}ms` }}
+                style={{ transitionDelay: `${index * 120}ms` }}
+                onClick={() => setExpandedIndex(index)}
               >
-                <Link href={`/productos/agropecuaria/${product.slug}`}>
+                <div className="relative">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="h-48 w-full object-cover"
+                    className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
                   />
-                </Link>
-                <div className="p-4 flex flex-col flex-grow">
-                  <h3 className="text-lg font-semibold text-gray-800 hover:text-green-600 transition-colors">
-                    <Link href={`/productos/agropecuaria/${product.slug}`}>
-                      {product.name}
-                    </Link>
-                  </h3>
-                  <p className="text-sm text-gray-600 mb-3">{product.description}</p>
-                  <ul className="text-sm text-gray-700 space-y-1 flex-grow">
+                  <div className="absolute top-3 right-3 bg-white/80 rounded-full p-2 shadow-md">
+                    <img
+                      src={product.logo}
+                      alt={`${product.name} logo`}
+                      className="w-10 h-10 object-contain"
+                    />
+                  </div>
+                </div>
+                <div className="p-5 flex flex-col flex-grow">
+                  <h3 className="text-lg font-bold text-green-800 mb-1">{product.name}</h3>
+                  <p className={`text-sm text-gray-600 mb-3 ${expandedIndex === index ? '' : 'line-clamp-2'}`}>
+                    {expandedIndex === index
+                      ? product.description.split('\n').map((line, i) => (
+                          <span key={i}>
+                            {line}
+                            <br />
+                          </span>
+                        ))
+                      : product.description}
+                  </p>
+                  <ul className="mb-2 space-y-2">
                     {product.details && product.details.map((detail, i) => (
-                      <li key={i} className="flex items-start">
-                        <span className="text-green-600 mr-2">•</span>
+                      <li key={i} className="flex items-center bg-lime-100 rounded px-2 py-1 text-sm text-green-700">
+                        <span className="mr-2 text-lime-500">✔</span>
                         <span>{detail}</span>
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-4 mt-auto">
-                    <Link
-                      href={`/productos/agropecuaria/${product.slug}`}
-                      className="block text-center text-lime-500 text-sm font-medium hover:underline bg-gray-100 px-3 py-2 rounded transition-colors hover:bg-gray-200"
-                    >
-                      Ver producto
-                    </Link>
-                  </div>
                 </div>
-                {/* Product Logo */}
-                <div className="p-4 flex justify-center bg-gray-100">
-                  <img
-                    src={product.logo}
-                    alt={`${product.name} logo`}
-                    className="w-20 h-20 object-contain"
-                  />
-                </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
+
+        {/* Modal de producto expandido */}
+        <AnimatePresence>
+          {expandedIndex !== null && (
+            <motion.div
+              key="modal"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
+              onClick={() => setExpandedIndex(null)}
+            >
+              <motion.div
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.95, opacity: 0 }}
+                transition={{ type: "spring", duration: 0.4 }}
+                className="bg-white rounded-3xl shadow-2xl w-full max-w-lg mx-2 sm:mx-4 p-4 sm:p-8 relative overflow-y-auto max-h-[90vh] sm:max-h-[80vh]"
+                onClick={e => e.stopPropagation()}
+              >
+                <button
+                  className="absolute top-3 right-3 text-gray-400 hover:text-green-700 text-2xl"
+                  onClick={() => setExpandedIndex(null)}
+                  aria-label="Cerrar"
+                >
+                  &times;
+                </button>
+                <div className="flex flex-col items-center">
+                  <img
+                    src={products[expandedIndex!].image}
+                    alt={products[expandedIndex!].name}
+                    className="w-full h-40 sm:h-56 object-cover rounded-xl mb-4"
+                  />
+                  <img
+                    src={products[expandedIndex!].logo}
+                    alt={`${products[expandedIndex!].name} logo`}
+                    className="w-14 h-14 sm:w-16 sm:h-16 object-contain mb-2"
+                  />
+                  <h3 className="text-xl sm:text-2xl font-bold text-green-800 mb-2 text-center">{products[expandedIndex!].name}</h3>
+                  <p className="text-sm sm:text-base text-gray-700 mb-4 text-center whitespace-pre-line">
+                    {products[expandedIndex!].description}
+                  </p>
+                  <ul className="mb-2 space-y-2 w-full">
+                    {products[expandedIndex!].details && products[expandedIndex!].details.map((detail, i) => (
+                      <li key={i} className="flex items-center bg-lime-100 rounded px-3 py-2 text-sm sm:text-base text-green-700">
+                        <span className="mr-2 text-lime-500">✔</span>
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Additional Sections */}
@@ -229,8 +282,8 @@ const AgroPecuariaPage = () => {
         />
       </div>
 
-      <div className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-           style={{ transitionDelay: '700ms' }}>
+      {/* Botón flotante de WhatsApp siempre visible */}
+      <div className="fixed bottom-6 right-6 z-50">
         <WhatsappContacts contacts={contacts} />
       </div>
     </>

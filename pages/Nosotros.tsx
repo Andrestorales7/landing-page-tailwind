@@ -2,14 +2,12 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { AcademicCapIcon, UsersIcon, GlobeAltIcon, HeartIcon } from "@heroicons/react/24/outline";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/sections/Footer";
 import WhatsappContacts from "@/components/layout/WhatsappContacts";
 
 const AboutUsPage: React.FC = () => {
   return (
     <>
-      <Navbar />
+
       <main>
         {/* Hero Section */}
         <section className="min-h-screen bg-gradient-to-b from-green-50 to-gray-50">
@@ -48,17 +46,17 @@ const AboutUsPage: React.FC = () => {
                  className="w-full h-[10vw] min-h-[60px] max-h-[120px]">
               <path
                 d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V56.44Z"
-                className="fill-[#f9fafb] relative opacity-90"
+                className="fill-[#f9fafb] opacity-90"
               ></path>
               <path
                 d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3"
-                className="fill-none stroke-white stroke-[2px] opacity-50 relative z-10"
+                className="fill-none stroke-white stroke-2 opacity-50"
               ></path>
             </svg>
           </div>
         </div>
 
-        {/* Destacados - Sección nueva similar a AgroPecuaria */}
+        {/* Destacados */}
         <div className="relative z-10 max-w-6xl mx-auto px-4 -mt-16 mb-12">
           <div className="bg-white rounded-2xl shadow-xl p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
@@ -81,17 +79,17 @@ const AboutUsPage: React.FC = () => {
             <div className="grid gap-16 lg:grid-cols-2">
               {/* Image Section */}
               <motion.div
-                className="relative h-[500px] rounded-[2rem] shadow-2xl"
+                className="relative h-[500px] rounded-2xl shadow-2xl"
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
               >
-                <div className="absolute inset-0 -right-14 -top-14 rounded-[2rem] border-2 border-green-100/30" />
+                <div className="absolute inset-0 -right-14 -top-14 rounded-2xl border-2 border-green-100/30" />
                 <Image
                   src="/images/nosotros.JPG"
                   alt="Tecnología Agrícola"
                   fill
-                  className="rounded-[2rem] object-cover"
+                  className="rounded-2xl object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   priority
                 />
@@ -184,8 +182,8 @@ const AboutUsPage: React.FC = () => {
           </div>
         </section>
       </main>
-      <WhatsappContacts />
-      <Footer />
+      <WhatsappContacts contacts={[]} />
+      
     </>
   );
 };
