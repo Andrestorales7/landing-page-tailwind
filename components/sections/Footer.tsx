@@ -148,7 +148,7 @@ const Footer: React.FC = () => {
           >
             <span className="block mt-1">Desarrollado por <span className="text-green-300">WEB TECH</span></span>
             <div className="text-sm text-green-200/80">
-              © {new Date().getFullYear()} CMP Agro. Todos los derechos reservados.
+              ©CMP Agro. Todos los derechos reservados.
               
             </div>
           </motion.div>
