@@ -245,15 +245,15 @@ const AgroProductPage = () => {
               onClick={() => setExpandedIndex(null)}
             >
               <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
+                initial={{ scale: 0.95, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
+                exit={{ scale: 0.95, opacity: 0 }}
                 transition={{ type: "spring", duration: 0.4 }}
-                className="bg-white rounded-3xl shadow-2xl max-w-lg w-full mx-4 p-8 relative"
+                className="bg-white rounded-3xl shadow-2xl w-full max-w-lg mx-2 sm:mx-4 p-4 sm:p-8 relative overflow-y-auto max-h-[90vh] sm:max-h-[80vh]"
                 onClick={e => e.stopPropagation()}
               >
                 <button
-                  className="absolute top-4 right-4 text-gray-400 hover:text-green-700 text-2xl"
+                  className="absolute top-3 right-3 text-gray-400 hover:text-green-700 text-2xl"
                   onClick={() => setExpandedIndex(null)}
                   aria-label="Cerrar"
                 >
@@ -263,21 +263,20 @@ const AgroProductPage = () => {
                   <img
                     src={products[expandedIndex!].image}
                     alt={products[expandedIndex!].name}
-                    className="w-full h-56 object-cover rounded-xl mb-4"
+                    className="w-full h-40 sm:h-56 object-cover rounded-xl mb-4"
                   />
                   <img
                     src={products[expandedIndex!].logo}
                     alt={`${products[expandedIndex!].name} logo`}
-                    className="w-16 h-16 object-contain mb-2"
+                    className="w-14 h-14 sm:w-16 sm:h-16 object-contain mb-2"
                   />
-                  <h3 className="text-2xl font-bold text-green-800 mb-2 text-center">{products[expandedIndex!].name}</h3>
-                  {/* Descripción completa en el modal, con saltos de línea */}
-                  <p className="text-base text-gray-700 mb-4 text-center whitespace-pre-line">
+                  <h3 className="text-xl sm:text-2xl font-bold text-green-800 mb-2 text-center">{products[expandedIndex!].name}</h3>
+                  <p className="text-sm sm:text-base text-gray-700 mb-4 text-center whitespace-pre-line">
                     {products[expandedIndex!].description}
                   </p>
                   <ul className="mb-2 space-y-2 w-full">
                     {products[expandedIndex!].details && products[expandedIndex!].details.map((detail, i) => (
-                      <li key={i} className="flex items-center bg-lime-100 rounded px-3 py-2 text-base text-green-700">
+                      <li key={i} className="flex items-center bg-lime-100 rounded px-3 py-2 text-sm sm:text-base text-green-700">
                         <span className="mr-2 text-lime-500">✔</span>
                         <span>{detail}</span>
                       </li>
