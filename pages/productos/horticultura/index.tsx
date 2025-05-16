@@ -192,8 +192,8 @@ const HorticulturaProductPage = () => {
         />
       </div>
 
-      <div className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-           style={{ transitionDelay: '700ms' }}>
+      {/* Botón flotante de WhatsApp */}
+      <div className="fixed bottom-6 right-6 z-50">
         <WhatsappContacts contacts={contacts} />
       </div>
     </>

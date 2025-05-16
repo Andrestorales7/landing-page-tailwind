@@ -147,17 +147,10 @@ const Footer: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="flex flex-col md:flex-row justify-between items-center text-center md:text-left"
           >
-            <div className="text-xs text-gray-400 mb-4 md:mb-0">
-              © {currentYear} CMP Agro. Todos los derechos reservados.
-            </div>
-            <div className="text-xs text-gray-400">
-              Desarrollado
-              <span className="mx-1 inline-block transform hover:scale-110 transition-transform text-[#6a9d83]"></span> 
-              por<span className="text-[#8ab99e] font-medium">Tech</span>
-            </div>
+            <span className="block mt-1">Desarrollado por <span className="text-green-300">WEB TECH</span></span>
             <div className="text-sm text-green-200/80">
               © {new Date().getFullYear()} CMP Agro. Todos los derechos reservados.
-              <span className="block mt-1">Desarrollado por <span className="text-green-300">WEB TECH</span></span>
+              
             </div>
           </motion.div>
         </div>

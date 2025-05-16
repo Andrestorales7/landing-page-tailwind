@@ -1,14 +1,14 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
 import Marcas from '@/components/sections/Marcas';
 import NoticeSlider from '@/components/sections/NoticeSlider';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const AgroProductPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   useEffect(() => {
     setIsLoaded(true);
@@ -16,33 +16,25 @@ const AgroProductPage = () => {
 
   const products = [
     {
-      name: 'Inoculante',
-      slug: 'inoculante-supracil',
-      image: 'https://images.unsplash.com/photo-1586771107445-d3ca888129ce?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      description: 'Inoculante para ensilaje disponible en tres tipos SupraSil',
-      details: ['SILAJES - 1 litro', 'GRANOS - 1 litro', 'FORRAJES - 1 litro'],
-      logo: '/images/logos/suprasil-logo.png',
-    },
-    {
       name: 'Film para fardos',
       slug: 'film-agrilpower',
-      image: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      description: 'Film para empaque de fardos',
+      image: '/images/Almacenamiento-Ensilaje-etc/film-fardos/Film-4-2-1.jpg',
+      description: 'Producidos a partir de LLDPE de alta calidad y con la última tecnología (5 capas coextruidas), garantizando así una gran resistencia al desgarro.\n\nSu formulación contiene aditivos de protección UV hasta 12 meses bajo radiación solar.\n\nGracias a su exlusivo sistema de Coextrucción Programada Inteligente (CPI), se ha logrado el mejor material de este tipo de tres capas, con la mayor performance de resistencia a la intemperie, comportamiento mecánico y eficiencia a los distintos sistemas de soldaduras.',
       details: ['750 mm x 1,500 m (25 micras)'],
       logo: '/images/logos/agripower-logo.png',
     },
     {
       name: 'Hilos para fardos',
       slug: 'hilos-exporplas',
-      image: 'https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      description: 'Hilos para diferentes tipos de fardos',
+      image: '/images/Almacenamiento-Ensilaje-etc/hilos-fardos/hilofardo1.png',
+      description: 'Proba la excelencia en hilos agrícolas con CMP Agro.\n\nNuestros productos, los hilos E130 y E1000, están diseñados para elevar la eficiencia en la agricultura, especialmente en la formación de fardos redondos y cuadrados.\n\nCon su resistencia y durabilidad, mejorarás significativamente tu proceso de embalaje. Confía en la calidad que solo la marca Exporplas de Portugal puede ofrecer.',
       details: ['Hilo e1000 - 5,400 m (fardos redondos)', 'Hilo e130 - 1,300 m (fardos cuadrados)'],
       logo: '/images/logos/exporplas-logo.png',
     },
     {
       name: 'Mallas para fardos',
       slug: 'mallas-exporplas',
-      image: 'https://images.unsplash.com/photo-1605000797499-95a51c5269ae?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image: '/images/Almacenamiento-Ensilaje-etc/mallas-fardos/malla1.png',
       description: 'Mallas para empaque de fardos',
       details: ['HORIZON™: 125 x 3,600 cm, 130 x 3,600 cm', 'EMPACADOR: 124 x 3,600 cm, 130 x 3,600 cm'],
       logo: '/images/logos/exporplas-logo.png',
@@ -50,8 +42,8 @@ const AgroProductPage = () => {
     {
       name: 'Silobolsas',
       slug: 'silobolsas-agrinpex',
-      image: 'https://images.unsplash.com/photo-1630152675905-c6d7d9e7bfb1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      description: 'Silobolsas de diferentes capacidades',
+      image: '/images/Almacenamiento-Ensilaje-etc/silobolsas/silobolsa1.jpg',
+      description: 'El continuo desarrollo de modelos agrícola ganaderos de alta eficiencia ha requerido de la plasticultura una participación protagónica. Conscientes de esta realidad, AgrinPlex y Silox ha desarrollado las Bolsas para Silo. Hechas con equipamiento de coextrusión en tres capas y un Sistema de Coextrusión Programada Inteligente. Estas son durables, con gran resistencia mecánica, y a los rayos UV.',
       details: ['6 pies x 60 m', '6.5 pies x 60 m', '9 pies x 60 m', '9 pies x 75 m'],
       logo: '/images/logos/agrinpex-logo.png',
     },
@@ -195,58 +187,114 @@ const AgroProductPage = () => {
         {/* Product Grid */}
         <div className="max-w-7xl mx-auto pt-8 pb-16 px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Productos</h2>
-          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {products.map((product, index) => (
-              <div
+              <motion.div
                 key={index}
-                className={`bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-xl transition-all duration-700 ease-out flex flex-col overflow-hidden ${
+                layout
+                transition={{ layout: { duration: 0.4, type: "spring" } }}
+                className={`group bg-white border border-green-200 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 ease-out flex flex-col overflow-hidden cursor-pointer relative ${
                   isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
                 }`}
-                style={{ transitionDelay: `${index * 150}ms` }}
+                style={{ transitionDelay: `${index * 120}ms` }}
+                onClick={() => setExpandedIndex(index)}
               >
-                <Link href={`/productos/ensilaje/${product.slug}`}>
+                <div className="relative">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="h-48 w-full object-cover"
+                    className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
                   />
-                </Link>
-                <div className="p-4 flex flex-col flex-grow">
-                  <h3 className="text-lg font-semibold text-gray-800 hover:text-green-600 transition-colors">
-                    <Link href={`/productos/ensilaje/${product.slug}`}>
-                      {product.name}
-                    </Link>
-                  </h3>
-                  <p className="text-sm text-gray-600 mb-3">{product.description}</p>
-                  <ul className="text-sm text-gray-700 space-y-1 flex-grow">
+                  <div className="absolute top-3 right-3 bg-white/80 rounded-full p-2 shadow-md">
+                    <img
+                      src={product.logo}
+                      alt={`${product.name} logo`}
+                      className="w-10 h-10 object-contain"
+                    />
+                  </div>
+                </div>
+                <div className="p-5 flex flex-col flex-grow">
+                  <h3 className="text-lg font-bold text-green-800 mb-1">{product.name}</h3>
+                  {/* Solo mostrar la descripción completa si está expandida */}
+                  <p className={`text-sm text-gray-600 mb-3 ${expandedIndex === index ? '' : 'line-clamp-2'}`}>
+                    {expandedIndex === index
+                      ? product.description.split('\n').map((line, i) => (
+                          <span key={i}>
+                            {line}
+                            <br />
+                          </span>
+                        ))
+                      : product.description}
+                  </p>
+                  <ul className="mb-2 space-y-2">
                     {product.details && product.details.map((detail, i) => (
-                      <li key={i} className="flex items-start">
-                        <span className="text-green-600 mr-2">•</span>
+                      <li key={i} className="flex items-center bg-lime-100 rounded px-2 py-1 text-sm text-green-700">
+                        <span className="mr-2 text-lime-500">✔</span>
                         <span>{detail}</span>
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-4 mt-auto">
-                    <Link
-                      href={`/productos/ensilaje/${product.slug}`}
-                      className="block text-center text-lime-500 text-sm font-medium hover:underline bg-gray-100 px-3 py-2 rounded transition-colors hover:bg-gray-200"
-                    >
-                      Ver producto
-                    </Link>
-                  </div>
                 </div>
-                {/* Product Logo */}
-                <div className="p-4 flex justify-center bg-gray-100">
-                  <img
-                    src={product.logo}
-                    alt={`${product.name} logo`}
-                    className="w-20 h-20 object-contain"
-                  />
-                </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
+
+        {/* Modal de producto expandido */}
+        <AnimatePresence>
+          {expandedIndex !== null && (
+            <motion.div
+              key="modal"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
+              onClick={() => setExpandedIndex(null)}
+            >
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                transition={{ type: "spring", duration: 0.4 }}
+                className="bg-white rounded-3xl shadow-2xl max-w-lg w-full mx-4 p-8 relative"
+                onClick={e => e.stopPropagation()}
+              >
+                <button
+                  className="absolute top-4 right-4 text-gray-400 hover:text-green-700 text-2xl"
+                  onClick={() => setExpandedIndex(null)}
+                  aria-label="Cerrar"
+                >
+                  &times;
+                </button>
+                <div className="flex flex-col items-center">
+                  <img
+                    src={products[expandedIndex!].image}
+                    alt={products[expandedIndex!].name}
+                    className="w-full h-56 object-cover rounded-xl mb-4"
+                  />
+                  <img
+                    src={products[expandedIndex!].logo}
+                    alt={`${products[expandedIndex!].name} logo`}
+                    className="w-16 h-16 object-contain mb-2"
+                  />
+                  <h3 className="text-2xl font-bold text-green-800 mb-2 text-center">{products[expandedIndex!].name}</h3>
+                  {/* Descripción completa en el modal, con saltos de línea */}
+                  <p className="text-base text-gray-700 mb-4 text-center whitespace-pre-line">
+                    {products[expandedIndex!].description}
+                  </p>
+                  <ul className="mb-2 space-y-2 w-full">
+                    {products[expandedIndex!].details && products[expandedIndex!].details.map((detail, i) => (
+                      <li key={i} className="flex items-center bg-lime-100 rounded px-3 py-2 text-base text-green-700">
+                        <span className="mr-2 text-lime-500">✔</span>
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Additional Sections */}
