@@ -48,36 +48,35 @@ const AgroProductPage = () => {
       logo: '/images/logos/agrinpex-logo.png',
     },
     {
-      name: 'TECH H2O Barrier',
-      slug: 'tech-h2o-barrier',
-      image: 'https://images.unsplash.com/photo-1605007493699-af65834f8aa3?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      description: 'Techos con barrera de humedad',
-      details: [
-        'Blanco/Negro: 7 capas, con barrera de EVOH',
-        'Azul: 45 micras (12 x 50 m y 14 x 50 m) con barrera de EVOH',
-      ],
+      name: 'TECH Silaje Bolsa',
+      slug: 'bolsa-tech-silaje',
+      image: '/images/tech-agro/saco-para-saligem.jpeg',
+      description: `Bolsa para Ensilar\nBolsa diseñada para el almacenamiento de ensilaje, convirtiéndose en una alternativa económica para los pequeños y medianos productores.\nPrincipales Ventajas
+                    - Empaquetado manual o con mecanismo
+                    - Producido con material virgen y aditivación UV.`,
+      details: ['Blanco/Negro: 61 x 120 cm (150 micrones)'],
       logo: '/images/logos/tech-logo.png',
-    },
-    {
-      name: 'Máquina selladora',
-      slug: 'maquina-selladora',
-      image: 'https://images.unsplash.com/photo-1581093450021-4a7360e9a9d9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      description: 'Selladora para silobolsas',
-      details: ['Impide ingreso de humedad', 'Presión temporizada', 'Portátil y liviana con alarma auditiva'],
-      logo: '/images/logos/pipiola-logo.png',
     },
     {
       name: 'TECH Lona',
       slug: 'tech-lona-azul',
-      image: 'https://images.unsplash.com/photo-1605001011156-cbf0b0f67a51?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      description: 'Lonas de protección',
+      image: '/images/tech-agro/techlona-techagro.jpeg',
+      description: 'Producido mediante el más moderno proceso de extrusión disponible en el mercado: la tecnología multicapa, que permite la aplicación específica de resinas para satisfacer las más variadas exigencias.\nPrincipales Ventajas\n-Multicapas.\n-Alta resistencia mecánica.\n-Mayor durabilidad.',
       details: ['Negro: 8 x 100 m (100 micras)'],
+      logo: '/images/logos/tech-logo.png',
+    },
+    {
+      name: 'TECH Silo',
+      slug: 'tech-silo-azul',
+      image: '/images/tech-agro/TA_TECHSILO-13.jpg',
+      description: 'Producido mediante el proceso de coextrusión más moderno del mercado: la tecnología multicapa. Protege y sella tu ensilaje contra los gases externos, además de controlar la temperatura interna y reducir el paso de los rayos UV.\n* Principales Ventajas\n- Alta resistencia mecánica.\n- Ideal para cubierta de ensilaje.\n- Aditivación UV.',
+      details: ['Blanco/Negro: 12 x 50 m y 14 x 50 m', 'Disponible en 100 y 150 micras'],
       logo: '/images/logos/tech-logo.png',
     },
     {
       name: 'Mantas',
       slug: 'mantas',
-      image: 'https://images.unsplash.com/photo-1605001016900-683fd85a4415?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image: '/images/tech-agro/TA_TECHSILO-13.jpg',
       description: 'Mantas de diferentes medidas',
       details: [
         '8 x 50 m (100 micras)',
@@ -89,19 +88,14 @@ const AgroProductPage = () => {
       logo: '/images/logos/tech-logo.png',
     },
     {
-      name: 'TECH Silo',
-      slug: 'tech-silo-azul',
-      image: 'https://images.unsplash.com/photo-1605001017150-6fa309a6eddd?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      description: 'Cubiertas para silos',
-      details: ['Blanco/Negro: 12 x 50 m y 14 x 50 m', 'Disponible en 100 y 150 micras'],
-      logo: '/images/logos/tech-logo.png',
-    },
-    {
-      name: 'Bolsa TECH Silaje',
-      slug: 'bolsa-tech-silaje',
-      image: 'https://images.unsplash.com/photo-1605001016331-37e565ff2a3a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      description: 'Bolsas para silaje',
-      details: ['Blanco/Negro: 61 x 120 cm (150 micrones)'],
+      name: 'TechO2 Barrier',
+      slug: 'tech-h2o-barrier',
+      image: '/images/tech-agro/techlona-techagro.jpeg',
+      description: 'Techos con barrera de humedad',
+      details: [
+        'Blanco/Negro: 7 capas, con barrera de EVOH',
+        'Azul: 45 micras (12 x 50 m y 14 x 50 m) con barrera de EVOH',
+      ],
       logo: '/images/logos/tech-logo.png',
     },
   ];
@@ -129,7 +123,7 @@ const AgroProductPage = () => {
             className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-100"
             style={{
               backgroundImage:
-                "url('https://images.unsplash.com/photo-1483871788521-4f224a86e166?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+                "url('/images/background3.jpg')",
             }}
           ></div>
           {/* Overlay gradient */}
@@ -186,7 +180,6 @@ const AgroProductPage = () => {
 
         {/* Product Grid */}
         <div className="max-w-7xl mx-auto pt-8 pb-16 px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Productos</h2>
           <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {products.map((product, index) => (
               <motion.div
@@ -313,8 +306,8 @@ const AgroProductPage = () => {
         />
       </div>
 
-      <div className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-           style={{ transitionDelay: '700ms' }}>
+      {/* Botón flotante de WhatsApp siempre visible */}
+      <div className="fixed bottom-6 right-6 z-50">
         <WhatsappContacts contacts={contacts} />
       </div>
     </>
