@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
         { name: "Ensilaje", id: "ensilaje", path: "/productos/ensilaje" },
         { name: "Agropecuaria", id: "agropecuaria", path: "/productos/agropecuaria" },
         { name: "Envases", id: "envases", path: "/productos/tanques" },
-        { name: "Maquinas Cerradoras", id: "maquinas-cerradoras", path: "/productos/maquinas-cerradoras" },
+        { name: "Maquinas Cerradoras", id: "maquinas-cerradoras", path: "/productos/cerradoras" },
         { name: "Geomembranas", id: "geomembranas", path: "/productos/geomembranas" },
         { name: "Tesa", id: "tesa", path: "/productos/tesa" }
     ];

@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { BookOpenIcon, CalendarIcon, ClockIcon } from "@heroicons/react/24/outline";
+import { BookOpenIcon, CalendarIcon } from "@heroicons/react/24/outline";
 
 
 const Noticias: React.FC = () => {
@@ -58,22 +58,17 @@ const Noticias: React.FC = () => {
                     transition={{ duration: 0.5 }}
                     className="text-center"
                 >
-                    <div className="inline-flex items-center gap-2 mb-4 text-emerald-600">
-                        <div className="h-px w-8 bg-emerald-300" />
-                        <span className="text-sm font-semibold uppercase tracking-wide">Actualidad Agrícola</span>
-                        <div className="h-px w-8 bg-emerald-300" />
+                    <div className="inline-flex items-center gap-2 mb-1 text-emerald-600">
+                        <div className="h-px w-12 bg-emerald-300" />
+                        <span className="text-2xl sm:text-3xl font-bold uppercase tracking-wide">Actualidad Agrícola</span>
+                        <div className="h-px w-12 bg-emerald-300" />
                     </div>
-                    <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-                        <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
-                            Noticias del Sector
-                        </span>
-                    </h2>
                     <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
-                        Mantente actualizado con las últimas innovaciones y desarrollos en agricultura tecnológica
+                        Eventos, actualizaciones y noticias relevantes del sector agrícola. Mantente informado con nosotros aqui en  CMP Agro.
                     </p>
                 </motion.div>
 
-                <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                     {articles.map((article, index) => (
                         <AnimatedCard key={index} article={article} />
                     ))}
@@ -153,36 +148,17 @@ const AnimatedCard: React.FC<{ article: any }> = ({ article }) => {
                     </div>
 
                     <div className="mt-6 border-t border-emerald-50 pt-4">
-                        <div className="flex items-center gap-4">
-                            <div className="relative">
-                                <img
-                                    className="h-10 w-10 rounded-full border-2 border-white shadow-lg"
-                                    src={article.authorImage}
-                                    alt={article.author}
-                                />
-                                <div className="absolute -right-1 -bottom-1 h-4 w-4 rounded-full bg-emerald-500 border-2 border-white" />
+                        <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2 text-xs text-gray-500">
+                                <CalendarIcon className="h-4 w-4 text-emerald-500" />
+                                <span>{new Date(article.date).toLocaleDateString()}</span>
                             </div>
-                            
-                            <div className="flex-1">
-                                <p className="text-sm font-medium text-gray-900">{article.author}</p>
-                                <div className="flex items-center gap-3 mt-1 text-xs text-gray-500">
-                                    <div className="flex items-center gap-1">
-                                        <CalendarIcon className="h-4 w-4 text-emerald-500" />
-                                        <span>{new Date(article.date).toLocaleDateString()}</span>
-                                    </div>
-                                    <div className="flex items-center gap-1">
-                                        <ClockIcon className="h-4 w-4 text-emerald-500" />
-                                        <span>{article.readTime}</span>
-                                    </div>
-                                </div>
-                            </div>
-
                             <motion.div 
                                 whileHover={{ scale: 1.05 }}
                                 className="flex items-center gap-1 text-emerald-600 hover:text-emerald-700 text-sm font-semibold"
-                                onClick={(e) => {
-                                    e.preventDefault(); // Evitar la navegación por defecto
-                                    e.stopPropagation(); // Evitar que el clic se propague a la tarjeta
+                                onClick={e => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
                                     window.location.href = `/NoticiasPage?id=${article.id}`;
                                 }}
                             >
