@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { FiFacebook, FiInstagram, FiMessageSquare, FiMapPin, FiPhone, FiMail } from 'react-icons/fi';
 
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
   
   return (
     <footer id="footer" className="bg-[#1c2825] text-gray-200 relative overflow-hidden">
