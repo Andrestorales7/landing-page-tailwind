@@ -65,18 +65,6 @@ const Hero: React.FC = () => {
                             "Sembramos innovación, cosechamos sostenibilidad."
                         </p>
                     </motion.div>
-                    
-                    {/* CTA button */}
-                    <motion.div 
-                        className="mt-8"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 1.2, duration: 0.8 }}
-                    >
-                        <button className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-medium rounded-lg transition-all duration-200 shadow-lg hover:shadow-green-500/25">
-                            Descubra más
-                        </button>
-                    </motion.div>
                 </motion.div>
             </div>
             
@@ -91,7 +79,8 @@ const Hero: React.FC = () => {
                     duration: 2
                 }}
             >
-                <span className="text-white/70 text-sm mb-2">Scroll</span>
+                
+                {/* Arrow icon */}
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 5L12 19M12 19L18 13M12 19L6 13" stroke="rgba(255,255,255,0.7)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>

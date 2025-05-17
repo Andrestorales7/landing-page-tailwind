@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
     <footer id="footer" className="bg-[#1c2825] text-gray-200 relative overflow-hidden">
       {/* Subtle texture overlay */}
       <div className="absolute inset-0 opacity-5 z-0">
-        <div className="h-full w-full bg-[url('/images/noise-pattern.png')] bg-repeat opacity-20" />
+        <div className="h-full w-full opacity-10 [background-image:linear-gradient(#d1fae5_1px,transparent_1px),linear-gradient(to_right,#d1fae5_1px,transparent_1px)] bg-[size:4rem_4rem]" />
       </div>
       
       {/* Top border accent line */}
