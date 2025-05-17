@@ -18,7 +18,7 @@ const AgroPecuariaPage = () => {
     {
       name: 'Malla CTA Aluminet',
       slug: 'malla-cta-aluminet',
-      image: '/images/logos/sugrand.png',
+      image: '/images/Almacenamiento-Ensilaje-etc/cta-aluminet/cta.jpg',
       description: 'Malla CTA Aluminet disponible en varias medidas.',
       details: ['0,4 x 50 m', '0,8 x 50 m', '4,30 x 100 m (50%)', '4,30 x 100 m (35%)'],
       logo: '/images/logos/sugrand.png',
@@ -26,7 +26,7 @@ const AgroPecuariaPage = () => {
     {
       name: 'Tejido Aviary Porcícola',
       slug: 'tejido-aviary-porcicola',
-      image: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=1964&auto=format&fit=crop',
+      image: '/images/Almacenamiento-Ensilaje-etc/tejido-aviar/Aviar2.jpg',
       description: 'Tejido aviary porcícola con diferentes características.',
       details: [
         'Amarillo: Lateral - 120 g/m² (2,10 - 2,60 m)',
@@ -39,7 +39,7 @@ const AgroPecuariaPage = () => {
     {
       name: 'Comederos',
       slug: 'comederos-nortene',
-      image: 'https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?q=80&w=2070&auto=format&fit=crop',
+      image: '/images/Almacenamiento-Ensilaje-etc/comederos/comedero2.jpg',
       description: 'Comederos de alta resistencia (1.000 micras).',
       details: ['1,00 x 25 m', '1,00 x 50 m', '1,20 x 25 m', '1,20 x 50 m', '1,50 x 25 m', '1,50 x 50 m'],
       logo: '/images/logos/nortene-logo.png',
@@ -47,7 +47,7 @@ const AgroPecuariaPage = () => {
     {
       name: 'Geomembranas',
       slug: 'geomembranas-nortene',
-      image: 'https://images.unsplash.com/photo-1605000797499-95a51c5269ae?q=80&w=2071&auto=format&fit=crop',
+      image: '/images/Almacenamiento-Ensilaje-etc/geomembranas/geomembrana1.jpg',
       description: 'Geomembranas disponibles en varios espesores.',
       details: ['500 micras', '800 micras', '1.000 micras'],
       logo: '/images/logos/nortene-logo.png',
@@ -61,7 +61,7 @@ const AgroPecuariaPage = () => {
       logo: '/images/logos/logo6.png',
     },
     {
-      name: 'Geo Rain Cover',
+      name: 'GeoRain Cover',
       slug: 'geo-rain-cover',
       image: 'https://images.unsplash.com/photo-1605007493699-af65834f8aa3?q=80&w=2071&auto=format&fit=crop',
       description: 'Cubiertas de lluvia de alta resistencia.',

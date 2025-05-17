@@ -32,7 +32,7 @@ const AboutUsPage: React.FC = () => {
               className="text-center"
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">
-                Sobre Nosotros
+                Nosotros
               </h1>
               <p className="mt-6 text-lg md:text-xl text-white max-w-2xl drop-shadow mx-auto">
                 Conoce nuestra historia y nuestra misión.

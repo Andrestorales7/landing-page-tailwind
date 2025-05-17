@@ -3,44 +3,10 @@ import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { BookOpenIcon, CalendarIcon } from "@heroicons/react/24/outline";
-
+import { useArticles } from "../../services/newsService"; // importa el hook
 
 const Noticias: React.FC = () => {
-    const articles = [
-        {
-            id: 1, // Añadimos IDs a cada artículo para facilitar la navegación
-            title: "Tecnología en Agricultura de Precisión",
-            description: "Descubre cómo las nuevas tecnologías están revolucionando los cultivos y mejorando la eficiencia en el campo.",
-            category: "Innovación",
-            author: "Juan Pérez",
-            date: "2023-11-15",
-            readTime: "5 min",
-            image: "https://i.pinimg.com/736x/3a/4b/4c/3a4b4cc1dadee5ba0bf5ac2b9616a9b9.jpg",
-            authorImage: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=256",
-        },
-        {
-            id: 2,
-            title: "Cultivos Orgánicos Sostenibles",
-            description: "Conoce las técnicas líderes en producción orgánica y su impacto positivo en el medio ambiente.",
-            category: "Sostenibilidad",
-            author: "María Gómez",
-            date: "2023-11-10",
-            readTime: "7 min",
-            image: "https://i.pinimg.com/736x/b8/a3/79/b8a37985105e70064183c02f72550676.jpg",
-            authorImage: "https://images.unsplash.com/photo-1511367461989-f85a21fda167?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=256",
-        },
-        {
-            id: 3,
-            title: "Nuevas Tendencias en Agroindustria",
-            description: "Análisis de las últimas tendencias tecnológicas aplicadas a la producción agrícola a gran escala.",
-            category: "Tendencias",
-            author: "Carlos Rojas",
-            date: "2023-11-05",
-            readTime: "6 min",
-            image: "https://i.pinimg.com/736x/bc/62/57/bc6257fdfd27cdecb361f9bc2b2acc3a.jpg",
-            authorImage: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=256",
-        },
-    ];
+    const { articles, loading, error } = useArticles(3); // solo 3 noticias
 
     return (
         <section
@@ -69,8 +35,10 @@ const Noticias: React.FC = () => {
                 </motion.div>
 
                 <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                    {articles.map((article, index) => (
-                        <AnimatedCard key={index} article={article} />
+                    {loading && <p>Cargando noticias...</p>}
+                    {error && <p>Error al cargar noticias.</p>}
+                    {!loading && !error && articles.map((article) => (
+                        <AnimatedCard key={article.id} article={article} />
                     ))}
                 </div>
                 
