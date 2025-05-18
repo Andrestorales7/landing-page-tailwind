@@ -32,38 +32,21 @@ export default function HomePage() {
             image: "/images/Almacenamiento-Ensilaje-etc/comederos/comedero2.jpg",
             title: "Ensilajes",
             description: "",
-            link: "/productos/semillas",
+            link: "/productos/ensilaje",
           },
           {
             image: "/images/Agropecuaria/agropecuaria.png",
             title: "Agropecuaria",
             description: "",
-            link: "/productos/riego",
+            link: "/productos/agropecuaria",
           },
           {
             image: "/images/Envases/big-bags/big-bags-3.png",
-            title: "Envases y Embalajes",
+            title: "Otros",
             description: "",
-            link: "/productos/maquinaria",
+            link: "/ProductosPage",
           },
-          {
-            image: "/images/cerradora/cerradora-bolsas.png",
-            title: "Maquinas Cerradoras",
-            description: "",
-            link: "/productos/agroquimicos",
-          },
-          {
-            image: "/images/Almacenamiento-Ensilaje-etc/geomembranas/geomembrana1.jpg",
-            title: "Geomembranas",
-            description: "",
-            link: "/productos/cultivo-vertical",
-          },
-          {
-            image: "/images/tesa/tesa2.jpg",
-            title: "Cintas Flexograficas",
-            description: "",
-            link: "/productos/asesoria",
-          },
+      
         ]}
       />
       

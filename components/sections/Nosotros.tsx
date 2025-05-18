@@ -89,7 +89,7 @@ const AboutUs: React.FC = () => {
             {/* Botón Principal */}
             <div className="flex flex-wrap gap-4">
               <motion.a
-                href="/Nosotros"
+                href="/NosotrosPage"
                 className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-emerald-600 to-green-600 px-6 py-4 text-white shadow-lg transition-all hover:shadow-xl hover:scale-[1.02]"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}

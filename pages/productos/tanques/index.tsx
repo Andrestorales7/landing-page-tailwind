@@ -198,18 +198,35 @@ const TanquesPage = () => {
       <div id="tanques" className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
         {/* Hero Section */}
         <div className="relative min-h-[52vh] bg-gradient-to-br from-green-900/70 via-green-800/60 to-green-700/50 overflow-hidden">
-          {/* Imagen de fondo */}
+          {/* Imagen de fondo general */}
           <div
-            className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-100"
+            className="absolute inset-0 bg-cover bg-center opacity-80 z-0"
             style={{
               backgroundImage:
-                "url('/images/logos/tanque-hero-bg.jpg')",
+                "url('/images/tanques/bg-slider.jpg')", // Usa aquí tu imagen de fondo general
             }}
           ></div>
+          {/* Imagen del carro tanque alineada a la derecha y por encima */}
+          <div
+            className="absolute inset-y-0 right-0 w-full sm:w-2/3 md:w-1/2 lg:w-[45%] flex items-end justify-end z-10"
+            style={{
+              pointerEvents: 'none',
+            }}
+          >
+            <img
+              src="/images/tanques/carro-tanque.png"
+              alt="Carro Tanque"
+              className="object-contain h-full w-full"
+              style={{
+                maxHeight: '100%',
+                maxWidth: '100%',
+              }}
+            />
+          </div>
           {/* Overlay gradient */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent pointer-events-none"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent pointer-events-none z-20"></div>
           {/* Contenido del Hero */}
-          <div className="relative z-10 pt-42 pb-22 px-6 sm:px-12 lg:px-18 max-w-6xl mx-auto">
+          <div className="relative z-30 pt-42 pb-22 px-6 sm:px-12 lg:px-18 max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -217,7 +234,7 @@ const TanquesPage = () => {
               className="text-center"
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">
-                Tanques Rotomoldeados
+                Tanques
               </h1>
               <p className="mt-6 text-lg md:text-xl text-white max-w-2xl drop-shadow mx-auto">
                 Soluciones de almacenamiento resistentes y duraderas para múltiples aplicaciones.
@@ -225,52 +242,55 @@ const TanquesPage = () => {
             </motion.div>
           </div>
           {/* Divisoria SVG */}
-          <div className="absolute bottom-0 left-0 right-0 overflow-hidden">
+          <div className="absolute bottom-0 left-0 right-0 overflow-hidden z-40">
             <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-[10vw] min-h-[60px] max-h-[120px]">
               <path
                 d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V56.44Z"
-                className="fill-[#f9fafb] relative opacity-90"
+                className="fill-[#f9fafb] relative opacity-10"
               ></path>
-              <path
+              {/* <path
                 d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3"
                 className="fill-none stroke-white stroke-[2px] opacity-50 relative z-10"
-              ></path>
+              /> */}
             </svg>
           </div>
         </div>
 
         {/* Intro */}
-        <section className="relative max-w-5xl mx-auto -mt-12 sm:-mt-16 mb-12 sm:mb-16 px-4 sm:px-6">
-          <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 md:p-12 flex flex-col md:flex-row items-center gap-6 md:gap-8 border border-gray-100">
-            <div className="md:w-1/3 flex justify-center">
-              <div className="bg-gradient-to-r from-green-600 to-green-500 p-4 rounded-xl shadow-lg flex items-center justify-center w-48 h-48 sm:w-auto sm:h-auto">
-                <Image
-                  src="/images/logos/Rotor-2.png"
-                  alt="Logo"
-                  width={180}
-                  height={130}
-                  className="w-full h-auto max-h-36 object-contain"
-                  style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2))' }}
-                />
+        <section className="relative max-w-6xl mx-auto -mt-16 mb-12 px-4">
+          <div className="bg-white rounded-2xl shadow-xl p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="flex items-center space-x-4 p-3">
+              <div className="text-4xl">🛢️</div>
+              <div>
+                <h3 className="font-bold text-gray-900">Variedad de Capacidades</h3>
+                <p className="text-sm text-gray-600">
+                  Tanques para cada necesidad, desde 750L hasta 12.000L.
+                </p>
               </div>
             </div>
-            <div className="md:w-2/3">
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-3 sm:mb-4">Tanques de alta resistencia</h2>
-              <p className="text-gray-600 leading-relaxed">
-                Fabricados con Polietileno 100% virgen y protección UV para garantizar máxima durabilidad.
-                Nuestros tanques HDPE ofrecen resistencia superior al impacto y agentes químicos, 
-                además de incluir rompeolas para un transporte seguro de líquidos.
-              </p>
+            <div className="flex items-center space-x-4 p-3">
+              <div className="text-4xl">🚚</div>
+              <div>
+                <h3 className="font-bold text-gray-900">Envíos Nacionales</h3>
+                <p className="text-sm text-gray-600">
+                  Entregamos en todo el país y brindamos soporte personalizado.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center space-x-4 p-3">
+              <div className="text-4xl">🛠️</div>
+              <div>
+                <h3 className="font-bold text-gray-900">Asesoría Técnica</h3>
+                <p className="text-sm text-gray-600">
+                  Expertos disponibles para resolver todas tus dudas.
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Nueva sección de selección de tanque por tamaño */}
-        <section className="max-w-6xl mx-auto py-1 px-4 sm:px-6">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">Nuestros Tanques</h2>
-          </div>
-
+        <section className="max-w-6xl mx-auto py-1 px-2 sm:px-6">
           {/* Tarjeta de detalle del tanque seleccionado */}
           <AnimatePresence mode="wait">
             <motion.div
@@ -282,24 +302,25 @@ const TanquesPage = () => {
               className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100"
             >
               <div className="grid grid-cols-1 lg:grid-cols-5">
-                <div className="relative p-4 lg:p-8 lg:col-span-3 order-2 lg:order-1">
-                  <div className="lg:aspect-[4/3] relative rounded-xl overflow-hidden shadow-md mb-6">
+                {/* Imagen del producto: ahora visible arriba en móvil */}
+                <div className="relative p-4 lg:p-8 lg:col-span-3 order-1 lg:order-1 flex flex-col">
+                  <div className="w-full aspect-[4/3] relative rounded-xl overflow-hidden shadow-md mb-6">
                     <Image
                       src={selected.image}
                       alt={selected.name}
-                      className="object-cover"
+                      className="object-contain"
                       fill
                       sizes="(max-width: 768px) 100vw, 60vw"
                       priority
                     />
                   </div>
-                  
-                  <div className="flex flex-wrap gap-3 mb-6">
+                  {/* Botones de selección de tanque: scroll horizontal en móvil */}
+                  <div className="flex flex-wrap gap-3 mb-6 overflow-x-auto">
                     {tanquesOrdenados.map((tanque) => (
                       <button
                         key={tanque.slug}
                         onClick={() => setSelected(tanque)}
-                        className={`px-3 py-2 text-sm rounded-lg transition-all ${
+                        className={`px-3 py-2 text-sm rounded-lg transition-all whitespace-nowrap ${
                           selected.slug === tanque.slug
                             ? 'bg-green-500 text-white font-medium shadow-sm'
                             : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -309,14 +330,12 @@ const TanquesPage = () => {
                       </button>
                     ))}
                   </div>
-                  
                   <div>
                     <h3 className="font-semibold text-gray-700 mb-2">Descripción:</h3>
                     <p className="text-gray-600 mb-4">
                       Tanque rotomoldeado de {selected.description.toLowerCase()} fabricado con polietileno de alta densidad
                       y protección UV. Ideal para almacenar agua potable, productos alimenticios y químicos no corrosivos.
                     </p>
-                    
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                       <button className="flex-1 px-4 sm:px-6 py-3 bg-green-500 text-white font-medium rounded-xl shadow hover:bg-green-600 focus:ring-2 focus:ring-green-300 focus:outline-none transition duration-200 flex items-center justify-center">
                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -333,13 +352,12 @@ const TanquesPage = () => {
                     </div>
                   </div>
                 </div>
-                
-                <div className="bg-gray-50 p-6 lg:p-8 lg:col-span-2 order-1 lg:order-2">
+                {/* Especificaciones: debajo de la imagen en móvil, a la derecha en desktop */}
+                <div className="bg-gray-50 p-6 lg:p-8 lg:col-span-2 order-2 lg:order-2">
                   <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">{selected.name}</h2>
                   <div className="inline-block bg-green-100 text-green-700 text-sm px-3 py-1 rounded-full mb-6">
                     {selected.description}
                   </div>
-                  
                   <div className="mb-6">
                     <h3 className="text-lg font-semibold mb-3 text-gray-800">Especificaciones</h3>
                     <ul className="space-y-3">

@@ -84,7 +84,7 @@ const SolucionesSection: React.FC<SolucionesSectionProps> = ({ soluciones }) => 
           <div className="w-full lg:w-2/5 space-y-6">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight text-white drop-shadow-lg">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-lime-200 to-green-300">
-                -Soluciones-
+                CMP Soluciones
               </span>{" "}
             
             </h2>

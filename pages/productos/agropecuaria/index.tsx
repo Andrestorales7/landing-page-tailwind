@@ -42,7 +42,7 @@ const AgroPecuariaPage = () => {
       image: '/images/Almacenamiento-Ensilaje-etc/comederos/comedero2.jpg',
       description: 'Comederos de alta resistencia (1.000 micras).',
       details: ['1,00 x 25 m', '1,00 x 50 m', '1,20 x 25 m', '1,20 x 50 m', '1,50 x 25 m', '1,50 x 50 m'],
-      logo: '/images/logos/nortene-logo.png',
+      logo: '/images/logos/logo14.png',
     },
     {
       name: 'Geomembranas',
@@ -50,31 +50,31 @@ const AgroPecuariaPage = () => {
       image: '/images/Almacenamiento-Ensilaje-etc/geomembranas/geomembrana1.jpg',
       description: 'Geomembranas disponibles en varios espesores.',
       details: ['500 micras', '800 micras', '1.000 micras'],
-      logo: '/images/logos/nortene-logo.png',
+      logo: '/images/logos/logo14.png',
     },
     {
       name: 'Acquapex',
       slug: 'acquapex',
-      image: 'https://images.unsplash.com/photo-1630152675905-c6d7d9e7bfb1?q=80&w=2070&auto=format&fit=crop',
+      image: '/images/Agropecuaria/acquapex.png',
       description: 'Rollos de Acquapex en diferentes colores y medidas.',
       details: ['4,20 x 200 m (Negro/Verde)', '4,20 x 200 m (Negro/Blanco)', '4,20 x 200 m (Negro/Azul)'],
-      logo: '/images/logos/logo6.png',
+      logo: '/images/logos/logo16.png',
     },
     {
       name: 'GeoRain Cover',
       slug: 'geo-rain-cover',
-      image: 'https://images.unsplash.com/photo-1605007493699-af65834f8aa3?q=80&w=2071&auto=format&fit=crop',
+      image: '/images/Agropecuaria/georain.jpg',
       description: 'Cubiertas de lluvia de alta resistencia.',
       details: ['10 x 50 m (250 micras)'],
-      logo: '/images/logos/logo2.png',
+      logo: '/images/logos/logo1.png',
     },
     {
       name: 'Techazo',
       slug: 'techazo-rafitec',
-      image: 'https://images.unsplash.com/photo-1581093450021-4a7360e9a9d9?q=80&w=2070&auto=format&fit=crop',
+      image: '/images/Almacenamiento-Ensilaje-etc/techazos/techazo.jpg',
       description: 'Techazo de alta calidad para uso agropecuario.',
       details: ['8,5 x 50 m (500 micras)'],
-      logo: '/images/logos/rafitec-logo.png',
+      logo: '/images/logos/logo1.png',
     },
   ];
 
@@ -101,7 +101,7 @@ const AgroPecuariaPage = () => {
             className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-100"
             style={{
               backgroundImage:
-                "url('https://images.unsplash.com/photo-1483871788521-4f224a86e166?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+                "url('/images/Agropecuaria/agropecuaria.jpg')",
             }}
           ></div>
           {/* Overlay gradient */}

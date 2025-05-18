@@ -1,17 +1,45 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const images = [
+    "https://images.unsplash.com/photo-1717702576954-c07131c54169?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://images.unsplash.com/photo-1515276427842-f85802d514a2?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://images.unsplash.com/photo-1581615760599-bbfa598a0b88?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+];
 
 const Hero: React.FC = () => {
+    const [current, setCurrent] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrent((prev) => (prev + 1) % images.length);
+        }, 4000);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
-        <section id="Hero" className="relative w-full h-screen flex items-center">
-            {/* Background with gradient overlay for better text visibility */}
-            <div 
-                className="absolute inset-0 z-0 bg-cover bg-center" 
-                style={{
-                    backgroundImage: `url('https://images.unsplash.com/photo-1615811361523-6bd03d7748e7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
-                }}
-            >
-                <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+        <section id="Hero" className="relative w-full h-screen flex items-center overflow-hidden">
+            {/* Slide Images */}
+            <div className="absolute inset-0 z-0">
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={current}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="absolute inset-0 w-full h-full"
+                    >
+                        <div
+                            className="w-full h-full bg-cover bg-center"
+                            style={{
+                                backgroundImage: `url('${images[current]}')`,
+                            }}
+                        >
+                            <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+                        </div>
+                    </motion.div>
+                </AnimatePresence>
             </div>
             
             {/* Content container */}
@@ -41,7 +69,7 @@ const Hero: React.FC = () => {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.3, duration: 0.8 }}
                     >
-                        <span className="text-green-500">Cultivando Soluciones</span> para un Futuro Sostenible
+                        <span className="text-green-500">Soluciones Agricolas</span> Inteligentes para el campo de hoy
                     </motion.h1>
                     
                     {/* Description */}
@@ -62,29 +90,25 @@ const Hero: React.FC = () => {
                         transition={{ delay: 0.9, duration: 0.8 }}
                     >
                         <p className="text-white italic font-medium">
-                            "Sembramos innovación, cosechamos sostenibilidad."
+                            "Tu aliado en cada cosecha."
                         </p>
                     </motion.div>
                 </motion.div>
             </div>
             
-            {/* Scroll indicator */}
-            <motion.div 
-                className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
-                animate={{ 
-                    y: [0, 10, 0],
-                }}
-                transition={{
-                    repeat: Infinity,
-                    duration: 2
-                }}
-            >
-                
-                {/* Arrow icon */}
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 5L12 19M12 19L18 13M12 19L6 13" stroke="rgba(255,255,255,0.7)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-            </motion.div>
+            {/* Slide indicators */}
+            <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
+                {images.map((_, idx) => (
+                    <button
+                        key={idx}
+                        onClick={() => setCurrent(idx)}
+                        className={`block w-4 h-1 rounded-full transition-all duration-300 focus:outline-none ${current === idx ? 'bg-white/90' : 'bg-white/40'}`}
+                        aria-label={`Ir a la imagen ${idx + 1}`}
+                        tabIndex={0}
+                    />
+                ))}
+            </div>
+            {/* Scroll indicator eliminado */}
         </section>
     );
 };
