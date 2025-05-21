@@ -25,7 +25,7 @@ const logos = [
 
 const Marcas = () => {
   return (
-    <section className="bg-gray-50 py-16">
+    <section className="bg-gray-50 py-12">
       <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden">
         <div className="flex items-center gap-10 animate-marcas-slide">
           {logos.concat(logos).map((logo, idx) => (

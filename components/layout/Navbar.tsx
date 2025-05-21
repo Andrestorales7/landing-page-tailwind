@@ -70,7 +70,7 @@ const Navbar: React.FC = () => {
                             <span className="sr-only">Home</span>
                             <div className="flex items-center space-x-2">
                                 <img 
-                                    src="/images/logos/cmp-logo3.png" 
+                                    src="/images/logos/cmp-logo1.png" 
                                     alt="Company Logo" 
                                     className="h-14 w-auto object-contain" 
                                 />
@@ -94,12 +94,16 @@ const Navbar: React.FC = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <button
-                                        onClick={() => scrollToSection("productSect")}
+                                    <Link 
+                                        href="/#productSect"
                                         className="font-medium tracking-wide transition-colors hover:text-green-500"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            scrollToSection("productSect");
+                                        }}
                                     >
                                         Soluciones
-                                    </button>
+                                    </Link>
                                 </li>
 
                                 <li
@@ -125,59 +129,65 @@ const Navbar: React.FC = () => {
                                                 isProductMenuOpen ? "block" : "hidden"
                                             }`}
                                         >
-                                            <button
-                                                onClick={() => {
-                                                    setIsProductMenuOpen(false);
-                                                    router.push("/ProductosPage");
-                                                }}
+                                            <Link
+                                                href="/ProductosPage"
                                                 className="block w-full text-left px-4 py-2.5 text-base font-semibold text-green-600 hover:bg-gray-50 hover:text-green-700 rounded-md transition-colors mb-1 border-b border-gray-200"
+                                                onClick={() => setIsProductMenuOpen(false)}
                                             >
                                                 --Categorias--
-                                            </button>
+                                            </Link>
                                             {productSubcategories.map((subcategory) => (
-                                                <button
+                                                <Link
                                                     key={subcategory.id}
+                                                    href={subcategory.path}
+                                                    className="block w-full text-left px-4 py-2 text-sm text-gray-800 hover:text-green-500 rounded-md transition-colors"
                                                     onClick={() => {
                                                         setIsProductMenuOpen(false);
                                                         setIsMobileMenuOpen(false);
-                                                        router.push(subcategory.path);
                                                     }}
-                                                    className="block w-full text-left px-4 py-2 text-sm text-gray-800 hover:text-green-500 rounded-md transition-colors"
                                                 >
                                                     {subcategory.name}
-                                                </button>
+                                                </Link>
                                             ))}
                                         </div>
                                     </div>
                                 </li>
 
                                 <li>
-                                    <button
-                                        onClick={() => scrollToSection("nosotros")}
+                                    <Link
+                                        href="/#nosotros"
                                         className="font-medium tracking-wide transition-colors hover:text-green-500"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            scrollToSection("nosotros");
+                                        }}
                                     >
                                         Nosotros
-                                    </button>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <button
-                                        onClick={() => router.push('/NoticiasPage')}
+                                    <Link
+                                        href="/NoticiasPage"
                                         className="font-medium tracking-wide transition-colors hover:text-green-500"
                                     >
                                         Noticias
-                                    </button>
+                                    </Link>
                                 </li>
                             </ul>
                         </nav>
 
                         <div className="flex items-center gap-4">
                             <div className="sm:flex sm:gap-4">
-                                <button
-                                    onClick={() => scrollToSection("footer")}
+                                <Link
+                                    href="/#footer"
                                     className="rounded-full bg-green-600 px-7 py-3 text-base font-medium text-white shadow hover:bg-green-500 transition-colors"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        scrollToSection("footer");
+                                    }}
                                 >
                                     Contacto
-                                </button>
+                                </Link>
                             </div>
 
                             <div className="block md:hidden">
@@ -215,80 +225,90 @@ const Navbar: React.FC = () => {
                             >
                                 Inicio
                             </Link>
-                            <button
-                                onClick={() => {
+                            <Link
+                                href="/#productSect"
+                                className="block w-full text-left font-medium text-gray-800 py-2 hover:text-green-500"
+                                onClick={(e) => {
+                                    e.preventDefault();
                                     setIsMobileMenuOpen(false);
                                     scrollToSection("productSect");
                                 }}
-                                className="block w-full text-left font-medium text-gray-800 py-2 hover:text-green-500"
                             >
                                 Soluciones
-                            </button>
+                            </Link>
                             <div className="relative">
-                                <button
-                                    onClick={() => setIsProductMenuOpen((open) => !open)}
+                                <Link
+                                    href="#"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        setIsProductMenuOpen((open) => !open);
+                                    }}
                                     className="block w-full text-left font-medium text-gray-800 py-2 hover:text-green-500 flex items-center justify-between"
                                 >
                                     Productos
                                     <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                     </svg>
-                                </button>
+                                </Link>
                                 {isProductMenuOpen && (
                                     <div className="bg-white border rounded-lg shadow-lg mt-2">
-                                        <button
+                                        <Link
+                                            href="/ProductosPage"
+                                            className="block w-full text-left px-4 py-2.5 text-base font-semibold text-green-600 hover:bg-gray-50 hover:text-green-700 rounded-md transition-colors mb-1 border-b border-gray-200"
                                             onClick={() => {
                                                 setIsProductMenuOpen(false);
                                                 setIsMobileMenuOpen(false);
-                                                router.push("/ProductosPage");
                                             }}
-                                            className="block w-full text-left px-4 py-2.5 text-base font-semibold text-green-600 hover:bg-gray-50 hover:text-green-700 rounded-md transition-colors mb-1 border-b border-gray-200"
                                         >
                                             --Categorias--
-                                        </button>
+                                        </Link>
                                         {productSubcategories.map((subcategory) => (
-                                            <button
+                                            <Link
                                                 key={subcategory.id}
+                                                href={subcategory.path}
+                                                className="block w-full text-left px-4 py-2 text-sm text-gray-800 hover:text-green-500 rounded-md transition-colors"
                                                 onClick={() => {
                                                     setIsProductMenuOpen(false);
                                                     setIsMobileMenuOpen(false);
-                                                    router.push(subcategory.path);
                                                 }}
-                                                className="block w-full text-left px-4 py-2 text-sm text-gray-800 hover:text-green-500 rounded-md transition-colors"
                                             >
                                                 {subcategory.name}
-                                            </button>
+                                            </Link>
                                         ))}
                                     </div>
                                 )}
                             </div>
-                            <button
-                                onClick={() => {
+                            <Link
+                                href="/#nosotros"
+                                className="block w-full text-left font-medium text-gray-800 py-2 hover:text-green-500"
+                                onClick={(e) => {
+                                    e.preventDefault();
                                     setIsMobileMenuOpen(false);
                                     scrollToSection("nosotros");
                                 }}
-                                className="block w-full text-left font-medium text-gray-800 py-2 hover:text-green-500"
                             >
                                 Nosotros
-                            </button>
-                            <button
+                            </Link>
+                            <Link
+                                href="/NoticiasPage"
+                                className="block w-full text-left font-medium text-gray-800 py-2 hover:text-green-500"
                                 onClick={() => {
                                     setIsMobileMenuOpen(false);
-                                    router.push('/NoticiasPage');
                                 }}
-                                className="block w-full text-left font-medium text-gray-800 py-2 hover:text-green-500"
                             >
                                 Noticias
-                            </button>
-                            <button
-                                onClick={() => {
+                            </Link>
+                            <Link
+                                href="/#footer"
+                                className="block w-full text-left rounded-full bg-green-600 px-7 py-3 text-base font-medium text-white shadow hover:bg-green-500 transition-colors mt-2"
+                                onClick={(e) => {
+                                    e.preventDefault();
                                     setIsMobileMenuOpen(false);
                                     scrollToSection("footer");
                                 }}
-                                className="block w-full text-left rounded-full bg-green-600 px-7 py-3 text-base font-medium text-white shadow hover:bg-green-500 transition-colors mt-2"
                             >
                                 Contacto
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 )}

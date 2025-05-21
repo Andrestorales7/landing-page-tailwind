@@ -67,9 +67,9 @@ const HorticulturaProductPage = () => {
 
   const contacts = [
     {
-      name: 'Juan Pérez',
+      name: 'Andres Torales',
       profileImage: '/images/perfil1.png',
-      whatsappLink: 'https://wa.me/1234567890',
+      whatsappLink: 'https://wa.me/0982074040',
     },
     {
       name: 'María López',
