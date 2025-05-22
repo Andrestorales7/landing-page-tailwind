@@ -14,17 +14,96 @@ const EnvasesPage = () => {
     setIsLoaded(true);
   }, []);
 
-  // Cambia estos productos por los de envases
   const products = [
     {
-      name: 'Bolsa Plástica',
-      slug: 'bolsa-plastica',
-      image: '/images/Envases/bolsa-plastica.jpg',
-      description: 'Bolsa plástica resistente para múltiples usos.',
-      details: ['30x40 cm', '40x60 cm', '60x90 cm'],
+      name: 'Bag in Box',
+      slug: 'bag-in-box',
+      image: '/images/Envases/bag-in-box.jpg',
+      description: 'Envase flexible ideal para líquidos a granel, seguro y eficiente para almacenamiento y transporte.',
+      details: ['Capacidad: 1000 litros'],
       logo: '/images/logos/envases-logo.png',
     },
-    // ...agrega más productos de envases aquí...
+    {
+      name: 'IBC',
+      slug: 'ibc',
+      image: '/images/Envases/ibc.jpg',
+      description: 'Contenedor rígido intermedio para líquidos y productos a granel, reutilizable y resistente.',
+      details: ['Capacidad: 1000 litros'],
+      logo: '/images/logos/envases-logo.png',
+    },
+    {
+      name: 'Flexitank',
+      slug: 'flexitank',
+      image: '/images/Envases/flexitank.jpg',
+      description: 'Sistema flexible para transporte de líquidos no peligrosos en contenedores marítimos.',
+      details: [
+        'Capacidades: 1000 litros',
+        '18.000 litros',
+        '20.000 litros',
+        '24.000 litros',
+      ],
+      logo: '/images/logos/envases-logo.png',
+    },
+    {
+      name: 'Tambores Metálicos',
+      slug: 'tambores-metalicos',
+      image: '/images/Envases/tambor-metalico.jpg',
+      description: 'Tambores de acero para almacenamiento y transporte de líquidos y sólidos industriales.',
+      details: [
+        'Capacidades: 50, 100, 200, 210, 220 litros',
+        'Modelos: tapa fija, tapa removible',
+      ],
+      logo: '/images/logos/envases-logo.png',
+    },
+    {
+      name: 'Tambores de Plástico',
+      slug: 'tambores-plastico',
+      image: '/images/Envases/tambor-plastico.jpg',
+      description: 'Tambores plásticos resistentes para productos líquidos o sólidos, aptos para uso alimenticio e industrial.',
+      details: [
+        'Capacidades: 100, 200, 250 litros',
+      ],
+      logo: '/images/logos/envases-logo.png',
+    },
+    {
+      name: 'Bolsa de Rafia',
+      slug: 'bolsa-rafia',
+      image: '/images/Envases/bolsa-rafia.jpg',
+      description: 'Bolsas versátiles para productos agrícolas e industriales, personalizables según necesidad.',
+      details: [
+        'Tipos: valvulado o boca abierta',
+        'Blanco o transparente',
+        'Con o sin fuelle',
+        'Impresión frente y reverso',
+        'Laminada o convencional',
+      ],
+      logo: '/images/logos/envases-logo.png',
+    },
+    {
+      name: 'Bolsas de Papel',
+      slug: 'bolsa-papel',
+      image: '/images/Envases/bolsa-papel.jpg',
+      description: 'Bolsas ecológicas para alimentos, harinas y productos industriales, alta resistencia y personalización.',
+      details: [
+        'Tipos: valvulado o boca abierta',
+        'Blanca o marrón',
+        'Con o sin fuelle',
+        'Impresión frente y reverso',
+        'Linner interno',
+      ],
+      logo: '/images/logos/envases-logo.png',
+    },
+    {
+      name: 'Big Bags',
+      slug: 'big-bags',
+      image: '/images/Envases/big-bag.jpg',
+      description: 'Sacos de gran tamaño para cargas a granel, ideales para agricultura e industria.',
+      details: [
+        'Capacidades: 500kg, 800kg, 1000kg, 1200kg, 1500kg',
+        'Modelos: tubular (blanco), maparado (blanco o transparente)',
+      ],
+      logo: '/images/logos/envases-logo.png',
+    },
   ];
 
   const contacts = [

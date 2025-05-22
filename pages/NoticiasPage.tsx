@@ -56,7 +56,7 @@ const NoticiasPage: React.FC = () => {
                         className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-100"
                         style={{
                             backgroundImage:
-                                "url('/images/noticias/heronoticias.jpg')",
+                                "url('/images/hero/heronoticias.jpg')",
                         }}
                     ></div>
                     <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent pointer-events-none"></div>

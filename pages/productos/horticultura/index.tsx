@@ -34,7 +34,7 @@ const HorticulturaProductPage = () => {
     {
       name: 'Mulching',
       slug: 'mulching',
-      image: '/images/horticultura/mulching/mulching1.jpeg',
+      image: '/images/productos/horticultura/mulching1.jpeg',
       description: 'Mejora la retención de humedad y controla las malezas con mulching.',
       details: ['Control de malezas', 'Ahorro de agua', 'Fácil instalación'],
       logo: '/images/logos/agrinpex-logo.png',
@@ -42,7 +42,7 @@ const HorticulturaProductPage = () => {
     {
       name: 'Mantas para Cultivo',
       slug: 'mantas-para-cultivo',
-      image: '/images/horticultura/mantas-cultivo/mantas-cultivos1.jpg',
+      image: '/images/productos/horticultura/mantas-cultivos1.jpg',
       description: 'Protege tus cultivos del frío y las plagas con nuestras mantas.',
       details: ['Protección contra heladas', 'Transpirable', 'Ligero y resistente'],
       logo: '/images/logos/agrinpex-logo.png',
@@ -50,7 +50,7 @@ const HorticulturaProductPage = () => {
     {
       name: 'Hilos para Tutorado',
       slug: 'hilos-para-tutorado',
-      image: '/images/horticultura/hilos-tutorado/hilo1.jpg',
+      image: '/images/productos/horticultura/hilo1.jpg',
       description: 'Soporta el crecimiento de tus plantas con hilos resistentes.',
       details: ['Alta resistencia', 'No daña las plantas'],
       logo: '/images/logos/agrinpex-logo.png',
@@ -58,7 +58,7 @@ const HorticulturaProductPage = () => {
     {
       name: 'Mantas de Solarización',
       slug: 'mantas-de-solarizacion',
-      image: '/images/horticultura/manta-solarizacion/manta2.jpg',
+      image: '/images/productos/horticultura/manta2.jpg',
       description: 'Elimina patógenos del suelo con nuestras mantas de solarización.',
       details: ['Control de patógenos', 'Fácil de usar'],
       logo: '/images/logos/agrinpex-logo.png',

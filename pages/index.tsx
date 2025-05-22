@@ -23,25 +23,25 @@ export default function HomePage() {
       <SolucionesSection
         soluciones={[
           {
-            image: "/images/horticultura/mulching/mulching1.jpeg",
+            image: "/images/productos/horticultura/mulching1.jpeg",
             title: "Horticultura",
             description: "",
             link: "/productos/horticultura",
           },
           {
-            image: "/images/Agropecuaria/Portada.jpg",
+            image: "/images/productos/ensilaje/ensilaje1.jpg",
             title: "Ensilajes",
             description: "",
             link: "/productos/ensilaje",
           },
           {
-            image: "/images/Almacenamiento-Ensilaje-etc/geomembranas/geomembrana1.jpg",
+            image: "/images/productos/agropecuaria/geomembrana.jpeg",
             title: "Agropecuaria",
             description: "",
             link: "/productos/agropecuaria",
           },
           {
-            image: "/images/Envases/big-bags/big-bags-3.png",
+            image: "/images/productos/inoculantes/inoculante1.jpeg",
             title: "Mas Soluciones",
             description: "",
             link: "/ProductosPage",

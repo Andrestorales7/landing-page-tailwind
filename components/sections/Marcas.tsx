@@ -2,25 +2,24 @@ import Image from 'next/image';
 import React from 'react';
 
 const logos = [
-  { src: '/images/logos/logo1.png', alt: 'Logo Marca 1' },
-  { src: '/images/logos/logo2.png', alt: 'Logo Marca 2' },
-  { src: '/images/logos/logo3.png', alt: 'Logo Marca 3' },
-  { src: '/images/logos/logo4.png', alt: 'Logo Marca 4' },
-  { src: '/images/logos/logo5.png', alt: 'Logo Marca 5' },
-  { src: '/images/logos/logo6.png', alt: 'Logo Marca 6' },
-  { src: '/images/logos/logo7.png', alt: 'Logo Marca 7' },
-  { src: '/images/logos/logo20.png', alt: 'Logo Marca 8' },
-  { src: '/images/logos/logo9.png', alt: 'Logo Marca 9' },
-  { src: '/images/logos/logo10.png', alt: 'Logo Marca 10' },
-  { src: '/images/logos/logo11.png', alt: 'Logo Marca 11' },
-  { src: '/images/logos/logo12.png', alt: 'Logo Marca 12' },
-  { src: '/images/logos/logo13.png', alt: 'Logo Marca 13' },
-  { src: '/images/logos/logo14.png', alt: 'Logo Marca 14' },
-  { src: '/images/logos/logo15.png', alt: 'Logo Marca 15' },
-  { src: '/images/logos/logo16.png', alt: 'Logo Marca 16' },
-  { src: '/images/logos/logo17.png', alt: 'Logo Marca 17' },
-  { src: '/images/logos/logo18.png', alt: 'Logo Marca 18' },
-  { src: '/images/logos/logo19.png', alt: 'Logo Marca 19' },
+  { src: '/images/logos/agrinpex-logo.png', alt: 'agrinpex' },
+  { src: '/images/logos/agroman-logo.png', alt: 'Logo Marca 2' },
+  { src: '/images/logos/azulpack-logo.png', alt: 'Logo Marca 3' },
+  { src: '/images/logos/biotech-logo.png', alt: 'Logo Marca 4' },
+  { src: '/images/logos/exporplas-logo.png', alt: 'Logo Marca 5' },
+  { src: '/images/logos/genofeed-logo.png', alt: 'Logo Marca 6' },
+  { src: '/images/logos/ginegar-logo.png', alt: 'Logo Marca 7' },
+  { src: '/images/logos/klabin-logo.png', alt: 'Logo Marca 8' },
+  { src: '/images/logos/magnum-logo.png', alt: 'Logo Marca 9' },
+  { src: '/images/logos/mauser-logo.png', alt: 'Logo Marca 10' },
+  { src: '/images/logos/nortene-logo.png', alt: 'Logo Marca 11' },
+  { src: '/images/logos/rafitec-logo.png', alt: 'Logo Marca 12' },
+  { src: '/images/logos/pipiola-logo.png', alt: 'Logo Marca 13' },
+  { src: '/images/logos/silox-logo.png', alt: 'Logo Marca 14' },
+  { src: '/images/logos/suprasil-logo.png', alt: 'Logo Marca 15' },
+  { src: '/images/logos/technipes-logo.png', alt: 'Logo Marca 16' },
+  { src: '/images/logos/textil-logo.png', alt: 'Logo Marca 17' },
+ 
 ];
 
 const Marcas = () => {

@@ -18,7 +18,7 @@ const AgroPecuariaPage = () => {
     {
       name: 'Malla CTA Aluminet',
       slug: 'malla-cta-aluminet',
-      image: '/images/Almacenamiento-Ensilaje-etc/cta-aluminet/cta.jpg',
+      image: '/images/productos/agropecuaria/cta2.jpg',
       description: 'Malla CTA Aluminet disponible en varias medidas.',
       details: ['0,4 x 50 m', '0,8 x 50 m', '4,30 x 100 m (50%)', '4,30 x 100 m (35%)'],
       logo: '/images/logos/sugrand.png',
@@ -26,7 +26,7 @@ const AgroPecuariaPage = () => {
     {
       name: 'Tejido Aviary Porcícola',
       slug: 'tejido-aviary-porcicola',
-      image: '/images/Almacenamiento-Ensilaje-etc/tejido-aviar/Aviar2.jpg',
+      image: '/images/productos/agropecuaria/tejido-aviar.jpg',
       description: 'Tejido aviary porcícola con diferentes características.',
       details: [
         'Amarillo: Lateral - 120 g/m² (2,10 - 2,60 m)',
@@ -39,23 +39,23 @@ const AgroPecuariaPage = () => {
     {
       name: 'Comederos',
       slug: 'comederos-nortene',
-      image: '/images/Almacenamiento-Ensilaje-etc/comederos/comedero2.jpg',
+      image: '/images/productos/agropecuaria/comedero.jpg',
       description: 'Comederos de alta resistencia (1.000 micras).',
       details: ['1,00 x 25 m', '1,00 x 50 m', '1,20 x 25 m', '1,20 x 50 m', '1,50 x 25 m', '1,50 x 50 m'],
-      logo: '/images/logos/logo14.png',
+      logo: '/images/logos/nortene-logo.png',
     },
     {
       name: 'Geomembranas',
       slug: 'geomembranas-nortene',
-      image: '/images/Almacenamiento-Ensilaje-etc/geomembranas/geomembrana1.jpg',
+      image: '/images/productos/agropecuaria/geomembrana.jpeg',
       description: 'Geomembranas disponibles en varios espesores.',
       details: ['500 micras', '800 micras', '1.000 micras'],
-      logo: '/images/logos/logo14.png',
+      logo: '/images/logos/nortene-logo.png',
     },
     {
       name: 'Acquapex',
       slug: 'acquapex',
-      image: '/images/Agropecuaria/acquapex.png',
+      image: '/images/productos/agropecuaria/acquapex.png',
       description: 'Rollos de Acquapex en diferentes colores y medidas.',
       details: ['4,20 x 200 m (Negro/Verde)', '4,20 x 200 m (Negro/Blanco)', '4,20 x 200 m (Negro/Azul)'],
       logo: '/images/logos/logo16.png',
@@ -63,7 +63,7 @@ const AgroPecuariaPage = () => {
     {
       name: 'GeoRain Cover',
       slug: 'geo-rain-cover',
-      image: '/images/Agropecuaria/georain.jpg',
+      image: '/images/productos/agropecuaria/geo-rain.jpg',
       description: 'Cubiertas de lluvia de alta resistencia.',
       details: ['10 x 50 m (250 micras)'],
       logo: '/images/logos/logo1.png',
@@ -71,10 +71,10 @@ const AgroPecuariaPage = () => {
     {
       name: 'Techazo',
       slug: 'techazo-rafitec',
-      image: '/images/Almacenamiento-Ensilaje-etc/techazos/techazo.jpg',
+      image: '/images/productos/agropecuaria/techazo.jpg',
       description: 'Techazo de alta calidad para uso agropecuario.',
       details: ['8,5 x 50 m (500 micras)'],
-      logo: '/images/logos/logo1.png',
+      logo: '/images/logos/rafitec-logo.png',
     },
   ];
 
@@ -101,7 +101,7 @@ const AgroPecuariaPage = () => {
             className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-100"
             style={{
               backgroundImage:
-                "url('/images/Agropecuaria/agropecuaria.jpg')",
+                "url('/images/hero/agropecuaria.jpg')",
             }}
           ></div>
           {/* Overlay gradient */}

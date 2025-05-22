@@ -33,7 +33,7 @@ const NoticiaDetalle = () => {
         <div
           className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-100"
           style={{
-            backgroundImage: `url('/images/noticias/heronoticias.jpg')`,
+            backgroundImage: `url('/images/hero/heronoticias.jpg')`,
           }}
         ></div>
         {/* Overlay gradient */}

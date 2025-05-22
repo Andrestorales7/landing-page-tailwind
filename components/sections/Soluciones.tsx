@@ -59,7 +59,7 @@ const SolucionesSection: React.FC<SolucionesSectionProps> = ({ soluciones }) => 
       id="productSect"
       className="relative text-white py-16 sm:py-24 lg:py-32 overflow-hidden"
       style={{
-        backgroundImage: `url('/images/background3.jpg')`,
+        backgroundImage: `url('/images/hero/soluciones-ensilaje.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',

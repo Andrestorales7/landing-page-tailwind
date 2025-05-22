@@ -7,37 +7,37 @@ import { motion } from 'framer-motion';
 const categorias = [
     {
         name: 'Horticultura',
-        image: '/images/horticultura/hilos-tutorado/hilo1.jpg',
+        image: '/images/productos/horticultura/hilo1.jpg',
         link: '/productos/horticultura'
     },
     {
         name: 'Ensilaje',
-        image: '/images/Agropecuaria/Portada.jpg',
+        image: '/images/productos/ensilaje/hilo-fardo.png',
         link: '/productos/ensilaje'
     },
     {
         name: 'Agropecuaria',
-        image: '/images/Almacenamiento-Ensilaje-etc/geomembranas/geomembrana1.jpg',
+        image: '/images/productos/agropecuaria/geomembrana.jpeg',
         link: '/productos/agropecuaria'
     },
     {
         name: 'Tanques',
-        image: '/images/tanques/tanque-1500lt.jpg',
+        image: '/images/productos/tanques/tanque-1500lt.jpg',
         link: '/productos/tanques'
     },
     {
         name: 'Envases',
-        image: '/images/cerradora/cerradora-bolsas.png',
+        image: '/images/productos/envases/envase2.jpg',
         link: '/productos/envases'
     },
     {
         name: 'Inoculantes',
-        image: '/images/Almacenamiento-Ensilaje-etc/geomembranas/geomembrana1.jpg',
+        image: '/images/productos/inoculantes/inoculante1.jpeg',
         link: '/productos/inoculantes'
     },
     {
         name: 'Otros Productos',
-        image: '/images/tesa/tesa2.jpg',
+        image: '/images/productos/otros/costuradoras/cost1.png',
         link: '/productos/otros-productos'
     },
 ];
@@ -52,7 +52,7 @@ const ProductosPage = () => {
                     <div 
                         className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-100"
                         style={{
-                            backgroundImage: "url('/images/heros/productpagehero.jpg')",
+                            backgroundImage: "url('/images/hero/productpagehero.jpg')",
                         }}
                     >
                     </div>

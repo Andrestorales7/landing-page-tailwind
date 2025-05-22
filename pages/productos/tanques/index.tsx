@@ -12,7 +12,7 @@ const TanquesPage = () => {
     {
       name: 'Tanque 750 litros',
       slug: 'tanque-750-litros',
-      image: '/images/tanques/tanque750.jpg',
+      image: '/images/productos/tanques/tanque750.jpg',
       description: 'Capacidad de 750 litros',
       details: [
         'Ancho: 0,88 m.',
@@ -27,7 +27,7 @@ const TanquesPage = () => {
     {
       name: 'Tanque 1.100 litros',
       slug: 'tanque-1100-litros',
-      image: '/images/tanques/tanque-1100-litros.jpg',
+      image: '/images/productos/tanques/tanque-1100-litros.jpg',
       description: 'Capacidad de 1.100 litros',
       details: [
         'Ancho: 0,98 m.',
@@ -42,7 +42,7 @@ const TanquesPage = () => {
     {
       name: 'Tanque 1.500 litros',
       slug: 'tanque-1500-litros',
-      image: '/images/tanques/tanque-1500lt.jpg',
+      image: '/images/productos/tanques/tanque-1500lt.jpg',
       description: 'Capacidad de 1.500 litros',
       details: [
         'Ancho: 1,15 m.',
@@ -57,7 +57,7 @@ const TanquesPage = () => {
     {
       name: 'Tanque 3.000 litros',
       slug: 'tanque-3000-litros',
-      image: '/images/tanques/tanque-3000lt.png',
+      image: '/images/productos/tanques/tanque-3000lt.png',
       description: 'Capacidad de 3.000 litros',
       details: [
         'Ancho: 1,70 m.',
@@ -73,7 +73,7 @@ const TanquesPage = () => {
     {
       name: 'Tanque 3.500 litros',
       slug: 'tanque-3500-litros',
-      image: '/images/tanques/tanque-3500lt.jpg',
+      image: '/images/productos/tanques/tanque-3500lt.jpg',
       description: 'Capacidad de 3.500 litros',
       details: [
         'Ancho: 1,65 m.',
@@ -89,7 +89,7 @@ const TanquesPage = () => {
     {
       name: 'Tanque 4.500 litros',
       slug: 'tanque-4500-litros',
-      image: '/images/tanques/tanque-4500lt.jpg',
+      image: '/images/productos/tanques/tanque-4500lt.jpg',
       description: 'Capacidad de 4.500 litros',
       details: [
         'Ancho: 1,65 m.',
@@ -105,7 +105,7 @@ const TanquesPage = () => {
     {
       name: 'Tanque 6.000 litros',
       slug: 'tanque-6000-litros',
-      image: '/images/tanques/tanque-6000lt.jpg',
+      image: '/images/productos/tanques/tanque-6000lt.jpg',
       description: 'Capacidad de 6.000 litros',
       details: [
         'Ancho: 1,60 m.',
@@ -121,7 +121,7 @@ const TanquesPage = () => {
     {
       name: 'Tanque 8.000 litros',
       slug: 'tanque-8000-litros',
-      image: '/images/tanques/tanque-8000lt.jpg',
+      image: '/images/productos/tanques/tanque-8000lt.jpg',
       description: 'Capacidad de 8.000 litros',
       details: [
         'Ancho: 2,20 m.',
@@ -137,7 +137,7 @@ const TanquesPage = () => {
     {
       name: 'Tanque 10.000 litros',
       slug: 'tanque-10000-litros',
-      image: '/images/tanques/tanque-10000lt.jpg',
+      image: '/images/productos/tanques/tanque-10000lt.png',
       description: 'Capacidad de 10.000 litros',
       details: [
         'Ancho: 2,20 m.',
@@ -153,7 +153,7 @@ const TanquesPage = () => {
     {
       name: 'Tanque 12.000 litros',
       slug: 'tanque-12000-litros',
-      image: '/images/tanques/tanque-12mlt.png',
+      image: '/images/productos/tanques/tanque-12mlt.png',
       description: 'Capacidad de 12.000 litros',
       details: [
         'Ancho: 2,20 m.',
@@ -203,7 +203,7 @@ const TanquesPage = () => {
             className="absolute inset-0 bg-cover bg-center opacity-80 z-0"
             style={{
               backgroundImage:
-                "url('/images/tanques/bg-slider.jpg')", // Usa aquí tu imagen de fondo general
+                "url('/images/productos/tanques/bg-slider.jpg')", // Usa aquí tu imagen de fondo general
             }}
           ></div>
           {/* Imagen del carro tanque alineada a la derecha y por encima */}
@@ -214,7 +214,7 @@ const TanquesPage = () => {
             }}
           >
             <img
-              src="/images/tanques/carro-tanque.png"
+              src="/images/productos/tanques/carro-tanque.png"
               alt="Carro Tanque"
               className="object-contain h-full w-full"
               style={{
