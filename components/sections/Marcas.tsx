@@ -19,6 +19,8 @@ const logos = [
   { src: '/images/logos/suprasil-logo.png', alt: 'Logo Marca 15' },
   { src: '/images/logos/technipes-logo.png', alt: 'Logo Marca 16' },
   { src: '/images/logos/textil-logo.png', alt: 'Logo Marca 17' },
+  { src: '/images/logos/sugrand-logo2.png', alt: 'Logo Marca 18' },
+  
  
 ];
 

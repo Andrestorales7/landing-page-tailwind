@@ -29,7 +29,7 @@ const HorticulturaProductPage = () => {
       image: 'https://www.greataussiepatios.com.au/sites/greataussiepatioscomau/assets/public/Image/Patio-of-week-blogs/Nursery_with_Shade_Cloth_for_Shade.jpg',
       description: 'Crea sombra parcial para tus plantas con nuestras mallas de sombra.',
       details: ['Diferentes porcentajes de sombra', 'Resistente a la intemperie'],
-      logo: '/images/logos/agrinpex-logo.png',
+      logo: '/images/logos/sugrand-logo2.png',
     },
     {
       name: 'Mulching',
@@ -53,7 +53,7 @@ const HorticulturaProductPage = () => {
       image: '/images/productos/horticultura/hilo1.jpg',
       description: 'Soporta el crecimiento de tus plantas con hilos resistentes.',
       details: ['Alta resistencia', 'No daña las plantas'],
-      logo: '/images/logos/agrinpex-logo.png',
+      logo: '/images/logos/exporplas-logo.png',
     },
     {
       name: 'Mantas de Solarización',
@@ -65,18 +65,7 @@ const HorticulturaProductPage = () => {
     },
   ];
 
-  const contacts = [
-    {
-      name: 'Andres Torales',
-      profileImage: '/images/perfil1.png',
-      whatsappLink: 'https://wa.me/0982074040',
-    },
-    {
-      name: 'María López',
-      profileImage: '/images/perfil1.png',
-      whatsappLink: 'https://wa.me/0987654321',
-    },
-  ];
+ 
 
   return (
     <>
@@ -272,7 +261,7 @@ const HorticulturaProductPage = () => {
 
       {/* Botón flotante de WhatsApp siempre visible */}
       <div className="fixed bottom-6 right-6 z-50">
-        <WhatsappContacts contacts={contacts} />
+        <WhatsappContacts  />
       </div>
     </>
   );

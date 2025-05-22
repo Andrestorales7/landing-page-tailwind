@@ -180,18 +180,7 @@ const TanquesPage = () => {
     setSelected(closestTank);
   }, [capacityRange]);
 
-  const contacts = [
-    {
-      name: 'Juan Pérez',
-      profileImage: '/images/perfil1.png',
-      whatsappLink: 'https://wa.me/1234567890',
-    },
-    {
-      name: 'María López',
-      profileImage: '/images/perfil1.png',
-      whatsappLink: 'https://wa.me/0987654321',
-    },
-  ];
+  
 
   return (
     <>
@@ -426,7 +415,7 @@ const TanquesPage = () => {
           { id: 3, text: 'Garantía de calidad en todos nuestros productos' },
         ]}
       />
-      <WhatsappContacts contacts={contacts} />
+      <WhatsappContacts />
     </>
   );
 };

@@ -18,23 +18,23 @@ const EnvasesPage = () => {
     {
       name: 'Bag in Box',
       slug: 'bag-in-box',
-      image: '/images/Envases/bag-in-box.jpg',
+      image: '/images/productos/envases/baginbox.jpg',
       description: 'Envase flexible ideal para líquidos a granel, seguro y eficiente para almacenamiento y transporte.',
       details: ['Capacidad: 1000 litros'],
-      logo: '/images/logos/envases-logo.png',
+      logo: '/images/logos/embaquim-logo.png',
     },
     {
       name: 'IBC',
       slug: 'ibc',
-      image: '/images/Envases/ibc.jpg',
+      image: '/images/productos/envases/ibc-img.png',
       description: 'Contenedor rígido intermedio para líquidos y productos a granel, reutilizable y resistente.',
       details: ['Capacidad: 1000 litros'],
-      logo: '/images/logos/envases-logo.png',
+      logo: '/images/logos/mauser-logo1.png',
     },
     {
       name: 'Flexitank',
       slug: 'flexitank',
-      image: '/images/Envases/flexitank.jpg',
+      image: '/images/productos/envases/flexi-tank3.png',
       description: 'Sistema flexible para transporte de líquidos no peligrosos en contenedores marítimos.',
       details: [
         'Capacidades: 1000 litros',
@@ -42,33 +42,33 @@ const EnvasesPage = () => {
         '20.000 litros',
         '24.000 litros',
       ],
-      logo: '/images/logos/envases-logo.png',
+      logo: '/images/logos/magnum-logo.png',
     },
     {
       name: 'Tambores Metálicos',
       slug: 'tambores-metalicos',
-      image: '/images/Envases/tambor-metalico.jpg',
+      image: '/images/productos/envases/envase2.jpg',
       description: 'Tambores de acero para almacenamiento y transporte de líquidos y sólidos industriales.',
       details: [
         'Capacidades: 50, 100, 200, 210, 220 litros',
         'Modelos: tapa fija, tapa removible',
       ],
-      logo: '/images/logos/envases-logo.png',
+      logo: '/images/logos/greif-logo.png',
     },
     {
       name: 'Tambores de Plástico',
       slug: 'tambores-plastico',
-      image: '/images/Envases/tambor-plastico.jpg',
+      image: '/images/productos/envases/envase-plastico.jpg',
       description: 'Tambores plásticos resistentes para productos líquidos o sólidos, aptos para uso alimenticio e industrial.',
       details: [
         'Capacidades: 100, 200, 250 litros',
       ],
-      logo: '/images/logos/envases-logo.png',
+      logo: '/images/logos/mauser-logo1.png',
     },
     {
       name: 'Bolsa de Rafia',
       slug: 'bolsa-rafia',
-      image: '/images/Envases/bolsa-rafia.jpg',
+      image: '/images/productos/envases/bolsarafia.jpg',
       description: 'Bolsas versátiles para productos agrícolas e industriales, personalizables según necesidad.',
       details: [
         'Tipos: valvulado o boca abierta',
@@ -77,12 +77,12 @@ const EnvasesPage = () => {
         'Impresión frente y reverso',
         'Laminada o convencional',
       ],
-      logo: '/images/logos/envases-logo.png',
+      logo: '/images/logos/textil-logo.png',
     },
     {
       name: 'Bolsas de Papel',
       slug: 'bolsa-papel',
-      image: '/images/Envases/bolsa-papel.jpg',
+      image: '/images/productos/envases/bolsadepapel.jpeg',
       description: 'Bolsas ecológicas para alimentos, harinas y productos industriales, alta resistencia y personalización.',
       details: [
         'Tipos: valvulado o boca abierta',
@@ -91,33 +91,22 @@ const EnvasesPage = () => {
         'Impresión frente y reverso',
         'Linner interno',
       ],
-      logo: '/images/logos/envases-logo.png',
+      logo: '/images/logos/klabin-logo.png',
     },
     {
       name: 'Big Bags',
       slug: 'big-bags',
-      image: '/images/Envases/big-bag.jpg',
+      image: '/images/productos/envases/bigbags.jpg',
       description: 'Sacos de gran tamaño para cargas a granel, ideales para agricultura e industria.',
       details: [
         'Capacidades: 500kg, 800kg, 1000kg, 1200kg, 1500kg',
         'Modelos: tubular (blanco), maparado (blanco o transparente)',
       ],
-      logo: '/images/logos/envases-logo.png',
+      logo: '/images/logos/rafitec-logo.png',
     },
   ];
 
-  const contacts = [
-    {
-      name: 'Juan Pérez',
-      profileImage: '/images/perfil1.png',
-      whatsappLink: 'https://wa.me/1234567890',
-    },
-    {
-      name: 'María López',
-      profileImage: '/images/perfil1.png',
-      whatsappLink: 'https://wa.me/0987654321',
-    },
-  ];
+ 
 
   return (
     <>
@@ -129,7 +118,7 @@ const EnvasesPage = () => {
             className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-100"
             style={{
               backgroundImage:
-                "url('/images/Envases/envases-bg.jpg')",
+                "url('/images/productos/envases/back-tambores.jpeg')",
             }}
           ></div>
           {/* Overlay gradient */}
@@ -265,11 +254,15 @@ const EnvasesPage = () => {
                   &times;
                 </button>
                 <div className="flex flex-col items-center">
-                  <img
-                    src={products[expandedIndex!].image}
-                    alt={products[expandedIndex!].name}
-                    className="w-full h-40 sm:h-56 object-cover rounded-xl mb-4"
-                  />
+                  <div className="w-full flex justify-center mb-4">
+                    <div className="bg-gray-50 rounded-2xl shadow-inner p-2 w-full max-w-xs sm:max-w-sm md:max-w-md">
+                      <img
+                        src={products[expandedIndex!].image}
+                        alt={products[expandedIndex!].name}
+                        className="w-full h-64 sm:h-80 object-contain rounded-xl bg-white"
+                      />
+                    </div>
+                  </div>
                   <img
                     src={products[expandedIndex!].logo}
                     alt={`${products[expandedIndex!].name} logo`}
@@ -312,7 +305,7 @@ const EnvasesPage = () => {
 
       {/* Botón flotante de WhatsApp siempre visible */}
       <div className="fixed bottom-6 right-6 z-50">
-        <WhatsappContacts contacts={contacts} />
+        <WhatsappContacts />
       </div>
     </>
   );

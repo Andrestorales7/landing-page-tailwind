@@ -183,7 +183,7 @@ const AboutUsPage: React.FC = () => {
           </div>
         </section>
       </main>
-      <WhatsappContacts contacts={[]} />
+      <WhatsappContacts  />
       
     </>
   );

@@ -78,18 +78,7 @@ const AgroPecuariaPage = () => {
     },
   ];
 
-  const contacts = [
-    {
-      name: 'Juan Pérez',
-      profileImage: '/images/perfil1.png',
-      whatsappLink: 'https://wa.me/1234567890',
-    },
-    {
-      name: 'María López',
-      profileImage: '/images/perfil1.png',
-      whatsappLink: 'https://wa.me/0987654321',
-    },
-  ];
+  
 
   return (
     <>
@@ -284,7 +273,7 @@ const AgroPecuariaPage = () => {
 
       {/* Botón flotante de WhatsApp siempre visible */}
       <div className="fixed bottom-6 right-6 z-50">
-        <WhatsappContacts contacts={contacts} />
+        <WhatsappContacts />
       </div>
     </>
   );
