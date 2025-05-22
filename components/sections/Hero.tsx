@@ -69,7 +69,7 @@ const Hero: React.FC = () => {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.3, duration: 0.8 }}
                     >
-                        <span className="text-green-500">Soluciones Agricolas</span> Inteligentes para el campo de hoy
+                        <span className="text-green-500">Soluciones Tecnologicas</span> Inteligentes para el Agro-negocio de hoy
                     </motion.h1>
                     
                     {/* Description */}
@@ -79,7 +79,8 @@ const Hero: React.FC = () => {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.6, duration: 0.8 }}
                     >
-                        Desde la agricultura de precisión hasta innovaciones ecológicas, explore cómo transformamos el futuro del campo.
+                        Más de 25 años siendo aliados del trabajador del campo.  Productos que potencian la producción de miles de productores del país.
+
                     </motion.p>
                     
                     {/* Quote with decorative elements */}
@@ -90,7 +91,7 @@ const Hero: React.FC = () => {
                         transition={{ delay: 0.9, duration: 0.8 }}
                     >
                         <p className="text-white italic font-medium">
-                            "Tu aliado en cada cosecha."
+                            "Representante de las mayores marcas internacionales."
                         </p>
                     </motion.div>
                 </motion.div>

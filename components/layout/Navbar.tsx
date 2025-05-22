@@ -49,10 +49,10 @@ const Navbar: React.FC = () => {
         { name: "Horticultura", id: "horticultura", path: "/productos/horticultura" },
         { name: "Ensilaje", id: "ensilaje", path: "/productos/ensilaje" },
         { name: "Agropecuaria", id: "agropecuaria", path: "/productos/agropecuaria" },
-        { name: "Tanques", id: "envases", path: "/productos/tanques" },
-        { name: "Maquinas Cerradoras", id: "maquinas-cerradoras", path: "/productos/cerradoras" },
+        { name: "Tanques", id: "tanques", path: "/productos/tanques" },
+        { name: "Envases", id: "envases", path: "/productos/envases" },
         { name: "Inoculantes", id: "inoculantes", path: "/productos/inoculantes" },
-        { name: "Tesa", id: "tesa", path: "/productos/tesa" }
+        { name: "Otros...", id: "soluciones", path: "/productos/otros" }
     ];
 
     return (

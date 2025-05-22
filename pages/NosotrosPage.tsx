@@ -3,6 +3,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { AcademicCapIcon, UsersIcon, GlobeAltIcon, HeartIcon } from "@heroicons/react/24/outline";
 import WhatsappContacts from "@/components/layout/WhatsappContacts";
+import { Globe2Icon } from "lucide-react";
 
 const AboutUsPage: React.FC = () => {
   return (
@@ -146,23 +147,23 @@ const AboutUsPage: React.FC = () => {
               {[
                 {
                   icon: <UsersIcon className="h-8 w-8 text-emerald-600" />,
-                  title: "Trabajo en Equipo",
-                  description: "Colaboración y sinergia para alcanzar objetivos comunes"
+                  title: "Compromiso",
+                  description: "Un equipo presente en cada etapa del proceso"
                 },
                 {
                   icon: <GlobeAltIcon className="h-8 w-8 text-emerald-600" />,
-                  title: "Sostenibilidad",
-                  description: "Compromiso con el medio ambiente y las generaciones futuras"
+                  title: "Excelencia",
+                  description: "Ofrecemos soluciones respaldadas por marcas lideres y certificadas"
                 },
                 {
                   icon: <AcademicCapIcon className="h-8 w-8 text-emerald-600" />,
                   title: "Innovación",
-                  description: "Búsqueda constante de soluciones tecnológicas avanzadas"
+                  description: "Busqueda constante de soluciones tecnologicas avanzadas"
                 },
                 {
-                  icon: <HeartIcon className="h-8 w-8 text-emerald-600" />,
-                  title: "Compromiso",
-                  description: "Dedicación total a la excelencia y al servicio al cliente"
+                  icon: <Globe2Icon className="h-8 w-8 text-emerald-600" />,
+                  title: "Trayectoria",
+                  description: "Mas de 25 años de experiencia en el sector agropecuario"
                 }
               ].map((value, index) => (
                 <motion.div

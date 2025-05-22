@@ -12,33 +12,33 @@ const categorias = [
     },
     {
         name: 'Ensilaje',
-        image: '/images/Almacenamiento-Ensilaje-etc/comederos/comedero2.jpg',
+        image: '/images/Agropecuaria/Portada.jpg',
         link: '/productos/ensilaje'
     },
     {
         name: 'Agropecuaria',
-        image: '/images/Agropecuaria/agropecuaria.png',
+        image: '/images/Almacenamiento-Ensilaje-etc/geomembranas/geomembrana1.jpg',
         link: '/productos/agropecuaria'
     },
     {
+        name: 'Tanques',
+        image: '/images/tanques/tanque-1500lt.jpg',
+        link: '/productos/tanques'
+    },
+    {
         name: 'Envases',
-        image: '/images/Envases/big-bags/big-bags-3.png',
+        image: '/images/cerradora/cerradora-bolsas.png',
         link: '/productos/envases'
     },
     {
-        name: 'Maquinas Cerradoras',
-        image: '/images/cerradora/cerradora-bolsas.png',
-        link: '/productos/maquinas-cerradoras'
-    },
-    {
-        name: 'Geomembranas',
+        name: 'Inoculantes',
         image: '/images/Almacenamiento-Ensilaje-etc/geomembranas/geomembrana1.jpg',
-        link: '/productos/geomembranas'
+        link: '/productos/inoculantes'
     },
     {
-        name: 'Tesa',
+        name: 'Otros Productos',
         image: '/images/tesa/tesa2.jpg',
-        link: '/productos/tesa'
+        link: '/productos/otros-productos'
     },
 ];
 

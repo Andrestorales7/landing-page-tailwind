@@ -45,15 +45,15 @@ const Footer: React.FC = () => {
               </motion.div>
               
               <p className="text-gray-300 leading-relaxed max-w-md text-sm">
-                Innovación agrícola con tecnología de vanguardia para un futuro sostenible.
-                Comprometidos con la productividad y el medio ambiente en cada etapa del proceso.
+              Acompañamos cada paso con un compromiso real, brindando soluciones confiables, eficientes y pensadas para resolver lo que realmente importa. Porque cuando el campo crece, crece todo un país… y estamos aquí para impulsarlo.
+
               </p>
 
               {/* Social icons */}
               <div className="flex gap-4 items-center pt-2">
                 {[
-                  { icon: FiFacebook, href: "https://facebook.com", label: "Facebook" },
-                  { icon: FiInstagram, href: "https://instagram.com", label: "Instagram" },
+                  { icon: FiFacebook, href: "https://www.facebook.com/cmpagropy?mibextid=wwXIfr&mibextid=wwXIfr", label: "Facebook" },
+                  { icon: FiInstagram, href: "https://instagram.com/cmpagro", label: "Instagram" },
                   { icon: FiMessageSquare, href: "https://wa.me/1234567890", label: "WhatsApp" },
                   { icon: FiMail, href: "mailto:contacto@cmpagro.com", label: "Email" },
                 ].map((social, idx) => (
@@ -146,10 +146,19 @@ const Footer: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="flex flex-col md:flex-row justify-between items-center text-center md:text-left"
           >
-            <span className="block mt-1">Desarrollado por <span className="text-green-300">WEB TECH</span></span>
+            <span className="block mt-1 text-sm text-green-200/80">
+              dev{" "}
+              <a
+                href="https://github.com/Andrestorales7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-green-300 underline hover:text-green-200 transition"
+              >
+                ---
+              </a>
+            </span>
             <div className="text-sm text-green-200/80">
               ©CMP Agro. Todos los derechos reservados.
-              
             </div>
           </motion.div>
         </div>

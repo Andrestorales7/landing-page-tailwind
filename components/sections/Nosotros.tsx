@@ -32,7 +32,7 @@ const AboutUs: React.FC = () => {
             <div className="absolute bottom-6 left-6 backdrop-blur-sm bg-white/30 px-4 py-2 rounded-2xl shadow-sm">
               <span className="font-bold text-emerald-800 text-sm">
                 <AcademicCapIcon className="h-4 w-4 mr-2 inline-block text-emerald-600" />
-                Innovación agrícola desde 2015
+                Innovación agrícola desde 2000
               </span>
             </div>
           </motion.div>
@@ -53,26 +53,26 @@ const AboutUs: React.FC = () => {
             </div>
 
             <h2 className="text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl">
-              Cultivando el futuro con{' '}
+              + de 25 años impulsando el{' '}
               <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-                tecnología sostenible
+                Agro Paraguayo
               </span>
             </h2>
 
             <p className="text-lg leading-relaxed text-gray-600">
-              En CMP agro, combinamos tradición agrícola con innovación tecnológica para 
-              impulsar una agricultura más eficiente y sustentable. Nuestras soluciones 
-              inteligentes y más de 8 años de experiencia en el campo nos permiten 
-              optimizar recursos y maximizar cosechas en armonía con el medio ambiente.
+              Somos un equipo de profesionales apasionados por el campo, por su gente y por su futuro. Nuestro compromiso va mucho más allá de un intercambio: acompañamos a los productores desde el primer momento, guiándolos en cada etapa del proceso con un asesoramiento cercano, técnico y adaptado a sus necesidades.<br /><br />
+              Nuestro equipo se traslada constantemente a lo largo y ancho del país, visitando estancias, participando de jornadas de campo, ferias, eventos y capacitaciones, siempre con la misión de sumar valor y estar presentes donde se nos necesita.<br /><br />
+              Representamos a marcas líderes a nivel mundial, que cuentan con las certificaciones más exigentes del sector y que confían en nosotros por nuestra capacidad de traducir calidad en soluciones concretas.<br /><br />
+              Estamos convencidos de que el motor del agro paraguayo es su gente. Por eso, elegimos estar cerca, escuchar, responder y crecer junto a quienes cada día hacen posible el desarrollo del país.
             </p>
 
             {/* Estadísticas Agrícolas */}
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
               {[
-                { number: '25k+', label: 'Hectáreas cultivadas' },
+                { number: '57+', label: 'Marcas Representadas' },
                 { number: '95%', label: 'Clientes satisfechos' },
-                { number: '150+', label: 'Proyectos activos' },
-                { number: '18+', label: 'Tecnologías aplicadas' },
+                { number: '1442+', label: 'Proyectos activos' },
+                { number: '48+', label: 'Tecnologías aplicadas' },
               ].map((stat) => (
                 <motion.div
                   key={stat.label}

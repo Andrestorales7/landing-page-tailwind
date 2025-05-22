@@ -84,13 +84,14 @@ const SolucionesSection: React.FC<SolucionesSectionProps> = ({ soluciones }) => 
           <div className="w-full lg:w-2/5 space-y-6">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight text-white drop-shadow-lg">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-lime-200 to-green-300">
-                CMP Soluciones
+                Productos
               </span>{" "}
             
             </h2>
             <p className="text-base sm:text-lg text-green-50 leading-relaxed max-w-prose">
-              Explora nuestras soluciones agrícolas diseñadas para optimizar el rendimiento con las mejores marcas internacionales.
-              <span className="block mt-2 font-light italic text-green-100/80">Tecnología de vanguardia para el campo moderno.</span>
+            Conozca la gama completa de soluciones diseñanadas para optimizar el rendimiento con las mejores marcas internacionales.
+            
+              <span className="block mt-2 font-light italic text-green-100/80">Tecnología de vanguardia para una producción más rentable.</span>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">

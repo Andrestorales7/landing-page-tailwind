@@ -29,20 +29,20 @@ export default function HomePage() {
             link: "/productos/horticultura",
           },
           {
-            image: "/images/Almacenamiento-Ensilaje-etc/comederos/comedero2.jpg",
+            image: "/images/Agropecuaria/Portada.jpg",
             title: "Ensilajes",
             description: "",
             link: "/productos/ensilaje",
           },
           {
-            image: "/images/Agropecuaria/agropecuaria.png",
+            image: "/images/Almacenamiento-Ensilaje-etc/geomembranas/geomembrana1.jpg",
             title: "Agropecuaria",
             description: "",
             link: "/productos/agropecuaria",
           },
           {
             image: "/images/Envases/big-bags/big-bags-3.png",
-            title: "Otros",
+            title: "Mas Soluciones",
             description: "",
             link: "/ProductosPage",
           },
