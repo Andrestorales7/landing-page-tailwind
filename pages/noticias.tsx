@@ -3,7 +3,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/sections/Footer';
-import NoticiasSection from '../components/sections/NoticiasSection';
+import NoticiasPage from '../components/pages/NoticiasPage';
 
 const NoticiasPage: NextPage = () => {
   return (
@@ -18,7 +18,7 @@ const NoticiasPage: NextPage = () => {
       
       <main>
         <div className="pt-20">  {/* Añadido para dar espacio bajo el navbar fijo */}
-          <NoticiasSection />
+          <NoticiasPage />
         </div>
       </main>
       
