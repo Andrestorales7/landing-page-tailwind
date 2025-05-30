@@ -88,11 +88,12 @@ const AnimatedCard: React.FC<{ article: any }> = ({ article }) => {
             initial="hidden"
             animate={controls}
             variants={cardVariants}
-            className="group relative overflow-hidden rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+            className="group relative flex flex-col h-full overflow-hidden rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+            style={{ minHeight: 440, maxHeight: 510 }} // Fuerza altura igual
         >
             {/* Hacemos que toda la tarjeta sea clickeable */}
-            <a href={`/NoticiasPage?id=${article.id}`} className="block h-full">
-                <div className="relative h-56 overflow-hidden">
+            <a href={`/NoticiasPage?id=${article.id}`} className="flex flex-col h-full">
+                <div className="relative h-56 overflow-hidden flex-shrink-0">
                     <img
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         src={article.image}
@@ -105,8 +106,8 @@ const AnimatedCard: React.FC<{ article: any }> = ({ article }) => {
                     </div>
                 </div>
 
-                <div className="p-6">
-                    <div className="flex-1 space-y-4">
+                <div className="flex flex-col flex-1 justify-between p-6">
+                    <div className="flex-1 flex flex-col gap-3">
                         <h3 className="text-xl font-semibold text-gray-900 hover:text-emerald-600 transition-colors">
                             {article.title}
                         </h3>

@@ -179,12 +179,8 @@ const Navbar: React.FC = () => {
                         <div className="flex items-center gap-4">
                             <div className="sm:flex sm:gap-4">
                                 <Link
-                                    href="/#footer"
+                                    href="/Contacto"
                                     className="rounded-full bg-green-600 px-7 py-3 text-base font-medium text-white shadow hover:bg-green-500 transition-colors"
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        scrollToSection("footer");
-                                    }}
                                 >
                                     Contacto
                                 </Link>
@@ -299,12 +295,10 @@ const Navbar: React.FC = () => {
                                 Noticias
                             </Link>
                             <Link
-                                href="/#footer"
+                                href="/Contacto"
                                 className="block w-full text-left rounded-full bg-green-600 px-7 py-3 text-base font-medium text-white shadow hover:bg-green-500 transition-colors mt-2"
-                                onClick={(e) => {
-                                    e.preventDefault();
+                                onClick={() => {
                                     setIsMobileMenuOpen(false);
-                                    scrollToSection("footer");
                                 }}
                             >
                                 Contacto

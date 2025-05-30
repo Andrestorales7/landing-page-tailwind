@@ -5,6 +5,7 @@ import Marcas from '@/components/sections/Marcas';
 import NoticeSlider from '@/components/sections/NoticeSlider';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 
 const AgroProductPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -19,7 +20,7 @@ const AgroProductPage = () => {
       name: 'Film para fardos',
       slug: 'film-agrilpower',
       image: '/images/productos/ensilaje/film-fardos.jpg',
-      description: 'Producidos a partir de LLDPE de alta calidad y con la última tecnología (5 capas coextruidas), garantizando así una gran resistencia al desgarro.\n\nSu formulación contiene aditivos de protección UV hasta 12 meses bajo radiación solar.\n\nGracias a su exlusivo sistema de Coextrucción Programada Inteligente (CPI), se ha logrado el mejor material de este tipo de tres capas, con la mayor performance de resistencia a la intemperie, comportamiento mecánico y eficiencia a los distintos sistemas de soldaduras.',
+      description: 'Film de alta resistencia y protección UV para fardos.',
       details: ['750 mm x 1,500 m (25 micras)'],
       logo: '/images/logos/agripower-logo.png',
     },
@@ -27,7 +28,7 @@ const AgroProductPage = () => {
       name: 'Hilos para fardos',
       slug: 'hilos-exporplas',
       image: '/images/productos/ensilaje/hilo-fardo.png',
-      description: 'Proba la excelencia en hilos agrícolas con CMP Agro.\n\nNuestros productos, los hilos E130 y E1000, están diseñados para elevar la eficiencia en la agricultura, especialmente en la formación de fardos redondos y cuadrados.\n\nCon su resistencia y durabilidad, mejorarás significativamente tu proceso de embalaje. Confía en la calidad que solo la marca Exporplas de Portugal puede ofrecer.',
+      description: 'Hilos resistentes para embalaje de fardos redondos y cuadrados.',
       details: ['Hilo e1000 - 5,400 m (fardos redondos)', 'Hilo e130 - 1,300 m (fardos cuadrados)'],
       logo: '/images/logos/exporplas-logo.png',
     },
@@ -35,7 +36,7 @@ const AgroProductPage = () => {
       name: 'Mallas para fardos',
       slug: 'mallas-exporplas',
       image: '/images/productos/ensilaje/malla-fardos.png',
-      description: 'Mallas para empaque de fardos',
+      description: 'Mallas para empaque eficiente de fardos.',
       details: ['HORIZON™: 125 x 3,600 cm, 130 x 3,600 cm', 'EMPACADOR: 124 x 3,600 cm, 130 x 3,600 cm'],
       logo: '/images/logos/exporplas-logo.png',
     },
@@ -43,7 +44,7 @@ const AgroProductPage = () => {
       name: 'Silobolsas',
       slug: 'silobolsas-agrinpex',
       image: '/images/productos/ensilaje/silobolsa.jpg',
-      description: 'El continuo desarrollo de modelos agrícola ganaderos de alta eficiencia ha requerido de la plasticultura una participación protagónica. Conscientes de esta realidad, AgrinPlex y Silox ha desarrollado las Bolsas para Silo. Hechas con equipamiento de coextrusión en tres capas y un Sistema de Coextrusión Programada Inteligente. Estas son durables, con gran resistencia mecánica, y a los rayos UV.',
+      description: 'Bolsas resistentes para almacenamiento de silos.',
       details: ['6 pies x 60 m', '6.5 pies x 60 m', '9 pies x 60 m', '9 pies x 75 m'],
       logo: '/images/logos/agrinpex-logo.png',
     },
@@ -51,9 +52,7 @@ const AgroProductPage = () => {
       name: 'TECH Silaje Bolsa',
       slug: 'bolsa-tech-silaje',
       image: '/images/productos/ensilaje/tech-lona.jpeg',
-      description: `Bolsa para Ensilar\nBolsa diseñada para el almacenamiento de ensilaje, convirtiéndose en una alternativa económica para los pequeños y medianos productores.\nPrincipales Ventajas
-                    - Empaquetado manual o con mecanismo
-                    - Producido con material virgen y aditivación UV.`,
+      description: 'Bolsa económica para almacenamiento de ensilaje.',
       details: ['Blanco/Negro: 61 x 120 cm (150 micrones)'],
       logo: '/images/logos/tech-logo.png',
     },
@@ -61,7 +60,7 @@ const AgroProductPage = () => {
       name: 'TECH Lona',
       slug: 'tech-lona-azul',
       image: '/images/productos/ensilaje/tech-lona.jpeg',
-      description: 'Producido mediante el más moderno proceso de extrusión disponible en el mercado: la tecnología multicapa, que permite la aplicación específica de resinas para satisfacer las más variadas exigencias.\nPrincipales Ventajas\n-Multicapas.\n-Alta resistencia mecánica.\n-Mayor durabilidad.',
+      description: 'Lona multicapa de alta resistencia y durabilidad.',
       details: ['Negro: 8 x 100 m (100 micras)'],
       logo: '/images/logos/tech-logo.png',
     },
@@ -69,29 +68,16 @@ const AgroProductPage = () => {
       name: 'TECH Silo',
       slug: 'tech-silo-azul',
       image: '/images/productos/ensilaje/tech-silo.jpg',
-      description: 'Producido mediante el proceso de coextrusión más moderno del mercado: la tecnología multicapa. Protege y sella tu ensilaje contra los gases externos, además de controlar la temperatura interna y reducir el paso de los rayos UV.\n* Principales Ventajas\n- Alta resistencia mecánica.\n- Ideal para cubierta de ensilaje.\n- Aditivación UV.',
+      description: 'Lámina multicapa para cubrir y proteger ensilaje.',
       details: ['Blanco/Negro: 12 x 50 m y 14 x 50 m', 'Disponible en 100 y 150 micras'],
       logo: '/images/logos/tech-logo.png',
     },
-    {
-      name: 'Mantas',
-      slug: 'mantas',
-      image: '/images/productos/ensilaje/tech-silo.jpg',
-      description: 'Mantas de diferentes medidas',
-      details: [
-        '8 x 50 m (100 micras)',
-        '10 x 50 m (100 micras)',
-        '12 x 50 m (100 y 150 micras)',
-        '13.5 x 50 m (150 micras)',
-        '14 x 50 m (150 micras)',
-      ],
-      logo: '/images/logos/tech-logo.png',
-    },
+    
     {
       name: 'TechO2 Barrier',
       slug: 'tech-h2o-barrier',
       image: '/images/productos/ensilaje/silobolsa.jpg',
-      description: 'Techos con barrera de humedad',
+      description: 'Techos con barrera de humedad y protección EVOH.',
       details: [
         'Blanco/Negro: 7 capas, con barrera de EVOH',
         'Azul: 45 micras (12 x 50 m y 14 x 50 m) con barrera de EVOH',
@@ -215,6 +201,15 @@ const AgroProductPage = () => {
                       </li>
                     ))}
                   </ul>
+                  <div className="mt-auto pt-2">
+                    <Link
+                      href={`/productos/ensilaje/${product.slug}`}
+                      className="inline-block w-full text-center bg-green-700 hover:bg-green-800 text-white font-medium rounded-lg px-4 py-2 transition-colors duration-200"
+                      onClick={e => e.stopPropagation()} // Para evitar abrir el modal
+                    >
+                      Ver producto
+                    </Link>
+                  </div>
                 </div>
               </motion.div>
             ))}
