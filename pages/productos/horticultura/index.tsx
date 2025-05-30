@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Marcas from '@/components/sections/Marcas';
 import NoticeSlider from '@/components/sections/NoticeSlider';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 const HorticulturaProductPage = () => {
