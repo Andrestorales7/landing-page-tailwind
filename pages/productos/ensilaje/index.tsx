@@ -4,12 +4,11 @@ import React, { useState, useEffect } from 'react';
 import Marcas from '@/components/sections/Marcas';
 import NoticeSlider from '@/components/sections/NoticeSlider';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 const AgroProductPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   useEffect(() => {
     setIsLoaded(true);
@@ -20,7 +19,7 @@ const AgroProductPage = () => {
       name: 'Film para fardos',
       slug: 'film-agrilpower',
       image: '/images/productos/ensilaje/film-fardos.jpg',
-      description: 'Film de alta resistencia y protección UV para fardos.',
+      description: 'Film resistente y protección UV para fardos.',
       details: ['750 mm x 1,500 m (25 micras)'],
       logo: '/images/logos/agripower-logo.png',
     },
@@ -28,7 +27,7 @@ const AgroProductPage = () => {
       name: 'Hilos para fardos',
       slug: 'hilos-exporplas',
       image: '/images/productos/ensilaje/hilo-fardo.png',
-      description: 'Hilos resistentes para embalaje de fardos redondos y cuadrados.',
+      description: 'Hilos resistentes para fardos redondos y cuadrados.',
       details: ['Hilo e1000 - 5,400 m (fardos redondos)', 'Hilo e130 - 1,300 m (fardos cuadrados)'],
       logo: '/images/logos/exporplas-logo.png',
     },
@@ -44,7 +43,7 @@ const AgroProductPage = () => {
       name: 'Silobolsas',
       slug: 'silobolsas-agrinpex',
       image: '/images/productos/ensilaje/silobolsa.jpg',
-      description: 'Bolsas resistentes para almacenamiento de silos.',
+      description: 'Bolsas resistentes para almacenar silos.',
       details: ['6 pies x 60 m', '6.5 pies x 60 m', '9 pies x 60 m', '9 pies x 75 m'],
       logo: '/images/logos/agrinpex-logo.png',
     },
@@ -52,7 +51,7 @@ const AgroProductPage = () => {
       name: 'TECH Silaje Bolsa',
       slug: 'bolsa-tech-silaje',
       image: '/images/productos/ensilaje/tech-lona.jpeg',
-      description: 'Bolsa económica para almacenamiento de ensilaje.',
+      description: 'Bolsa económica para ensilaje.',
       details: ['Blanco/Negro: 61 x 120 cm (150 micrones)'],
       logo: '/images/logos/tech-logo.png',
     },
@@ -60,7 +59,7 @@ const AgroProductPage = () => {
       name: 'TECH Lona',
       slug: 'tech-lona-azul',
       image: '/images/productos/ensilaje/tech-lona.jpeg',
-      description: 'Lona multicapa de alta resistencia y durabilidad.',
+      description: 'Lona multicapa resistente y durable.',
       details: ['Negro: 8 x 100 m (100 micras)'],
       logo: '/images/logos/tech-logo.png',
     },
@@ -68,16 +67,15 @@ const AgroProductPage = () => {
       name: 'TECH Silo',
       slug: 'tech-silo-azul',
       image: '/images/productos/ensilaje/tech-silo.jpg',
-      description: 'Lámina multicapa para cubrir y proteger ensilaje.',
+      description: 'Lámina multicapa para cubrir ensilaje.',
       details: ['Blanco/Negro: 12 x 50 m y 14 x 50 m', 'Disponible en 100 y 150 micras'],
       logo: '/images/logos/tech-logo.png',
     },
-    
     {
       name: 'TechO2 Barrier',
       slug: 'tech-h2o-barrier',
       image: '/images/productos/ensilaje/silobolsa.jpg',
-      description: 'Techos con barrera de humedad y protección EVOH.',
+      description: 'Techos con barrera de humedad y EVOH.',
       details: [
         'Blanco/Negro: 7 capas, con barrera de EVOH',
         'Azul: 45 micras (12 x 50 m y 14 x 50 m) con barrera de EVOH',
@@ -86,7 +84,6 @@ const AgroProductPage = () => {
     },
   ];
 
-  
   return (
     <>
       <div id="agro-productos" className="min-h-screen bg-gradient-to-b from-green-50 to-gray-50">
@@ -164,133 +161,71 @@ const AgroProductPage = () => {
                   isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
                 }`}
                 style={{ transitionDelay: `${index * 120}ms` }}
-                onClick={() => setExpandedIndex(index)}
               >
-                <div className="relative">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                  <div className="absolute top-3 right-3 bg-white/80 rounded-full p-2 shadow-md">
+                <Link
+                  href={`/productos/ensilaje/${product.slug}`}
+                  className="flex flex-col flex-grow h-full"
+                  tabIndex={0}
+                >
+                  <div className="relative">
                     <img
-                      src={product.logo}
-                      alt={`${product.name} logo`}
-                      className="w-10 h-10 object-contain"
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
                     />
+                    <div className="absolute top-3 right-3 bg-white/80 rounded-full p-2 shadow-md">
+                      <img
+                        src={product.logo}
+                        alt={`${product.name} logo`}
+                        className="w-10 h-10 object-contain"
+                      />
+                    </div>
                   </div>
-                </div>
-                <div className="p-5 flex flex-col flex-grow">
-                  <h3 className="text-lg font-bold text-green-800 mb-1">{product.name}</h3>
-                  {/* Solo mostrar la descripción completa si está expandida */}
-                  <p className={`text-sm text-gray-600 mb-3 ${expandedIndex === index ? '' : 'line-clamp-2'}`}>
-                    {expandedIndex === index
-                      ? product.description.split('\n').map((line, i) => (
-                          <span key={i}>
-                            {line}
-                            <br />
-                          </span>
-                        ))
-                      : product.description}
-                  </p>
-                  <ul className="mb-2 space-y-2">
-                    {product.details && product.details.map((detail, i) => (
-                      <li key={i} className="flex items-center bg-lime-100 rounded px-2 py-1 text-sm text-green-700">
-                        <span className="mr-2 text-lime-500">✔</span>
-                        <span>{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-auto pt-2">
-                    <Link
-                      href={`/productos/ensilaje/${product.slug}`}
-                      className="inline-block w-full text-center bg-green-700 hover:bg-green-800 text-white font-medium rounded-lg px-4 py-2 transition-colors duration-200"
-                      onClick={e => e.stopPropagation()} // Para evitar abrir el modal
-                    >
-                      Ver producto
-                    </Link>
+                  <div className="p-5 flex flex-col flex-grow">
+                    <h3 className="text-lg font-bold text-green-800 mb-1">{product.name}</h3>
+                    <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+                      {product.description}
+                    </p>
+                    <ul className="mb-2 space-y-2">
+                      {product.details && product.details.map((detail, i) => (
+                        <li key={i} className="flex items-center bg-lime-100 rounded px-2 py-1 text-sm text-green-700">
+                          <span className="mr-2 text-lime-500">✔</span>
+                          <span>{detail}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-auto pt-2">
+                      <span className="inline-block w-full text-center bg-green-700 hover:bg-green-800 text-white font-medium rounded-lg px-4 py-2 transition-colors duration-200">
+                        Ver producto
+                      </span>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* Modal de producto expandido */}
-        <AnimatePresence>
-          {expandedIndex !== null && (
-            <motion.div
-              key="modal"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
-              onClick={() => setExpandedIndex(null)}
-            >
-              <motion.div
-                initial={{ scale: 0.95, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.95, opacity: 0 }}
-                transition={{ type: "spring", duration: 0.4 }}
-                className="bg-white rounded-3xl shadow-2xl w-full max-w-lg mx-2 sm:mx-4 p-4 sm:p-8 relative overflow-y-auto max-h-[90vh] sm:max-h-[80vh]"
-                onClick={e => e.stopPropagation()}
-              >
-                <button
-                  className="absolute top-3 right-3 text-gray-400 hover:text-green-700 text-2xl"
-                  onClick={() => setExpandedIndex(null)}
-                  aria-label="Cerrar"
-                >
-                  &times;
-                </button>
-                <div className="flex flex-col items-center">
-                  <img
-                    src={products[expandedIndex!].image}
-                    alt={products[expandedIndex!].name}
-                    className="w-full h-40 sm:h-56 object-cover rounded-xl mb-4"
-                  />
-                  <img
-                    src={products[expandedIndex!].logo}
-                    alt={`${products[expandedIndex!].name} logo`}
-                    className="w-14 h-14 sm:w-16 sm:h-16 object-contain mb-2"
-                  />
-                  <h3 className="text-xl sm:text-2xl font-bold text-green-800 mb-2 text-center">{products[expandedIndex!].name}</h3>
-                  <p className="text-sm sm:text-base text-gray-700 mb-4 text-center whitespace-pre-line">
-                    {products[expandedIndex!].description}
-                  </p>
-                  <ul className="mb-2 space-y-2 w-full">
-                    {products[expandedIndex!].details && products[expandedIndex!].details.map((detail, i) => (
-                      <li key={i} className="flex items-center bg-lime-100 rounded px-3 py-2 text-sm sm:text-base text-green-700">
-                        <span className="mr-2 text-lime-500">✔</span>
-                        <span>{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+        {/* Additional Sections */}
+        <div className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+             style={{ transitionDelay: '500ms' }}>
+          <Marcas />
+        </div>
 
-      {/* Additional Sections */}
-      <div className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-           style={{ transitionDelay: '500ms' }}>
-        <Marcas />
-      </div>
+        <div className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+             style={{ transitionDelay: '600ms' }}>
+          <NoticeSlider
+            notices={[
+              { id: 1, text: 'Contáctanos para asesoría personalizada' },
+              { id: 2, text: 'Envíos a todo el país' },
+            ]}
+          />
+        </div>
 
-      <div className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-           style={{ transitionDelay: '600ms' }}>
-        <NoticeSlider
-          notices={[
-            { id: 1, text: 'Contáctanos para asesoría personalizada' },
-            { id: 2, text: 'Envíos a todo el país' },
-          ]}
-        />
-      </div>
-
-      {/* Botón flotante de WhatsApp siempre visible */}
-      <div className="fixed bottom-6 right-6 z-50">
-        <WhatsappContacts  />
+        {/* Botón flotante de WhatsApp siempre visible */}
+        <div className="fixed bottom-6 right-6 z-50">
+          <WhatsappContacts  />
+        </div>
       </div>
     </>
   );
