@@ -23,7 +23,7 @@ export default function HomePage() {
       <SolucionesSection
         soluciones={[
           {
-            image: "/images/productos/horticultura/mulching1.jpeg",
+            image: "/images/productos/horticultura/mulching1.jpg",
             title: "Horticultura",
             description: "",
             link: "/productos/horticultura",
@@ -35,7 +35,7 @@ export default function HomePage() {
             link: "/productos/ensilaje",
           },
           {
-            image: "/images/productos/agropecuaria/geomembrana.jpeg",
+            image: "/images/productos/agropecuaria/agropecuaria.jpg",
             title: "Agropecuaria",
             description: "",
             link: "/productos/agropecuaria",

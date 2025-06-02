@@ -17,7 +17,7 @@ const AgroProductPage = () => {
   const products = [
     {
       name: 'Film para fardos',
-      slug: 'film-agrilpower',
+      slug: 'film-agripower',
       image: '/images/productos/ensilaje/film-fardos.jpg',
       description: 'Film resistente y protección UV para fardos.',
       details: ['750 mm x 1,500 m (25 micras)'],
@@ -42,21 +42,14 @@ const AgroProductPage = () => {
     {
       name: 'Silobolsas',
       slug: 'silobolsas-agrinpex',
-      image: '/images/productos/ensilaje/silobolsa.jpg',
+      image: '/images/productos/ensilaje/silobolsa-3.jpg',
       description: 'Bolsas resistentes para almacenar silos.',
       details: ['6 pies x 60 m', '6.5 pies x 60 m', '9 pies x 60 m', '9 pies x 75 m'],
       logo: '/images/logos/agrinpex-logo.png',
     },
+    
     {
-      name: 'TECH Silaje Bolsa',
-      slug: 'bolsa-tech-silaje',
-      image: '/images/productos/ensilaje/tech-lona.jpeg',
-      description: 'Bolsa económica para ensilaje.',
-      details: ['Blanco/Negro: 61 x 120 cm (150 micrones)'],
-      logo: '/images/logos/tech-logo.png',
-    },
-    {
-      name: 'TECH Lona',
+      name: 'Tech Lona',
       slug: 'tech-lona-azul',
       image: '/images/productos/ensilaje/tech-lona.jpeg',
       description: 'Lona multicapa resistente y durable.',
@@ -64,7 +57,7 @@ const AgroProductPage = () => {
       logo: '/images/logos/tech-logo.png',
     },
     {
-      name: 'TECH Silo',
+      name: 'Tech Silo',
       slug: 'tech-silo-azul',
       image: '/images/productos/ensilaje/tech-silo.jpg',
       description: 'Lámina multicapa para cubrir ensilaje.',
@@ -74,7 +67,7 @@ const AgroProductPage = () => {
     {
       name: 'TechO2 Barrier',
       slug: 'tech-h2o-barrier',
-      image: '/images/productos/ensilaje/silobolsa.jpg',
+      image: '/images/productos/ensilaje/tech-barrier-2.png',
       description: 'Techos con barrera de humedad y EVOH.',
       details: [
         'Blanco/Negro: 7 capas, con barrera de EVOH',

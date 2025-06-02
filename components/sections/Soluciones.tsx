@@ -65,10 +65,6 @@ const SolucionesSection: React.FC<SolucionesSectionProps> = ({ soluciones }) => 
         backgroundAttachment: 'fixed',
       }}
     >
-      {/* Gradient borders */}
-      <div className="absolute top-0 left-0 w-full h-8 bg-gradient-to-r from-lime-400/20 via-green-500/20 to-transparent"></div>
-      <div className="absolute bottom-0 right-0 w-full h-8 bg-gradient-to-l from-lime-400/20 via-green-500/20 to-transparent"></div>
-
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Background gradient only on content */}
         <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-green-900/60 via-green-800/70 to-black/90 shadow-xl"></div>

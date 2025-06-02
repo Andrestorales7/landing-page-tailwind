@@ -4,11 +4,11 @@ import React, { useState, useEffect } from 'react';
 import Marcas from '@/components/sections/Marcas';
 import NoticeSlider from '@/components/sections/NoticeSlider';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const AgroPecuariaPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   useEffect(() => {
     setIsLoaded(true);
@@ -20,28 +20,23 @@ const AgroPecuariaPage = () => {
       slug: 'malla-cta-aluminet',
       image: '/images/productos/agropecuaria/cta2.jpg',
       description: 'Malla CTA Aluminet disponible en varias medidas.',
-      details: ['0,4 x 50 m', '0,8 x 50 m', '4,30 x 100 m (50%)', '4,30 x 100 m (35%)'],
+      details: ['Varias medidas disponibles'],
       logo: '/images/logos/sugrand.png',
     },
     {
-      name: 'Tejido Aviary Porcícola',
-      slug: 'tejido-aviary-porcicola',
+      name: 'Tejido Aviar',
+      slug: 'tejido-aviar',
       image: '/images/productos/agropecuaria/tejido-aviar.jpg',
       description: 'Tejido aviary porcícola con diferentes características.',
-      details: [
-        'Amarillo: Lateral - 120 g/m² (2,10 - 2,60 m)',
-        'Azul: Lateral - 120 g/m² (2,10 - 2,60 m)',
-        'Negro: Cielo raso - 135 g/m² (3,00 - 3,20 m)',
-        'Negro/Plata: Lateral - 230 g/m² (2,60 m)',
-      ],
-      logo: '/images/logos/logo1.png',
+      details: ['Colores y gramajes variados'],
+      logo: '/images/logos/rafitec-logo.png',
     },
     {
       name: 'Comederos',
       slug: 'comederos-nortene',
       image: '/images/productos/agropecuaria/comedero.jpg',
       description: 'Comederos de alta resistencia (1.000 micras).',
-      details: ['1,00 x 25 m', '1,00 x 50 m', '1,20 x 25 m', '1,20 x 50 m', '1,50 x 25 m', '1,50 x 50 m'],
+      details: ['Diferentes tamaños'],
       logo: '/images/logos/nortene-logo.png',
     },
     {
@@ -49,7 +44,7 @@ const AgroPecuariaPage = () => {
       slug: 'geomembranas-nortene',
       image: '/images/productos/agropecuaria/geomembrana.jpeg',
       description: 'Geomembranas disponibles en varios espesores.',
-      details: ['500 micras', '800 micras', '1.000 micras'],
+      details: ['Material: Polietileno de alta densidad (HDPE), atóxico'],
       logo: '/images/logos/nortene-logo.png',
     },
     {
@@ -57,28 +52,26 @@ const AgroPecuariaPage = () => {
       slug: 'acquapex',
       image: '/images/productos/agropecuaria/acquapex.png',
       description: 'Rollos de Acquapex en diferentes colores y medidas.',
-      details: ['4,20 x 200 m (Negro/Verde)', '4,20 x 200 m (Negro/Blanco)', '4,20 x 200 m (Negro/Azul)'],
-      logo: '/images/logos/logo16.png',
+      details: ['Colores y medidas variadas'],
+      logo: '/images/logos/rafitec-logo.png',
     },
     {
       name: 'GeoRain Cover',
-      slug: 'geo-rain-cover',
+      slug: 'georain-cover',
       image: '/images/productos/agropecuaria/geo-rain.jpg',
       description: 'Cubiertas de lluvia de alta resistencia.',
       details: ['10 x 50 m (250 micras)'],
-      logo: '/images/logos/logo1.png',
+      logo: '/images/logos/agrinpex-logo.png',
     },
     {
       name: 'Techazo',
-      slug: 'techazo-rafitec',
+      slug: 'techazo',
       image: '/images/productos/agropecuaria/techazo.jpg',
       description: 'Techazo de alta calidad para uso agropecuario.',
       details: ['8,5 x 50 m (500 micras)'],
-      logo: '/images/logos/rafitec-logo.png',
+      logo: '/images/logos/agrinpex-logo.png',
     },
   ];
-
-  
 
   return (
     <>
@@ -149,15 +142,13 @@ const AgroPecuariaPage = () => {
         <div className="max-w-7xl mx-auto pt-8 pb-16 px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {products.map((product, index) => (
-              <motion.div
+              <Link
                 key={index}
-                layout
-                transition={{ layout: { duration: 0.4, type: "spring" } }}
+                href={`/productos/agropecuaria/${product.slug}`}
                 className={`group bg-white border border-green-200 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 ease-out flex flex-col overflow-hidden cursor-pointer relative ${
                   isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
                 }`}
                 style={{ transitionDelay: `${index * 120}ms` }}
-                onClick={() => setExpandedIndex(index)}
               >
                 <div className="relative">
                   <img
@@ -175,15 +166,8 @@ const AgroPecuariaPage = () => {
                 </div>
                 <div className="p-5 flex flex-col flex-grow">
                   <h3 className="text-lg font-bold text-green-800 mb-1">{product.name}</h3>
-                  <p className={`text-sm text-gray-600 mb-3 ${expandedIndex === index ? '' : 'line-clamp-2'}`}>
-                    {expandedIndex === index
-                      ? product.description.split('\n').map((line, i) => (
-                          <span key={i}>
-                            {line}
-                            <br />
-                          </span>
-                        ))
-                      : product.description}
+                  <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+                    {product.description}
                   </p>
                   <ul className="mb-2 space-y-2">
                     {product.details && product.details.map((detail, i) => (
@@ -193,87 +177,39 @@ const AgroPecuariaPage = () => {
                       </li>
                     ))}
                   </ul>
+                  <div className="mt-auto pt-2 flex justify-center">
+                    <span className="inline-block w-full text-center bg-green-700 text-white rounded-lg px-4 py-2 text-sm font-semibold hover:bg-green-800 transition">
+                      Ver producto
+                    </span>
+                  </div>
                 </div>
-              </motion.div>
+              </Link>
             ))}
           </div>
         </div>
 
-        {/* Modal de producto expandido */}
-        <AnimatePresence>
-          {expandedIndex !== null && (
-            <motion.div
-              key="modal"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
-              onClick={() => setExpandedIndex(null)}
-            >
-              <motion.div
-                initial={{ scale: 0.95, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.95, opacity: 0 }}
-                transition={{ type: "spring", duration: 0.4 }}
-                className="bg-white rounded-3xl shadow-2xl w-full max-w-lg mx-2 sm:mx-4 p-4 sm:p-8 relative overflow-y-auto max-h-[90vh] sm:max-h-[80vh]"
-                onClick={e => e.stopPropagation()}
-              >
-                <button
-                  className="absolute top-3 right-3 text-gray-400 hover:text-green-700 text-2xl"
-                  onClick={() => setExpandedIndex(null)}
-                  aria-label="Cerrar"
-                >
-                  &times;
-                </button>
-                <div className="flex flex-col items-center">
-                  <img
-                    src={products[expandedIndex!].image}
-                    alt={products[expandedIndex!].name}
-                    className="w-full h-40 sm:h-56 object-cover rounded-xl mb-4"
-                  />
-                  <img
-                    src={products[expandedIndex!].logo}
-                    alt={`${products[expandedIndex!].name} logo`}
-                    className="w-14 h-14 sm:w-16 sm:h-16 object-contain mb-2"
-                  />
-                  <h3 className="text-xl sm:text-2xl font-bold text-green-800 mb-2 text-center">{products[expandedIndex!].name}</h3>
-                  <p className="text-sm sm:text-base text-gray-700 mb-4 text-center whitespace-pre-line">
-                    {products[expandedIndex!].description}
-                  </p>
-                  <ul className="mb-2 space-y-2 w-full">
-                    {products[expandedIndex!].details && products[expandedIndex!].details.map((detail, i) => (
-                      <li key={i} className="flex items-center bg-lime-100 rounded px-3 py-2 text-sm sm:text-base text-green-700">
-                        <span className="mr-2 text-lime-500">✔</span>
-                        <span>{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+        {/* Elimina el modal y la lógica de expandedIndex */}
 
-      {/* Additional Sections */}
-      <div className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-           style={{ transitionDelay: '500ms' }}>
-        <Marcas />
-      </div>
+        {/* Additional Sections */}
+        <div className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+             style={{ transitionDelay: '500ms' }}>
+          <Marcas />
+        </div>
 
-      <div className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-           style={{ transitionDelay: '600ms' }}>
-        <NoticeSlider
-          notices={[
-            { id: 1, text: 'Contáctanos para asesoría personalizada' },
-            { id: 2, text: 'Envíos a todo el país' },
-          ]}
-        />
-      </div>
+        <div className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+             style={{ transitionDelay: '600ms' }}>
+          <NoticeSlider
+            notices={[
+              { id: 1, text: 'Contáctanos para asesoría personalizada' },
+              { id: 2, text: 'Envíos a todo el país' },
+            ]}
+          />
+        </div>
 
-      {/* Botón flotante de WhatsApp siempre visible */}
-      <div className="fixed bottom-6 right-6 z-50">
-        <WhatsappContacts />
+        {/* Botón flotante de WhatsApp siempre visible */}
+        <div className="fixed bottom-6 right-6 z-50">
+          <WhatsappContacts />
+        </div>
       </div>
     </>
   );

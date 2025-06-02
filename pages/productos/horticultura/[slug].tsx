@@ -415,7 +415,7 @@ export default function ProductoDetalle() {
 
 					{/* Descripción Detallada */}
 					<div className="bg-white rounded-2xl shadow-lg p-8 border border-green-100">
-						<h2 className="text-3xl font-bold text-gray-900 mb-6">Descripción Detallada</h2>
+						
 						{product.slug === 'peliculas-para-invernadero' ? (
 							<div className="prose prose-lg max-w-none text-gray-700">
 								<h3 className="text-2xl font-semibold mb-2">Películas para Invernadero – AgrinPlex</h3>
