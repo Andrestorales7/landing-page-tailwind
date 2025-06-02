@@ -47,7 +47,7 @@ const AboutUs: React.FC = () => {
             <div className="absolute bottom-6 left-6 backdrop-blur-md bg-white/40 px-5 py-3 rounded-2xl shadow-lg border border-white/30">
               <span className="font-bold text-emerald-800 text-sm flex items-center">
                 <AcademicCapIcon className="h-5 w-5 mr-2 text-emerald-600" />
-                Innovación agrícola desde 2000
+                Innovación agrícola desde 2015
               </span>
             </div>
             

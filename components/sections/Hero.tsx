@@ -50,17 +50,7 @@ const Hero: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    {/* Logo row */}
-                    <div className="flex items-center mb-6">
-                        <span className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">
-                            <span className="text-red-600">C</span>
-                            <span className="text-white">M</span>
-                            <span className="text-blue-600">P</span>
-                        </span>
-                        <span className="ml-3 text-2xl sm:text-3xl md:text-4xl font-bold text-white border-l-2 border-white/30 pl-3">
-                            Agro
-                        </span>
-                    </div>
+                    
                     
                     {/* Main headline */}
                     <motion.h1 
