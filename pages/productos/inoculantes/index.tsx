@@ -109,151 +109,159 @@ const InoculantesProductPage = () => {
         </div>
 
         {/* Contenido de pestañas */}
-        <div className="max-w-5xl mx-auto px-4 py-16">
-          {activeTab === 'granos' && (
-            <div>
-              <h2 className="text-2xl font-bold text-green-900 mb-4">Suprasil Granos</h2>
-              <div className="flex flex-col md:flex-row items-center md:items-start min-h-[320px]">
-                {/* Slide de imágenes */}
-                <div className="w-full md:w-1/2 flex flex-col items-center md:items-start">
-                  <div className="w-full max-w-lg mb-4">
-                    <div className="relative">
-                      <img
-                        src={images[slide].src}
-                        alt={images[slide].alt}
-                        className="rounded-2xl shadow-2xl w-full object-cover"
-                      />
-                      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
-                        {images.map((_, idx) => (
-                          <button
-                            key={idx}
-                            className={`w-3 h-3 rounded-full ${slide === idx ? 'bg-green-800' : 'bg-green-200'} border border-green-800`}
-                            onClick={() => setSlide(idx)}
-                            aria-label={`Ver imagen ${idx + 1}`}
-                            type="button"
-                          />
-                        ))}
+        <div className="max-w-5xl mx-auto px-4 py-16 min-h-[320px]">
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4 }}
+          >
+            {activeTab === 'granos' && (
+              <div>
+                <h2 className="text-2xl font-bold text-green-900 mb-4">Suprasil Granos</h2>
+                <div className="flex flex-col md:flex-row items-center md:items-start min-h-[320px]">
+                  {/* Slide de imágenes */}
+                  <div className="w-full md:w-1/2 flex flex-col items-center md:items-start">
+                    <div className="w-full max-w-lg mb-4">
+                      <div className="relative">
+                        <img
+                          src={images[slide].src}
+                          alt={images[slide].alt}
+                          className="rounded-2xl shadow-2xl w-full object-cover"
+                        />
+                        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
+                          {images.map((_, idx) => (
+                            <button
+                              key={idx}
+                              className={`w-3 h-3 rounded-full ${slide === idx ? 'bg-green-800' : 'bg-green-200'} border border-green-800`}
+                              onClick={() => setSlide(idx)}
+                              aria-label={`Ver imagen ${idx + 1}`}
+                              type="button"
+                            />
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                {/* Información al costado */}
-                <div className="w-full md:w-1/2 flex flex-col justify-center md:pl-8">
-                  <h3 className="text-xl font-semibold text-green-800 mb-2">Conservación y calidad de granos</h3>
-                  <p className="text-gray-700 text-base mb-4">
-                    Este aditivo inoculante actúa inmediatamente a través de microorganismos de rápida multiplicación que mejoran la conservación y calidad de granos y semillas almacenados en silobolsas.
-                  </p>
-                  <h4 className="text-lg font-semibold text-green-700 mb-2">Ventajas:</h4>
-                  <ul className="list-disc list-inside text-gray-700 space-y-1 mb-2">
-                    <li>
-                      <span className="font-semibold">Modificación del medio ambiente:</span> en el interior del silobolsa.
-                    </li>
-                    <li>
-                      <span className="font-semibold">Rápido descenso del nivel de oxígeno.</span>
-                    </li>
-                    <li>
-                      <span className="font-semibold">Rápido aumento de los niveles de anhídrido carbónico.</span>
-                    </li>
-                    <li>
-                      <span className="font-semibold">Ambiente antagonista:</span> para patógenos e insectos perjudiciales para la calidad del grano almacenado en silobolsa.
-                    </li>
-                    <li>
-                      <span className="font-semibold">En caso de rotura del silobolsa:</span> ayuda a limitar el deterioro de los granos almacenados.
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          )}
-          {activeTab === 'heno' && (
-            <div>
-              <h2 className="text-2xl font-bold text-green-900 mb-4">Suprasil Heno</h2>
-              <div className="flex flex-col md:flex-row items-center md:items-start min-h-[320px]">
-                {/* Imagen única */}
-                <div className="w-full md:w-1/2 flex flex-col items-center md:items-start">
-                  <img
-                    src="/images/productos/inoculantes/suprasil-heno.jpeg"
-                    alt="Inoculante Suprasil Heno"
-                    className="rounded-2xl shadow-2xl w-full max-w-lg object-cover mb-4"
-                  />
-                </div>
-                {/* Información al costado */}
-                <div className="w-full md:w-1/2 flex flex-col justify-center md:pl-8">
-                  <h3 className="text-xl font-semibold text-green-800 mb-2">Henificación sin riesgos</h3>
-                  <p className="text-gray-700 text-base mb-4">
-                    Permite confeccionar heno con alto contenido de humedad sin comprometer su calidad, brindando protección desde el primer contacto con el material.
-                  </p>
-                  <h4 className="text-lg font-semibold text-green-700 mb-2">Ventajas:</h4>
-                  <ul className="list-disc list-inside text-gray-700 space-y-1 mb-2">
-                    <li>
-                      <span className="font-semibold">Ahorro de tiempo:</span> Reduce el tiempo entre el corte y la confección, optimizando la producción.
-                    </li>
-                    <li>
-                      <span className="font-semibold">Mayor humedad:</span> Permite trabajar con porcentajes de humedad de hasta un 30%, sin riesgo de ardido.
-                    </li>
-                    <li>
-                      <span className="font-semibold">Fácil y accesible:</span> Aplicación sencilla durante el proceso y a un costo accesible.
-                    </li>
-                    <li>
-                      <span className="font-semibold">Protección total:</span> Desde el primer contacto con el material.
-                    </li>
-                    <li>
-                      <span className="font-semibold">Mayor calidad y digestibilidad:</span> Disminuye la pérdida de nutrientes, mejora la palatabilidad y favorece la digestión de la fibra tratada.
-                    </li>
-                  </ul>
+                  {/* Información al costado */}
+                  <div className="w-full md:w-1/2 flex flex-col justify-center md:pl-8">
+                    <h3 className="text-xl font-semibold text-green-800 mb-2">Conservación y calidad de granos</h3>
+                    <p className="text-gray-700 text-base mb-4">
+                      Este aditivo inoculante actúa inmediatamente a través de microorganismos de rápida multiplicación que mejoran la conservación y calidad de granos y semillas almacenados en silobolsas.
+                    </p>
+                    <h4 className="text-lg font-semibold text-green-700 mb-2">Ventajas:</h4>
+                    <ul className="list-disc list-inside text-gray-700 space-y-1 mb-2">
+                      <li>
+                        <span className="font-semibold">Modificación del medio ambiente:</span> en el interior del silobolsa.
+                      </li>
+                      <li>
+                        <span className="font-semibold">Rápido descenso del nivel de oxígeno.</span>
+                      </li>
+                      <li>
+                        <span className="font-semibold">Rápido aumento de los niveles de anhídrido carbónico.</span>
+                      </li>
+                      <li>
+                        <span className="font-semibold">Ambiente antagonista:</span> para patógenos e insectos perjudiciales para la calidad del grano almacenado en silobolsa.
+                      </li>
+                      <li>
+                        <span className="font-semibold">En caso de rotura del silobolsa:</span> ayuda a limitar el deterioro de los granos almacenados.
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
-          {activeTab === 'silajes' && (
-            <div>
-              <h2 className="text-2xl font-bold text-green-900 mb-4">Suprasil Silajes</h2>
-              <div className="flex flex-col md:flex-row items-center md:items-start min-h-[320px]">
-                {/* Imagen única */}
-                <div className="w-full md:w-1/2 flex flex-col items-center md:items-start">
-                  <img
-                    src="/images/productos/inoculantes/suprasil-silaje.jpeg"
-                    alt="Inoculante Suprasil Silajes"
-                    className="rounded-2xl shadow-2xl w-full max-w-lg object-cover mb-4"
-                  />
-                </div>
-                {/* Información al costado */}
-                <div className="w-full md:w-1/2 flex flex-col justify-center md:pl-8">
-                  <h3 className="text-xl font-semibold text-green-800 mb-2">Suprasil Silajes</h3>
-                  <p className="text-gray-700 text-base mb-4">
-                    El único inoculante diseñado para ensilar cultivos secos sin comprometer la fermentación.
-                  </p>
-                  <h4 className="text-lg font-semibold text-green-700 mb-2">Ventajas:</h4>
-                  <ul className="list-disc list-inside text-gray-700 space-y-1 mb-2">
-                    <li>
-                      <span className="font-semibold">Adaptabilidad:</span> al estado del cultivo.
-                    </li>
-                    <li>
-                      <span className="font-semibold">Conservación segura:</span> incluso en condiciones no ideales.
-                    </li>
-                    <li>
-                      <span className="font-semibold">Fermentación más rápida y controlada.</span>
-                    </li>
-                    <li>
-                      <span className="font-semibold">Estabilidad fermentativa:</span> en solo 2 a 7 días.
-                    </li>
-                    <li>
-                      <span className="font-semibold">Mayor estabilidad aeróbica.</span>
-                    </li>
-                    <li>
-                      <span className="font-semibold">Ideal:</span> para asegurar tus reservas forrajeras húmedas.
-                    </li>
-                    <li>
-                      <span className="font-semibold">Más digestibilidad:</span> mejor aprovechamiento por el ganado.
-                    </li>
-                    <li>
-                      <span className="font-semibold">Fermentación rápida:</span> incluso en cultivos secos.
-                    </li>
-                  </ul>
+            )}
+            {activeTab === 'heno' && (
+              <div>
+                <h2 className="text-2xl font-bold text-green-900 mb-4">Suprasil Heno</h2>
+                <div className="flex flex-col md:flex-row items-center md:items-start min-h-[320px]">
+                  {/* Imagen única */}
+                  <div className="w-full md:w-1/2 flex flex-col items-center md:items-start">
+                    <img
+                      src="/images/productos/inoculantes/suprasil-heno.jpeg"
+                      alt="Inoculante Suprasil Heno"
+                      className="rounded-2xl shadow-2xl w-full max-w-lg object-cover mb-4"
+                    />
+                  </div>
+                  {/* Información al costado */}
+                  <div className="w-full md:w-1/2 flex flex-col justify-center md:pl-8">
+                    <h3 className="text-xl font-semibold text-green-800 mb-2">Henificación sin riesgos</h3>
+                    <p className="text-gray-700 text-base mb-4">
+                      Permite confeccionar heno con alto contenido de humedad sin comprometer su calidad, brindando protección desde el primer contacto con el material.
+                    </p>
+                    <h4 className="text-lg font-semibold text-green-700 mb-2">Ventajas:</h4>
+                    <ul className="list-disc list-inside text-gray-700 space-y-1 mb-2">
+                      <li>
+                        <span className="font-semibold">Ahorro de tiempo:</span> Reduce el tiempo entre el corte y la confección, optimizando la producción.
+                      </li>
+                      <li>
+                        <span className="font-semibold">Mayor humedad:</span> Permite trabajar con porcentajes de humedad de hasta un 30%, sin riesgo de ardido.
+                      </li>
+                      <li>
+                        <span className="font-semibold">Fácil y accesible:</span> Aplicación sencilla durante el proceso y a un costo accesible.
+                      </li>
+                      <li>
+                        <span className="font-semibold">Protección total:</span> Desde el primer contacto con el material.
+                      </li>
+                      <li>
+                        <span className="font-semibold">Mayor calidad y digestibilidad:</span> Disminuye la pérdida de nutrientes, mejora la palatabilidad y favorece la digestión de la fibra tratada.
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
+            )}
+            {activeTab === 'silajes' && (
+              <div>
+                <h2 className="text-2xl font-bold text-green-900 mb-4">Suprasil Silajes</h2>
+                <div className="flex flex-col md:flex-row items-center md:items-start min-h-[320px]">
+                  {/* Imagen única */}
+                  <div className="w-full md:w-1/2 flex flex-col items-center md:items-start">
+                    <img
+                      src="/images/productos/inoculantes/suprasil-silaje.jpeg"
+                      alt="Inoculante Suprasil Silajes"
+                      className="rounded-2xl shadow-2xl w-full max-w-lg object-cover mb-4"
+                    />
+                  </div>
+                  {/* Información al costado */}
+                  <div className="w-full md:w-1/2 flex flex-col justify-center md:pl-8">
+                    <h3 className="text-xl font-semibold text-green-800 mb-2">Suprasil Silajes</h3>
+                    <p className="text-gray-700 text-base mb-4">
+                      El único inoculante diseñado para ensilar cultivos secos sin comprometer la fermentación.
+                    </p>
+                    <h4 className="text-lg font-semibold text-green-700 mb-2">Ventajas:</h4>
+                    <ul className="list-disc list-inside text-gray-700 space-y-1 mb-2">
+                      <li>
+                        <span className="font-semibold">Adaptabilidad:</span> al estado del cultivo.
+                      </li>
+                      <li>
+                        <span className="font-semibold">Conservación segura:</span> incluso en condiciones no ideales.
+                      </li>
+                      <li>
+                        <span className="font-semibold">Fermentación más rápida y controlada.</span>
+                      </li>
+                      <li>
+                        <span className="font-semibold">Estabilidad fermentativa:</span> en solo 2 a 7 días.
+                      </li>
+                      <li>
+                        <span className="font-semibold">Mayor estabilidad aeróbica.</span>
+                      </li>
+                      <li>
+                        <span className="font-semibold">Ideal:</span> para asegurar tus reservas forrajeras húmedas.
+                      </li>
+                      <li>
+                        <span className="font-semibold">Más digestibilidad:</span> mejor aprovechamiento por el ganado.
+                      </li>
+                      <li>
+                        <span className="font-semibold">Fermentación rápida:</span> incluso en cultivos secos.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            )}
+          </motion.div>
         </div>
         
         {/* Additional Sections */}
