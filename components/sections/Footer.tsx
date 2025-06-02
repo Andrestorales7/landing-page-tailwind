@@ -101,7 +101,7 @@ const Footer: React.FC = () => {
                   { 
                     title: "Loma Plata",
                     address: "Oficina 4 - Predio Plasti Chaco",
-                    phones: ["(0986) 289 494"]
+                    phones: ["(0986) 778 771"]
                   },
                 ].map((location, idx) => (
                   <motion.div
