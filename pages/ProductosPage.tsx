@@ -12,7 +12,7 @@ const categorias = [
     },
     {
         name: 'Ensilaje',
-        image: '/images/productos/ensilaje/hilo-fardo.png',
+        image: '/images/productos/ensilaje/hilos.jpg',
         link: '/productos/ensilaje'
     },
     {
