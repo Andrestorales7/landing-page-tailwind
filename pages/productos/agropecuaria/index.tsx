@@ -21,7 +21,7 @@ const AgroPecuariaPage = () => {
       image: '/images/productos/agropecuaria/cta2.jpg',
       description: 'Malla CTA Aluminet disponible en varias medidas.',
       details: ['Varias medidas disponibles'],
-      logo: '/images/logos/sugrand.png',
+      logo: '/images/logos/sugrand-logo.png',
     },
     {
       name: 'Tejido Aviar',

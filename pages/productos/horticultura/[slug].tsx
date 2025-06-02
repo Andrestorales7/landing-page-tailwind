@@ -59,8 +59,8 @@ const products = [
 		slug: 'media-sombra',
 		images: [
 			
-			'/images/productos/horticultura/mediasombra-cultivos.jpg',
-			'/images/productos/horticultura/media-sombra-fija-2.jpg',
+			'/images/productos/horticultura/media-sombra2.jpeg',
+			'/images/productos/horticultura/media-sombra3.jpeg',
 		],
 		description:
 			'Mallas de media sombra de alta calidad, ideales para proteger cultivos y áreas específicas del exceso de radiación solar. Perfectas para horticultura, viveros, invernaderos y otros usos agrícolas.',

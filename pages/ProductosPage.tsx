@@ -32,7 +32,7 @@ const categorias = [
     },
     {
         name: 'Inoculantes',
-        image: '/images/productos/inoculantes/inoculante1.jpeg',
+        image: '/images/productos/inoculantes/SupraSil_portada.jpg',
         link: '/productos/inoculantes'
     },
     {
@@ -61,22 +61,21 @@ const ProductosPage = () => {
                     <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent pointer-events-none"></div>
                     
                     {/* Contenido del Hero */}
-                    <div className="relative z-10 pt-42 pb-22 px-6 sm:px-12 lg:px-18 max-w-6xl mx-auto">
+                    <div className="relative z-10 pt-28 pb-12 px-6 sm:px-12 lg:px-18 max-w-6xl mx-auto">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
                             className="text-center"
                         >
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">
-                            Soluciones agrícolas hechas para el productor.
+                            <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight drop-shadow-lg">
+                                Soluciones agrícolas hechas para el productor.
                             </h1>
-                            <p className="mt-6 text-lg md:text-xl text-white max-w-2xl drop-shadow mx-auto">
+                            <p className="mt-4 text-base md:text-lg text-white max-w-2xl drop-shadow mx-auto">
                                 Soluciones de calidad para la agricultura moderna, diseñadas para maximizar tu productividad y eficiencia.
                             </p>
                         </motion.div>
                     </div>
-                    
                     {/* Divisoria estilizada con forma orgánica que deja ver parte de la imagen */}
                     <div className="absolute bottom-0 left-0 right-0 overflow-hidden">
                         <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-[10vw] min-h-[60px] max-h-[120px]">

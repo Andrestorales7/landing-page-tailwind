@@ -26,7 +26,7 @@ const AgroProductPage = () => {
     {
       name: 'Hilos para fardos',
       slug: 'hilos-exporplas',
-      image: '/images/productos/ensilaje/hilo-fardo.png',
+      image: '/images/productos/ensilaje/hilos.jpg',
       description: 'Hilos resistentes para fardos redondos y cuadrados.',
       details: ['Hilo e1000 - 5,400 m (fardos redondos)', 'Hilo e130 - 1,300 m (fardos cuadrados)'],
       logo: '/images/logos/exporplas-logo.png',

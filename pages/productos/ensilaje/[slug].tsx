@@ -34,8 +34,8 @@ const products = [
     name: 'Hilos para fardos',
     slug: 'hilos-exporplas',
     images: [
-      '/images/productos/ensilaje/hilo-fardo.png',
-      '/images/productos/ensilaje/hilo-fardo-2.jpg',
+      '/images/productos/ensilaje/hilos.jpg',
+      '/images/productos/ensilaje/hilos2.jpg',
      
     ],
     description: `

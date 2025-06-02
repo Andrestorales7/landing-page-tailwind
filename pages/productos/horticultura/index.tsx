@@ -26,7 +26,7 @@ const HorticulturaProductPage = () => {
     {
       name: 'Media Sombra',
       slug: 'media-sombra',
-      image: 'https://www.greataussiepatios.com.au/sites/greataussiepatioscomau/assets/public/Image/Patio-of-week-blogs/Nursery_with_Shade_Cloth_for_Shade.jpg',
+      image: '/images/productos/horticultura/media-sombra2.jpeg',
       description: 'Crea sombra parcial para tus plantas con nuestras mallas de sombra.',
       details: ['Diferentes porcentajes de sombra', 'Resistente a la intemperie'],
       logo: '/images/logos/sugrand-logo2.png',
