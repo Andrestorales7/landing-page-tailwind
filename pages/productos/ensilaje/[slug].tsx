@@ -28,7 +28,7 @@ const products = [
 <span class="font-semibold">Aplicación Versátil:</span> Compatible con diversas empacadoras y sistemas de enfardado, su flexibilidad y resistencia permiten un uso eficiente en diferentes condiciones de campo.
 `,
     details: ['750 mm x 1,500 m (25 micras)'],
-    logo: '/images/logos/agripower-logo.png',
+    logo: '/images/logos/exporplas-logo.png',
   },
   {
     name: 'Hilos para fardos',
@@ -383,7 +383,7 @@ export default function EnsilajeProductDetail() {
           <div className="bg-white rounded-2xl shadow-lg p-8 border border-green-100">
             {product.slug === 'film-agripower' ? (
               <div className="prose prose-lg max-w-none text-gray-700">
-                <h3 className="text-2xl font-semibold mb-2">Film para Fardos – Agripower</h3>
+                <h3 className="text-2xl font-semibold mb-2">Film para Fardos – Exporplas</h3>
                 <p>
                   Film coextruido en 5 capas, fabricado con polietileno lineal de baja densidad (LLDPE) de alta calidad. 
                   Ofrece resistencia superior al desgarro, excelente flexibilidad y protección UV de larga duración (hasta 12 meses).

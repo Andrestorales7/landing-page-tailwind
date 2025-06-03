@@ -21,7 +21,7 @@ const AgroProductPage = () => {
       image: '/images/productos/ensilaje/film-fardos.jpg',
       description: 'Film resistente y protección UV para fardos.',
       details: ['750 mm x 1,500 m (25 micras)'],
-      logo: '/images/logos/agripower-logo.png',
+      logo: '/images/logos/exporplas-logo.png',
     },
     {
       name: 'Hilos para fardos',

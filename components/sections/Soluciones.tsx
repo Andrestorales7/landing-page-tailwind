@@ -90,25 +90,17 @@ const SolucionesSection: React.FC<SolucionesSectionProps> = ({ soluciones }) => 
               <span className="block mt-2 font-light italic text-green-100/80">Tecnología de vanguardia para una producción más rentable.</span>
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Link
-                href="/ProductosPage"
-                className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-gradient-to-r from-lime-300 to-green-400 text-green-900 font-bold text-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 relative overflow-hidden"
-              >
-                <span className="relative z-10">Ver Productos</span>
-                <span className="absolute inset-0 bg-white/30 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
-              </Link>
-
-              <Link
-                href="https://wa.me/1234567890"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold text-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 relative overflow-hidden"
-              >
-                <FaWhatsapp className="w-5 h-5 group-hover:animate-pulse" />
-                <span className="relative z-10">WhatsApp</span>
-                <span className="absolute inset-0 bg-white/10 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
-              </Link>
+            <div className="flex flex-col sm:flex-row gap-4 pt-12">
+              {/* Botón Ver Productos alineado a la derecha en desktop */}
+              <div className="flex w-full justify-center">
+                <Link
+                  href="/ProductosPage"
+                  className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-gradient-to-r from-lime-300 to-green-400 text-green-900 font-bold text-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 relative overflow-hidden"
+                >
+                  <span className="relative z-10">Ver Productos</span>
+                  <span className="absolute inset-0 bg-white/30 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+                </Link>
+              </div>
             </div>
           </div>
 

@@ -146,7 +146,7 @@ const products = [
     </ul>
     <h3 class="text-xl font-semibold mt-6 mb-2">📏 Especificaciones disponibles:</h3>
     <ul class="list-disc pl-6 mb-4">
-      <li><strong>Espesores:</strong> 0.75 mm, 1.00 mm y 1.50 mm.</li>
+      <li><strong>Espesores:</strong> 500 mm, 800 mm y 1000 micras.</li>
       <li><strong>Ancho de rollo:</strong> 7 metros.</li>
       <li><strong>Longitudes estándar:</strong> 200 metros (0.75 mm y 1.00 mm) y 140 metros (1.50 mm).</li>
     </ul>
@@ -165,7 +165,7 @@ const products = [
   `,
 		details: [
 			'<span class="font-semibold">Material:</span> Polietileno de alta densidad (HDPE), atóxico',
-			'<span class="font-semibold">Espesores:</span> 0.75 mm, 1.00 mm, 1.50 mm',
+			'<span class="font-semibold">Espesores:</span> 500 mm, 800 mm, 1000 micras',
 			'<span class="font-semibold">Ancho de rollo:</span> 7 metros',
 			'<span class="font-semibold">Longitudes estándar:</span> 200 m (0.75 mm y 1.00 mm), 140 m (1.50 mm)',
 			'<span class="font-semibold">Aplicaciones:</span> Reservorios, lagos, estanques, lagunas de tratamiento, minería, rellenos sanitarios, construcción civil',

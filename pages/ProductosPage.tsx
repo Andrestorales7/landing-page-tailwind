@@ -38,7 +38,7 @@ const categorias = [
     {
         name: 'Otros Productos',
         image: '/images/productos/otros/costuradoras/cost1.png',
-        link: '/productos/otros-productos'
+        link: '/productos/otrosproductos'
     },
 ];
 

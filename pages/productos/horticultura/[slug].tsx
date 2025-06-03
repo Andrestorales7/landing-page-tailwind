@@ -8,9 +8,9 @@ const products = [
 		name: 'Películas para Invernadero',
 		slug: 'peliculas-para-invernadero',
 		images: [
-			'https://images.unsplash.com/photo-1637987327476-5c77df3cb16d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-			'https://images.unsplash.com/photo-1569362945998-36f0ce29978c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-			'https://images.unsplash.com/photo-1604660640971-db2432cb2e3a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+			'/images/productos/horticultura/pelicula-invernadero.jpg',
+			'/images/productos/horticultura/pelicula-invernadero2.jpg',
+			
 		],
 		description:
 			'Películas tricapa de alta performance para invernaderos, con fácil despliegue, excelentes propiedades ópticas y homogeneidad en el espesor. Diseñadas para satisfacer las necesidades de diversos cultivos.',
@@ -58,7 +58,7 @@ const products = [
 		name: 'Media Sombra',
 		slug: 'media-sombra',
 		images: [
-			
+			'/images/productos/horticultura/media-sombra1.jpeg',
 			'/images/productos/horticultura/media-sombra2.jpeg',
 			'/images/productos/horticultura/media-sombra3.jpeg',
 		],
@@ -217,7 +217,7 @@ const products = [
 		name: 'Mantas de Solarización',
 		slug: 'mantas-de-solarizacion',
 		images: [
-			'/images/productos/horticultura/manta1.webp',
+			'/images/productos/horticultura/manta1.jpeg',
 			'/images/productos/horticultura/manta2.jpg',
 			'/images/productos/horticultura/manta3.webp',
 		],

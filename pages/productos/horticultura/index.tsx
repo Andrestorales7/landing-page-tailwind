@@ -18,7 +18,7 @@ const HorticulturaProductPage = () => {
     {
       name: 'Películas para Invernadero',
       slug: 'peliculas-para-invernadero',
-      image: 'https://images.unsplash.com/photo-1637987327476-5c77df3cb16d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image: '/images/productos/horticultura/pelicula-invernadero2.jpg',
       description: 'Protege tus cultivos con películas de alta calidad para invernaderos.',
       details: ['Alta transmisión de luz', 'Protección UV', 'Durabilidad superior'],
       logo: '/images/logos/agrinpex-logo.png',
@@ -58,7 +58,7 @@ const HorticulturaProductPage = () => {
     {
       name: 'Mantas de Solarización',
       slug: 'mantas-de-solarizacion',
-      image: '/images/productos/horticultura/manta2.jpg',
+      image: '/images/productos/horticultura/manta1.jpeg',
       description: 'Elimina patógenos del suelo con nuestras mantas de solarización.',
       details: ['Control de patógenos', 'Fácil de usar'],
       logo: '/images/logos/agrinpex-logo.png',
