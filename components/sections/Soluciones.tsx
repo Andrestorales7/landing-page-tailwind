@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useKeenSlider } from 'keen-slider/react';
-import { FaWhatsapp } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import 'keen-slider/keen-slider.min.css';
 
