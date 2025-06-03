@@ -55,7 +55,7 @@ const AboutUs: React.FC = () => {
               transition={{ delay: 1, duration: 0.5 }}
               className="absolute top-6 right-6 bg-green-600/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg"
             >
-              <span className="text-white text-sm font-semibold">25+ años de experiencia</span>
+              <span className="text-white text-sm font-semibold">+25 años de experiencia</span>
             </motion.div>
           </motion.div>
 
@@ -70,10 +70,10 @@ const AboutUs: React.FC = () => {
             <div className="relative">
               <div className="absolute -left-4 -top-4 h-24 w-24 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full opacity-10 blur-3xl" />
               <span className="inline-block text-sm font-medium uppercase tracking-widest text-emerald-600">
-                <span className="text-emerald-500">//</span> Nuestra historia
+                <span className="text-emerald-500"></span> Nuestra historia
               </span>
               <h2 className="mt-3 text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl">
-                + de 25 años impulsando el{' '}
+                Mas de 25 años impulsando el{' '}
                 <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
                   Agro Paraguayo
                 </span>

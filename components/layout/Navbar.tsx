@@ -134,7 +134,7 @@ const Navbar: React.FC = () => {
                                                 className="block w-full text-left px-4 py-2.5 text-base font-semibold text-green-600 hover:bg-gray-50 hover:text-green-700 rounded-md transition-colors mb-1 border-b border-gray-200"
                                                 onClick={() => setIsProductMenuOpen(false)}
                                             >
-                                                --Categorias--
+                                                Categorias
                                             </Link>
                                             {productSubcategories.map((subcategory) => (
                                                 <Link
@@ -251,10 +251,7 @@ const Navbar: React.FC = () => {
                                         <Link
                                             href="/ProductosPage"
                                             className="block w-full text-left px-4 py-2.5 text-base font-semibold text-green-600 hover:bg-gray-50 hover:text-green-700 rounded-md transition-colors mb-1 border-b border-gray-200"
-                                            onClick={() => {
-                                                setIsProductMenuOpen(false);
-                                                setIsMobileMenuOpen(false);
-                                            }}
+                                            onClick={() => setIsProductMenuOpen(false)}
                                         >
                                             Categorias
                                         </Link>
