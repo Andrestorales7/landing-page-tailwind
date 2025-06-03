@@ -256,7 +256,7 @@ const Navbar: React.FC = () => {
                                                 setIsMobileMenuOpen(false);
                                             }}
                                         >
-                                            --Categorias--
+                                            Categorias
                                         </Link>
                                         {productSubcategories.map((subcategory) => (
                                             <Link
