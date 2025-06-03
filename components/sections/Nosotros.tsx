@@ -45,7 +45,7 @@ const AboutUs: React.FC = () => {
             <div className="absolute bottom-6 left-6 backdrop-blur-md bg-white/40 px-5 py-3 rounded-2xl shadow-lg border border-white/30">
               <span className="font-bold text-emerald-800 text-sm flex items-center">
                 <AcademicCapIcon className="h-5 w-5 mr-2 text-emerald-600" />
-                Innovación agrícola desde 2015
+                Innovación agrícola desde 2000
               </span>
             </div>
             {/* New floating achievements badge */}
@@ -113,10 +113,10 @@ const AboutUs: React.FC = () => {
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { number: '57+', label: 'Marcas Representadas', icon: <BuildingOffice2Icon className="h-8 w-8 text-emerald-500" /> },
-              { number: '95%', label: 'Clientes satisfechos', icon: <CheckCircleIcon className="h-8 w-8 text-emerald-500" /> },
-              { number: '1442+', label: 'Proyectos activos', icon: <ChartBarIcon className="h-8 w-8 text-emerald-500" /> },
-              { number: '48+', label: 'Tecnologías aplicadas', icon: <UsersIcon className="h-8 w-8 text-emerald-500" /> },
+              { number: '+ 57', label: 'Marcas Representadas', icon: <BuildingOffice2Icon className="h-8 w-8 text-emerald-500" /> },
+              { number: '+ 1.000', label: 'Clientes satisfechos', icon: <CheckCircleIcon className="h-8 w-8 text-emerald-500" /> },
+              { number: '+ 25 Años', label: 'En el Mercado', icon: <ChartBarIcon className="h-8 w-8 text-emerald-500" /> },
+              { number: '+ 500', label: 'Soluciones', icon: <UsersIcon className="h-8 w-8 text-emerald-500" /> },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
