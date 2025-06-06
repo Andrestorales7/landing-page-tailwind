@@ -54,8 +54,7 @@ const Footer: React.FC = () => {
                 {[
                   { icon: FiFacebook, href: "https://www.facebook.com/cmpagropy?mibextid=wwXIfr&mibextid=wwXIfr", label: "Facebook" },
                   { icon: FiInstagram, href: "https://instagram.com/cmpagro", label: "Instagram" },
-                  { icon: FiMessageSquare, href: "https://wa.me/1234567890", label: "WhatsApp" },
-                  { icon: FiMail, href: "mailto:contacto@cmpagro.com", label: "Email" },
+                  
                 ].map((social, idx) => (
                   <motion.a
                     key={idx}
@@ -144,19 +143,8 @@ const Footer: React.FC = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col md:flex-row justify-between items-center text-center md:text-left"
+            className="flex justify-center items-center text-center"
           >
-            <span className="block mt-1 text-sm text-green-200/80">
-              dev{" "}
-              <a
-                href="https://github.com/Andrestorales7"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-green-300 underline hover:text-green-200 transition"
-              >
-                ---
-              </a>
-            </span>
             <div className="text-sm text-green-200/80">
               ©CMP Agro. Todos los derechos reservados.
             </div>

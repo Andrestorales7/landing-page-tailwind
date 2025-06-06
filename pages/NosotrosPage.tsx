@@ -57,25 +57,6 @@ const AboutUsPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Destacados */}
-        <div className="relative z-10 max-w-6xl mx-auto px-4 -mt-16 mb-12">
-          <div className="bg-white rounded-2xl shadow-xl p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { title: 'Actualidad del Sector', icon: '📰', description: 'Noticias relevantes del ámbito agroindustrial.' },
-              { title: 'Contenido Clasificado', icon: '🏷️', description: 'Artículos organizados por categorías temáticas.' },
-              { title: 'Eventos y Tendencias', icon: '📅', description: 'Información actualizada sobre eventos del sector.' }
-            ].map((item, i) => (
-              <div key={i} className="flex items-center space-x-4 p-3">
-                <div className="text-4xl">{item.icon}</div>
-                <div>
-                  <h3 className="font-bold text-gray-900">{item.title}</h3>
-                  <p className="text-sm text-gray-600">{item.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
         <div className="mx-auto max-w-7xl px-6">
             <div className="grid gap-16 lg:grid-cols-2">
               {/* Image Section */}

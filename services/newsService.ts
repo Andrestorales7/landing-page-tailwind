@@ -7,7 +7,6 @@ export interface Article {
   category: string;
   author: string;
   date: string;
-  readTime: string;
   image: string;
   authorImage: string;
   content: string; // Puede contener HTML o Markdown
@@ -21,11 +20,10 @@ export const fetchArticles = async (): Promise<Article[]> => {
       title: "Feria Innovar 2025",
       description: "Descubre cómo las nuevas tecnologías están revolucionando los cultivos y mejorando la eficiencia en el campo.",
       category: "Innovación",
-      author: "agenciaparle",
+      author: "CMP Noticias",
       date: "2025-03-18",
-      readTime: "5 min",
       image: "/images/eventos/innovar2025/innovar1.jpg",
-      authorImage: "/images/eventos/agenciaparle.jpg",
+      authorImage: "/images/eventos/noticias-logo.png",
       content: `
         <h2 class="text-2xl font-bold mb-4">INNOVAR: La Feria que Impulsa el Futuro del Agro</h2>
         <p>
@@ -64,11 +62,10 @@ export const fetchArticles = async (): Promise<Article[]> => {
       title: "LA SOLUCIÓN #1 PARA REDUCIR LA TEMPERATURA EN CORRALES Y ESTABLOS",
       description: "Descubra la Malla CTA Aluminet. La innovadora tecnología israelí que ya ha transformado la producción agropecuaria de miles de agroganaderos en Paraguay.",
       category: "Tendencias",
-      author: "agenciaparle",
+      author: "CMP Noticias",
       date: "2025-02-21",
-      readTime: "7 min",
       image: "/images/eventos/cta/cta1.jpg",
-      authorImage: "/images/eventos/agenciaparle.jpg",
+      authorImage: "/images/eventos/noticias-logo.png",
       content: `
         <h2 class="text-2xl font-bold mb-4">Malla CTA Aluminet: La Clave para un Entorno Saludable y Productivo</h2>
         <p>
@@ -104,11 +101,10 @@ export const fetchArticles = async (): Promise<Article[]> => {
       title: "CMP AGRO REVOLUCIONA EL MERCADO CON NUEVAS MEDIA SOMBRAS",
       description: "Innovación en protección agrícola. Descubra las nuevas media sombras de última generación, diseñadas para ofrecer máxima resistencia y eficiencia en la protección de cultivos en Paraguay.",
       category: "Tendencias",
-      author: "agenciaparle",
+      author: "CMP Noticias",
       date: "2025-01-05",
-      readTime: "6 min",
       image: "/images/eventos/cta/mediasombra.jpeg",
-      authorImage: "/images/eventos/agenciaparle.jpg",
+      authorImage: "/images/eventos/noticias-logo.png",
       content: `
         <h2 class="text-2xl font-bold mb-4">NUEVAS SOLUCIONES PARA LA PROTECCIÓN DE CULTIVOS</h2>
         <p>
@@ -144,11 +140,10 @@ export const fetchArticles = async (): Promise<Article[]> => {
       title: "SILOBOLSAS. LA CLAVE PARA AHORRAR Y OPTIMIZAR LA COSECHA DE GRANOS Y FORRAJES.",
       description: "Más capacidad, más protección, más rendimiento. Descubra cómo las Silobolsas de CMP AGRO pueden transformar su producción, ofreciendo almacenamiento eficiente, seguro y de bajo costo.",
       category: "Tecnología",
-      author: "agenciaparle",
+      author: "CMP Noticias",
       date: "2024-12-28",
-      readTime: "4 min",
       image: "/images/eventos/cta/silobolsas.jpeg",
-      authorImage: "/images/eventos/agenciaparle.jpg",
+      authorImage: "/images/eventos/noticias-logo.png",
       content: `
         <h2 class="text-2xl font-bold mb-4">NUEVAS SOLUCIONES PARA LA CONSERVACIÓN Y ALMACENAMIENTO DE CULTIVOS</h2>
         <p>
@@ -191,8 +186,6 @@ export const fetchArticles = async (): Promise<Article[]> => {
         </blockquote>
       `
     },
-    
-    
   ];
   
   // Ordenar por fecha (más reciente primero)

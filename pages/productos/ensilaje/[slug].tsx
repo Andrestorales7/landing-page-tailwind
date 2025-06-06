@@ -571,9 +571,9 @@ export default function EnsilajeProductDetail() {
               <p className="text-lg mb-6 opacity-90">
                 Contáctanos para más información y asesoría personalizada
               </p>
-              <button className="bg-white text-green-700 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+              <Link href="/Contacto" className="inline-block bg-white text-green-700 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                 Contactar ahora
-              </button>
+              </Link>
             </div>
           </div>
         </div>

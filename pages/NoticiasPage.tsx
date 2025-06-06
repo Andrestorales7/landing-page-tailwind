@@ -196,7 +196,7 @@ const NoticiasPage: React.FC = () => {
                                         {article.description}
                                     </p>
                                     
-                                    {/* Autor y tiempo de lectura */}
+                                    {/* Autor */}
                                     <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                                         <div className="flex items-center space-x-3">
                                             <img 
@@ -204,14 +204,8 @@ const NoticiasPage: React.FC = () => {
                                                 alt={article.author} 
                                                 className="h-8 w-8 rounded-full object-cover border-2 border-white shadow-sm" 
                                             />
-                                            <span className="text-sm font-medium">{article.author}</span>
+                                            <span className="text-sm text-black font-medium">{article.author}</span>
                                         </div>
-                                        <span className="text-xs text-gray-500 flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                            </svg>
-                                            {article.readTime}
-                                        </span>
                                     </div>
                                 </div>
                                 

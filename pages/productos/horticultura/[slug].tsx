@@ -295,11 +295,6 @@ export default function ProductoDetalle() {
 				{/* Contenido del Hero */}
 				<div className="relative z-10 pt-32 pb-16 px-6 sm:px-12 lg:px-18 max-w-6xl mx-auto">
 					<div className="text-center">
-						<img
-							src={product.logo}
-							alt="logo"
-							className="w-20 h-20 mb-4 bg-white/90 rounded-full p-2 shadow-lg mx-auto"
-						/>
 						<h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">
 							{product.name}
 						</h1>
@@ -394,23 +389,32 @@ export default function ProductoDetalle() {
 						{/* Información del Producto */}
 						<div className="lg:col-span-1">
 							<div className="sticky top-10">
-								<h2 className="text-2xl font-bold text-gray-900 mb-6">
-									Características del Producto
-								</h2>
-								<div className="bg-white rounded-2xl shadow-lg p-6 border border-green-100">
-									<ul className="space-y-4">
-										{product.details.map((detail, i) => (
-											<li key={i} className="flex items-start">
-												<div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
-													<span className="text-green-600 text-sm font-bold">✓</span>
-												</div>
-												<span className="text-gray-700 leading-relaxed">{detail}</span>
-											</li>
-										))}
-									</ul>
+								{/* Logo del producto */}
+								<div className="text-center mb-6">
+									<img
+										src={product.logo}
+										alt="logo"
+										className="w-20 h-20 bg-white/90 rounded-full p-2 shadow-lg mx-auto"
+									/>
 								</div>
-							</div>
-						</div>
+								
+                                <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                                    Características del Producto
+                                </h2>
+                                <div className="bg-white rounded-2xl shadow-lg p-6 border border-green-100">
+                                    <ul className="space-y-4">
+                                        {product.details.map((detail, i) => (
+                                            <li key={i} className="flex items-start">
+                                                <div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                                                    <span className="text-green-600 text-sm font-bold">✓</span>
+                                                </div>
+                                                <span className="text-gray-700 leading-relaxed">{detail}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
 					</div>
 
 					{/* Descripción Detallada */}
@@ -482,7 +486,7 @@ export default function ProductoDetalle() {
 							</div>
 						) : product.slug === 'mulching' ? (
 							<div className="prose prose-lg max-w-none text-gray-700">
-								<h3 className="text-2xl font-semibold mb-2">Mulching – CMP Agro</h3>
+								<h3 className="text-2xl font-semibold mb-2">Mulching </h3>
 								<p>
 									CMP Agro ofrece mulching de alta calidad para diversas aplicaciones agrícolas, destacando por su resistencia mecánica y protección eficiente contra condiciones climáticas extremas.
 								</p>
@@ -649,16 +653,16 @@ export default function ProductoDetalle() {
 
 					{/* Call to Action */}
 					<div className="mt-12 text-center">
-						<div className="bg-gradient-to-r from-green-600 to-lime-600 rounded-2xl p-8 text-white">
-							<h3 className="text-2xl font-bold mb-4">¿Interesado en este producto?</h3>
-							<p className="text-lg mb-6 opacity-90">
-								Contáctanos para más información y asesoría personalizada
-							</p>
-							<button className="bg-white text-green-700 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors">
-								Contactar ahora
-							</button>
-						</div>
-					</div>
+                        <div className="bg-gradient-to-r from-green-600 to-lime-600 rounded-2xl p-8 text-white">
+                            <h3 className="text-2xl font-bold mb-4">¿Interesado en este producto?</h3>
+                            <p className="text-lg mb-6 opacity-90">
+                                Contáctanos para más información y asesoría personalizada
+                            </p>
+                            <Link href="/Contacto" className="inline-block bg-white text-green-700 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                                Contactar ahora
+                            </Link>
+                        </div>
+                    </div>
 				</div>
 			</div>
 
