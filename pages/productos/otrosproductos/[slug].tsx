@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useState } from 'react';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
+import Image from "next/image";
 
 const products = [
 	{
@@ -116,9 +117,12 @@ export default function ProductoDetalle() {
 				{/* Contenido del Hero */}
 				<div className="relative z-10 pt-32 pb-16 px-6 sm:px-12 lg:px-18 max-w-6xl mx-auto">
 					<div className="text-center">
-						<img
+						{/* Logo del producto (reemplaza <img> por <Image />) */}
+						<Image
 							src={product.logo}
 							alt="logo"
+							width={80}
+							height={80}
 							className="w-20 h-20 mb-4 bg-white/90 rounded-full p-2 shadow-lg mx-auto"
 						/>
 						<h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">
@@ -148,12 +152,16 @@ export default function ProductoDetalle() {
 					<div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
 						<div className="lg:col-span-2">
 							<h2 className="text-2xl font-bold text-gray-900 mb-6">Imágenes</h2>
+							{/* Galería de imágenes principal (reemplaza <img> por <Image />) */}
 							<div className="relative w-full h-96 md:h-[400px] rounded-2xl overflow-hidden shadow-2xl mb-4 bg-gray-200 flex items-center justify-center">
-								<img
+								<Image
 									src={product.images[currentImageIndex]}
 									alt={`${product.name} imagen ${currentImageIndex + 1}`}
+									fill
 									className="w-full h-full object-contain object-center transition-all duration-300"
 									style={{ background: '#fff' }}
+									sizes="(max-width: 768px) 100vw, 66vw"
+									priority
 								/>
 								{/* Botones de navegación */}
 								{product.images.length > 1 && (
@@ -191,9 +199,11 @@ export default function ProductoDetalle() {
 											}`}
 											aria-label={`Ver imagen ${idx + 1}`}
 										>
-											<img
+											<Image
 												src={img}
 												alt={`Miniatura ${idx + 1}`}
+												width={64}
+												height={64}
 												className="w-full h-full object-cover"
 											/>
 										</button>

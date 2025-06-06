@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Contacto() {
   // Datos de vendedores actualizados con contactos reales
@@ -167,9 +168,11 @@ export default function Contacto() {
               >
                 <div className="text-center">
                   <div className="w-24 h-24 mx-auto mb-4 bg-emerald-200 rounded-full flex items-center justify-center overflow-hidden">
-                    <img
+                    <Image
                       src={vendedor.imagen}
                       alt={vendedor.nombre}
+                      width={96}
+                      height={96}
                       className="w-full h-full object-cover"
                       onError={(e) => {
                         // Fallback a icono SVG si la imagen no carga

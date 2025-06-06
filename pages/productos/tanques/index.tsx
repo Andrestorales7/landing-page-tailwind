@@ -202,14 +202,16 @@ const TanquesPage = () => {
               pointerEvents: 'none',
             }}
           >
-            <img
+            <Image
               src="/images/productos/tanques/carro-tanque.png"
               alt="Carro Tanque"
+              fill
               className="object-contain h-full w-full"
               style={{
                 maxHeight: '100%',
                 maxWidth: '100%',
               }}
+              priority
             />
           </div>
           {/* Overlay gradient */}

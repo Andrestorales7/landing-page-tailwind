@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useState } from 'react';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
+import Image from "next/image";
 
 const products = [
 	{
@@ -325,10 +326,13 @@ export default function ProductoDetalle() {
 
 							{/* Slider Principal */}
 							<div className="relative w-full h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl mb-6">
-								<img
+								<Image
 									src={product.images[currentImageIndex]}
 									alt={`${product.name} imagen ${currentImageIndex + 1}`}
+									fill
 									className="w-full h-full object-cover"
+									sizes="(max-width: 768px) 100vw, 66vw"
+									priority
 								/>
 
 								{/* Botones de navegación */}
@@ -376,9 +380,11 @@ export default function ProductoDetalle() {
 												: 'hover:shadow-lg'
 										}`}
 									>
-										<img
+										<Image
 											src={img}
 											alt={`${product.name} thumbnail ${idx + 1}`}
+											width={200}
+											height={96}
 											className="w-full h-24 object-cover"
 										/>
 									</button>
@@ -391,9 +397,11 @@ export default function ProductoDetalle() {
 							<div className="sticky top-10">
 								{/* Logo del producto */}
 								<div className="text-center mb-6">
-									<img
+									<Image
 										src={product.logo}
 										alt="logo"
+										width={80}
+										height={80}
 										className="w-20 h-20 bg-white/90 rounded-full p-2 shadow-lg mx-auto"
 									/>
 								</div>

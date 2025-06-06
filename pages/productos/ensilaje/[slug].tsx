@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useState } from 'react';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
+import Image from "next/image";
 
 // Puedes extraer este array a un archivo común si lo deseas
 const products = [
@@ -282,10 +283,13 @@ export default function EnsilajeProductDetail() {
 
               {/* Slider Principal */}
               <div className="relative w-full h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl mb-6">
-                <img
+                <Image
                   src={product.images[currentImageIndex]}
                   alt={`${product.name} imagen ${currentImageIndex + 1}`}
+                  fill
                   className="w-full h-full object-cover"
+                  sizes="(max-width: 768px) 100vw, 66vw"
+                  priority
                 />
 
                 {/* Botones de navegación */}
@@ -339,9 +343,11 @@ export default function EnsilajeProductDetail() {
                           : 'hover:shadow-lg'
                       }`}
                     >
-                      <img
+                      <Image
                         src={img}
                         alt={`${product.name} thumbnail ${idx + 1}`}
+                        width={200}
+                        height={96}
                         className="w-full h-24 object-cover"
                       />
                     </button>
@@ -357,9 +363,11 @@ export default function EnsilajeProductDetail() {
                   Características del Producto
                 </h2>
                 {/* Logo agregado aquí */}
-                <img
+                <Image
                   src={product.logo}
                   alt="logo"
+                  width={200}
+                  height={200}
                   className="w-40 h-40 mb-6 rounded-2xl p-2 shadow-2xl mx-auto object-contain bg-white border-2 border-green-200"
                   style={{ maxWidth: 200, maxHeight: 200 }}
                 />

@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useState } from 'react';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
+import Image from "next/image";
 
 // Lista de productos de envases
 const products = [
@@ -255,10 +256,13 @@ export default function ProductoEnvaseDetalle() {
 						<div className="lg:col-span-2">
 							<h2 className="text-2xl font-bold text-gray-900 mb-6">Imágenes</h2>
 							<div className="relative w-full h-72 md:h-80 rounded-2xl overflow-hidden shadow-2xl mb-6 bg-gray-100">
-								<img
+								<Image
 									src={product.images[currentImageIndex]}
 									alt={`${product.name} imagen ${currentImageIndex + 1}`}
+									fill
 									className="w-full h-full object-contain object-center bg-gray-100 rounded-2xl"
+									sizes="(max-width: 768px) 100vw, 66vw"
+									priority
 								/>
 								{/* Botones de navegación */}
 								{product.images.length > 1 && (
@@ -309,9 +313,11 @@ export default function ProductoEnvaseDetalle() {
 													: 'hover:shadow-lg'
 											}`}
 										>
-											<img
+											<Image
 												src={img}
 												alt={`${product.name} thumbnail ${idx + 1}`}
+												width={200}
+												height={96}
 												className="w-full h-24 object-cover object-center bg-gray-100 rounded-lg"
 											/>
 										</button>
@@ -326,9 +332,11 @@ export default function ProductoEnvaseDetalle() {
 								{product.logo && (
 									<div className="flex justify-center mb-8">
 										<div className="w-28 h-28 flex items-center justify-center bg-white rounded-full border border-green-100 shadow-xl p-3">
-											<img
+											<Image
 												src={product.logo}
 												alt={`${product.name} logo`}
+												width={80}
+												height={80}
 												className="max-w-[80%] max-h-[80%] object-contain"
 											/>
 										</div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 const images = [
     "https://images.unsplash.com/photo-1717702576954-c07131c54169?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -30,12 +31,15 @@ const Hero: React.FC = () => {
                         transition={{ duration: 0.8 }}
                         className="absolute inset-0 w-full h-full"
                     >
-                        <div
-                            className="w-full h-full bg-cover bg-center"
-                            style={{
-                                backgroundImage: `url('${images[current]}')`,
-                            }}
-                        >
+                        <div className="w-full h-full relative">
+                            <Image
+                                src={images[current]}
+                                alt={`Imagen de fondo ${current + 1}`}
+                                fill
+                                priority
+                                className="object-cover"
+                                sizes="100vw"
+                            />
                             <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
                         </div>
                     </motion.div>

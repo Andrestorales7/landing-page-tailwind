@@ -5,6 +5,7 @@ import Marcas from '@/components/sections/Marcas';
 import NoticeSlider from '@/components/sections/NoticeSlider';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const InoculantesProductPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -125,10 +126,13 @@ const InoculantesProductPage = () => {
                   <div className="w-full md:w-1/2 flex flex-col items-center md:items-start">
                     <div className="w-full max-w-lg mb-4">
                       <div className="relative">
-                        <img
+                        <Image
                           src={images[slide].src}
                           alt={images[slide].alt}
+                          fill
                           className="rounded-2xl shadow-2xl w-full object-cover"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          priority
                         />
                         <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
                           {images.map((_, idx) => (
@@ -178,9 +182,11 @@ const InoculantesProductPage = () => {
                 <div className="flex flex-col md:flex-row items-center md:items-start min-h-[320px]">
                   {/* Imagen única */}
                   <div className="w-full md:w-1/2 flex flex-col items-center md:items-start">
-                    <img
+                    <Image
                       src="/images/productos/inoculantes/suprasil-heno.jpeg"
                       alt="Inoculante Suprasil Heno"
+                      width={600}
+                      height={400}
                       className="rounded-2xl shadow-2xl w-full max-w-lg object-cover mb-4"
                     />
                   </div>
@@ -218,9 +224,11 @@ const InoculantesProductPage = () => {
                 <div className="flex flex-col md:flex-row items-center md:items-start min-h-[320px]">
                   {/* Imagen única */}
                   <div className="w-full md:w-1/2 flex flex-col items-center md:items-start">
-                    <img
+                    <Image
                       src="/images/productos/inoculantes/suprasil-silaje.jpeg"
                       alt="Inoculante Suprasil Silajes"
+                      width={600}
+                      height={400}
                       className="rounded-2xl shadow-2xl w-full max-w-lg object-cover mb-4"
                     />
                   </div>

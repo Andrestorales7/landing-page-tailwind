@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Marcas from '@/components/sections/Marcas';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const categorias = [
     {
@@ -120,10 +121,13 @@ const ProductosPage = () => {
                             >
                                 <div className="relative overflow-hidden">
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                    <img
+                                    <Image
                                         src={cat.image}
                                         alt={cat.name}
+                                        width={400}
+                                        height={224}
                                         className="h-56 w-full object-cover group-hover:scale-105 transition duration-500"
+                                        priority={index === 0}
                                     />
                                     <div className="absolute top-3 right-3 z-10">
                                         <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">

@@ -4,6 +4,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { BookOpenIcon, CalendarIcon } from "@heroicons/react/24/outline";
 import { useArticles } from "../../services/newsService"; // importa el hook
+import Image from "next/image";
 
 const Noticias: React.FC = () => {
     const { articles, loading, error } = useArticles(3); // solo 3 noticias
@@ -89,15 +90,18 @@ const AnimatedCard: React.FC<{ article: any }> = ({ article }) => {
             animate={controls}
             variants={cardVariants}
             className="group relative flex flex-col h-full overflow-hidden rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-            style={{ minHeight: 440, maxHeight: 510 }} // Fuerza altura igual
+            style={{ minHeight: 440, maxHeight: 510 }}
         >
             {/* Hacemos que toda la tarjeta sea clickeable */}
             <a href={`/NoticiasPage?id=${article.id}`} className="flex flex-col h-full">
                 <div className="relative h-56 overflow-hidden flex-shrink-0">
-                    <img
+                    <Image
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         src={article.image}
                         alt={article.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        priority={article.id === 1}
                     />
                     <div className="absolute top-4 right-4">
                         <span className="inline-flex items-center rounded-full bg-white/80 backdrop-blur-sm px-3 py-1 text-sm font-medium text-emerald-700 border border-emerald-100">

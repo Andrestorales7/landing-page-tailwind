@@ -6,6 +6,7 @@ import NoticeSlider from '@/components/sections/NoticeSlider';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const AgroPecuariaPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -151,15 +152,20 @@ const AgroPecuariaPage = () => {
                 style={{ transitionDelay: `${index * 120}ms` }}
               >
                 <div className="relative">
-                  <img
+                  <Image
                     src={product.image}
                     alt={product.name}
+                    width={400}
+                    height={192}
                     className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                    priority={index === 0}
                   />
                   <div className="absolute top-3 right-3 bg-white/80 rounded-full p-2 shadow-md">
-                    <img
+                    <Image
                       src={product.logo}
                       alt={`${product.name} logo`}
+                      width={40}
+                      height={40}
                       className="w-10 h-10 object-contain"
                     />
                   </div>
