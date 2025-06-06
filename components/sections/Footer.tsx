@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { FiFacebook, FiInstagram, FiMessageSquare, FiMapPin, FiPhone, FiMail } from 'react-icons/fi';
+import { FiFacebook, FiInstagram, FiMapPin, FiPhone } from 'react-icons/fi';
 
 const Footer: React.FC = () => {
   
