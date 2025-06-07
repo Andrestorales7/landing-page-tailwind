@@ -19,7 +19,7 @@ const HorticulturaProductPage = () => {
     {
       name: 'Películas para Invernadero',
       slug: 'peliculas-para-invernadero',
-      image: '/images/productos/horticultura/pelicula-invernadero2.jpg',
+      image: '/images/productos/horticultura/pelicula-invernadero2.webp',
       description: 'Protege tus cultivos con películas de alta calidad para invernaderos.',
       details: ['Alta transmisión de luz', 'Protección UV', 'Durabilidad superior'],
       logo: '/images/logos/agrinpex-logo.png',
