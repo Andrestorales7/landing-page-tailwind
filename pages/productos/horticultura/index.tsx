@@ -71,14 +71,17 @@ const HorticulturaProductPage = () => {
       <div id="horticultura" className="min-h-screen bg-gradient-to-b from-green-50 to-gray-50">
         {/* Hero Section */}
         <div className="relative min-h-[52vh] bg-gradient-to-br from-green-900/70 via-green-800/60 to-green-700/50 overflow-hidden">
-          {/* Imagen de fondo */}
-          <div
-            className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-100"
-            style={{
-              backgroundImage:
-                "url('/images/productos/horticultura/pelicula-invernadero2.webp')",
-            }}
-          ></div>
+          {/* Imagen de fondo optimizada */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/images/productos/horticultura/pelicula-invernadero2.webp"
+              alt="Hero Horticultura"
+              fill
+              priority
+              className="object-cover"
+              sizes="100vw"
+            />
+          </div>
           {/* Overlay gradient */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent pointer-events-none"></div>
           {/* Contenido del Hero */}
