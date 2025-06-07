@@ -74,11 +74,11 @@ export default function Contacto() {
     },
     {
       id: 2,
-      nombre: "Sucursal Norte",
-      direccion: "Calle Norte 456, Zona Norte",
-      ciudad: "Madrid, España",
-      telefono: "+34 911 345 678",
-      horario: "Lun - Sáb: 9:00 - 17:00",
+      nombre: " Minga Guazu",
+      direccion: "Ruta 2 - Km.16"
+      telefono: "(0981) 253 081"
+      telefono: "(0983) 846 825"
+      horario: "Lun - Vie: 07:30 - 17:00"
       coordenadas: "40.4500, -3.6900",
     },
     {
