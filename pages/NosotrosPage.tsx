@@ -18,7 +18,7 @@ const AboutUsPage: React.FC = () => {
           <div
             className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-100"
             style={{
-              backgroundImage: "url('/images/nosotros.JPG')",
+              backgroundImage: "url('/images/hero/nosotros-hero.webp')",
             }}
           ></div>
           {/* Overlay gradient */}
@@ -68,7 +68,7 @@ const AboutUsPage: React.FC = () => {
               >
                 <div className="absolute inset-0 -right-14 -top-14 rounded-2xl border-2 border-green-100/30" />
                 <Image
-                  src="/images/nosotros.JPG"
+                  src="/images/hero/nosotros-hero.webp"
                   alt="Tecnología Agrícola"
                   fill
                   className="rounded-2xl object-cover"

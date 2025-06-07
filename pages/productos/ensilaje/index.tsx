@@ -88,7 +88,7 @@ const AgroProductPage = () => {
             className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-100"
             style={{
               backgroundImage:
-                "url('/images/hero/soluciones-ensilaje.jpg')",
+                "url('/images/hero/soluciones-ensilaje.webp')",
             }}
           ></div>
           {/* Overlay gradient */}

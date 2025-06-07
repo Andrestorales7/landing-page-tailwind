@@ -192,7 +192,7 @@ const TanquesPage = () => {
             className="absolute inset-0 bg-cover bg-center opacity-80 z-0"
             style={{
               backgroundImage:
-                "url('/images/productos/tanques/bg-slider.jpg')", // Usa aquí tu imagen de fondo general
+                "url('/images/hero/bg-slider.webp')", // Usa aquí tu imagen de fondo general
             }}
           ></div>
           {/* Imagen del carro tanque alineada a la derecha y por encima */}
@@ -203,13 +203,13 @@ const TanquesPage = () => {
             }}
           >
             <Image
-              src="/images/productos/tanques/carro-tanque.png"
+              src="/images/hero/carro-tanque.webp"
               alt="Carro Tanque"
               fill
               className="object-contain h-full w-full"
               style={{
                 maxHeight: '100%',
-                maxWidth: '100%',
+                maxWidth: '85%',
               }}
               priority
             />

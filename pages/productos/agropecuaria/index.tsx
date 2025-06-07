@@ -84,7 +84,7 @@ const AgroPecuariaPage = () => {
             className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-100"
             style={{
               backgroundImage:
-                "url('/images/hero/agropecuaria.jpg')",
+                "url('/images/hero/agropecuaria-hero.webp')",
             }}
           ></div>
           {/* Overlay gradient */}
