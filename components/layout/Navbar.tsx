@@ -1,13 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
 const Navbar: React.FC = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
-    const [activeSection, setActiveSection] = useState("hero");
     const [isProductMenuOpen, setIsProductMenuOpen] = useState(false);
-    const productMenuRef = useRef<HTMLLIElement>(null);
     const router = useRouter();
 
     const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -16,21 +14,17 @@ const Navbar: React.FC = () => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20);
         };
-        
+
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Close mobile menu when route changes
     useEffect(() => {
         const handleRouteChange = () => setIsMobileMenuOpen(false);
         router.events.on("routeChangeComplete", handleRouteChange);
         return () => router.events.off("routeChangeComplete", handleRouteChange);
     }, [router]);
 
-   
-
-    // Scroll to section with offset for fixed header
     const scrollToSection = (sectionId: string) => {
         if (router.pathname !== "/") {
             router.push(`/#${sectionId}`).then(() => {
@@ -55,10 +49,10 @@ const Navbar: React.FC = () => {
         { name: "Horticultura", id: "horticultura", path: "/productos/horticultura" },
         { name: "Ensilaje", id: "ensilaje", path: "/productos/ensilaje" },
         { name: "Agropecuaria", id: "agropecuaria", path: "/productos/agropecuaria" },
-        { name: "Envases", id: "envases", path: "/productos/tanques" },
-        { name: "Maquinas Cerradoras", id: "maquinas-cerradoras", path: "/productos/maquinas-cerradoras" },
-        { name: "Geomembranas", id: "geomembranas", path: "/productos/geomembranas" },
-        { name: "Tesa", id: "tesa", path: "/productos/tesa" }
+        { name: "Tanques", id: "tanques", path: "/productos/tanques" },
+        { name: "Envases", id: "envases", path: "/productos/envases" },
+        { name: "Inoculantes", id: "inoculantes", path: "/productos/inoculantes" },
+        { name: "Otros...", id: "soluciones", path: "/productos/otrosproductos" }
     ];
 
     return (
@@ -93,93 +87,103 @@ const Navbar: React.FC = () => {
                                         className="font-medium tracking-wide transition-colors hover:text-green-500"
                                         onClick={(e) => {
                                             e.preventDefault();
-                                            scrollToSection("hero");
+                                            scrollToSection("Hero");
                                         }}
                                     >
                                         Inicio
                                     </Link>
                                 </li>
                                 <li>
-                                    <button
-                                        onClick={() => scrollToSection("productSect")}
+                                    <Link 
+                                        href="/#productSect"
                                         className="font-medium tracking-wide transition-colors hover:text-green-500"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            scrollToSection("productSect");
+                                        }}
                                     >
                                         Soluciones
-                                    </button>
+                                    </Link>
                                 </li>
 
                                 <li
                                     className="relative"
-                                    ref={productMenuRef}
                                     onMouseEnter={() => setIsProductMenuOpen(true)}
                                     onMouseLeave={() => setIsProductMenuOpen(false)}
                                 >
-                                    <button
-                                        onClick={() => setIsProductMenuOpen((open) => !open)}
-                                        className="flex items-center font-medium tracking-wide transition-colors hover:text-green-500"
-                                        type="button"
-                                        aria-haspopup="true"
-                                        aria-expanded={isProductMenuOpen}
-                                    >
-                                        Productos
-                                        <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                        </svg>
-                                    </button>
-                                    {isProductMenuOpen && (
-                                        <div className="absolute bg-white shadow-xl rounded-lg p-3 min-w-[220px] z-10 border-t-2 border-green-500 text-gray-800 transform translate-y-2 transition-all duration-200">
-                                            <button
-                                                onClick={() => {
-                                                    setIsProductMenuOpen(false);
-                                                    router.push("/ProductosPage");
-                                                }}
+                                    <div className="flex flex-col">
+                                        <Link
+                                            href="/ProductosPage"
+                                            className="flex items-center font-medium tracking-wide transition-colors hover:text-green-500"
+                                            aria-haspopup="true"
+                                            aria-expanded={isProductMenuOpen}
+                                            onClick={() => setIsProductMenuOpen(false)}
+                                        >
+                                            Productos
+                                            <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                        </Link>
+                                        <div
+                                            className={`absolute left-0 top-full bg-white shadow-xl rounded-lg p-3 min-w-[220px] z-10 border-t-2 border-green-500 text-gray-800 transition-all duration-200 ${
+                                                isProductMenuOpen ? "block" : "hidden"
+                                            }`}
+                                        >
+                                            <Link
+                                                href="/ProductosPage"
                                                 className="block w-full text-left px-4 py-2.5 text-base font-semibold text-green-600 hover:bg-gray-50 hover:text-green-700 rounded-md transition-colors mb-1 border-b border-gray-200"
+                                                onClick={() => setIsProductMenuOpen(false)}
                                             >
-                                                --Categorias--
-                                            </button>
+                                                Categorias
+                                            </Link>
                                             {productSubcategories.map((subcategory) => (
-                                                <button
+                                                <Link
                                                     key={subcategory.id}
+                                                    href={subcategory.path}
+                                                    className="block w-full text-left px-4 py-2 text-sm text-gray-800 hover:text-green-500 rounded-md transition-colors"
                                                     onClick={() => {
                                                         setIsProductMenuOpen(false);
-                                                        router.push(subcategory.path);
+                                                        setIsMobileMenuOpen(false);
                                                     }}
-                                                    className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-50 hover:text-green-500 rounded-md transition-colors"
                                                 >
                                                     {subcategory.name}
-                                                </button>
+                                                </Link>
                                             ))}
                                         </div>
-                                    )}
+                                    </div>
                                 </li>
 
                                 <li>
-                                    <button
-                                        onClick={() => scrollToSection("nosotros")}
+                                    <Link
+                                        href="/#nosotros"
                                         className="font-medium tracking-wide transition-colors hover:text-green-500"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            scrollToSection("nosotros");
+                                        }}
                                     >
                                         Nosotros
-                                    </button>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <button
-                                        onClick={() => router.push('/NoticiasPage')}
+                                    <Link
+                                        href="/NoticiasPage"
                                         className="font-medium tracking-wide transition-colors hover:text-green-500"
                                     >
                                         Noticias
-                                    </button>
+                                    </Link>
                                 </li>
                             </ul>
                         </nav>
 
                         <div className="flex items-center gap-4">
                             <div className="sm:flex sm:gap-4">
-                                <button
-                                    onClick={() => scrollToSection("footer")}
+                                <Link
+                                    href="/Contacto"
                                     className="rounded-full bg-green-600 px-7 py-3 text-base font-medium text-white shadow hover:bg-green-500 transition-colors"
                                 >
                                     Contacto
-                                </button>
+                                </Link>
                             </div>
 
                             <div className="block md:hidden">
@@ -203,11 +207,99 @@ const Navbar: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Mobile menu no changes needed */}
                 {isMobileMenuOpen && (
                     <div className="md:hidden bg-white border-t border-gray-100 rounded-b-lg shadow-lg animate-fadeIn">
                         <div className="pt-4 pb-6 space-y-3 px-4">
-                            {/* ...mobile menu items... */}
+                            <Link
+                                href="/"
+                                className="block font-medium text-gray-800 py-2 hover:text-green-500"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    setIsMobileMenuOpen(false);
+                                    scrollToSection("Hero");
+                                }}
+                            >
+                                Inicio
+                            </Link>
+                            <Link
+                                href="/#productSect"
+                                className="block w-full text-left font-medium text-gray-800 py-2 hover:text-green-500"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    setIsMobileMenuOpen(false);
+                                    scrollToSection("productSect");
+                                }}
+                            >
+                                Soluciones
+                            </Link>
+                            <div className="relative">
+                                <Link
+                                    href="#"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        setIsProductMenuOpen((open) => !open);
+                                    }}
+                                    className="block w-full text-left font-medium text-gray-800 py-2 hover:text-green-500 flex items-center justify-between"
+                                >
+                                    Productos
+                                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </Link>
+                                {isProductMenuOpen && (
+                                    <div className="bg-white border rounded-lg shadow-lg mt-2">
+                                        <Link
+                                            href="/ProductosPage"
+                                            className="block w-full text-left px-4 py-2.5 text-base font-semibold text-green-600 hover:bg-gray-50 hover:text-green-700 rounded-md transition-colors mb-1 border-b border-gray-200"
+                                            onClick={() => setIsProductMenuOpen(false)}
+                                        >
+                                            Categorias
+                                        </Link>
+                                        {productSubcategories.map((subcategory) => (
+                                            <Link
+                                                key={subcategory.id}
+                                                href={subcategory.path}
+                                                className="block w-full text-left px-4 py-2 text-sm text-gray-800 hover:text-green-500 rounded-md transition-colors"
+                                                onClick={() => {
+                                                    setIsProductMenuOpen(false);
+                                                    setIsMobileMenuOpen(false);
+                                                }}
+                                            >
+                                                {subcategory.name}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                            <Link
+                                href="/#nosotros"
+                                className="block w-full text-left font-medium text-gray-800 py-2 hover:text-green-500"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    setIsMobileMenuOpen(false);
+                                    scrollToSection("nosotros");
+                                }}
+                            >
+                                Nosotros
+                            </Link>
+                            <Link
+                                href="/NoticiasPage"
+                                className="block w-full text-left font-medium text-gray-800 py-2 hover:text-green-500"
+                                onClick={() => {
+                                    setIsMobileMenuOpen(false);
+                                }}
+                            >
+                                Noticias
+                            </Link>
+                            <Link
+                                href="/Contacto"
+                                className="block w-full text-left rounded-full bg-green-600 px-7 py-3 text-base font-medium text-white shadow hover:bg-green-500 transition-colors mt-2"
+                                onClick={() => {
+                                    setIsMobileMenuOpen(false);
+                                }}
+                            >
+                                Contacto
+                            </Link>
                         </div>
                     </div>
                 )}

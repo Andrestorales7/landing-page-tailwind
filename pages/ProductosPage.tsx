@@ -3,42 +3,43 @@ import Link from 'next/link';
 import Marcas from '@/components/sections/Marcas';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const categorias = [
     {
         name: 'Horticultura',
-        image: '/images/horticultura/hilos-tutorado/hilo1.jpg',
+        image: '/images/productos/horticultura/hilo1.jpg',
         link: '/productos/horticultura'
     },
     {
         name: 'Ensilaje',
-        image: '/images/Almacenamiento-Ensilaje-etc/comederos/comedero2.jpg',
+        image: '/images/productos/ensilaje/hilos.jpg',
         link: '/productos/ensilaje'
     },
     {
         name: 'Agropecuaria',
-        image: '/images/Agropecuaria/agropecuaria.png',
+        image: '/images/productos/agropecuaria/geomembrana.jpeg',
         link: '/productos/agropecuaria'
     },
     {
+        name: 'Tanques',
+        image: '/images/productos/tanques/tanque-1500lt.jpg',
+        link: '/productos/tanques'
+    },
+    {
         name: 'Envases',
-        image: '/images/Envases/big-bags/big-bags-3.png',
+        image: '/images/productos/envases/envase2.jpg',
         link: '/productos/envases'
     },
     {
-        name: 'Maquinas Cerradoras',
-        image: '/images/cerradora/cerradora-bolsas.png',
-        link: '/productos/maquinas-cerradoras'
+        name: 'Inoculantes',
+        image: '/images/productos/inoculantes/SupraSil_portada.jpg',
+        link: '/productos/inoculantes'
     },
     {
-        name: 'Geomembranas',
-        image: '/images/Almacenamiento-Ensilaje-etc/geomembranas/geomembrana1.jpg',
-        link: '/productos/geomembranas'
-    },
-    {
-        name: 'Tesa',
-        image: '/images/tesa/tesa2.jpg',
-        link: '/productos/tesa'
+        name: 'Otros Productos',
+        image: '/images/productos/otros/costuradoras/cost1.png',
+        link: '/productos/otrosproductos'
     },
 ];
 
@@ -52,7 +53,7 @@ const ProductosPage = () => {
                     <div 
                         className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-100"
                         style={{
-                            backgroundImage: "url('/images/heros/productpagehero.jpg')",
+                            backgroundImage: "url('/images/hero/productpagehero.jpg')",
                         }}
                     >
                     </div>
@@ -61,22 +62,21 @@ const ProductosPage = () => {
                     <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent pointer-events-none"></div>
                     
                     {/* Contenido del Hero */}
-                    <div className="relative z-10 pt-42 pb-22 px-6 sm:px-12 lg:px-18 max-w-6xl mx-auto">
+                    <div className="relative z-10 pt-28 pb-12 px-6 sm:px-12 lg:px-18 max-w-6xl mx-auto">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
                             className="text-center"
                         >
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">
-                                Somos aliados de su Negocio
+                            <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight drop-shadow-lg">
+                                Soluciones agrícolas hechas para el productor.
                             </h1>
-                            <p className="mt-6 text-lg md:text-xl text-white max-w-2xl drop-shadow mx-auto">
+                            <p className="mt-4 text-base md:text-lg text-white max-w-2xl drop-shadow mx-auto">
                                 Soluciones de calidad para la agricultura moderna, diseñadas para maximizar tu productividad y eficiencia.
                             </p>
                         </motion.div>
                     </div>
-                    
                     {/* Divisoria estilizada con forma orgánica que deja ver parte de la imagen */}
                     <div className="absolute bottom-0 left-0 right-0 overflow-hidden">
                         <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-[10vw] min-h-[60px] max-h-[120px]">
@@ -113,7 +113,6 @@ const ProductosPage = () => {
 
                 {/* Grid de Categorías */}
                 <div id="categorias" className="max-w-7xl mx-auto pt-8 pb-16 px-4 sm:px-6 lg:px-8">
-                     <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Soluciones</h2>
                     <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                         {categorias.map((cat, index) => (
                             <div
@@ -122,10 +121,13 @@ const ProductosPage = () => {
                             >
                                 <div className="relative overflow-hidden">
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                    <img
+                                    <Image
                                         src={cat.image}
                                         alt={cat.name}
+                                        width={400}
+                                        height={224}
                                         className="h-56 w-full object-cover group-hover:scale-105 transition duration-500"
+                                        priority={index === 0}
                                     />
                                     <div className="absolute top-3 right-3 z-10">
                                         <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
@@ -168,18 +170,7 @@ const ProductosPage = () => {
             
             <Marcas />
             <WhatsappContacts
-                contacts={[
-                    {
-                        name: "Juan Pérez",
-                        profileImage: "/images/perfil1.png",
-                        whatsappLink: "https://wa.me/1234567890",
-                    },
-                    {
-                        name: "María López",
-                        profileImage: "/images/perfil1.png",
-                        whatsappLink: "https://wa.me/0987654321",
-                    },
-                ]}
+                
             />
         </>
     );

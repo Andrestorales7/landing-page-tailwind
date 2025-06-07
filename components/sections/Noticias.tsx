@@ -1,44 +1,13 @@
 import React from "react";
+import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { BookOpenIcon, CalendarIcon, ClockIcon } from "@heroicons/react/24/outline";
+import { BookOpenIcon, CalendarIcon } from "@heroicons/react/24/outline";
+import { useArticles } from "../../services/newsService"; // importa el hook
+import Image from "next/image";
 
 const Noticias: React.FC = () => {
-    const articles = [
-        {
-            id: 1, // Añadimos IDs a cada artículo para facilitar la navegación
-            title: "Tecnología en Agricultura de Precisión",
-            description: "Descubre cómo las nuevas tecnologías están revolucionando los cultivos y mejorando la eficiencia en el campo.",
-            category: "Innovación",
-            author: "Juan Pérez",
-            date: "2023-11-15",
-            readTime: "5 min",
-            image: "https://i.pinimg.com/736x/3a/4b/4c/3a4b4cc1dadee5ba0bf5ac2b9616a9b9.jpg",
-            authorImage: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=256",
-        },
-        {
-            id: 2,
-            title: "Cultivos Orgánicos Sostenibles",
-            description: "Conoce las técnicas líderes en producción orgánica y su impacto positivo en el medio ambiente.",
-            category: "Sostenibilidad",
-            author: "María Gómez",
-            date: "2023-11-10",
-            readTime: "7 min",
-            image: "https://i.pinimg.com/736x/b8/a3/79/b8a37985105e70064183c02f72550676.jpg",
-            authorImage: "https://images.unsplash.com/photo-1511367461989-f85a21fda167?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=256",
-        },
-        {
-            id: 3,
-            title: "Nuevas Tendencias en Agroindustria",
-            description: "Análisis de las últimas tendencias tecnológicas aplicadas a la producción agrícola a gran escala.",
-            category: "Tendencias",
-            author: "Carlos Rojas",
-            date: "2023-11-05",
-            readTime: "6 min",
-            image: "https://i.pinimg.com/736x/bc/62/57/bc6257fdfd27cdecb361f9bc2b2acc3a.jpg",
-            authorImage: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=256",
-        },
-    ];
+    const { articles, loading, error } = useArticles(3); // solo 3 noticias
 
     return (
         <section
@@ -56,37 +25,34 @@ const Noticias: React.FC = () => {
                     transition={{ duration: 0.5 }}
                     className="text-center"
                 >
-                    <div className="inline-flex items-center gap-2 mb-4 text-emerald-600">
-                        <div className="h-px w-8 bg-emerald-300" />
-                        <span className="text-sm font-semibold uppercase tracking-wide">Actualidad Agrícola</span>
-                        <div className="h-px w-8 bg-emerald-300" />
+                    <div className="inline-flex items-center gap-2 mb-1 text-emerald-600">
+                        <div className="h-px w-12 bg-emerald-300" />
+                        <span className="text-2xl sm:text-3xl font-bold uppercase tracking-wide">Actualidad Agrícola</span>
+                        <div className="h-px w-12 bg-emerald-300" />
                     </div>
-                    <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-                        <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
-                            Noticias del Sector
-                        </span>
-                    </h2>
                     <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
-                        Mantente actualizado con las últimas innovaciones y desarrollos en agricultura tecnológica
+                        Eventos, actualizaciones y noticias relevantes del sector agrícola. Mantente informado con nosotros aqui en  CMP Agro.
                     </p>
                 </motion.div>
 
-                <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                    {articles.map((article, index) => (
-                        <AnimatedCard key={index} article={article} />
+                <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                    {loading && <p>Cargando noticias...</p>}
+                    {error && <p>Error al cargar noticias.</p>}
+                    {!loading && !error && articles.map((article) => (
+                        <AnimatedCard key={article.id} article={article} />
                     ))}
                 </div>
                 
                 {/* Botón para ver todas las noticias */}
                 <div className="mt-12 text-center">
-                    <a href="/NoticiasPage">
+                    <Link href="/NoticiasPage">
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             className="px-6 py-3 bg-emerald-600 text-white rounded-lg shadow-md hover:bg-emerald-700 transition-colors font-semibold"
                         >
                             Ver todas las noticias
                         </motion.button>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </section>
@@ -123,15 +89,19 @@ const AnimatedCard: React.FC<{ article: any }> = ({ article }) => {
             initial="hidden"
             animate={controls}
             variants={cardVariants}
-            className="group relative overflow-hidden rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+            className="group relative flex flex-col h-full overflow-hidden rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+            style={{ minHeight: 440, maxHeight: 510 }}
         >
             {/* Hacemos que toda la tarjeta sea clickeable */}
-            <a href={`/noticias?id=${article.id}`} className="block h-full">
-                <div className="relative h-56 overflow-hidden">
-                    <img
+            <a href={`/NoticiasPage?id=${article.id}`} className="flex flex-col h-full">
+                <div className="relative h-56 overflow-hidden flex-shrink-0">
+                    <Image
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         src={article.image}
                         alt={article.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        priority={article.id === 1}
                     />
                     <div className="absolute top-4 right-4">
                         <span className="inline-flex items-center rounded-full bg-white/80 backdrop-blur-sm px-3 py-1 text-sm font-medium text-emerald-700 border border-emerald-100">
@@ -140,8 +110,8 @@ const AnimatedCard: React.FC<{ article: any }> = ({ article }) => {
                     </div>
                 </div>
 
-                <div className="p-6">
-                    <div className="flex-1 space-y-4">
+                <div className="flex flex-col flex-1 justify-between p-6">
+                    <div className="flex-1 flex flex-col gap-3">
                         <h3 className="text-xl font-semibold text-gray-900 hover:text-emerald-600 transition-colors">
                             {article.title}
                         </h3>
@@ -151,37 +121,18 @@ const AnimatedCard: React.FC<{ article: any }> = ({ article }) => {
                     </div>
 
                     <div className="mt-6 border-t border-emerald-50 pt-4">
-                        <div className="flex items-center gap-4">
-                            <div className="relative">
-                                <img
-                                    className="h-10 w-10 rounded-full border-2 border-white shadow-lg"
-                                    src={article.authorImage}
-                                    alt={article.author}
-                                />
-                                <div className="absolute -right-1 -bottom-1 h-4 w-4 rounded-full bg-emerald-500 border-2 border-white" />
+                        <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2 text-xs text-gray-500">
+                                <CalendarIcon className="h-4 w-4 text-emerald-500" />
+                                <span>{new Date(article.date).toLocaleDateString()}</span>
                             </div>
-                            
-                            <div className="flex-1">
-                                <p className="text-sm font-medium text-gray-900">{article.author}</p>
-                                <div className="flex items-center gap-3 mt-1 text-xs text-gray-500">
-                                    <div className="flex items-center gap-1">
-                                        <CalendarIcon className="h-4 w-4 text-emerald-500" />
-                                        <span>{new Date(article.date).toLocaleDateString()}</span>
-                                    </div>
-                                    <div className="flex items-center gap-1">
-                                        <ClockIcon className="h-4 w-4 text-emerald-500" />
-                                        <span>{article.readTime}</span>
-                                    </div>
-                                </div>
-                            </div>
-
                             <motion.div 
                                 whileHover={{ scale: 1.05 }}
                                 className="flex items-center gap-1 text-emerald-600 hover:text-emerald-700 text-sm font-semibold"
-                                onClick={(e) => {
-                                    e.preventDefault(); // Evitar la navegación por defecto
-                                    e.stopPropagation(); // Evitar que el clic se propague a la tarjeta
-                                    window.location.href = `/noticias?id=${article.id}`;
+                                onClick={e => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    window.location.href = `/NoticiasPage?id=${article.id}`;
                                 }}
                             >
                                 <BookOpenIcon className="h-5 w-5" />

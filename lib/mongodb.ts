@@ -3,9 +3,7 @@ import mongoose from 'mongoose';
 const MONGODB_URI = process.env.MONGODB_URI;
 
 if (!MONGODB_URI) {
-  throw new Error(
-    'Por favor, define la variable de entorno MONGODB_URI dentro de .env.local'
-  );
+  throw new Error('Please define the MONGODB_URI environment variable');
 }
 
 /**
@@ -13,11 +11,13 @@ if (!MONGODB_URI) {
  * in development. This prevents connections growing exponentially
  * during API Route usage.
  */
-// @ts-ignore
+// @ts-expect-error
+
 let cached = global.mongoose;
 
 if (!cached) {
-  // @ts-ignore
+  // @ts-expect-error
+
   cached = global.mongoose = { conn: null, promise: null };
 }
 
@@ -31,7 +31,7 @@ async function dbConnect() {
       bufferCommands: false,
     };
 
-    cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
+    cached.promise = mongoose.connect(MONGODB_URI as string, opts).then((mongoose) => {
       return mongoose;
     });
   }

@@ -1,16 +1,15 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { FiFacebook, FiInstagram, FiMessageSquare, FiMapPin, FiPhone, FiMail } from 'react-icons/fi';
+import { FiFacebook, FiInstagram, FiMapPin, FiPhone } from 'react-icons/fi';
 
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
   
   return (
     <footer id="footer" className="bg-[#1c2825] text-gray-200 relative overflow-hidden">
       {/* Subtle texture overlay */}
       <div className="absolute inset-0 opacity-5 z-0">
-        <div className="h-full w-full bg-[url('/images/noise-pattern.png')] bg-repeat opacity-20" />
+        <div className="h-full w-full opacity-10 [background-image:linear-gradient(#d1fae5_1px,transparent_1px),linear-gradient(to_right,#d1fae5_1px,transparent_1px)] bg-[size:4rem_4rem]" />
       </div>
       
       {/* Top border accent line */}
@@ -46,17 +45,16 @@ const Footer: React.FC = () => {
               </motion.div>
               
               <p className="text-gray-300 leading-relaxed max-w-md text-sm">
-                Innovación agrícola con tecnología de vanguardia para un futuro sostenible.
-                Comprometidos con la productividad y el medio ambiente en cada etapa del proceso.
+              Acompañamos cada paso con un compromiso real, brindando soluciones confiables, eficientes y pensadas para resolver lo que realmente importa. Porque cuando el campo crece, crece todo un país… y estamos aquí para impulsarlo.
+
               </p>
 
               {/* Social icons */}
               <div className="flex gap-4 items-center pt-2">
                 {[
-                  { icon: FiFacebook, href: "https://facebook.com", label: "Facebook" },
-                  { icon: FiInstagram, href: "https://instagram.com", label: "Instagram" },
-                  { icon: FiMessageSquare, href: "https://wa.me/1234567890", label: "WhatsApp" },
-                  { icon: FiMail, href: "mailto:contacto@cmpagro.com", label: "Email" },
+                  { icon: FiFacebook, href: "https://www.facebook.com/cmpagropy?mibextid=wwXIfr&mibextid=wwXIfr", label: "Facebook" },
+                  { icon: FiInstagram, href: "https://instagram.com/cmpagro", label: "Instagram" },
+                  
                 ].map((social, idx) => (
                   <motion.a
                     key={idx}
@@ -102,7 +100,7 @@ const Footer: React.FC = () => {
                   { 
                     title: "Loma Plata",
                     address: "Oficina 4 - Predio Plasti Chaco",
-                    phones: ["(0986) 289 494"]
+                    phones: ["(0986) 778 771"]
                   },
                 ].map((location, idx) => (
                   <motion.div
@@ -145,19 +143,10 @@ const Footer: React.FC = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col md:flex-row justify-between items-center text-center md:text-left"
+            className="flex justify-center items-center text-center"
           >
-            <div className="text-xs text-gray-400 mb-4 md:mb-0">
-              © {currentYear} CMP Agro. Todos los derechos reservados.
-            </div>
-            <div className="text-xs text-gray-400">
-              Desarrollado
-              <span className="mx-1 inline-block transform hover:scale-110 transition-transform text-[#6a9d83]"></span> 
-              por<span className="text-[#8ab99e] font-medium">Tech</span>
-            </div>
             <div className="text-sm text-green-200/80">
-              © {new Date().getFullYear()} CMP Agro. Todos los derechos reservados.
-              <span className="block mt-1">Desarrollado por <span className="text-green-300">WEB TECH</span></span>
+              ©CMP Agro. Todos los derechos reservados.
             </div>
           </motion.div>
         </div>

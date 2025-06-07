@@ -1,7 +1,18 @@
 // NoticiaCard.tsx
 import React from 'react';
 import { Clock, Calendar, BookOpen } from 'lucide-react';
-import { Noticia } from '../sections/NoticiasSection';
+
+// Define the Noticia interface here
+interface Noticia {
+  id: string | number;
+  titulo: string;
+  descripcion: string;
+  autor: string;
+  fecha: string;
+  tiempoLectura: number;
+  categoria: string;
+  imagen: string;
+}
 
 interface NoticiaCardProps {
   noticia: Noticia;

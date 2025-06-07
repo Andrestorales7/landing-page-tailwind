@@ -15,77 +15,47 @@ export default function HomePage() {
       <NoticeSlider
         speed={30}
         notices={[
-          { id: 1, text: '🌱 New Organic Fertilizer Line Now Available!' },
-          { id: 2, text: '🚜 Harvest Festival: October 15-20, 2024' },
-          { id: 3, text: '📢 20% Discount on Seasonal Seeds - Limited Time!' },
+          { id: 1, text: '🌱 EXPO PIONEROS DEL CHACO!' },
+          { id: 2, text: '📅 Del 28 al 31 de Mayo' },
+          { id: 3, text: '📢 La Feria Agropecuaria mas importante!' },
         ]}
       />
       <SolucionesSection
         soluciones={[
           {
-            image: "/images/horticultura/mulching/mulching1.jpeg",
+            image: "/images/productos/horticultura/mulching1.jpg",
             title: "Horticultura",
             description: "",
             link: "/productos/horticultura",
           },
           {
-            image: "/images/Almacenamiento-Ensilaje-etc/comederos/comedero2.jpg",
+            image: "/images/productos/ensilaje/ensilaje1.jpg",
             title: "Ensilajes",
             description: "",
-            link: "/productos/semillas",
+            link: "/productos/ensilaje",
           },
           {
-            image: "/images/Agropecuaria/agropecuaria.png",
+            image: "/images/productos/agropecuaria/agropecuaria.jpg",
             title: "Agropecuaria",
             description: "",
-            link: "/productos/riego",
+            link: "/productos/agropecuaria",
           },
           {
-            image: "/images/Envases/big-bags/big-bags-3.png",
-            title: "Envases y Embalajes",
+            image: "/images/productos/inoculantes/SupraSil_portada.jpg",
+            title: "Mas Soluciones",
             description: "",
-            link: "/productos/maquinaria",
+            link: "/ProductosPage",
           },
-          {
-            image: "/images/cerradora/cerradora-bolsas.png",
-            title: "Maquinas Cerradoras",
-            description: "",
-            link: "/productos/agroquimicos",
-          },
-          {
-            image: "/images/Almacenamiento-Ensilaje-etc/geomembranas/geomembrana1.jpg",
-            title: "Geomembranas",
-            description: "",
-            link: "/productos/cultivo-vertical",
-          },
-          {
-            image: "/images/tesa/tesa2.jpg",
-            title: "Cintas Flexograficas",
-            description: "",
-            link: "/productos/asesoria",
-          },
+      
         ]}
       />
-      <Marcas />
+      
       <Noticias/>
       <Nosotros />
+      <Marcas />
       
       
       <WhatsappContacts
-        contacts={[
-          {
-            name: "Juan Pérez",
-            profileImage: "/images/perfil1.png",
-            whatsappLink: "https://wa.me/1234567890",
-          },
-          {
-            name: "María López",
-            profileImage: "/images/perfil1.png",
-            whatsappLink: "https://wa.me/0987654321",
-          },
-        ]}
-      
-      
       />
     </>
   );

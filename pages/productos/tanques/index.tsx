@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 import Marcas from '@/components/sections/Marcas';
 import NoticeSlider from '@/components/sections/NoticeSlider';
@@ -13,7 +12,7 @@ const TanquesPage = () => {
     {
       name: 'Tanque 750 litros',
       slug: 'tanque-750-litros',
-      image: '/images/tanques/tanque750.jpg',
+      image: '/images/productos/tanques/tanque750.jpg',
       description: 'Capacidad de 750 litros',
       details: [
         'Ancho: 0,88 m.',
@@ -28,7 +27,7 @@ const TanquesPage = () => {
     {
       name: 'Tanque 1.100 litros',
       slug: 'tanque-1100-litros',
-      image: '/images/tanques/tanque-1100-litros.jpg',
+      image: '/images/productos/tanques/tanque-1100-litros.jpg',
       description: 'Capacidad de 1.100 litros',
       details: [
         'Ancho: 0,98 m.',
@@ -43,7 +42,7 @@ const TanquesPage = () => {
     {
       name: 'Tanque 1.500 litros',
       slug: 'tanque-1500-litros',
-      image: '/images/tanques/tanque-1500lt.jpg',
+      image: '/images/productos/tanques/tanque-1500lt.jpg',
       description: 'Capacidad de 1.500 litros',
       details: [
         'Ancho: 1,15 m.',
@@ -58,7 +57,7 @@ const TanquesPage = () => {
     {
       name: 'Tanque 3.000 litros',
       slug: 'tanque-3000-litros',
-      image: '/images/tanques/tanque-3000lt.png',
+      image: '/images/productos/tanques/tanque-3000lt.png',
       description: 'Capacidad de 3.000 litros',
       details: [
         'Ancho: 1,70 m.',
@@ -74,7 +73,7 @@ const TanquesPage = () => {
     {
       name: 'Tanque 3.500 litros',
       slug: 'tanque-3500-litros',
-      image: '/images/tanques/tanque-3500lt.jpg',
+      image: '/images/productos/tanques/tanque-3500lt.jpg',
       description: 'Capacidad de 3.500 litros',
       details: [
         'Ancho: 1,65 m.',
@@ -90,7 +89,7 @@ const TanquesPage = () => {
     {
       name: 'Tanque 4.500 litros',
       slug: 'tanque-4500-litros',
-      image: '/images/tanques/tanque-4500lt.jpg',
+      image: '/images/productos/tanques/tanque-4500lt.jpg',
       description: 'Capacidad de 4.500 litros',
       details: [
         'Ancho: 1,65 m.',
@@ -106,7 +105,7 @@ const TanquesPage = () => {
     {
       name: 'Tanque 6.000 litros',
       slug: 'tanque-6000-litros',
-      image: '/images/tanques/tanque-6000lt.jpg',
+      image: '/images/productos/tanques/tanque-6000lt.jpg',
       description: 'Capacidad de 6.000 litros',
       details: [
         'Ancho: 1,60 m.',
@@ -122,7 +121,7 @@ const TanquesPage = () => {
     {
       name: 'Tanque 8.000 litros',
       slug: 'tanque-8000-litros',
-      image: '/images/tanques/tanque-8000lt.jpg',
+      image: '/images/productos/tanques/tanque-8000lt.jpg',
       description: 'Capacidad de 8.000 litros',
       details: [
         'Ancho: 2,20 m.',
@@ -138,7 +137,7 @@ const TanquesPage = () => {
     {
       name: 'Tanque 10.000 litros',
       slug: 'tanque-10000-litros',
-      image: '/images/tanques/tanque-10000lt.jpg',
+      image: '/images/productos/tanques/tanque-10000lt.png',
       description: 'Capacidad de 10.000 litros',
       details: [
         'Ancho: 2,20 m.',
@@ -154,7 +153,7 @@ const TanquesPage = () => {
     {
       name: 'Tanque 12.000 litros',
       slug: 'tanque-12000-litros',
-      image: '/images/tanques/tanque-12mlt.png',
+      image: '/images/productos/tanques/tanque-12mlt.png',
       description: 'Capacidad de 12.000 litros',
       details: [
         'Ancho: 2,20 m.',
@@ -172,7 +171,7 @@ const TanquesPage = () => {
   const tanquesOrdenados = [...tanques].sort((a, b) => a.capacity - b.capacity);
 
   const [selected, setSelected] = useState(tanquesOrdenados[0]);
-  const [capacityRange, setCapacityRange] = useState(tanquesOrdenados[0].capacity);
+  const [capacityRange] = useState(tanquesOrdenados[0].capacity);
 
   useEffect(() => {
     const closestTank = tanquesOrdenados.reduce((prev, curr) => {
@@ -181,83 +180,108 @@ const TanquesPage = () => {
     setSelected(closestTank);
   }, [capacityRange]);
 
-  const contacts = [
-    {
-      name: 'Juan Pérez',
-      profileImage: '/images/perfil1.png',
-      whatsappLink: 'https://wa.me/1234567890',
-    },
-    {
-      name: 'María López',
-      profileImage: '/images/perfil1.png',
-      whatsappLink: 'https://wa.me/0987654321',
-    },
-  ];
+  
 
   return (
     <>
       <div id="tanques" className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
         {/* Hero Section */}
-        <div
-          className="relative text-white py-16 sm:py-24 px-4 sm:px-12 lg:px-32 text-center bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/images/logos/tanque-hero-bg.jpg')",
-            backgroundPosition: 'center 70%',
-          }}
-        >
-          <div className="absolute inset-0 bg-green-900 bg-opacity-70"></div>
-          <div className="relative z-10 max-w-4xl mx-auto">
-            <motion.h1 
-              initial={{ opacity: 0, y: -20 }}
+        <div className="relative min-h-[52vh] bg-gradient-to-br from-green-900/70 via-green-800/60 to-green-700/50 overflow-hidden">
+          {/* Imagen de fondo general */}
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-80 z-0"
+            style={{
+              backgroundImage:
+                "url('/images/productos/tanques/bg-slider.jpg')", // Usa aquí tu imagen de fondo general
+            }}
+          ></div>
+          {/* Imagen del carro tanque alineada a la derecha y por encima */}
+          <div
+            className="absolute inset-y-0 right-0 w-full sm:w-2/3 md:w-1/2 lg:w-[45%] flex items-end justify-end z-10"
+            style={{
+              pointerEvents: 'none',
+            }}
+          >
+            <Image
+              src="/images/productos/tanques/carro-tanque.png"
+              alt="Carro Tanque"
+              fill
+              className="object-contain h-full w-full"
+              style={{
+                maxHeight: '100%',
+                maxWidth: '100%',
+              }}
+              priority
+            />
+          </div>
+          {/* Overlay gradient */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent pointer-events-none z-20"></div>
+          {/* Contenido del Hero */}
+          <div className="relative z-30 pt-42 pb-22 px-6 sm:px-12 lg:px-18 max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight"
+              transition={{ duration: 0.8 }}
+              className="text-center"
             >
-              Tanques Rotomoldeados
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-4 sm:mt-6 text-lg sm:text-xl max-w-3xl mx-auto"
-            >
-              Soluciones de almacenamiento resistentes y duraderas para múltiples aplicaciones
-            </motion.p>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">
+                Tanques
+              </h1>
+              <p className="mt-6 text-lg md:text-xl text-white max-w-2xl drop-shadow mx-auto">
+                Soluciones de almacenamiento resistentes y duraderas para múltiples aplicaciones.
+              </p>
+            </motion.div>
+          </div>
+          {/* Divisoria SVG */}
+          <div className="absolute bottom-0 left-0 right-0 overflow-hidden z-40">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-[10vw] min-h-[60px] max-h-[120px]">
+              <path
+                d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V56.44Z"
+                className="fill-[#f9fafb] relative opacity-10"
+              ></path>
+              {/* <path
+                d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3"
+                className="fill-none stroke-white stroke-[2px] opacity-50 relative z-10"
+              /> */}
+            </svg>
           </div>
         </div>
 
         {/* Intro */}
-        <section className="relative max-w-5xl mx-auto -mt-12 sm:-mt-16 mb-12 sm:mb-16 px-4 sm:px-6">
-          <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 md:p-12 flex flex-col md:flex-row items-center gap-6 md:gap-8 border border-gray-100">
-            <div className="md:w-1/3 flex justify-center">
-              <div className="bg-gradient-to-r from-green-600 to-green-500 p-4 rounded-xl shadow-lg flex items-center justify-center w-48 h-48 sm:w-auto sm:h-auto">
-                <Image
-                  src="/images/logos/Rotor-2.png"
-                  alt="Logo"
-                  width={180}
-                  height={130}
-                  className="w-full h-auto max-h-36 object-contain"
-                  style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2))' }}
-                />
+        <section className="relative max-w-6xl mx-auto -mt-16 mb-12 px-4">
+          <div className="bg-white rounded-2xl shadow-xl p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="flex items-center space-x-4 p-3">
+              <div className="text-4xl">🛢️</div>
+              <div>
+                <h3 className="font-bold text-gray-900">Variedad de Capacidades</h3>
+                <p className="text-sm text-gray-600">
+                  Tanques para cada necesidad, desde 750L hasta 12.000L.
+                </p>
               </div>
             </div>
-            <div className="md:w-2/3">
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-3 sm:mb-4">Tanques de alta resistencia</h2>
-              <p className="text-gray-600 leading-relaxed">
-                Fabricados con Polietileno 100% virgen y protección UV para garantizar máxima durabilidad.
-                Nuestros tanques HDPE ofrecen resistencia superior al impacto y agentes químicos, 
-                además de incluir rompeolas para un transporte seguro de líquidos.
-              </p>
+            <div className="flex items-center space-x-4 p-3">
+              <div className="text-4xl">🚚</div>
+              <div>
+                <h3 className="font-bold text-gray-900">Envíos Nacionales</h3>
+                <p className="text-sm text-gray-600">
+                  Entregamos en todo el país y brindamos soporte personalizado.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center space-x-4 p-3">
+              <div className="text-4xl">🛠️</div>
+              <div>
+                <h3 className="font-bold text-gray-900">Asesoría Técnica</h3>
+                <p className="text-sm text-gray-600">
+                  Expertos disponibles para resolver todas tus dudas.
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Nueva sección de selección de tanque por tamaño */}
-        <section className="max-w-6xl mx-auto py-1 px-4 sm:px-6">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">Nuestros Tanques</h2>
-          </div>
-
+        <section className="max-w-6xl mx-auto py-1 px-2 sm:px-6">
           {/* Tarjeta de detalle del tanque seleccionado */}
           <AnimatePresence mode="wait">
             <motion.div
@@ -269,24 +293,25 @@ const TanquesPage = () => {
               className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100"
             >
               <div className="grid grid-cols-1 lg:grid-cols-5">
-                <div className="relative p-4 lg:p-8 lg:col-span-3 order-2 lg:order-1">
-                  <div className="lg:aspect-[4/3] relative rounded-xl overflow-hidden shadow-md mb-6">
+                {/* Imagen del producto: ahora visible arriba en móvil */}
+                <div className="relative p-4 lg:p-8 lg:col-span-3 order-1 lg:order-1 flex flex-col">
+                  <div className="w-full aspect-[4/3] relative rounded-xl overflow-hidden shadow-md mb-6">
                     <Image
                       src={selected.image}
                       alt={selected.name}
-                      className="object-cover"
+                      className="object-contain"
                       fill
                       sizes="(max-width: 768px) 100vw, 60vw"
                       priority
                     />
                   </div>
-                  
-                  <div className="flex flex-wrap gap-3 mb-6">
+                  {/* Botones de selección de tanque: scroll horizontal en móvil */}
+                  <div className="flex flex-wrap gap-3 mb-6 overflow-x-auto">
                     {tanquesOrdenados.map((tanque) => (
                       <button
                         key={tanque.slug}
                         onClick={() => setSelected(tanque)}
-                        className={`px-3 py-2 text-sm rounded-lg transition-all ${
+                        className={`px-3 py-2 text-sm rounded-lg transition-all whitespace-nowrap ${
                           selected.slug === tanque.slug
                             ? 'bg-green-500 text-white font-medium shadow-sm'
                             : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -296,14 +321,12 @@ const TanquesPage = () => {
                       </button>
                     ))}
                   </div>
-                  
                   <div>
                     <h3 className="font-semibold text-gray-700 mb-2">Descripción:</h3>
                     <p className="text-gray-600 mb-4">
                       Tanque rotomoldeado de {selected.description.toLowerCase()} fabricado con polietileno de alta densidad
                       y protección UV. Ideal para almacenar agua potable, productos alimenticios y químicos no corrosivos.
                     </p>
-                    
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                       <button className="flex-1 px-4 sm:px-6 py-3 bg-green-500 text-white font-medium rounded-xl shadow hover:bg-green-600 focus:ring-2 focus:ring-green-300 focus:outline-none transition duration-200 flex items-center justify-center">
                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -320,13 +343,12 @@ const TanquesPage = () => {
                     </div>
                   </div>
                 </div>
-                
-                <div className="bg-gray-50 p-6 lg:p-8 lg:col-span-2 order-1 lg:order-2">
+                {/* Especificaciones: debajo de la imagen en móvil, a la derecha en desktop */}
+                <div className="bg-gray-50 p-6 lg:p-8 lg:col-span-2 order-2 lg:order-2">
                   <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">{selected.name}</h2>
                   <div className="inline-block bg-green-100 text-green-700 text-sm px-3 py-1 rounded-full mb-6">
                     {selected.description}
                   </div>
-                  
                   <div className="mb-6">
                     <h3 className="text-lg font-semibold mb-3 text-gray-800">Especificaciones</h3>
                     <ul className="space-y-3">
@@ -395,7 +417,7 @@ const TanquesPage = () => {
           { id: 3, text: 'Garantía de calidad en todos nuestros productos' },
         ]}
       />
-      <WhatsappContacts contacts={contacts} />
+      <WhatsappContacts />
     </>
   );
 };
