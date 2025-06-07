@@ -178,7 +178,7 @@ const TanquesPage = () => {
       return Math.abs(curr.capacity - capacityRange) < Math.abs(prev.capacity - capacityRange) ? curr : prev;
     });
     setSelected(closestTank);
-  }, [capacityRange]);
+  }, [capacityRange, tanquesOrdenados]);
 
   
 

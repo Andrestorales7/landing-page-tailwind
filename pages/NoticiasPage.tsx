@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useArticles, Article } from '../services/newsService';
 import { motion } from 'framer-motion';
 import { MagnifyingGlassIcon, FunnelIcon } from '@heroicons/react/24/outline';
+import Image from 'next/image';
 
 const NoticiasPage: React.FC = () => {
     const { articles, loading, error } = useArticles();
@@ -162,9 +163,11 @@ const NoticiasPage: React.FC = () => {
                                 {/* Imagen con efecto hover */}
                                 <Link href={`/noticias/${article.id}`} className="block overflow-hidden h-56">
                                     <div className="h-full w-full overflow-hidden">
-                                        <img
+                                        <Image
                                             src={article.image}
                                             alt={article.title}
+                                            width={400}
+                                            height={300}
                                             className="h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                                         />
                                     </div>

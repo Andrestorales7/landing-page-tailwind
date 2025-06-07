@@ -34,17 +34,19 @@ const NoticiaDetalle = () => {
     <main>
       {/* Hero Section */}
       <section className="relative min-h-[40vh] bg-gradient-to-br from-green-200/30 via-green-100/20 to-green-50/10 overflow-hidden flex items-end">
-        {/* Imagen de fondo */}
-        <div
-          className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-100"
-          style={{
-            backgroundImage: `url('/images/hero/heronoticias.jpg')`,
-          }}
-        ></div>
+        {/* Imagen de la noticia como fondo */}
+        <Image
+          src={article.image}
+          alt={article.title}
+          fill
+          priority
+          className="object-cover object-center z-0"
+          sizes="100vw"
+        />
         {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent pointer-events-none z-10"></div>
         {/* Contenido del Hero */}
-        <div className="relative z-10 w-full max-w-4xl mx-auto px-6 pb-10">
+        <div className="relative z-20 w-full max-w-4xl mx-auto px-6 pb-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -76,7 +78,7 @@ const NoticiaDetalle = () => {
           </motion.div>
         </div>
         {/* SVG Wave divider */}
-        <div className="absolute bottom-0 left-0 right-0 overflow-hidden">
+        <div className="absolute bottom-0 left-0 right-0 overflow-hidden z-30">
           <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-[60px]">
             <path
               d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V56.44Z"
