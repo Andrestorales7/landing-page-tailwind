@@ -202,9 +202,11 @@ const NoticiasPage: React.FC = () => {
                                     {/* Autor */}
                                     <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                                         <div className="flex items-center space-x-3">
-                                            <img 
-                                                src={article.authorImage || "https://via.placeholder.com/40"} 
-                                                alt={article.author} 
+                                            <Image 
+                                                src={article.authorImage || "https://via.placeholder.com/40"}
+                                                alt={article.author}
+                                                width={40}
+                                                height={40}
                                                 className="h-8 w-8 rounded-full object-cover border-2 border-white shadow-sm" 
                                             />
                                             <span className="text-sm text-black font-medium">{article.author}</span>

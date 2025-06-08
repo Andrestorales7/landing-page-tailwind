@@ -19,9 +19,9 @@ export default function HomePage() {
       <NoticeSlider
         speed={30}
         notices={[
-          { id: 1, text: '🌱 EXPO PIONEROS DEL CHACO!' },
-          { id: 2, text: '📅 Del 28 al 31 de Mayo' },
-          { id: 3, text: '📢 La Feria Agropecuaria mas importante!' },
+          { id: 1, text: '🌾 Innovación para el campo y la agricultura.' },
+          { id: 2, text: '🌟 Productos de calidad para el agro.' },
+          { id: 3, text: '🚜 Soluciones que impulsan tu productividad.' },
         ]}
       />
       <SolucionesSection
@@ -50,17 +50,12 @@ export default function HomePage() {
             description: "",
             link: "/ProductosPage",
           },
-      
         ]}
       />
-      
-      <Noticias/>
+      <Noticias />
       <Nosotros />
       <Marcas />
-      
-      
-      <WhatsappContacts
-      />
+      <WhatsappContacts />
     </>
   );
 }

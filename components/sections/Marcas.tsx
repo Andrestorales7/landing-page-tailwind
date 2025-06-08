@@ -2,8 +2,8 @@ import Image from 'next/image';
 import React from 'react';
 
 const logos = [
-  { src: '/images/logos/agrinpex-logo.png', alt: 'agrinpex' },
-  { src: '/images/logos/agroman-logo.png', alt: 'Logo Marca 2' },
+  { src: '/images/logos/agrinpex-logo.webp', alt: 'agrinpex' },
+  { src: '/images/logos/agroman-logo.webp', alt: 'Logo Marca 2' },
   { src: '/images/logos/azulpack-logo.png', alt: 'Logo Marca 3' },
   { src: '/images/logos/biotech-logo.png', alt: 'Logo Marca 4' },
   { src: '/images/logos/exporplas-logo.png', alt: 'Logo Marca 5' },
@@ -13,7 +13,7 @@ const logos = [
   { src: '/images/logos/magnum-logo.png', alt: 'Logo Marca 9' },
   { src: '/images/logos/mauser-logo.png', alt: 'Logo Marca 10' },
   { src: '/images/logos/nortene-logo.png', alt: 'Logo Marca 11' },
-  { src: '/images/logos/rafitec-logo.png', alt: 'Logo Marca 12' },
+  { src: '/images/logos/rafitec-logo.webp', alt: 'Logo Marca 12' },
   { src: '/images/logos/pipiola-logo.png', alt: 'Logo Marca 13' },
   { src: '/images/logos/silox-logo.png', alt: 'Logo Marca 14' },
   { src: '/images/logos/suprasil-logo.png', alt: 'Logo Marca 15' },
