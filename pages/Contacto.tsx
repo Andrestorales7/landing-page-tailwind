@@ -68,8 +68,6 @@ export default function Contacto() {
       nombre: "Asuncion",
       direccion: "Avda. Artigas 4145 c/ Gral. Delgado",
       telefono: "(0981) 176 060",
-      telefono: "(0983) 352 029",
-      telefono: "(0982) 163 262",
       horario: "Lun - Vie: 07:30 - 17:00",
       coordenadas: "40.4168, -3.7038",
     },
@@ -78,7 +76,6 @@ export default function Contacto() {
       nombre: " Minga Guazu",
       direccion: "Ruta 2 - Km.16",
       telefono: "(0981) 253 081",
-      telefono: "(0983) 846 825",
       horario: "Lun - Vie: 07:30 - 17:00",
       coordenadas: "40.4500, -3.6900",
     },
@@ -347,7 +344,7 @@ export default function Contacto() {
 
           <div className="rounded-2xl overflow-hidden shadow-xl">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.2351134834247!2d-3.7037901999999998!3d40.4167754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDI1JzAwLjQiTiAzwrA0MicxMy42Ilc!5e0!3m2!1ses!2ses!4v1680000000000!5m2!1ses!2ses"
+              src="https://www.google.com/maps/place/Compa%C3%B1ia+Maritima+Paraguaya+SA/@-25.253325,-57.5807914,17.97z/data=!4m14!1m7!3m6!1s0x945da65cc180c135:0xe48a7b91dc634dfd!2sCompa%C3%B1ia+Maritima+Paraguaya+SA!8m2!3d-25.2535161!4d-57.5806047!16s%2Fg%2F11g7y9tmc_!3m5!1s0x945da65cc180c135:0xe48a7b91dc634dfd!8m2!3d-25.2535161!4d-57.5806047!16s%2Fg%2F11g7y9tmc_?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D"
               width="100%"
               height="450"
               style={{ border: 0 }}
