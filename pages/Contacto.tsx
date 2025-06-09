@@ -75,10 +75,10 @@ export default function Contacto() {
     {
       id: 2,
       nombre: " Minga Guazu",
-      direccion: "Ruta 2 - Km.16"
-      telefono: "(0981) 253 081"
-      telefono: "(0983) 846 825"
-      horario: "Lun - Vie: 07:30 - 17:00"
+      direccion: "Ruta 2 - Km.16",
+      telefono: "(0981) 253 081",
+      telefono: "(0983) 846 825",
+      horario: "Lun - Vie: 07:30 - 17:00",
       coordenadas: "40.4500, -3.6900",
     },
     {
