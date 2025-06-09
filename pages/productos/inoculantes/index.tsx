@@ -12,7 +12,7 @@ const InoculantesProductPage = () => {
   const [activeTab, setActiveTab] = useState('granos');
   // Estado del slider SOLO para Suprasil Granos
   const [slide, setSlide] = useState(0);
-  const images = [
+  const suprasilGranosImages = [
     {
       src: "/images/productos/inoculantes/suprasil-granos1.jpeg",
       alt: "Inoculante Suprasil Granos 1",
@@ -122,34 +122,51 @@ const InoculantesProductPage = () => {
               <div>
                 <h2 className="text-2xl font-bold text-green-900 mb-4">Suprasil Granos</h2>
                 <div className="flex flex-col md:flex-row items-center md:items-start min-h-[320px]">
-                  {/* Slide de imágenes */}
+                  {/* Slide de imágenes - modificado para usar width/height como las otras imágenes */}
                   <div className="w-full md:w-1/2 flex flex-col items-center md:items-start">
-                    <div className="w-full max-w-lg mb-4">
-                      <div className="relative">
-                        <Image
-                          src={images[slide].src}
-                          alt={images[slide].alt}
-                          fill
-                          className="rounded-2xl shadow-2xl w-full object-cover"
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                          priority
-                        />
-                        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
-                          {images.map((_, idx) => (
-                            <button
-                              key={idx}
-                              className={`w-3 h-3 rounded-full ${slide === idx ? 'bg-green-800' : 'bg-green-200'} border border-green-800`}
-                              onClick={() => setSlide(idx)}
-                              aria-label={`Ver imagen ${idx + 1}`}
-                              type="button"
-                            />
-                          ))}
-                        </div>
+                    <div className="relative w-full max-w-lg mb-4">
+                      <Image
+                        src={suprasilGranosImages[slide].src}
+                        alt={suprasilGranosImages[slide].alt}
+                        width={600}
+                        height={400}
+                        className="rounded-2xl shadow-2xl w-full object-cover"
+                        priority={slide === 0}
+                      />
+                      {/* Navigation Arrows */}
+                      <button 
+                        className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-green-800 w-8 h-8 rounded-full flex items-center justify-center shadow-md"
+                        onClick={() => setSlide(slide === 0 ? suprasilGranosImages.length - 1 : slide - 1)}
+                        aria-label="Imagen anterior"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                        </svg>
+                      </button>
+                      <button 
+                        className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-green-800 w-8 h-8 rounded-full flex items-center justify-center shadow-md"
+                        onClick={() => setSlide((slide + 1) % suprasilGranosImages.length)}
+                        aria-label="Siguiente imagen"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </button>
+                      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
+                        {suprasilGranosImages.map((_, idx) => (
+                          <button
+                            key={idx}
+                            className={`w-3 h-3 rounded-full ${slide === idx ? 'bg-green-800' : 'bg-green-200'} border border-green-800`}
+                            onClick={() => setSlide(idx)}
+                            aria-label={`Ver imagen ${idx + 1}`}
+                            type="button"
+                          />
+                        ))}
                       </div>
                     </div>
                   </div>
                   {/* Información al costado */}
-                  <div className="w-full md:w-1/2 flex flex-col justify-center md:pl-8">
+                  <div className="w-full md:w-1/2 flex flex-col justify-center md:pl-8 mt-4 md:mt-0">
                     <h3 className="text-xl font-semibold text-green-800 mb-2">Conservación y calidad de granos</h3>
                     <p className="text-gray-700 text-base mb-4">
                       Este aditivo inoculante actúa inmediatamente a través de microorganismos de rápida multiplicación que mejoran la conservación y calidad de granos y semillas almacenados en silobolsas.

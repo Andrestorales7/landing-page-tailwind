@@ -10,7 +10,7 @@ const products = [
 		slug: 'peliculas-para-invernadero',
 		images: [
 			'/images/productos/horticultura/pelicula-invernadero.jpg',
-			'/images/productos/horticultura/pelicula-invernadero2.jpg',
+			'/images/productos/horticultura/pelicula-invernadero2.webp',
 			
 		],
 		description:

@@ -61,7 +61,7 @@ const Hero: React.FC = () => {
                         className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ delay: 0.3, duration: 0.8 }}
+                        transition={{ duration: 0.8 }} // Elimina delay
                     >
                         <span className="text-green-500">Soluciones Tecnologicas</span> Inteligentes para el Agro-negocio de hoy
                     </motion.h1>

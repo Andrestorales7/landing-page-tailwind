@@ -22,12 +22,12 @@ const OtrosProductosPage = () => {
       image: '/images/productos/otros/cintasflex/cintas1.jpg',
       description: 'Cintas impresas de alta calidad para embalaje y seguridad.',
       details: ['Personalizables', 'Alta resistencia', 'Impresión nítida'],
-      logo: '/images/logos/cintas-logo.png',
+      logo: '/images/logos/tesa-logo.svg',
     },
     {
       name: 'Máquinas Cerradoras',
       slug: 'maquinas-cerradoras',
-      image: '/images/productos/otros/costuradoras/cost1.png',
+      image: '/images/productos/otros/costuradoras/union1.png',
       description: 'Máquinas para cerrar cajas y paquetes de forma eficiente.',
       details: ['Automáticas y manuales', 'Fácil mantenimiento'],
       logo: '/images/productos/otros/costuradoras/union-logo.jpg',
@@ -38,7 +38,15 @@ const OtrosProductosPage = () => {
       image: '/images/productos/otros/precintos/precinto-altaseguridad.jpg',
       description: 'Precintos de seguridad para embalaje y transporte.',
       details: ['Variedad de tamaños', 'Alta seguridad'],
-      logo: '/images/logos/precintos-logo.png',
+      logo: '/images/logos/cmp-logo.png',
+    },
+    {
+      name: 'Selladora de Silobolsas',
+      slug: 'selladora-silos',
+      image: '/images/productos/otros/cerradoras/la-pipiola-selladora-de-silos-09.png',
+      description: 'Sistema especializado para el sellado hermético de silos y estructuras de almacenamiento agrícola.',
+      details: ['Sellado hermético', 'Protección contra humedad', 'Preservación de granos'],
+      logo: '/images/logos/pipiola-logo.png',
     },
   ];
 
@@ -52,7 +60,7 @@ const OtrosProductosPage = () => {
             className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-100"
             style={{
               backgroundImage:
-                "url('/images/hero/otros-productos.jpg')",
+                "url('/images/hero/otros-productos.png')",
             }}
           ></div>
           {/* Overlay gradient */}

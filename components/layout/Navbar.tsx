@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const Navbar: React.FC = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -66,13 +67,17 @@ const Navbar: React.FC = () => {
             <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-20 items-center justify-between">
                     <div className="flex-1 md:flex md:items-center md:gap-12">
-                        <Link href="/" className="block">
+                        <Link href="/" className="block" onClick={() => setIsMobileMenuOpen(false)}>
                             <span className="sr-only">Home</span>
                             <div className="flex items-center space-x-2">
-                                <img 
+                                <Image 
                                     src="/images/logos/cmp-logo3.png" 
                                     alt="Company Logo" 
-                                    className="h-14 w-auto object-contain" 
+                                    width={124} // Doble del tamaño mostrado
+                                    height={124}
+                                    className="h-22 w-22 object-contain" // h-22 = 88px
+                                    priority
+                                    quality={100}
                                 />
                             </div>
                         </Link>
@@ -85,10 +90,7 @@ const Navbar: React.FC = () => {
                                     <Link 
                                         href="/" 
                                         className="font-medium tracking-wide transition-colors hover:text-green-500"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            scrollToSection("Hero");
-                                        }}
+                                        onClick={() => setIsMobileMenuOpen(false)}
                                     >
                                         Inicio
                                     </Link>
@@ -213,10 +215,8 @@ const Navbar: React.FC = () => {
                             <Link
                                 href="/"
                                 className="block font-medium text-gray-800 py-2 hover:text-green-500"
-                                onClick={(e) => {
-                                    e.preventDefault();
+                                onClick={() => {
                                     setIsMobileMenuOpen(false);
-                                    scrollToSection("Hero");
                                 }}
                             >
                                 Inicio

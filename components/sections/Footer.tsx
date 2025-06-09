@@ -46,8 +46,27 @@ const Footer: React.FC = () => {
               
               <p className="text-gray-300 leading-relaxed max-w-md text-sm">
               Acompañamos cada paso con un compromiso real, brindando soluciones confiables, eficientes y pensadas para resolver lo que realmente importa. Porque cuando el campo crece, crece todo un país… y estamos aquí para impulsarlo.
-
               </p>
+
+              {/* Navigation Links */}
+              <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm">
+                {[
+                  { name: "Productos", href: "/ProductosPage" },
+                  { name: "Nosotros", href: "/NosotrosPage" },
+                  { name: "Noticias", href: "/NoticiasPage" },
+                  { name: "Contacto", href: "/Contacto" }
+                ].map((link, idx) => (
+                  <motion.a 
+                    key={idx}
+                    href={link.href}
+                    className="text-gray-300 hover:text-[#8ab99e] transition-all flex items-center"
+                    whileHover={{ x: 3 }}
+                  >
+                    <span className="w-1.5 h-1.5 bg-[#6a9d83] rounded-full mr-2"></span>
+                    {link.name}
+                  </motion.a>
+                ))}
+              </div>
 
               {/* Social icons */}
               <div className="flex gap-4 items-center pt-2">
@@ -90,16 +109,19 @@ const Footer: React.FC = () => {
                   { 
                     title: "Asunción",
                     address: "Avda. Artigas 4145 c/ Gral. Delgado",
+                    mapUrl: "https://maps.google.com/?q=Avda.+Artigas+4145+c/+Gral.+Delgado,+Asunción,+Paraguay",
                     phones: ["(0981) 176 060", "(0983) 352 029", "(0982) 163 262"]
                   },
                   { 
                     title: "Minga Guazú",
                     address: "Ruta 2 Km. 14",
+                    mapUrl: "https://maps.app.goo.gl/55n3QaB3PSMib1kK6",
                     phones: ["(0981) 253 081", "(0983) 846 825"]
                   },
                   { 
                     title: "Loma Plata",
                     address: "Oficina 4 - Predio Plasti Chaco",
+                    mapUrl: "https://maps.app.goo.gl/pYtamCLVj9mTYiZf6",
                     phones: ["(0986) 778 771"]
                   },
                 ].map((location, idx) => (
@@ -115,18 +137,23 @@ const Footer: React.FC = () => {
                       <FiMapPin className="text-[#6a9d83]" />
                       {location.title}
                     </h3>
-                    <p className="text-xs text-gray-400 mb-4 leading-relaxed">{location.address}</p>
+                    <a 
+                      href={location.mapUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-gray-400 mb-4 leading-relaxed block hover:text-[#8ab99e] transition-all"
+                    >
+                      <p className="underline decoration-dotted underline-offset-2">{location.address}</p>
+                    </a>
                     <div className="space-y-2.5">
                       {location.phones.map((phone, pIdx) => (
-                        <motion.a 
+                        <div 
                           key={pIdx} 
-                          href={`tel:${phone.replace(/[^0-9+]/g, '')}`}
-                          className="flex items-center gap-2 text-gray-300 hover:text-[#8ab99e] transition-all text-xs group-hover:translate-x-1 duration-300"
-                          whileHover={{ x: 2 }}
+                          className="flex items-center gap-2 text-gray-300 text-xs"
                         >
                           <FiPhone className="text-[#6a9d83] h-3 w-3" />
                           {phone}
-                        </motion.a>
+                        </div>
                       ))}
                     </div>
                   </motion.div>

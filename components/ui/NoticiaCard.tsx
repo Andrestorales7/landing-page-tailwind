@@ -1,6 +1,7 @@
 // NoticiaCard.tsx
 import React from 'react';
 import { Clock, Calendar, BookOpen } from 'lucide-react';
+import Image from 'next/image';
 
 // Define the Noticia interface here
 interface Noticia {
@@ -11,7 +12,7 @@ interface Noticia {
   fecha: string;
   tiempoLectura: number;
   categoria: string;
-  imagen: string;
+  image: string; // <-- Cambia 'imagen' por 'image'
 }
 
 interface NoticiaCardProps {
@@ -42,8 +43,8 @@ const NoticiaCard: React.FC<NoticiaCardProps> = ({ noticia }) => {
   };
 
   // Si la imagen proporcionada no existe, usamos un placeholder
-  const imageSrc = noticia.imagen.startsWith('/') 
-    ? noticia.imagen 
+  const imageSrc = noticia.image.startsWith('/')
+    ? noticia.image
     : `/api/placeholder/400/250`;
 
   // Función para manejar el clic en la tarjeta - ahora navegamos usando window.location
@@ -64,10 +65,13 @@ const NoticiaCard: React.FC<NoticiaCardProps> = ({ noticia }) => {
     >
       {/* Imagen de la noticia */}
       <div className="relative h-64 w-full overflow-hidden">
-        <img
+        <Image
           src={imageSrc}
           alt={noticia.titulo}
-          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+          fill
+          className="object-cover transform group-hover:scale-105 transition-transform duration-500"
+          sizes="(max-width: 768px) 100vw, 400px"
+          priority
         />
         
         {/* Categoría como badge en la esquina superior */}

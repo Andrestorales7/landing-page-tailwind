@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useArticles, Article } from '../services/newsService';
 import { motion } from 'framer-motion';
 import { MagnifyingGlassIcon, FunnelIcon } from '@heroicons/react/24/outline';
+import Image from 'next/image';
 
 const NoticiasPage: React.FC = () => {
     const { articles, loading, error } = useArticles();
@@ -56,7 +57,7 @@ const NoticiasPage: React.FC = () => {
                         className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-100"
                         style={{
                             backgroundImage:
-                                "url('/images/hero/heronoticias.jpg')",
+                                "url('/images/hero/hero-noticias.webp')",
                         }}
                     ></div>
                     <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent pointer-events-none"></div>
@@ -162,9 +163,11 @@ const NoticiasPage: React.FC = () => {
                                 {/* Imagen con efecto hover */}
                                 <Link href={`/noticias/${article.id}`} className="block overflow-hidden h-56">
                                     <div className="h-full w-full overflow-hidden">
-                                        <img
+                                        <Image
                                             src={article.image}
                                             alt={article.title}
+                                            width={400}
+                                            height={300}
                                             className="h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                                         />
                                     </div>
@@ -199,9 +202,11 @@ const NoticiasPage: React.FC = () => {
                                     {/* Autor */}
                                     <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                                         <div className="flex items-center space-x-3">
-                                            <img 
-                                                src={article.authorImage || "https://via.placeholder.com/40"} 
-                                                alt={article.author} 
+                                            <Image 
+                                                src={article.authorImage || "https://via.placeholder.com/40"}
+                                                alt={article.author}
+                                                width={40}
+                                                height={40}
                                                 className="h-8 w-8 rounded-full object-cover border-2 border-white shadow-sm" 
                                             />
                                             <span className="text-sm text-black font-medium">{article.author}</span>
