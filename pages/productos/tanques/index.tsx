@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link'; // Add this import
 import Marcas from '@/components/sections/Marcas';
 import NoticeSlider from '@/components/sections/NoticeSlider';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
@@ -322,7 +323,7 @@ const TanquesPage = () => {
                       y protección UV. Ideal para almacenar agua potable, productos alimenticios y químicos no corrosivos.
                     </p>
                     <div className="flex justify-center">
-                      <a 
+                      <Link 
                         href="/Contacto" 
                         className="px-6 py-3 bg-green-500 text-white font-medium rounded-xl shadow hover:bg-green-600 focus:ring-2 focus:ring-green-300 focus:outline-none transition duration-200 flex items-center justify-center"
                       >
@@ -330,7 +331,7 @@ const TanquesPage = () => {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                         <span className="whitespace-nowrap">Solicitar Info</span>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
