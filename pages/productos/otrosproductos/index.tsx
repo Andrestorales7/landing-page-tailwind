@@ -40,6 +40,14 @@ const OtrosProductosPage = () => {
       details: ['Variedad de tamaños', 'Alta seguridad'],
       logo: '/images/logos/cmp-logo.png',
     },
+    {
+      name: 'Selladora de Silobolsas',
+      slug: 'selladora-silos',
+      image: '/images/productos/otros/cerradoras/la-pipiola-selladora-de-silos-09.png',
+      description: 'Sistema especializado para el sellado hermético de silos y estructuras de almacenamiento agrícola.',
+      details: ['Sellado hermético', 'Protección contra humedad', 'Preservación de granos'],
+      logo: '/images/logos/pipiola-logo.png',
+    },
   ];
 
   return (

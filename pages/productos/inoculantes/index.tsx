@@ -133,6 +133,25 @@ const InoculantesProductPage = () => {
                         className="rounded-2xl shadow-2xl w-full object-cover"
                         priority={slide === 0}
                       />
+                      {/* Navigation Arrows */}
+                      <button 
+                        className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-green-800 w-8 h-8 rounded-full flex items-center justify-center shadow-md"
+                        onClick={() => setSlide(slide === 0 ? suprasilGranosImages.length - 1 : slide - 1)}
+                        aria-label="Imagen anterior"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                        </svg>
+                      </button>
+                      <button 
+                        className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-green-800 w-8 h-8 rounded-full flex items-center justify-center shadow-md"
+                        onClick={() => setSlide((slide + 1) % suprasilGranosImages.length)}
+                        aria-label="Siguiente imagen"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </button>
                       <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
                         {suprasilGranosImages.map((_, idx) => (
                           <button

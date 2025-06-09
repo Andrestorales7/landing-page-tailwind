@@ -171,16 +171,10 @@ const TanquesPage = () => {
   const tanquesOrdenados = [...tanques].sort((a, b) => a.capacity - b.capacity);
 
   const [selected, setSelected] = useState(tanquesOrdenados[0]);
-  const [capacityRange] = useState(tanquesOrdenados[0].capacity);
 
-  useEffect(() => {
-    const closestTank = tanquesOrdenados.reduce((prev, curr) => {
-      return Math.abs(curr.capacity - capacityRange) < Math.abs(prev.capacity - capacityRange) ? curr : prev;
-    });
-    setSelected(closestTank);
-  }, [capacityRange, tanquesOrdenados]);
-
-  
+  const handleTanqueSelection = (tanque: React.SetStateAction<{ name: string; slug: string; image: string; description: string; details: string[]; capacity: number; }>) => {
+    setSelected(tanque);
+  };
 
   return (
     <>
@@ -310,7 +304,7 @@ const TanquesPage = () => {
                     {tanquesOrdenados.map((tanque) => (
                       <button
                         key={tanque.slug}
-                        onClick={() => setSelected(tanque)}
+                        onClick={() => handleTanqueSelection(tanque)}
                         className={`px-3 py-2 text-sm rounded-lg transition-all whitespace-nowrap ${
                           selected.slug === tanque.slug
                             ? 'bg-green-500 text-white font-medium shadow-sm'
@@ -327,19 +321,16 @@ const TanquesPage = () => {
                       Tanque rotomoldeado de {selected.description.toLowerCase()} fabricado con polietileno de alta densidad
                       y protección UV. Ideal para almacenar agua potable, productos alimenticios y químicos no corrosivos.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                      <button className="flex-1 px-4 sm:px-6 py-3 bg-green-500 text-white font-medium rounded-xl shadow hover:bg-green-600 focus:ring-2 focus:ring-green-300 focus:outline-none transition duration-200 flex items-center justify-center">
+                    <div className="flex justify-center">
+                      <a 
+                        href="/Contacto" 
+                        className="px-6 py-3 bg-green-500 text-white font-medium rounded-xl shadow hover:bg-green-600 focus:ring-2 focus:ring-green-300 focus:outline-none transition duration-200 flex items-center justify-center"
+                      >
                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                         <span className="whitespace-nowrap">Solicitar Info</span>
-                      </button>
-                      <button className="flex-1 px-4 sm:px-6 py-3 bg-white text-green-500 font-medium rounded-xl shadow border border-green-500 hover:bg-green-50 focus:ring-2 focus:ring-green-200 focus:outline-none transition duration-200 flex items-center justify-center">
-                        <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                        </svg>
-                        <span>Contactar</span>
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
