@@ -46,8 +46,27 @@ const Footer: React.FC = () => {
               
               <p className="text-gray-300 leading-relaxed max-w-md text-sm">
               Acompañamos cada paso con un compromiso real, brindando soluciones confiables, eficientes y pensadas para resolver lo que realmente importa. Porque cuando el campo crece, crece todo un país… y estamos aquí para impulsarlo.
-
               </p>
+
+              {/* Navigation Links */}
+              <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm">
+                {[
+                  { name: "Productos", href: "/ProductosPage" },
+                  { name: "Nosotros", href: "/NosotrosPage" },
+                  { name: "Noticias", href: "/NoticiasPage" },
+                  { name: "Contacto", href: "/Contacto" }
+                ].map((link, idx) => (
+                  <motion.a 
+                    key={idx}
+                    href={link.href}
+                    className="text-gray-300 hover:text-[#8ab99e] transition-all flex items-center"
+                    whileHover={{ x: 3 }}
+                  >
+                    <span className="w-1.5 h-1.5 bg-[#6a9d83] rounded-full mr-2"></span>
+                    {link.name}
+                  </motion.a>
+                ))}
+              </div>
 
               {/* Social icons */}
               <div className="flex gap-4 items-center pt-2">
@@ -128,15 +147,13 @@ const Footer: React.FC = () => {
                     </a>
                     <div className="space-y-2.5">
                       {location.phones.map((phone, pIdx) => (
-                        <motion.a 
+                        <div 
                           key={pIdx} 
-                          href={`tel:${phone.replace(/[^0-9+]/g, '')}`}
-                          className="flex items-center gap-2 text-gray-300 hover:text-[#8ab99e] transition-all text-xs group-hover:translate-x-1 duration-300"
-                          whileHover={{ x: 2 }}
+                          className="flex items-center gap-2 text-gray-300 text-xs"
                         >
                           <FiPhone className="text-[#6a9d83] h-3 w-3" />
                           {phone}
-                        </motion.a>
+                        </div>
                       ))}
                     </div>
                   </motion.div>
