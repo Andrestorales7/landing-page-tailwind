@@ -344,7 +344,7 @@ export default function Contacto() {
 
           <div className="rounded-2xl overflow-hidden shadow-xl">
             <iframe
-              src="https://www.google.com/maps/place/Compa%C3%B1ia+Maritima+Paraguaya+SA/@-25.253325,-57.5807914,17.97z/data=!4m14!1m7!3m6!1s0x945da65cc180c135:0xe48a7b91dc634dfd!2sCompa%C3%B1ia+Maritima+Paraguaya+SA!8m2!3d-25.2535161!4d-57.5806047!16s%2Fg%2F11g7y9tmc_!3m5!1s0x945da65cc180c135:0xe48a7b91dc634dfd!8m2!3d-25.2535161!4d-57.5806047!16s%2Fg%2F11g7y9tmc_?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.507403931926!2d-57.583179623703764!3d-25.253511225933764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945da65cc180c135%3A0xe48a7b91dc634dfd!2sCompa%C3%B1ia%20Maritima%20Paraguaya%20SA!5e0!3m2!1ses-419!2spy!4v1749481584572!5m2!1ses-419!2spy"
               width="100%"
               height="450"
               style={{ border: 0 }}
