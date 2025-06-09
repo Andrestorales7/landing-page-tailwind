@@ -90,16 +90,19 @@ const Footer: React.FC = () => {
                   { 
                     title: "Asunción",
                     address: "Avda. Artigas 4145 c/ Gral. Delgado",
+                    mapUrl: "https://maps.google.com/?q=Avda.+Artigas+4145+c/+Gral.+Delgado,+Asunción,+Paraguay",
                     phones: ["(0981) 176 060", "(0983) 352 029", "(0982) 163 262"]
                   },
                   { 
                     title: "Minga Guazú",
                     address: "Ruta 2 Km. 14",
+                    mapUrl: "https://maps.app.goo.gl/55n3QaB3PSMib1kK6",
                     phones: ["(0981) 253 081", "(0983) 846 825"]
                   },
                   { 
                     title: "Loma Plata",
                     address: "Oficina 4 - Predio Plasti Chaco",
+                    mapUrl: "https://maps.app.goo.gl/pYtamCLVj9mTYiZf6",
                     phones: ["(0986) 778 771"]
                   },
                 ].map((location, idx) => (
@@ -115,7 +118,14 @@ const Footer: React.FC = () => {
                       <FiMapPin className="text-[#6a9d83]" />
                       {location.title}
                     </h3>
-                    <p className="text-xs text-gray-400 mb-4 leading-relaxed">{location.address}</p>
+                    <a 
+                      href={location.mapUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-gray-400 mb-4 leading-relaxed block hover:text-[#8ab99e] transition-all"
+                    >
+                      <p className="underline decoration-dotted underline-offset-2">{location.address}</p>
+                    </a>
                     <div className="space-y-2.5">
                       {location.phones.map((phone, pIdx) => (
                         <motion.a 
