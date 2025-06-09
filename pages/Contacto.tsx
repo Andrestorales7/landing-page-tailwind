@@ -65,11 +65,12 @@ export default function Contacto() {
   const ubicaciones = [
     {
       id: 1,
-      nombre: "Oficina Principal",
-      direccion: "Av. Principal 123, Centro",
-      ciudad: "Madrid, España",
-      telefono: "+34 911 234 567",
-      horario: "Lun - Vie: 9:00 - 18:00",
+      nombre: "Asuncion",
+      direccion: "Avda. Artigas 4145 c/ Gral. Delgado",
+      telefono: "(0981) 176 060",
+      telefono: "(0983) 352 029",
+      telefono: "(0982) 163 262",
+      horario: "Lun - Vie: 07:30 - 17:00",
       coordenadas: "40.4168, -3.7038",
     },
     {
@@ -83,11 +84,10 @@ export default function Contacto() {
     },
     {
       id: 3,
-      nombre: "Sucursal Sur",
-      direccion: "Av. Sur 789, Zona Sur",
-      ciudad: "Madrid, España",
-      telefono: "+34 911 456 789",
-      horario: "Lun - Vie: 10:00 - 19:00",
+      nombre: "Loma Plata",
+      direccion: "Oficina 4 - Predio Plasti Chaco",
+      telefono: "(0986) 778 771",
+      horario: "Lun - Vie: 07:30 - 17:00",
       coordenadas: "40.3800, -3.7200",
     },
   ];
