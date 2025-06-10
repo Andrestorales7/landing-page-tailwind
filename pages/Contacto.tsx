@@ -92,16 +92,16 @@ export default function Contacto() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[52vh] bg-gradient-to-br from-green-900/70 via-green-800/60 to-green-700/50 overflow-hidden flex items-center">
+      <section className="relative min-h-[52vh] bg-gradient-to-br from-emerald-200/70 via-emerald-100/60 to-emerald-50/50 overflow-hidden flex items-center">
         {/* Imagen de fondo */}
         <div
-          className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-100"
+          className="absolute inset-0 bg-cover bg-center opacity-90"
           style={{
             backgroundImage: "url('/images/hero/contactopic.jpg')",
           }}
         ></div>
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent pointer-events-none"></div>
+        {/* Overlay gradient más claro */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-emerald-100/20 to-transparent pointer-events-none"></div>
         {/* Contenido del Hero */}
         <div className="relative z-10 w-full max-w-4xl mx-auto px-6 pb-2">
           <motion.div
