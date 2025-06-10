@@ -6,6 +6,7 @@ import NoticeSlider from '@/components/sections/NoticeSlider';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import SEO from '@/components/SEO';  // Añadida la importación de SEO
 
 const InoculantesProductPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -31,6 +32,13 @@ const InoculantesProductPage = () => {
 
   return (
     <>
+      <SEO 
+        title="Inoculantes Suprasil | Soluciones Biológicas | CMP Agro"
+        description="Potencia el rendimiento de tus cultivos con nuestra línea de inoculantes Suprasil para granos, heno y silajes. Mejora la conservación y calidad de tus productos agrícolas."
+        url="https://www.cmpagro.com.py/productos/inoculantes"
+        image="/images/productos/inoculantes/hero-inocu.jpg"
+      />
+      
       <div id="inoculantes" className="min-h-screen bg-gradient-to-b from-green-50 to-gray-50">
         {/* Hero Section */}
         <div className="relative min-h-[52vh] bg-gradient-to-br from-green-900/70 via-green-800/60 to-green-700/50 overflow-hidden">

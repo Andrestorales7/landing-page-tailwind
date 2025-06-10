@@ -4,6 +4,7 @@ import Marcas from '@/components/sections/Marcas';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import SEO from '@/components/SEO';
 
 const categorias = [
     {
@@ -46,6 +47,12 @@ const categorias = [
 const ProductosPage = () => {
     return (
         <>
+            <SEO 
+                title="Productos CMP Agro | Soluciones Agrícolas Completas"
+                description="Descubre nuestra amplia gama de productos para horticultura, ensilaje, agropecuaria, tanques, envases e inoculantes. Soluciones agrícolas de calidad diseñadas para el productor paraguayo."
+                url="https://www.cmpagro.com.py/productos"
+                image="/images/hero/productpagehero.webp"
+            />
             <div id="ProductosPage" className="min-h-screen bg-gradient-to-b from-green-50 to-gray-50">
                 {/* Hero Section Mejorado con imagen y divisoria estilizada - tamaño reducido */}
                 <div className="relative min-h-[52vh] bg-gradient-to-br from-green-900/70 via-green-800/60 to-green-700/50 overflow-hidden">

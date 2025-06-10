@@ -2,11 +2,12 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link'; // Add this import
+import Link from 'next/link';
 import Marcas from '@/components/sections/Marcas';
 import NoticeSlider from '@/components/sections/NoticeSlider';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
 import { motion, AnimatePresence } from 'framer-motion';
+import SEO from '@/components/SEO';  // Añadida la importación de SEO
 
 const TanquesPage = () => {
   const tanques = [
@@ -170,7 +171,6 @@ const TanquesPage = () => {
   ];
 
   const tanquesOrdenados = [...tanques].sort((a, b) => a.capacity - b.capacity);
-
   const [selected, setSelected] = useState(tanquesOrdenados[0]);
 
   const handleTanqueSelection = (tanque: React.SetStateAction<{ name: string; slug: string; image: string; description: string; details: string[]; capacity: number; }>) => {
@@ -179,6 +179,13 @@ const TanquesPage = () => {
 
   return (
     <>
+      <SEO 
+        title="Tanques de Polietileno | Capacidades de 750L a 12.000L | CMP Agro"
+        description="Amplia gama de tanques rotomoldeados de polietileno de alta densidad con protección UV. Ideales para agua, alimentos y químicos no corrosivos. Capacidades desde 750L hasta 12.000L."
+        url="https://www.cmpagro.com.py/productos/tanques"
+        image="/images/productos/tanques/tanque-1500lt.jpg"
+      />
+      
       <div id="tanques" className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
         {/* Hero Section */}
         <div className="relative min-h-[52vh] bg-gradient-to-br from-green-900/70 via-green-800/60 to-green-700/50 overflow-hidden">

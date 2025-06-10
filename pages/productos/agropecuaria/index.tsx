@@ -7,6 +7,7 @@ import WhatsappContacts from '@/components/layout/WhatsappContacts';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import SEO from '@/components/SEO';
 
 const AgroPecuariaPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -76,6 +77,12 @@ const AgroPecuariaPage = () => {
 
   return (
     <>
+      <SEO 
+        title="Productos Agropecuarios | CMP Agro"
+        description="Amplia gama de insumos para el sector agropecuario: geomembranas, tejidos aviares, comederos, mallas Aluminet y más. Soluciones de calidad para mejorar la productividad de su granja."
+        url="https://www.cmpagro.com.py/productos/agropecuaria"
+        image="/images/hero/agropecuaria-hero.webp"
+      />
       <div id="agropecuaria-productos" className="min-h-screen bg-gradient-to-b from-green-50 to-gray-50">
         {/* Hero Section */}
         <div className="relative min-h-[52vh] bg-gradient-to-br from-green-900/70 via-green-800/60 to-green-700/50 overflow-hidden">

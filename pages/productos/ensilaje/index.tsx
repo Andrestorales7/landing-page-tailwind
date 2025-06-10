@@ -7,6 +7,7 @@ import WhatsappContacts from '@/components/layout/WhatsappContacts';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import SEO from '@/components/SEO';
 
 const AgroProductPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -80,6 +81,12 @@ const AgroProductPage = () => {
 
   return (
     <>
+      <SEO 
+        title="Soluciones de Ensilaje | Films, Silobolsas y Mallas | CMP Agro"
+        description="Productos de alta calidad para ensilaje: films para fardos, hilos, mallas, silobolsas y techos. Soluciones especializadas para almacenamiento y protección de cultivos y forrajes."
+        url="https://www.cmpagro.com.py/productos/ensilaje"
+        image="/images/hero/soluciones-ensilaje.webp"
+      />
       <div id="agro-productos" className="min-h-screen bg-gradient-to-b from-green-50 to-gray-50">
         {/* Hero Section */}
         <div className="relative min-h-[52vh] bg-gradient-to-br from-green-900/70 via-green-800/60 to-green-700/50 overflow-hidden">

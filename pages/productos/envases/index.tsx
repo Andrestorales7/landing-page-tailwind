@@ -7,6 +7,7 @@ import WhatsappContacts from '@/components/layout/WhatsappContacts';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import SEO from '@/components/SEO';  // Añadida la importación del componente SEO
 
 const EnvasesPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -106,6 +107,13 @@ const EnvasesPage = () => {
 
   return (
     <>
+      <SEO 
+        title="Envases Industriales | Tambores, IBCs y Big Bags | CMP Agro"
+        description="Soluciones de almacenamiento y transporte: IBCs, Flexitanks, tambores metálicos y plásticos, bolsas de rafia y papel, y Big Bags. Envases industriales de alta calidad para su empresa."
+        url="https://www.cmpagro.com.py/productos/envases"
+        image="/images/productos/envases/back-tambores.jpeg"
+      />
+      
       <div id="envases-productos" className="min-h-screen bg-gradient-to-b from-green-50 to-gray-50">
         {/* Hero Section */}
         <div className="relative min-h-[52vh] bg-gradient-to-br from-green-900/70 via-green-800/60 to-green-700/50 overflow-hidden">
@@ -227,28 +235,26 @@ const EnvasesPage = () => {
           </div>
         </div>
 
-        {/* ...resto igual... */}
-      </div>
+        {/* Additional Sections */}
+        <div className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+             style={{ transitionDelay: '500ms' }}>
+          <Marcas />
+        </div>
 
-      {/* Additional Sections */}
-      <div className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-           style={{ transitionDelay: '500ms' }}>
-        <Marcas />
-      </div>
+        <div className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+             style={{ transitionDelay: '600ms' }}>
+          <NoticeSlider
+            notices={[
+              { id: 1, text: 'Contáctanos para asesoría personalizada' },
+              { id: 2, text: 'Envíos a todo el país' },
+            ]}
+          />
+        </div>
 
-      <div className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-           style={{ transitionDelay: '600ms' }}>
-        <NoticeSlider
-          notices={[
-            { id: 1, text: 'Contáctanos para asesoría personalizada' },
-            { id: 2, text: 'Envíos a todo el país' },
-          ]}
-        />
-      </div>
-
-      {/* Botón flotante de WhatsApp siempre visible */}
-      <div className="fixed bottom-6 right-6 z-50">
-        <WhatsappContacts />
+        {/* Botón flotante de WhatsApp siempre visible */}
+        <div className="fixed bottom-6 right-6 z-50">
+          <WhatsappContacts />
+        </div>
       </div>
     </>
   );

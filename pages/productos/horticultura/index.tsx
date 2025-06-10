@@ -7,6 +7,7 @@ import WhatsappContacts from '@/components/layout/WhatsappContacts';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import SEO from '@/components/SEO';  // Añadida la importación de SEO
 
 const HorticulturaProductPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -68,6 +69,13 @@ const HorticulturaProductPage = () => {
 
   return (
     <>
+      <SEO 
+        title="Productos de Horticultura | Películas, Mulching y Mantas | CMP Agro"
+        description="Soluciones completas para horticultura: películas para invernadero, media sombra, mulching, mantas térmicas e hilos para tutorado. Mejore la productividad de sus cultivos."
+        url="https://www.cmpagro.com.py/productos/horticultura"
+        image="/images/productos/horticultura/pelicula-invernadero2.webp"
+      />
+      
       <div id="horticultura" className="min-h-screen bg-gradient-to-b from-green-50 to-gray-50">
         {/* Hero Section */}
         <div className="relative min-h-[52vh] bg-gradient-to-br from-green-900/70 via-green-800/60 to-green-700/50 overflow-hidden">

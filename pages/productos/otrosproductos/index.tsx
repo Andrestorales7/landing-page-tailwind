@@ -7,6 +7,7 @@ import WhatsappContacts from '@/components/layout/WhatsappContacts';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import SEO from '@/components/SEO';  // Añadida la importación de SEO
 
 const OtrosProductosPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -52,6 +53,13 @@ const OtrosProductosPage = () => {
 
   return (
     <>
+      <SEO 
+        title="Productos Complementarios | Cintas, Precintos y Máquinas | CMP Agro"
+        description="Descubra nuestra selección de equipamiento agrícola especializado: cintas flexográficas, precintos, máquinas cerradoras y selladoras de silobolsas. Soluciones complementarias para optimizar su operación."
+        url="https://www.cmpagro.com.py/productos/otrosproductos"
+        image="/images/hero/otros-productos.png"
+      />
+      
       <div id="otros-productos" className="min-h-screen bg-gradient-to-b from-green-50 to-gray-50">
         {/* Hero Section */}
         <div className="relative min-h-[52vh] bg-gradient-to-br from-green-900/70 via-green-800/60 to-green-700/50 overflow-hidden">

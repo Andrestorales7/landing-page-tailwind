@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import SEO from "@/components/SEO";
 
 export default function Contacto() {
   // Datos de vendedores actualizados con contactos reales
@@ -91,6 +92,13 @@ export default function Contacto() {
 
   return (
     <>
+      <SEO 
+        title="Contacto | CMP Agro - Asistencia y Soporte"
+        description="Ponte en contacto con nuestro equipo de asesores de venta especializados en soluciones agrícolas. Encuentra nuestras oficinas en Asunción, Minga Guazú y Loma Plata."
+        url="https://www.cmpagro.com.py/contacto"
+        image="/images/hero/contactopic.jpg"
+      />
+      
       {/* Hero Section */}
       <section className="relative min-h-[52vh] bg-gradient-to-br from-emerald-200/70 via-emerald-100/60 to-emerald-50/50 overflow-hidden flex items-center">
         {/* Imagen de fondo */}

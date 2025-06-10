@@ -5,6 +5,7 @@ import { useArticles, Article } from '../services/newsService';
 import { motion } from 'framer-motion';
 import { MagnifyingGlassIcon, FunnelIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
+import SEO from '@/components/SEO';
 
 const NoticiasPage: React.FC = () => {
     const { articles, loading, error } = useArticles();
@@ -34,22 +35,44 @@ const NoticiasPage: React.FC = () => {
 
     if (loading) {
         return (
-            <div className="min-h-screen bg-emerald-50 flex justify-center items-center">
-                <div className="animate-pulse text-emerald-600 text-xl">Cargando noticias...</div>
-            </div>
+            <>
+                <SEO 
+                    title="Noticias y Artículos | CMP Agro"
+                    description="Mantente informado con las últimas noticias y tendencias del sector agrícola en Paraguay. Artículos sobre tecnología, sostenibilidad e innovación en agricultura."
+                    url="https://www.cmpagro.com.py/noticias"
+                    image="/images/hero/hero-noticias.webp"
+                />
+                <div className="min-h-screen bg-emerald-50 flex justify-center items-center">
+                    <div className="animate-pulse text-emerald-600 text-xl">Cargando noticias...</div>
+                </div>
+            </>
         );
     }
 
     if (error) {
         return (
-            <div className="min-h-screen bg-emerald-50 flex justify-center items-center">
-                <div className="text-red-500 text-xl">Error al cargar las noticias. Intente más tarde.</div>
-            </div>
+            <>
+                <SEO 
+                    title="Noticias y Artículos | CMP Agro"
+                    description="Mantente informado con las últimas noticias y tendencias del sector agrícola en Paraguay. Artículos sobre tecnología, sostenibilidad e innovación en agricultura."
+                    url="https://www.cmpagro.com.py/noticias"
+                    image="/images/hero/hero-noticias.webp"
+                />
+                <div className="min-h-screen bg-emerald-50 flex justify-center items-center">
+                    <div className="text-red-500 text-xl">Error al cargar las noticias. Intente más tarde.</div>
+                </div>
+            </>
         );
     }
 
     return (
         <>
+            <SEO 
+                title="Noticias y Artículos | CMP Agro"
+                description="Mantente informado con las últimas noticias y tendencias del sector agrícola en Paraguay. Artículos sobre tecnología, sostenibilidad e innovación en agricultura."
+                url="https://www.cmpagro.com.py/noticias"
+                image="/images/hero/hero-noticias.webp"
+            />
             <div id="noticias" className="min-h-screen bg-gradient-to-b from-green-50 to-gray-50">
                 {/* Hero Section */}
                 <div className="relative min-h-[52vh] bg-gradient-to-br from-green-900/70 via-green-800/60 to-green-700/50 overflow-hidden">
