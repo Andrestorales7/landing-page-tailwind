@@ -92,7 +92,7 @@ export default function Contacto() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[52vh] bg-gradient-to-br from-green-900/70 via-green-800/60 to-green-700/50 overflow-hidden flex items-center">
+      <section className="relative min-h-[52vh] bg-gradient-to-br from-green-900/60 via-green-800/100 to-green-700/150 overflow-hidden flex items-center">
         {/* Imagen de fondo */}
         <div
           className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-100"
@@ -149,8 +149,8 @@ export default function Contacto() {
               Nuestros Asesores
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Conoce a nuestro equipo de expertos en bienes raíces, listos para
-              ayudarte a encontrar la propiedad perfecta.
+              Conoce a nuestro equipo de amplia experiencia, listos para
+              ayudarte a encontrar la solucion agricola que estas buscando.
             </p>
           </motion.div>
 
