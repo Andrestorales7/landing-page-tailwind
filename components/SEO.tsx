@@ -10,8 +10,8 @@ type SEOProps = {
 export default function SEO({
   title,
   description,
-  url = 'https://www.cmpagro.com', // default value
-  image = 'https://www.cmpagro.com/images/banner.jpg', // default value
+  url = 'https://www.cmpagro.com.py', // default value
+  image = 'https://www.cmpagro.com.py/images/banner.jpg', // default value
 }: SEOProps) {
   return (
     <Head>
