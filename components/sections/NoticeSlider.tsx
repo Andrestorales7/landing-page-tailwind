@@ -15,6 +15,8 @@ const NoticeSlider: React.FC<NoticeSliderProps> = ({
   className = '',
 }) => {
   const [weatherNotice, setWeatherNotice] = useState<string | null>(null);
+  // Add a state to track screen size
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -51,9 +53,12 @@ const NoticeSlider: React.FC<NoticeSliderProps> = ({
                          aqi === 5 ? 'Muy insalubre' : 'Desconocida';
           }
 
-          setWeatherNotice(
-            `🌤️ Clima: ${description} | 🌡️ Temp: ${temperature}°C (Máx: ${tempMax}°C, Mín: ${tempMin}°C) | 💨 Viento: ${windSpeed} m/s | 🌧️ Precip: ${precipitation} mm | 🏭 Calidad del aire: ${airQuality}`
-          );
+          // Create a simplified version for mobile
+          const mobileWeather = `🌤️ ${temperature}°C | ${description}`;
+          const desktopWeather = `🌤️ Clima: ${description} | 🌡️ Temp: ${temperature}°C (Máx: ${tempMax}°C, Mín: ${tempMin}°C) | 💨 Viento: ${windSpeed} m/s | 🌧️ Precip: ${precipitation} mm | 🏭 Calidad del aire: ${airQuality}`;
+          
+          // The full notice will be set appropriately when window size is checked
+          setWeatherNotice(desktopWeather);
         }
       } catch (error) {
         console.error('Error fetching weather or air quality data:', error);
@@ -61,6 +66,18 @@ const NoticeSlider: React.FC<NoticeSliderProps> = ({
     };
 
     fetchWeather();
+
+    // Add responsive handling
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Check initially and add listener
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    
+    // Clean up
+    return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
   useEffect(() => {
@@ -87,7 +104,7 @@ const NoticeSlider: React.FC<NoticeSliderProps> = ({
     >
       <div 
         className="marquee-content"
-        style={{ animationDuration: `${speed}s` }}
+        style={{ animationDuration: `${isMobile ? speed * 0.6 : speed}s` }}
       >
         {allNotices.map((notice, index) => (
           <span key={notice.id} className="notice-item">
@@ -161,6 +178,22 @@ const styles = `
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0;
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 767px) {
+    .notice-slider {
+      font-size: 0.8rem;
+      padding: 6px 0;
+    }
+    
+    .notice-item {
+      margin-right: 20px;
+    }
+    
+    .separator {
+      margin: 0 10px;
+    }
   }
 `;
 
