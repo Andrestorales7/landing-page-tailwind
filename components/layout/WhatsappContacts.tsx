@@ -12,32 +12,32 @@ type Contact = {
 const contacts: Contact[] = [
   {
     name: 'Alejandro Suehsner',
-    profileImage: '/images/perfil1.png',
+    profileImage: '/images/people/ale.png',
     whatsappLink: 'https://wa.link/ktpqgg',
   },
   {
     name: 'Iván Amarilla',
-    profileImage: '/images/perfil1.png',
+    profileImage: '/images/people/n.png',
     whatsappLink: 'https://wa.link/62cfao',
   },
   {
     name: 'Heriberto Lugo',
-    profileImage: '/images/perfil1.png',
+    profileImage: '/images/people/heriberto.png',
     whatsappLink: 'https://wa.link/a4sm5x',
   },
   {
     name: 'Emilio Winckler',
-    profileImage: '/images/perfil1.png',
+    profileImage: '/images/people/s.png',
     whatsappLink: 'https://wa.link/50chk0',
   },
   {
     name: 'Francisco Céspedes',
-    profileImage: '/images/perfil1.png',
+    profileImage: '/images/people/francisco.png',
     whatsappLink: 'https://wa.link/unfsew',
   },
   {
     name: 'Manuel Bobadilla',
-    profileImage: '/images/perfil1.png',
+    profileImage: '/images/people/manuel.png',
     whatsappLink: 'https://wa.link/mqmch5',
   },
 ];
