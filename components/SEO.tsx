@@ -11,7 +11,7 @@ export default function SEO({
   title,
   description,
   url = 'https://www.cmpagro.com.py', // default value
-  image = 'https://www.cmpagro.com.py/images/banner.jpg', // default value
+  image = 'https://www.cmpagro.com.py/images/banner.png', // default value
 }: SEOProps) {
   return (
     <Head>
