@@ -12,7 +12,7 @@ export default function Contacto() {
       telefono: "Contactar por WhatsApp",
       email: "Consultas disponibles",
       whatsapp: "https://wa.link/ktpqgg",
-      imagen: "/images/perfil1.png",
+      imagen: "/images/people/ale.png",
     },
     {
       id: 2,
@@ -21,7 +21,7 @@ export default function Contacto() {
       telefono: "Contactar por WhatsApp",
       email: "Consultas disponibles",
       whatsapp: "https://wa.link/62cfao",
-      imagen: "/images/perfil1.png",
+      imagen: "/images/people/n.png",
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ export default function Contacto() {
       telefono: "Contactar por WhatsApp",
       email: "Consultas disponibles",
       whatsapp: "https://wa.link/a4sm5x",
-      imagen: "/images/perfil1.png",
+      imagen: "/images/people/heriberto.png",
     },
     {
       id: 4,
@@ -39,7 +39,7 @@ export default function Contacto() {
       telefono: "Contactar por WhatsApp",
       email: "Consultas disponibles",
       whatsapp: "https://wa.link/50chk0",
-      imagen: "/images/perfil1.png",
+      imagen: "/images/people/s.png",
     },
     {
       id: 5,
@@ -48,7 +48,7 @@ export default function Contacto() {
       telefono: "Contactar por WhatsApp",
       email: "Consultas disponibles",
       whatsapp: "https://wa.link/unfsew",
-      imagen: "/images/perfil1.png",
+      imagen: "/images/people/francisco.png",
     },
     {
       id: 6,
@@ -57,7 +57,7 @@ export default function Contacto() {
       telefono: "Contactar por WhatsApp",
       email: "Consultas disponibles",
       whatsapp: "https://wa.link/mqmch5",
-      imagen: "/images/perfil1.png",
+      imagen: "/images/people/manuel.png",
     },
   ];
 
@@ -65,29 +65,26 @@ export default function Contacto() {
   const ubicaciones = [
     {
       id: 1,
-      nombre: "Oficina Principal",
-      direccion: "Av. Principal 123, Centro",
-      ciudad: "Madrid, España",
-      telefono: "+34 911 234 567",
-      horario: "Lun - Vie: 9:00 - 18:00",
+      nombre: "Asuncion",
+      direccion: "Avda. Artigas 4145 c/ Gral. Delgado",
+      telefono: "(0981) 176 060",
+      horario: "Lun - Vie: 07:30 - 17:00",
       coordenadas: "40.4168, -3.7038",
     },
     {
       id: 2,
-      nombre: "Sucursal Norte",
-      direccion: "Calle Norte 456, Zona Norte",
-      ciudad: "Madrid, España",
-      telefono: "+34 911 345 678",
-      horario: "Lun - Sáb: 9:00 - 17:00",
+      nombre: " Minga Guazu",
+      direccion: "Ruta 2 - Km.16",
+      telefono: "(0981) 253 081",
+      horario: "Lun - Vie: 07:30 - 17:00",
       coordenadas: "40.4500, -3.6900",
     },
     {
       id: 3,
-      nombre: "Sucursal Sur",
-      direccion: "Av. Sur 789, Zona Sur",
-      ciudad: "Madrid, España",
-      telefono: "+34 911 456 789",
-      horario: "Lun - Vie: 10:00 - 19:00",
+      nombre: "Loma Plata",
+      direccion: "Oficina 4 - Predio Plasti Chaco",
+      telefono: "(0986) 778 771",
+      horario: "Lun - Vie: 07:30 - 17:00",
       coordenadas: "40.3800, -3.7200",
     },
   ];
@@ -100,7 +97,7 @@ export default function Contacto() {
         <div
           className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-100"
           style={{
-            backgroundImage: "url('/images/hero/contacto.jpg')",
+            backgroundImage: "url('/images/hero/contactopic.jpg')",
           }}
         ></div>
         {/* Overlay gradient */}
@@ -117,7 +114,7 @@ export default function Contacto() {
               Contáctanos
             </h1>
             <p className="mt-6 text-lg md:text-xl text-white max-w-2xl drop-shadow mx-auto">
-              ¿Tienes dudas o necesitas asesoría? Completa el formulario o
+              ¿Tienes dudas o necesitas asesoría?
               comunícate directamente con nuestros vendedores.
             </p>
           </motion.div>
@@ -152,8 +149,8 @@ export default function Contacto() {
               Nuestros Asesores
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Conoce a nuestro equipo de expertos en bienes raíces, listos para
-              ayudarte a encontrar la propiedad perfecta.
+              Conoce a nuestro equipo de amplia experiencia, listos para
+              ayudarte a encontrar la solucion agricola que estas buscando.
             </p>
           </motion.div>
 
@@ -295,7 +292,6 @@ export default function Contacto() {
                     </svg>
                     <div>
                       <p className="font-medium">{ubicacion.direccion}</p>
-                      <p className="text-sm">{ubicacion.ciudad}</p>
                     </div>
                   </div>
 
@@ -347,7 +343,7 @@ export default function Contacto() {
 
           <div className="rounded-2xl overflow-hidden shadow-xl">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.2351134834247!2d-3.7037901999999998!3d40.4167754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDI1JzAwLjQiTiAzwrA0MicxMy42Ilc!5e0!3m2!1ses!2ses!4v1680000000000!5m2!1ses!2ses"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.507403931926!2d-57.583179623703764!3d-25.253511225933764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945da65cc180c135%3A0xe48a7b91dc634dfd!2sCompa%C3%B1ia%20Maritima%20Paraguaya%20SA!5e0!3m2!1ses-419!2spy!4v1749481584572!5m2!1ses-419!2spy"
               width="100%"
               height="450"
               style={{ border: 0 }}
