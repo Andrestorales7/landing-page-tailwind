@@ -54,7 +54,6 @@ const NoticeSlider: React.FC<NoticeSliderProps> = ({
           }
 
           // Create a simplified version for mobile
-          const mobileWeather = `🌤️ ${temperature}°C | ${description}`;
           const desktopWeather = `🌤️ Clima: ${description} | 🌡️ Temp: ${temperature}°C (Máx: ${tempMax}°C, Mín: ${tempMin}°C) | 💨 Viento: ${windSpeed} m/s | 🌧️ Precip: ${precipitation} mm | 🏭 Calidad del aire: ${airQuality}`;
           
           // The full notice will be set appropriately when window size is checked
