@@ -2,8 +2,6 @@ import React from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Navbar from '../components/layout/Navbar';
-import Footer from '../components/sections/Footer';
-import NoticiasPage from '../components/pages/NoticiasPage';
 
 const NoticiasPage: NextPage = () => {
   return (
