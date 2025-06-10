@@ -14,15 +14,12 @@ export default function HomePage() {
       <SEO
         title="CMP Agro - Soluciones para el Agro"
         description="Líder en soluciones agrícolas, ganaderas y agroindustriales en Paraguay."
+        image="https://www.cmpagro.com.py/images/banner.png"
       />
       <Hero />
       <NoticeSlider
         speed={30}
-        notices={[
-          { id: 1, text: '🌾 Innovación para el campo y la agricultura.' },
-          { id: 2, text: '🌟 Productos de calidad para el agro.' },
-          { id: 3, text: '🚜 Soluciones que impulsan tu productividad.' },
-        ]}
+        notices={[]} // Array vacío - solo mostrará el clima sin noticias adicionales
       />
       <SolucionesSection
         soluciones={[
