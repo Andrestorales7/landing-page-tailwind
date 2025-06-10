@@ -92,7 +92,7 @@ export default function Contacto() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[52vh] bg-gradient-to-br from-green-900/60 via-green-800/100 to-green-700/150 overflow-hidden flex items-center">
+      <section className="relative min-h-[52vh] bg-gradient-to-br from-green-900/70 via-green-800/60 to-green-700/50 overflow-hidden flex items-center">
         {/* Imagen de fondo */}
         <div
           className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-100"
