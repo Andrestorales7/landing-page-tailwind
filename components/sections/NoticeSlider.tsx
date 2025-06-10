@@ -15,33 +15,31 @@ const NoticeSlider: React.FC<NoticeSliderProps> = ({
   className = '',
 }) => {
   const [weatherNotice, setWeatherNotice] = useState<string | null>(null);
-  // Add a state to track screen size
+  const [mobileWeatherNotice, setMobileWeatherNotice] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const fetchWeather = async () => {
       try {
-        const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY; // Use the environment variable
+        const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY; 
 
         const weatherResponse = await fetch(
           `https://api.openweathermap.org/data/2.5/weather?lat=-25.52&lon=-54.61&appid=${apiKey}&units=metric&lang=es`
         );
         const weatherData = await weatherResponse.json();
-        console.log('Weather API Response:', weatherData); // Debug log
 
         const airQualityResponse = await fetch(
           `https://api.openweathermap.org/data/2.5/air_pollution?lat=-25.52&lon=-54.61&appid=${apiKey}`
         );
         const airQualityData = await airQualityResponse.json();
-        console.log('Air Quality API Response:', airQualityData); // Debug log
 
         if (weatherData && weatherData.weather && weatherData.main && weatherData.wind) {
-          const description = weatherData.weather[0].description; // Ahora en español
-          const temperature = weatherData.main.temp;
-          const tempMax = weatherData.main.temp_max;
-          const tempMin = weatherData.main.temp_min;
+          const description = weatherData.weather[0].description;
+          const temperature = Math.round(weatherData.main.temp); // Redondeamos para simplificar
+          const tempMax = Math.round(weatherData.main.temp_max);
+          const tempMin = Math.round(weatherData.main.temp_min);
           const windSpeed = weatherData.wind.speed;
-          const precipitation = weatherData.rain ? weatherData.rain['1h'] || 0 : 0; // Precipitation in mm
+          const precipitation = weatherData.rain ? weatherData.rain['1h'] || 0 : 0;
 
           let airQuality = 'Desconocida';
           if (airQualityData && airQualityData.list && airQualityData.list[0]) {
@@ -53,11 +51,14 @@ const NoticeSlider: React.FC<NoticeSliderProps> = ({
                          aqi === 5 ? 'Muy insalubre' : 'Desconocida';
           }
 
-          // Create a simplified version for mobile
+          // Versión completa para escritorio
           const desktopWeather = `🌤️ Clima: ${description} | 🌡️ Temp: ${temperature}°C (Máx: ${tempMax}°C, Mín: ${tempMin}°C) | 💨 Viento: ${windSpeed} m/s | 🌧️ Precip: ${precipitation} mm | 🏭 Calidad del aire: ${airQuality}`;
           
-          // The full notice will be set appropriately when window size is checked
+          // Versión simplificada para móvil
+          const mobileWeather = `🌤️ ${description} ${temperature}°C | Calidad aire: ${airQuality}`;
+          
           setWeatherNotice(desktopWeather);
+          setMobileWeatherNotice(mobileWeather);
         }
       } catch (error) {
         console.error('Error fetching weather or air quality data:', error);
@@ -88,11 +89,12 @@ const NoticeSlider: React.FC<NoticeSliderProps> = ({
     };
   }, []);
 
-  const allNotices = weatherNotice
-    ? [{ id: 0, text: weatherNotice }, ...notices]
+  // Usar la versión móvil del clima cuando estamos en dispositivo móvil
+  const currentWeatherNotice = isMobile ? mobileWeatherNotice : weatherNotice;
+  
+  const allNotices = currentWeatherNotice
+    ? [{ id: 0, text: currentWeatherNotice }, ...notices]
     : notices;
-
-  console.log('All notices:', allNotices); // Debug log
 
   if (!allNotices.length) return null;
 
@@ -102,17 +104,36 @@ const NoticeSlider: React.FC<NoticeSliderProps> = ({
       aria-label="Últimas actualizaciones"
     >
       <div 
-        className="marquee-content"
-        style={{ animationDuration: `${isMobile ? speed * 0.6 : speed}s` }}
+        className="marquee-container"
       >
-        {allNotices.map((notice, index) => (
-          <span key={notice.id} className="notice-item">
-            {notice.text}
-            {index !== allNotices.length - 1 && (
-              <span className="separator">•</span>
-            )}
-          </span>
-        ))}
+        <div 
+          className="marquee-content"
+          style={{ animationDuration: `${isMobile ? speed * 0.5 : speed}s` }}
+        >
+          {allNotices.map((notice, index) => (
+            <span key={`${notice.id}-1`} className="notice-item">
+              {notice.text}
+              {index !== allNotices.length - 1 && (
+                <span className="separator">•</span>
+              )}
+            </span>
+          ))}
+        </div>
+        
+        {/* Segunda copia para animación continua */}
+        <div 
+          className="marquee-content"
+          style={{ animationDuration: `${isMobile ? speed * 0.5 : speed}s` }}
+        >
+          {allNotices.map((notice, index) => (
+            <span key={`${notice.id}-2`} className="notice-item">
+              {notice.text}
+              {index !== allNotices.length - 1 && (
+                <span className="separator">•</span>
+              )}
+            </span>
+          ))}
+        </div>
       </div>
 
       {/* Región oculta para lectores de pantalla */}
@@ -126,7 +147,6 @@ const NoticeSlider: React.FC<NoticeSliderProps> = ({
 const styles = `
   .notice-slider {
     background: rgba(255, 255, 255, 0.9);
-    border: 2px solid; 
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding: 8px 0;
     overflow: hidden;
@@ -139,11 +159,16 @@ const styles = `
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
+  .marquee-container {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+  }
+
   .marquee-content {
-    display: inline-block;
+    display: flex;
     white-space: nowrap;
     animation: marquee linear infinite;
-    padding-left: 100%;
   }
 
   .notice-item {
@@ -182,16 +207,16 @@ const styles = `
   /* Mobile responsiveness */
   @media (max-width: 767px) {
     .notice-slider {
-      font-size: 0.8rem;
-      padding: 6px 0;
+      font-size: 0.75rem;
+      padding: 5px 0;
     }
     
     .notice-item {
-      margin-right: 20px;
+      margin-right: 15px;
     }
     
     .separator {
-      margin: 0 10px;
+      margin: 0 8px;
     }
   }
 `;
