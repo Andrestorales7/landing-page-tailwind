@@ -5,6 +5,7 @@ type SEOProps = {
   description: string;
   url?: string;
   image?: string;
+  imageAlt?: string;
 };
 
 export default function SEO({
@@ -12,6 +13,7 @@ export default function SEO({
   description,
   url = 'https://www.cmpagro.com.py', // default value
   image = 'https://www.cmpagro.com.py/images/banner.png', // default value
+  imageAlt = 'CMP Agro - Soluciones para el Agro', // default alt text
 }: SEOProps) {
   return (
     <Head>
@@ -19,12 +21,15 @@ export default function SEO({
       <title>{title}</title>
       <meta name="description" content={description} />
 
-      {/* Open Graph */}
+      {/* Open Graph / Facebook / WhatsApp */}
       <meta property="og:type" content="website" />
       <meta property="og:url" content={url} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
+      <meta property="og:image:alt" content={imageAlt} />
+      <meta property="og:site_name" content="CMP Agro" />
+      <meta property="og:locale" content="es_PY" />
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -32,9 +37,30 @@ export default function SEO({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
+      <meta name="twitter:image:alt" content={imageAlt} />
 
+      {/* Pinterest */}
+      <meta name="pinterest:description" content={description} />
+      <meta name="pinterest:image" content={image} />
+
+      {/* LinkedIn */}
+      <meta property="linkedin:title" content={title} />
+      <meta property="linkedin:description" content={description} />
+      <meta property="linkedin:image" content={image} />
+
+      {/* WhatsApp specific (will use og: tags but these help) */}
+      <meta property="article:publisher" content={url} />
+      <meta property="article:modified_time" content={new Date().toISOString()} />
+
+      {/* Control image dimensions for better sharing */}
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      
       {/* Favicon (optional) */}
       <link rel="icon" href="/favicon.ico" />
+      
+      {/* Canonical URL to prevent duplicate content issues */}
+      <link rel="canonical" href={url} />
     </Head>
   );
 }
