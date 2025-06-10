@@ -12,7 +12,7 @@ export default function Contacto() {
       telefono: "Contactar por WhatsApp",
       email: "Consultas disponibles",
       whatsapp: "https://wa.link/ktpqgg",
-      imagen: "/images/perfil1.png",
+      imagen: "/images/people/ale.png",
     },
     {
       id: 2,
@@ -21,7 +21,7 @@ export default function Contacto() {
       telefono: "Contactar por WhatsApp",
       email: "Consultas disponibles",
       whatsapp: "https://wa.link/62cfao",
-      imagen: "/images/perfil1.png",
+      imagen: "/images/people/n.png",
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ export default function Contacto() {
       telefono: "Contactar por WhatsApp",
       email: "Consultas disponibles",
       whatsapp: "https://wa.link/a4sm5x",
-      imagen: "/images/perfil1.png",
+      imagen: "/images/people/heriberto.png",
     },
     {
       id: 4,
@@ -39,7 +39,7 @@ export default function Contacto() {
       telefono: "Contactar por WhatsApp",
       email: "Consultas disponibles",
       whatsapp: "https://wa.link/50chk0",
-      imagen: "/images/perfil1.png",
+      imagen: "/images/people/s.png",
     },
     {
       id: 5,
@@ -48,7 +48,7 @@ export default function Contacto() {
       telefono: "Contactar por WhatsApp",
       email: "Consultas disponibles",
       whatsapp: "https://wa.link/unfsew",
-      imagen: "/images/perfil1.png",
+      imagen: "/images/people/francisco.png",
     },
     {
       id: 6,
@@ -57,7 +57,7 @@ export default function Contacto() {
       telefono: "Contactar por WhatsApp",
       email: "Consultas disponibles",
       whatsapp: "https://wa.link/mqmch5",
-      imagen: "/images/perfil1.png",
+      imagen: "/images/people/manuel.png",
     },
   ];
 
@@ -97,7 +97,7 @@ export default function Contacto() {
         <div
           className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-100"
           style={{
-            backgroundImage: "url('/images/hero/contacto.jpg')",
+            backgroundImage: "url('/images/hero/contactopic.jpg')",
           }}
         ></div>
         {/* Overlay gradient */}
@@ -114,7 +114,7 @@ export default function Contacto() {
               Contáctanos
             </h1>
             <p className="mt-6 text-lg md:text-xl text-white max-w-2xl drop-shadow mx-auto">
-              ¿Tienes dudas o necesitas asesoría? Completa el formulario o
+              ¿Tienes dudas o necesitas asesoría?
               comunícate directamente con nuestros vendedores.
             </p>
           </motion.div>
