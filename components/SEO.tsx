@@ -62,45 +62,8 @@ export default function SEO({
     "areaServed": {
       "@type": "Country",
       "name": "Paraguay"
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Catálogo de Productos CMP Agro",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "ProductGroup",
-            "name": "Productos de Horticultura",
-            "description": "Films para invernadero, mulching, mallas de sombra y sistemas de riego"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "ProductGroup",
-            "name": "Productos de Ensilaje",
-            "description": "Films y accesorios para ensilaje de forrajes de calidad"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "ProductGroup",
-            "name": "Productos Agropecuarios",
-            "description": "Soluciones integrales para ganadería y agricultura"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "ProductGroup",
-            "name": "Productos Agroindustriales",
-            "description": "Equipamiento y soluciones para la industria agrícola"
-          }
-        }
-      ]
     }
+    // ELIMINAR hasOfferCatalog para evitar errores
   };
 
   // LocalBusiness Schema para múltiples ubicaciones
