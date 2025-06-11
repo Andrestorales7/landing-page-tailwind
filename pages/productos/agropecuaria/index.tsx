@@ -7,7 +7,8 @@ import WhatsappContacts from '@/components/layout/WhatsappContacts';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import SEO from '@/components/SEO';
+import SEO from '../../../components/SEO';
+import { useBreadcrumbSchema } from '../../../hooks/useLocationSchema';
 
 const AgroPecuariaPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -75,13 +76,32 @@ const AgroPecuariaPage = () => {
     },
   ];
 
+  const breadcrumbItems = [
+    { name: "Inicio", url: "https://www.cmpagro.com.py" },
+    { name: "Productos", url: "https://www.cmpagro.com.py/productos" },
+    { name: "Agropecuaria", url: "https://www.cmpagro.com.py/productos/agropecuaria" }
+  ];
+
+  const breadcrumbSchema = useBreadcrumbSchema(breadcrumbItems);
+
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Productos Agropecuarios",
+    "description": "Soluciones integrales para ganadería y agricultura: equipos, herramientas y suministros especializados",
+    "url": "https://www.cmpagro.com.py/productos/agropecuaria",
+    "breadcrumb": breadcrumbSchema
+  };
+
   return (
     <>
-      <SEO 
-        title="Productos Agropecuarios | CMP Agro"
-        description="Amplia gama de insumos para el sector agropecuario: geomembranas, tejidos aviares, comederos, mallas Aluminet y más. Soluciones de calidad para mejorar la productividad de su granja."
+      <SEO
+        title="Productos Agropecuarios | Soluciones para Ganadería y Agricultura | CMP Agro"
+        description="Equipos y suministros especializados para ganadería y agricultura en Paraguay. Herramientas de calidad para el sector agropecuario."
         url="https://www.cmpagro.com.py/productos/agropecuaria"
-        image="/images/hero/agropecuaria-hero.webp"
+        image="https://www.cmpagro.com.py/images/hero/soluciones-agropecuaria.webp"
+        type="website"
+        structuredData={[breadcrumbSchema, collectionSchema]}
       />
       <div id="agropecuaria-productos" className="min-h-screen bg-gradient-to-b from-green-50 to-gray-50">
         {/* Hero Section */}

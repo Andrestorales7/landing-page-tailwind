@@ -7,14 +7,61 @@ import WhatsappContacts from '@/components/layout/WhatsappContacts';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import SEO from '@/components/SEO';
+import SEO from '../../../components/SEO';
+import { useBreadcrumbSchema } from '../../../hooks/useLocationSchema';
 
-const AgroProductPage = () => {
+const EnsilajeProductsPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     setIsLoaded(true);
   }, []);
+
+  // Breadcrumb para esta página
+  const breadcrumbItems = [
+    { name: "Inicio", url: "https://www.cmpagro.com.py" },
+    { name: "Productos", url: "https://www.cmpagro.com.py/productos" },
+    { name: "Ensilaje", url: "https://www.cmpagro.com.py/productos/ensilaje" }
+  ];
+
+  const breadcrumbSchema = useBreadcrumbSchema(breadcrumbItems);
+
+  // Schema para la colección de productos
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Productos de Ensilaje",
+    "description": "Amplia gama de productos para ensilaje: films para fardos, hilos, mallas, silobolsas y techos para almacenamiento de forrajes",
+    "url": "https://www.cmpagro.com.py/productos/ensilaje",
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": 7, // Ajustar según tu cantidad de productos
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Product",
+            "name": "Film para Fardos",
+            "description": "Films de alta calidad para ensilaje de fardos",
+            "url": "https://www.cmpagro.com.py/productos/ensilaje/film-fardos"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Product",
+            "name": "Silobolsas",
+            "description": "Silobolsas para almacenamiento de granos y forrajes",
+            "url": "https://www.cmpagro.com.py/productos/ensilaje/silobolsas"
+          }
+        }
+        // Agregar más productos según tu catálogo
+      ]
+    },
+    "breadcrumb": breadcrumbSchema
+  };
 
   const products = [
     {
@@ -81,11 +128,13 @@ const AgroProductPage = () => {
 
   return (
     <>
-      <SEO 
-        title="Soluciones de Ensilaje | Films, Silobolsas y Mallas | CMP Agro"
-        description="Productos de alta calidad para ensilaje: films para fardos, hilos, mallas, silobolsas y techos. Soluciones especializadas para almacenamiento y protección de cultivos y forrajes."
+      <SEO
+        title="Productos de Ensilaje | Films, Silobolsas y Mallas | CMP Agro"
+        description="Productos de alta calidad para ensilaje: films para fardos, hilos, mallas, silobolsas y techos. Soluciones especializadas para almacenamiento y protección de cultivos y forrajes en Paraguay."
         url="https://www.cmpagro.com.py/productos/ensilaje"
-        image="/images/hero/soluciones-ensilaje.webp"
+        image="https://www.cmpagro.com.py/images/hero/soluciones-ensilaje.webp"
+        type="website"
+        structuredData={[breadcrumbSchema, collectionSchema]}
       />
       <div id="agro-productos" className="min-h-screen bg-gradient-to-b from-green-50 to-gray-50">
         {/* Hero Section */}
@@ -240,4 +289,4 @@ const AgroProductPage = () => {
   );
 };
 
-export default AgroProductPage;
+export default EnsilajeProductsPage;

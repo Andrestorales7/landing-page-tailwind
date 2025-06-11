@@ -1,0 +1,70 @@
+User-agent: *
+Allow: /
+
+# Sitemap principal
+Sitemap: https://www.cmpagro.com.py/sitemap.xml
+
+# Bloquear directorios internos y archivos del sistema
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /.well-known/
+Disallow: /node_modules/
+
+# Permitir archivos importantes para SEO
+Allow: /sitemap.xml
+Allow: /robots.txt
+Allow: /favicon.ico
+Allow: /favicons/
+
+# Permitir crawling de imágenes y archivos estáticos
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /favicons/
+
+# Permitir crawling específico para motores de búsqueda principales
+User-agent: Googlebot
+Allow: /
+Allow: /images/
+Allow: /favicons/
+Allow: /productos/
+Allow: /ProductosPage
+Allow: /Contacto
+Allow: /NosotrosPage
+Allow: /NoticiasPage
+
+User-agent: Bingbot
+Allow: /
+Allow: /images/
+Allow: /productos/
+Crawl-delay: 2
+
+# Configuración para redes sociales
+User-agent: facebookexternalhit
+Allow: /
+Allow: /images/
+
+User-agent: Twitterbot
+Allow: /
+Allow: /images/
+
+User-agent: WhatsApp
+Allow: /
+Allow: /images/
+
+# Crawl delay general para evitar sobrecarga del servidor
+User-agent: *
+Crawl-delay: 1
+
+# Bloquear bots maliciosos conocidos (opcional)
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Host preferido (opcional, pero recomendado)
+Host: www.cmpagro.com.py

@@ -9,11 +9,38 @@ import SEO from "@/components/SEO";
 
 
 export default function HomePage() {
+  // Schema específico para la homepage
+  const homepageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "CMP Agro - Líder en Soluciones Agrícolas",
+    "description": "Empresa líder en soluciones agrícolas, ganaderas y agroindustriales en Paraguay. Productos de calidad para horticultura, ensilaje y agropecuaria.",
+    "url": "https://www.cmpagro.com.py",
+    "mainEntity": {
+      "@id": "https://www.cmpagro.com.py/#organization"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://www.cmpagro.com.py"
+        }
+      ]
+    }
+  };
+
   return (
     <>
       <SEO
-        title="CMP Agro - Soluciones para el Agro"
-        description="Líder en soluciones agrícolas, ganaderas y agroindustriales en Paraguay."
+        title="CMP Agro - Líder en Soluciones Agrícolas, Ganaderas y Agroindustriales"
+        description="Empresa líder en Paraguay especializada en productos para horticultura, ensilaje, agropecuaria y agroindustria. Calidad garantizada desde 2010."
+        url="https://www.cmpagro.com.py"
+        image="https://www.cmpagro.com.py/images/banner.png"
+        type="website"
+        structuredData={homepageSchema}
       />
       <Hero />
       <NoticeSlider

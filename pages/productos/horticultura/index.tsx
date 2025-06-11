@@ -7,7 +7,8 @@ import WhatsappContacts from '@/components/layout/WhatsappContacts';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import SEO from '@/components/SEO';  // Añadida la importación de SEO
+import SEO from '../../../components/SEO';
+import { useBreadcrumbSchema } from '../../../hooks/useLocationSchema';
 
 const HorticulturaProductPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -15,6 +16,40 @@ const HorticulturaProductPage = () => {
   useEffect(() => {
     setIsLoaded(true);
   }, []);
+
+  const breadcrumbItems = [
+    { name: "Inicio", url: "https://www.cmpagro.com.py" },
+    { name: "Productos", url: "https://www.cmpagro.com.py/productos" },
+    { name: "Horticultura", url: "https://www.cmpagro.com.py/productos/horticultura" }
+  ];
+
+  const breadcrumbSchema = useBreadcrumbSchema(breadcrumbItems);
+
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Productos de Horticultura",
+    "description": "Soluciones completas para horticultura: films para invernadero, mulching, mallas de sombra y sistemas de riego",
+    "url": "https://www.cmpagro.com.py/productos/horticultura",
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": 7, // Ajustar según tu catálogo
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Product",
+            "name": "Film para Invernadero",
+            "description": "Films especializados para estructuras de invernadero",
+            "url": "https://www.cmpagro.com.py/productos/horticultura/film-invernadero"
+          }
+        }
+        // Agregar más productos
+      ]
+    },
+    "breadcrumb": breadcrumbSchema
+  };
 
   const products = [
     {
@@ -69,11 +104,13 @@ const HorticulturaProductPage = () => {
 
   return (
     <>
-      <SEO 
-        title="Productos de Horticultura | Películas, Mulching y Mantas | CMP Agro"
-        description="Soluciones completas para horticultura: películas para invernadero, media sombra, mulching, mantas térmicas e hilos para tutorado. Mejore la productividad de sus cultivos."
+      <SEO
+        title="Productos de Horticultura | Films para Invernadero y Mulching | CMP Agro"
+        description="Soluciones completas para horticultura en Paraguay: films para invernadero, mulching, mallas de sombra, sistemas de riego y más. Calidad profesional garantizada."
         url="https://www.cmpagro.com.py/productos/horticultura"
-        image="/images/productos/horticultura/pelicula-invernadero2.webp"
+        image="https://www.cmpagro.com.py/images/hero/soluciones-horticultura.webp"
+        type="website"
+        structuredData={[breadcrumbSchema, collectionSchema]}
       />
       
       <div id="horticultura" className="min-h-screen bg-gradient-to-b from-green-50 to-gray-50">

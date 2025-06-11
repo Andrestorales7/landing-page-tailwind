@@ -2,8 +2,184 @@ import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import SEO from "@/components/SEO";
+import { useBreadcrumbSchema } from "@/hooks/useLocationSchema";
 
 export default function Contacto() {
+  // Breadcrumb para la página de contacto
+  const breadcrumbItems = [
+    { name: "Inicio", url: "https://www.cmpagro.com.py" },
+    { name: "Contacto", url: "https://www.cmpagro.com.py/Contacto" }
+  ];
+
+  const breadcrumbSchema = useBreadcrumbSchema(breadcrumbItems);
+
+  // Schema específico para la página de contacto
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contacto - CMP Agro",
+    "description": "Contáctanos para consultas sobre nuestros productos agrícolas. Múltiples sucursales en Paraguay.",
+    "url": "https://www.cmpagro.com.py/Contacto",
+    "mainEntity": {
+      "@id": "https://www.cmpagro.com.py/#organization"
+    },
+    "breadcrumb": breadcrumbSchema
+  };
+
+  // Schema para el equipo de vendedores
+  const teamSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Equipo de Asesores CMP Agro",
+    "description": "Nuestro equipo de asesores especializados en soluciones agrícolas",
+    "member": [
+      {
+        "@type": "Person",
+        "name": "Alejandro Suehsner",
+        "jobTitle": "Asesor de Ventas",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "CMP Agro"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "url": "https://wa.link/ktpqgg"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Iván Amarilla",
+        "jobTitle": "Asesor de Ventas",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "CMP Agro"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "url": "https://wa.link/62cfao"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Heriberto Lugo",
+        "jobTitle": "Asesor de Ventas",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "CMP Agro"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "url": "https://wa.link/a4sm5x"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Emilio Winckler",
+        "jobTitle": "Asesor de Ventas",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "CMP Agro"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "url": "https://wa.link/50chk0"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Francisco Céspedes",
+        "jobTitle": "Asesor de Ventas",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "CMP Agro"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "url": "https://wa.link/unfsew"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Manuel Bobadilla",
+        "jobTitle": "Asesor de Ventas",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "CMP Agro"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "url": "https://wa.link/mqmch5"
+        }
+      }
+    ]
+  };
+
+  // Schema para las ubicaciones/sucursales
+  const locationsSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "CMP Agro - Sucursales",
+    "description": "Ubicaciones de las sucursales de CMP Agro en Paraguay",
+    "hasMap": "https://maps.google.com/?q=CMP+Agro+Paraguay",
+    "location": [
+      {
+        "@type": "Place",
+        "name": "CMP Agro - Asunción",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Avda. Artigas 4145 c/ Gral. Delgado",
+          "addressLocality": "Asunción",
+          "addressRegion": "Asunción",
+          "addressCountry": "PY"
+        },
+        "telephone": "+595-981-176-060",
+        "openingHours": "Mo-Fr 07:30-17:00",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -25.2637,
+          "longitude": -57.5759
+        }
+      },
+      {
+        "@type": "Place",
+        "name": "CMP Agro - Minga Guazú",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Ruta 2 - Km.16",
+          "addressLocality": "Minga Guazú",
+          "addressRegion": "Alto Paraná",
+          "addressCountry": "PY"
+        },
+        "telephone": "+595-981-253-081",
+        "openingHours": "Mo-Fr 07:30-17:00",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -25.5167,
+          "longitude": -54.6167
+        }
+      },
+      {
+        "@type": "Place",
+        "name": "CMP Agro - Loma Plata",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Oficina 4 - Predio Plasti Chaco",
+          "addressLocality": "Loma Plata",
+          "addressRegion": "Boquerón",
+          "addressCountry": "PY"
+        },
+        "telephone": "+595-986-778-771",
+        "openingHours": "Mo-Fr 07:30-17:00"
+      }
+    ]
+  };
+
   // Datos de vendedores actualizados con contactos reales
   const vendedores = [
     {
@@ -93,10 +269,13 @@ export default function Contacto() {
   return (
     <>
       <SEO 
-        title="Contacto | CMP Agro - Asistencia y Soporte"
-        description="Ponte en contacto con nuestro equipo de asesores de venta especializados en soluciones agrícolas. Encuentra nuestras oficinas en Asunción, Minga Guazú y Loma Plata."
-        url="https://www.cmpagro.com.py/contacto"
-        image="/images/hero/contactopic.jpg"
+        title="Contacto | CMP Agro - Asesores Especializados en Soluciones Agrícolas"
+        description="Ponte en contacto con nuestro equipo de asesores especializados en soluciones agrícolas, ganaderas y agroindustriales. Oficinas en Asunción, Minga Guazú y Loma Plata. Atención personalizada vía WhatsApp."
+        url="https://www.cmpagro.com.py/Contacto"
+        image="https://www.cmpagro.com.py/images/hero/contactopic.jpg"
+        imageAlt="Equipo de asesores CMP Agro - Contacto"
+        type="website"
+        structuredData={[breadcrumbSchema, contactSchema, teamSchema, locationsSchema]}
       />
       
       {/* Hero Section */}
@@ -142,8 +321,6 @@ export default function Contacto() {
         </div>
       </section>
 
-      
-
       {/* Sección de Vendedores */}
       <section className="bg-white py-16">
         <div className="max-w-6xl mx-auto px-4">
@@ -175,7 +352,7 @@ export default function Contacto() {
                   <div className="w-24 h-24 mx-auto mb-4 bg-emerald-200 rounded-full flex items-center justify-center overflow-hidden">
                     <Image
                       src={vendedor.imagen}
-                      alt={vendedor.nombre}
+                      alt={`${vendedor.nombre} - ${vendedor.especialidad} en CMP Agro`}
                       width={96}
                       height={96}
                       className="w-full h-full object-cover"
@@ -230,6 +407,7 @@ export default function Contacto() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200"
+                    aria-label={`Contactar a ${vendedor.nombre} por WhatsApp`}
                   >
                     <svg
                       className="w-5 h-5 mr-2"
@@ -359,6 +537,7 @@ export default function Contacto() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               className="w-full"
+              title="Ubicación de CMP Agro en Google Maps"
             ></iframe>
           </div>
         </div>

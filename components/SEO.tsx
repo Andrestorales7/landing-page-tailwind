@@ -6,18 +6,158 @@ type SEOProps = {
   url?: string;
   image?: string;
   imageAlt?: string;
+  type?: 'website' | 'product' | 'article';
+  structuredData?: any;
 };
 
 export default function SEO({
   title,
   description,
-  url = 'https://www.cmpagro.com.py', // default value
-  image = 'https://www.cmpagro.com.py/images/banner.png', // default value
-  imageAlt = 'CMP Agro - Soluciones para el Agro', // default alt text
+  url = 'https://www.cmpagro.com.py',
+  image = 'https://www.cmpagro.com.py/images/banner.png',
+  imageAlt = 'CMP Agro - Soluciones para el Agro',
+  type = 'website',
+  structuredData,
 }: SEOProps) {
-  // Formato de título para SEO: aseguramos que siempre incluya CMP Agro
   const formattedTitle = title.includes('CMP Agro') ? title : `${title} | CMP Agro`;
   
+  // Schema básico de la organización (mejorado)
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.cmpagro.com.py/#organization",
+    "name": "CMP Agro",
+    "url": "https://www.cmpagro.com.py",
+    "logo": "https://www.cmpagro.com.py/favicons/android-chrome-512x512.png",
+    "description": "Líder en soluciones agrícolas, ganaderas y agroindustriales en Paraguay. Especialistas en productos para horticultura, ensilaje, agropecuaria y más.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Gral. José Gervasio Artigas",
+      "addressLocality": "Asunción",
+      "addressRegion": "Asunción",
+      "postalCode": "001",
+      "addressCountry": "PY"
+    },
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+595 981 176-060",
+        "contactType": "customer service",
+        "areaServed": "PY",
+        "availableLanguage": "Spanish"
+      },
+      {
+        "@type": "ContactPoint",
+        "telephone": "+595-983-352-029",
+        "contactType": "sales",
+        "areaServed": "PY",
+        "availableLanguage": "Spanish"
+      }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/cmpagro",
+      "https://www.instagram.com/cmpagro"
+    ],
+    "foundingDate": "2010",
+    "areaServed": {
+      "@type": "Country",
+      "name": "Paraguay"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Catálogo de Productos CMP Agro",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "ProductGroup",
+            "name": "Productos de Horticultura",
+            "description": "Films para invernadero, mulching, mallas de sombra y sistemas de riego"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "ProductGroup",
+            "name": "Productos de Ensilaje",
+            "description": "Films y accesorios para ensilaje de forrajes de calidad"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "ProductGroup",
+            "name": "Productos Agropecuarios",
+            "description": "Soluciones integrales para ganadería y agricultura"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "ProductGroup",
+            "name": "Productos Agroindustriales",
+            "description": "Equipamiento y soluciones para la industria agrícola"
+          }
+        }
+      ]
+    }
+  };
+
+  // LocalBusiness Schema para múltiples ubicaciones
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "CMP Agro",
+    "@id": "https://www.cmpagro.com.py/#localbusiness",
+    "description": "Líder en soluciones agrícolas, ganaderas y agroindustriales en Paraguay",
+    "url": "https://www.cmpagro.com.py",
+    "telephone": "++595 981 176-060",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Gral. José Gervasio Artigas",
+      "addressLocality": "Asunción",
+      "addressRegion": "Asunción",
+      "postalCode": "001",
+      "addressCountry": "PY"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -25.2637,
+      "longitude": -57.5759
+    },
+    "openingHours": [
+      "Mo-Fr 07:00-17:00",
+      "Sa 07:00-12:00"
+    ],
+    "paymentAccepted": ["Cash", "Credit Card", "Debit Card"],
+    "currenciesAccepted": "PYG",
+    "hasMap": "https://maps.google.com/?q=Av.+Gral.+José+Gervasio+Artigas,+Asunción,+Paraguay"
+  };
+
+  // Website Schema (mejorado)
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "CMP Agro",
+    "url": "https://www.cmpagro.com.py",
+    "description": description,
+    "publisher": {
+      "@id": "https://www.cmpagro.com.py/#organization"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://www.cmpagro.com.py/productos?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    },
+    "mainEntity": {
+      "@id": "https://www.cmpagro.com.py/#organization"
+    }
+  };
+
   return (
     <Head>
       {/* Standard SEO */}
@@ -25,7 +165,7 @@ export default function SEO({
       <meta name="description" content={description} />
 
       {/* Open Graph / Facebook / WhatsApp */}
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={type} />
       <meta property="og:url" content={url} />
       <meta property="og:title" content={formattedTitle} />
       <meta property="og:description" content={description} />
@@ -77,20 +217,35 @@ export default function SEO({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "CMP Agro",
-            "url": "https://www.cmpagro.com.py",
-            "logo": "https://www.cmpagro.com.py/favicons/android-chrome-512x512.png",
-            "sameAs": [
-              "https://www.facebook.com/cmpagro",
-              "https://www.instagram.com/cmpagro"
-              // Puedes añadir otros perfiles sociales si existen
-            ]
-          })
+          __html: JSON.stringify(organizationSchema)
         }}
       />
+
+      {/* Schema.org markup - LocalBusiness */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(localBusinessSchema)
+        }}
+      />
+
+      {/* Schema.org markup - Website */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(websiteSchema)
+        }}
+      />
+
+      {/* Custom Structured Data */}
+      {structuredData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData)
+          }}
+        />
+      )}
     </Head>
   );
 }
