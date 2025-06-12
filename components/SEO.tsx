@@ -74,8 +74,8 @@ export default function SEO({
     "@id": "https://www.cmpagro.com.py/#localbusiness",
     "description": "Líder en soluciones agrícolas, ganaderas y agroindustriales en Paraguay",
     "url": "https://www.cmpagro.com.py",
-    "image": "https://www.cmpagro.com.py/favicons/android-chrome-512x512.png", // ✅ AGREGAR ESTA LÍNEA
-    "logo": "https://www.cmpagro.com.py/favicons/android-chrome-512x512.png", // ✅ AGREGAR ESTA LÍNEA TAMBIÉN
+    "image": "https://www.cmpagro.com.py/favicons/android-chrome-512x512.png",
+    "logo": "https://www.cmpagro.com.py/favicons/android-chrome-512x512.png",
     "telephone": "++595 981 176-060",
     "priceRange": "$$",
     "address": {
@@ -164,6 +164,16 @@ export default function SEO({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
       
       {structuredData && (
