@@ -528,6 +528,7 @@ export default function Contacto() {
           </motion.div>
 
           <div className="rounded-2xl overflow-hidden shadow-xl">
+            {/* Primary map */}
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.507403931926!2d-57.583179623703764!3d-25.253511225933764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945da65cc180c135%3A0xe48a7b91dc634dfd!2sCompa%C3%B1ia%20Maritima%20Paraguaya%20SA!5e0!3m2!1ses-419!2spy!4v1749481584572!5m2!1ses-419!2spy"
               width="100%"
@@ -538,7 +539,31 @@ export default function Contacto() {
               referrerPolicy="no-referrer-when-downgrade"
               className="w-full"
               title="Ubicación de CMP Agro en Google Maps"
+              onError={(e) => {
+                // If iframe fails to load, show the fallback
+                const target = e.target as HTMLIFrameElement;
+                if (target.nextElementSibling) {
+                  target.style.display = 'none';
+                  (target.nextElementSibling as HTMLElement).style.display = 'block';
+                }
+              }}
             ></iframe>
+            
+            {/* Fallback map link */}
+            <div className="hidden text-center py-16 bg-gray-100">
+              <p className="mb-4">El mapa no se pudo cargar.</p>
+              <a 
+                href="https://maps.google.com/?q=Compañia+Maritima+Paraguaya+SA+Asuncion" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors"
+              >
+                Ver en Google Maps
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </section>
