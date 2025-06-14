@@ -53,6 +53,10 @@ export default function LeafletMap() {
             console.log('Mapa inicializado correctamente');
           } catch (error) {
             console.error('Error al inicializar el mapa:', error);
+            const mapElement = document.getElementById('map');
+            const fallbackElement = document.getElementById('static-map-fallback');
+            if (mapElement) mapElement.style.display = 'none';
+            if (fallbackElement) fallbackElement.style.display = 'block';
           }
         } else {
           console.warn('Leaflet o el elemento del mapa no están disponibles');
@@ -84,6 +88,15 @@ export default function LeafletMap() {
       {/* Contenedor para Leaflet */}
       <div id="map" style={{ height: "450px", width: "100%" }} className="rounded-lg"></div>
       
+      {/* Fallback para cuando JavaScript está desactivado */}
+      <div className="hidden" id="static-map-fallback">
+        <img 
+          src="https://staticmap.openstreetmap.de/staticmap.php?center=-24.0,-57.0&zoom=6&size=800x450&markers=-25.2535112,-57.5831796,green-25.5167,-54.6167,green-22.3,-60.0,green" 
+          alt="Mapa de ubicaciones CMP Agro en Paraguay"
+          className="w-full h-[450px] object-cover rounded-lg"
+        />
+      </div>
+
       {/* Cargar Leaflet CSS */}
       <link 
         rel="stylesheet" 
