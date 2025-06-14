@@ -14,10 +14,6 @@ const nextConfig = {
       ],
     },
     reactStrictMode: true,
-  };
-  
-  module.exports = {
-    ...nextConfig,
     async headers() {
       return [
         {
@@ -25,10 +21,20 @@ const nextConfig = {
           headers: [
             {
               key: 'Content-Security-Policy',
-              value: "frame-src 'self' https://www.google.com https://*.google.com;",
-            },
-          ],
-        },
-      ];
-    },
+              value: `
+                default-src 'self';
+                script-src 'self' 'unsafe-inline' 'unsafe-eval' unpkg.com;
+                style-src 'self' 'unsafe-inline' unpkg.com;
+                img-src 'self' data: *.tile.openstreetmap.org unpkg.com;
+                font-src 'self';
+                connect-src 'self' *.tile.openstreetmap.org;
+                frame-src 'self';
+              `.replace(/\s+/g, ' ').trim()
+            }
+          ]
+        }
+      ]
+    }
   };
+  
+  module.exports = nextConfig;
