@@ -21,15 +21,7 @@ const nextConfig = {
           headers: [
             {
               key: 'Content-Security-Policy',
-              value: `
-                default-src 'self';
-                script-src 'self' 'unsafe-inline' 'unsafe-eval' unpkg.com;
-                style-src 'self' 'unsafe-inline' unpkg.com;
-                img-src 'self' data: *.tile.openstreetmap.org unpkg.com;
-                font-src 'self';
-                connect-src 'self' *.tile.openstreetmap.org;
-                frame-src 'self';
-              `.replace(/\s+/g, ' ').trim()
+              value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' unpkg.com; style-src 'self' 'unsafe-inline' unpkg.com; img-src 'self' data: *.tile.openstreetmap.org unpkg.com staticmap.openstreetmap.de; font-src 'self'; connect-src 'self' *.tile.openstreetmap.org;"
             }
           ]
         }
