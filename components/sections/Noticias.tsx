@@ -45,7 +45,7 @@ const Noticias: React.FC = () => {
                 
                 {/* Botón para ver todas las noticias */}
                 <div className="mt-12 text-center">
-                    <Link href="/NoticiasPage">
+                    <Link href="/noticias">
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             className="px-6 py-3 bg-emerald-600 text-white rounded-lg shadow-md hover:bg-emerald-700 transition-colors font-semibold"
