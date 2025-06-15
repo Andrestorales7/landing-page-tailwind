@@ -331,7 +331,7 @@ const TanquesPage = () => {
                     </p>
                     <div className="flex justify-center">
                       <Link 
-                        href="/Contacto" 
+                        href="/contacto" 
                         className="px-6 py-3 bg-green-500 text-white font-medium rounded-xl shadow hover:bg-green-600 focus:ring-2 focus:ring-green-300 focus:outline-none transition duration-200 flex items-center justify-center"
                       >
                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

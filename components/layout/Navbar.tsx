@@ -115,7 +115,7 @@ const Navbar: React.FC = () => {
                                 >
                                     <div className="flex flex-col">
                                         <Link
-                                            href="/ProductosPage"
+                                            href="/productos"
                                             className="flex items-center font-medium tracking-wide transition-colors hover:text-green-500"
                                             aria-haspopup="true"
                                             aria-expanded={isProductMenuOpen}
@@ -132,7 +132,7 @@ const Navbar: React.FC = () => {
                                             }`}
                                         >
                                             <Link
-                                                href="/ProductosPage"
+                                                href="/productos"
                                                 className="block w-full text-left px-4 py-2.5 text-base font-semibold text-green-600 hover:bg-gray-50 hover:text-green-700 rounded-md transition-colors mb-1 border-b border-gray-200"
                                                 onClick={() => setIsProductMenuOpen(false)}
                                             >
@@ -169,7 +169,7 @@ const Navbar: React.FC = () => {
                                 </li>
                                 <li>
                                     <Link
-                                        href="/NoticiasPage"
+                                        href="/noticias"
                                         className="font-medium tracking-wide transition-colors hover:text-green-500"
                                     >
                                         Noticias
@@ -181,7 +181,7 @@ const Navbar: React.FC = () => {
                         <div className="flex items-center gap-4">
                             <div className="sm:flex sm:gap-4">
                                 <Link
-                                    href="/Contacto"
+                                    href="/contacto"
                                     className="rounded-full bg-green-600 px-7 py-3 text-base font-medium text-white shadow hover:bg-green-500 transition-colors"
                                 >
                                     Contacto
@@ -249,7 +249,7 @@ const Navbar: React.FC = () => {
                                 {isProductMenuOpen && (
                                     <div className="bg-white border rounded-lg shadow-lg mt-2">
                                         <Link
-                                            href="/ProductosPage"
+                                            href="/productos"
                                             className="block w-full text-left px-4 py-2.5 text-base font-semibold text-green-600 hover:bg-gray-50 hover:text-green-700 rounded-md transition-colors mb-1 border-b border-gray-200"
                                             onClick={() => setIsProductMenuOpen(false)}
                                         >
@@ -283,7 +283,7 @@ const Navbar: React.FC = () => {
                                 Nosotros
                             </Link>
                             <Link
-                                href="/NoticiasPage"
+                                href="/noticias"
                                 className="block w-full text-left font-medium text-gray-800 py-2 hover:text-green-500"
                                 onClick={() => {
                                     setIsMobileMenuOpen(false);
@@ -292,7 +292,7 @@ const Navbar: React.FC = () => {
                                 Noticias
                             </Link>
                             <Link
-                                href="/Contacto"
+                                href="/contacto"
                                 className="block w-full text-left rounded-full bg-green-600 px-7 py-3 text-base font-medium text-white shadow hover:bg-green-500 transition-colors mt-2"
                                 onClick={() => {
                                     setIsMobileMenuOpen(false);

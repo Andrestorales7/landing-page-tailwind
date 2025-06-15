@@ -26,6 +26,15 @@ const nextConfig = {
           ]
         }
       ]
+    },
+    async redirects() {
+      return [
+        {
+          source: '/noticia/:id',
+          destination: '/noticias/:id',
+          permanent: true,
+        },
+      ]
     }
   };
   

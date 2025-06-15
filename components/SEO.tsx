@@ -19,6 +19,8 @@ export default function SEO({
   type = 'website',
   structuredData,
 }: SEOProps) {
+  // Ensure URL is absolute
+  const canonicalUrl = url.startsWith('http') ? url : `https://www.cmpagro.com.py${url.startsWith('/') ? url : `/${url}`}`;
   const formattedTitle = title.includes('CMP Agro') ? title : `${title} | CMP Agro`;
   
   // Schema básico de la organización (mejorado)
@@ -132,7 +134,7 @@ export default function SEO({
       <meta name="robots" content="index, follow" />
       
       {/* Canonical URL - this ensures proper indexing */}
-      <link rel="canonical" href={url} />
+      <link rel="canonical" href={canonicalUrl} />
       
       {/* Open Graph */}
       <meta property="og:title" content={formattedTitle} />

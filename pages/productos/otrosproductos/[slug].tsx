@@ -620,7 +620,7 @@ export default function ProductoDetalle() {
         <p className="text-lg mb-6 opacity-90">
             Contáctanos para más información y asesoría personalizada
         </p>
-        <Link href="/Contacto" className="inline-block bg-white text-green-700 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+        <Link href="/contacto" className="inline-block bg-white text-green-700 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors">
             Contactar ahora
         </Link>
     </div>

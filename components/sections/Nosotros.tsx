@@ -140,7 +140,7 @@ const AboutUs: React.FC = () => {
           {/* Button with improved styling and positioning */}
           <div className="flex justify-center mt-10">
             <motion.a
-              href="/NosotrosPage"
+              href="/nosotros"
               className="flex items-center gap-3 rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 px-8 py-4 text-white shadow-lg transition-all hover:shadow-xl"
               whileHover={{ 
                 scale: 1.03,

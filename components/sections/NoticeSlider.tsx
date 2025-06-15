@@ -17,25 +17,31 @@ const NoticeSlider: React.FC<NoticeSliderProps> = ({
   const [weatherNotice, setWeatherNotice] = useState<string | null>(null);
   const [mobileWeatherNotice, setMobileWeatherNotice] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchWeather = async () => {
+      setIsLoading(true);
       try {
-        const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY; 
+        // Call our internal API route instead of OpenWeather directly
+        const response = await fetch('/api/weather');
+        
+        if (!response.ok) {
+          throw new Error(`API returned status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        if (data.error) {
+          throw new Error(data.error);
+        }
 
-        const weatherResponse = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?lat=-25.52&lon=-54.61&appid=${apiKey}&units=metric&lang=es`
-        );
-        const weatherData = await weatherResponse.json();
-
-        const airQualityResponse = await fetch(
-          `https://api.openweathermap.org/data/2.5/air_pollution?lat=-25.52&lon=-54.61&appid=${apiKey}`
-        );
-        const airQualityData = await airQualityResponse.json();
+        const weatherData = data.weather;
+        const airQualityData = data.airQuality;
 
         if (weatherData && weatherData.weather && weatherData.main && weatherData.wind) {
           const description = weatherData.weather[0].description;
-          const temperature = Math.round(weatherData.main.temp); // Redondeamos para simplificar
+          const temperature = Math.round(weatherData.main.temp);
           const tempMax = Math.round(weatherData.main.temp_max);
           const tempMin = Math.round(weatherData.main.temp_min);
           const windSpeed = weatherData.wind.speed;
@@ -61,7 +67,12 @@ const NoticeSlider: React.FC<NoticeSliderProps> = ({
           setMobileWeatherNotice(mobileWeather);
         }
       } catch (error) {
-        console.error('Error fetching weather or air quality data:', error);
+        console.error('Error fetching weather data:', error);
+        // Add fallback notices so component still works even if API fails
+        setWeatherNotice("⚠️ Información del clima no disponible");
+        setMobileWeatherNotice("⚠️ Clima no disponible");
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -111,7 +122,7 @@ const NoticeSlider: React.FC<NoticeSliderProps> = ({
           style={{ animationDuration: `${isMobile ? speed * 0.5 : speed}s` }}
         >
           {allNotices.map((notice, index) => (
-            <span key={`${notice.id}-1`} className="notice-item">
+            <span key={`${notice.id}-1-${index}`} className="notice-item">
               {notice.text}
               {index !== allNotices.length - 1 && (
                 <span className="separator">•</span>
@@ -126,7 +137,7 @@ const NoticeSlider: React.FC<NoticeSliderProps> = ({
           style={{ animationDuration: `${isMobile ? speed * 0.5 : speed}s` }}
         >
           {allNotices.map((notice, index) => (
-            <span key={`${notice.id}-2`} className="notice-item">
+            <span key={`${notice.id}-2-${index}`} className="notice-item">
               {notice.text}
               {index !== allNotices.length - 1 && (
                 <span className="separator">•</span>

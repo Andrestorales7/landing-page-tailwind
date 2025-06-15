@@ -2,6 +2,7 @@
 import React from 'react';
 import { Clock, Calendar, BookOpen } from 'lucide-react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 // Define the Noticia interface here
 interface Noticia {
@@ -12,7 +13,7 @@ interface Noticia {
   fecha: string;
   tiempoLectura: number;
   categoria: string;
-  image: string; // <-- Cambia 'imagen' por 'image'
+  image: string;
 }
 
 interface NoticiaCardProps {
@@ -20,6 +21,8 @@ interface NoticiaCardProps {
 }
 
 const NoticiaCard: React.FC<NoticiaCardProps> = ({ noticia }) => {
+  const router = useRouter();
+
   // Función para obtener la clase CSS según la categoría
   const getCategoryClass = (categoria: string) => {
     switch (categoria) {
@@ -47,15 +50,15 @@ const NoticiaCard: React.FC<NoticiaCardProps> = ({ noticia }) => {
     ? noticia.image
     : `/api/placeholder/400/250`;
 
-  // Función para manejar el clic en la tarjeta - ahora navegamos usando window.location
+  // Función para manejar el clic en la tarjeta - CORREGIDO a /noticias/
   const handleCardClick = () => {
-    window.location.href = `/noticia/${noticia.id}`;
+    router.push(`/noticias/${noticia.id}`);
   };
 
-  // Función para manejar el clic en el botón Leer
+  // Función para manejar el clic en el botón Leer - CORREGIDO a /noticias/
   const handleReadClick = (e: React.MouseEvent) => {
     e.stopPropagation(); // Evitar que el clic se propague a la tarjeta completa
-    window.location.href = `/noticia/${noticia.id}`;
+    router.push(`/noticias/${noticia.id}`);
   };
 
   return (

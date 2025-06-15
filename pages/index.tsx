@@ -71,7 +71,7 @@ export default function HomePage() {
             image: "/images/productos/inoculantes/SupraSil_portada.jpg",
             title: "Mas Soluciones",
             description: "",
-            link: "/ProductosPage",
+            link: "/productos",
           },
         ]}
       />

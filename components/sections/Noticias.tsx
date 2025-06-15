@@ -132,7 +132,7 @@ const AnimatedCard: React.FC<{ article: any }> = ({ article }) => {
                                 onClick={e => {
                                     e.preventDefault();
                                     e.stopPropagation();
-                                    window.location.href = `/NoticiasPage?id=${article.id}`;
+                                    window.location.href = `/noticias/${article.id}`;
                                 }}
                             >
                                 <BookOpenIcon className="h-5 w-5" />

@@ -377,7 +377,7 @@ export default function ProductoEnvaseDetalle() {
 								Contáctanos para más información y asesoría personalizada
 							</p>
 							<Link
-								href="/Contacto"
+								href="/contacto"
 								className="bg-white text-green-700 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors inline-block"
 							>
 								Contactar ahora
