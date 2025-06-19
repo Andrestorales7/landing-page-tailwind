@@ -295,12 +295,15 @@ export default function Contacto() {
             maxZoom: 19
           }).addTo(map);
           
-          // Create a custom icon with emerald color
-          const customIcon = L.divIcon({
-            className: 'custom-div-icon',
-            html: `<div style="background-color:#059669; width:12px; height:12px; border-radius:50%; border:2px solid white;"></div>`,
-            iconSize: [12, 12],
-            iconAnchor: [6, 6]
+          // Create a custom icon with your own image
+          const customIcon = L.icon({
+            iconUrl: '/images/leaflet/marker-icon.png',
+            iconRetinaUrl: '/images/leaflet/marker-icon-2x.png', 
+            shadowUrl: '/images/leaflet/marker-shadow.png',
+            iconSize: [25, 41],     // size of the icon (adjust to match your icon)
+            iconAnchor: [12, 41],   // point of the icon which will correspond to marker's location
+            popupAnchor: [1, -34],  // point from which the popup should open relative to the iconAnchor
+            shadowSize: [41, 41]    // size of the shadow
           });
           
           // Add markers for each location using the ubicaciones from closure
