@@ -45,7 +45,12 @@ export default function HomePage() {
       <Hero />
       <NoticeSlider
         speed={30}
-        notices={[]} // Array vacío - solo mostrará el clima sin noticias adicionales
+        notices={[
+          {
+            id: 1,
+            text: "📅 8va Edición de la Expo COOPROLANDA • Ciudad Dr. Juan Eulogio Estigarribia • 25 al 27 de junio de 2025 • ¡Los esperamos en nuestro stand!"
+          }
+        ]}
       />
       <SolucionesSection
         soluciones={[
