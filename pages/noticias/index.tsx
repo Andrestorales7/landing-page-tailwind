@@ -14,7 +14,7 @@ const NoticiasPage: React.FC = () => {
     const [selectedCategory, setSelectedCategory] = useState('Todas');
     const [filteredArticles, setFilteredArticles] = useState<Article[]>([]);
 
-    const categories = ['Todas', 'Tecnología', 'Sostenibilidad', 'Innovación', 'Tendencias'];
+    const categories = ['Todas', 'Tecnología', 'Sostenibilidad', 'Innovación', 'Tendencias', 'Eventos'];
 
     useEffect(() => {
         setIsLoaded(true);
