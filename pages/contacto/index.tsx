@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import SEO from "@/components/SEO";
 import { useBreadcrumbSchema } from "@/hooks/useLocationSchema";
 import Head from "next/head";
+import type L from 'leaflet';
 
 export default function Contacto() {
   // Breadcrumb para la página de contacto
@@ -267,92 +268,109 @@ export default function Contacto() {
     },
   ];
 
-  useEffect(() => {
+  // Memoize the initMap function to prevent unnecessary re-creation
+  const initMap = useCallback(() => {
     // Only run on client-side to avoid SSR issues
+    let map: L.Map | null = null;
+    let resizeHandler: (() => void) | null = null;
+    
     if (typeof window !== "undefined") {
       try {
-        const L = require('leaflet');
-        
-        // Fix for Leaflet marker icons in Next.js
-        delete (L.Icon.Default.prototype as any)._getIconUrl;
-        L.Icon.Default.mergeOptions({
-          iconUrl: '/images/leaflet/marker-icon.png',
-          iconRetinaUrl: '/images/leaflet/marker-icon-2x.png',
-          shadowUrl: '/images/leaflet/marker-shadow.png',
-        });
-        
-        // Initialize map in the center of Paraguay
-        const map = L.map('map-container').setView([-23.4425, -58.4438], 6);
-        
-        // Add OpenStreetMap tiles
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-          maxZoom: 19
-        }).addTo(map);
-        
-        // Create a custom icon with emerald color
-        const customIcon = L.divIcon({
-          className: 'custom-div-icon',
-          html: `<div style="background-color:#059669; width:12px; height:12px; border-radius:50%; border:2px solid white;"></div>`,
-          iconSize: [12, 12],
-          iconAnchor: [6, 6]
-        });
-        
-        // Add markers for each location
-        const markers = ubicaciones.map(ubicacion => {
-          const [lat, lng] = ubicacion.coordenadas.split(',').map(coord => parseFloat(coord.trim()));
+        // Dynamic import
+        import('leaflet').then(L => {
+          // Fix for Leaflet marker icons in Next.js
+          delete (L.Icon.Default.prototype as any)._getIconUrl;
+          L.Icon.Default.mergeOptions({
+            iconUrl: '/images/leaflet/marker-icon.png',
+            iconRetinaUrl: '/images/leaflet/marker-icon-2x.png',
+            shadowUrl: '/images/leaflet/marker-shadow.png',
+          });
           
-          // Use the custom icon here
-          return L.marker([lat, lng], { icon: customIcon })
-            .addTo(map)
-            .bindPopup(`
-              <div style="text-align: center;">
-                <strong style="font-size: 16px; color: #059669;">${ubicacion.nombre}</strong>
-                <p style="margin: 8px 0 4px;">${ubicacion.direccion}</p>
-                <p style="margin: 4px 0;">${ubicacion.telefono}</p>
-                <p style="margin: 4px 0;">${ubicacion.horario}</p>
-              </div>
-            `, { minWidth: 200 });
+          // Initialize map in the center of Paraguay
+          map = L.map('map-container').setView([-23.4425, -58.4438], 6);
+          
+          // Add OpenStreetMap tiles
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 19
+          }).addTo(map);
+          
+          // Create a custom icon with emerald color
+          const customIcon = L.divIcon({
+            className: 'custom-div-icon',
+            html: `<div style="background-color:#059669; width:12px; height:12px; border-radius:50%; border:2px solid white;"></div>`,
+            iconSize: [12, 12],
+            iconAnchor: [6, 6]
+          });
+          
+          // Add markers for each location using the ubicaciones from closure
+          const markers = ubicaciones.map(ubicacion => {
+            const [lat, lng] = ubicacion.coordenadas.split(',').map(coord => parseFloat(coord.trim()));
+            
+            // Use the custom icon here
+            return L.marker([lat, lng], { icon: customIcon })
+              .addTo(map!)
+              .bindPopup(`
+                <div style="text-align: center;">
+                  <strong style="font-size: 16px; color: #059669;">${ubicacion.nombre}</strong>
+                  <p style="margin: 8px 0 4px;">${ubicacion.direccion}</p>
+                  <p style="margin: 4px 0;">${ubicacion.telefono}</p>
+                  <p style="margin: 4px 0;">${ubicacion.horario}</p>
+                </div>
+              `, { minWidth: 200 });
+          });
+          
+          // Create a feature group from all markers
+          const featureGroup = L.featureGroup(markers);
+          
+          // Fit the map to show all markers with some padding
+          map.fitBounds(featureGroup.getBounds().pad(0.3));
+          
+          // Add zoom controls to bottom right
+          L.control.zoom({
+            position: 'bottomright'
+          }).addTo(map);
+          
+          // Handle responsive behavior
+          resizeHandler = () => {
+            map?.invalidateSize();
+          };
+          window.addEventListener('resize', resizeHandler);
+        }).catch(error => {
+          console.error("Error loading Leaflet:", error);
         });
-        
-        // Create a feature group from all markers
-        const featureGroup = L.featureGroup(markers);
-        
-        // Fit the map to show all markers with some padding
-        map.fitBounds(featureGroup.getBounds().pad(0.3));
-        
-        // Add zoom controls to bottom right
-        L.control.zoom({
-          position: 'bottomright'
-        }).addTo(map);
-        
-        // Handle responsive behavior
-        const handleResize = () => {
-          map.invalidateSize();
-        };
-        window.addEventListener('resize', handleResize);
-        
-        // Clean up on unmount
-        return () => {
-          map.remove();
-          window.removeEventListener('resize', handleResize);
-        };
       } catch (error) {
         console.error("Error initializing map:", error);
-        // Optionally display a user-friendly error message
       }
     }
-  }, []); // Empty dependency array means this runs once when the component mounts
+    
+    // Return a cleanup function
+    return () => {
+      if (map) {
+        map.remove();
+      }
+      if (resizeHandler) {
+        window.removeEventListener('resize', resizeHandler);
+      }
+    };
+  }, [ubicaciones]); // Add ubicaciones as a dependency
+
+  // Use the memoized function in useEffect
+  useEffect(() => {
+    const cleanup = initMap();
+    return cleanup;
+  }, [initMap]);
 
   return (
-
-    <><Head>
-      <link
-        rel="stylesheet"
-        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-        crossOrigin="" />
-    </Head><>
+    <>
+      <Head>
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossOrigin="" />
+      </Head>
+      <>
         <SEO
           title="Contacto | CMP Agro - Asesores Especializados en Soluciones Agrícolas"
           description="Ponte en contacto con nuestro equipo de asesores especializados en soluciones agrícolas, ganaderas y agroindustriales. Oficinas en Asunción, Minga Guazú y Loma Plata. Atención personalizada vía WhatsApp."
@@ -634,6 +652,7 @@ export default function Contacto() {
             </div>
           </div>
         </section>
-      </></>
+      </>
+    </>
   );
 }
