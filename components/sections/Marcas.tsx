@@ -3,24 +3,21 @@ import React from 'react';
 import Link from 'next/link';
 
 const logos = [
-  { src: '/images/logos/agrinpex-logo.webp', alt: 'agrinpex', link: '' },
-  { src: '/images/logos/agroman-logo.webp', alt: 'Logo Marca 2', link: '' },
-  { src: '/images/logos/azulpack-logo.png', alt: 'Logo Marca 3', link: '' },
-  { src: '/images/logos/biotech-logo.png', alt: 'Logo Marca 4', link: '' },
-  { src: '/images/logos/exporplas-logo.png', alt: 'Logo Marca 5', link: '' },
-  { src: '/images/logos/genofeed-logo.png', alt: 'Logo Marca 6', link: '' },
-  { src: '/images/logos/ginegar-logo.png', alt: 'Logo Marca 7', link: '' },
-  { src: '/images/logos/klabin-logo.png', alt: 'Logo Marca 8', link: '' },
-  { src: '/images/logos/magnum-logo.png', alt: 'Logo Marca 9', link: '' },
-  { src: '/images/logos/mauser-logo.png', alt: 'Logo Marca 10', link: '' },
-  { src: '/images/logos/nortene-logo.png', alt: 'Logo Marca 11', link: '' },
-  { src: '/images/logos/rafitec-logo.webp', alt: 'Logo Marca 12', link: '' },
-  { src: '/images/logos/pipiola-logo.png', alt: 'Logo Marca 13', link: '' },
-  { src: '/images/logos/silox-logo.png', alt: 'Logo Marca 14', link: '' },
-  { src: '/images/logos/suprasil-logo.png', alt: 'Logo Marca 15', link: '' },
-  { src: '/images/logos/technipes-logo.png', alt: 'Logo Marca 16', link: '' },
-  { src: '/images/logos/textil-logo.png', alt: 'Logo Marca 17', link: '' },
-  { src: '/images/logos/sugrand-logo2.png', alt: 'Logo Marca 18', link: '' },
+  { src: '/images/logos/agrinpex-logo.webp', alt: 'Agrinpex', link: 'https://www.instagram.com/agrinplex' },
+  { src: '/images/logos/rotor-logo.png', alt: 'Rotor', link: 'https://www.rotortanques.com/' },
+  { src: '/images/logos/azulpack-logo.png', alt: 'Azulpack', link: 'https://www.azulpack.com.br/es/' },
+  { src: '/images/logos/biotech-logo.png', alt: 'Biotech', link: 'https://www.instagram.com/biotechpar_paraguay/' },
+  { src: '/images/logos/exporplas-logo.png', alt: 'Exporplas', link: 'https://exporplas.pt/es/' },
+  { src: '/images/logos/genofeed-logo.png', alt: 'Genofeed', link: 'https://genofeed.com.ar/' },
+  { src: '/images/logos/ginegar-logo.png', alt: 'Ginegar', link: 'https://ginegar.com/' },
+  { src: '/images/logos/klabin-logo.png', alt: 'Klabin', link: 'https://klabin.com.br/es/' },
+  { src: '/images/logos/mauser-logo.png', alt: 'Mauser', link: 'https://mauserpackaging.com/' },
+  { src: '/images/logos/nortene-logo.png', alt: 'Nortene', link: 'https://nortene.com.br/es/' },
+  { src: '/images/logos/rafitec-logo.webp', alt: 'Rafitec', link: 'https://rafitec.com.br/' },
+  { src: '/images/logos/pipiola-logo.png', alt: 'Pipiola', link: 'http://www.selladorasilobolsa.com.ar/' },
+  { src: '/images/logos/silox-logo.png', alt: 'Silox', link: '' },
+  { src: '/images/logos/technipes-logo.png', alt: 'Technipes', link: 'https://technipes.com/es/' },
+  { src: '/images/logos/sugrand-logo2.png', alt: 'Sugrand', link: 'https://es.grandnets.com/' },
 ];
 
 const Marcas = () => {
@@ -31,7 +28,7 @@ const Marcas = () => {
           {logos.concat(logos).map((logo, idx) => (
             <div
               key={idx}
-              className="flex-shrink-0 flex items-center justify-center grayscale hover:grayscale-0 transition duration-300"
+              className="flex-shrink-0 flex items-center justify-center transition duration-300"
             >
               {logo.link ? (
                 <Link href={logo.link} target="_blank" rel="noopener noreferrer" className="cursor-pointer">

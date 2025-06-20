@@ -4,6 +4,7 @@ interface NoticeSliderProps {
   notices: {
     id: number;
     text: string;
+    link?: string; // Optional link for notices
   }[];
   speed?: number; // Animation speed in seconds (default: 25)
   className?: string;
