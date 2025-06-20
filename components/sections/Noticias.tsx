@@ -93,7 +93,7 @@ const AnimatedCard: React.FC<{ article: any }> = ({ article }) => {
             style={{ minHeight: 440, maxHeight: 510 }}
         >
             {/* Hacemos que toda la tarjeta sea clickeable */}
-            <a href={`/NoticiasPage?id=${article.id}`} className="flex flex-col h-full">
+            <Link href={`/noticias/${article.id}`} className="flex flex-col h-full">
                 <div className="relative h-56 overflow-hidden flex-shrink-0">
                     <Image
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -126,22 +126,14 @@ const AnimatedCard: React.FC<{ article: any }> = ({ article }) => {
                                 <CalendarIcon className="h-4 w-4 text-emerald-500" />
                                 <span>{new Date(article.date).toLocaleDateString()}</span>
                             </div>
-                            <motion.div 
-                                whileHover={{ scale: 1.05 }}
-                                className="flex items-center gap-1 text-emerald-600 hover:text-emerald-700 text-sm font-semibold"
-                                onClick={e => {
-                                    e.preventDefault();
-                                    e.stopPropagation();
-                                    window.location.href = `/noticias/${article.id}`;
-                                }}
-                            >
+                            <Link href={`/noticias/${article.id}`} className="flex items-center gap-1 text-emerald-600 hover:text-emerald-700 text-sm font-semibold">
                                 <BookOpenIcon className="h-5 w-5" />
                                 <span>Leer</span>
-                            </motion.div>
+                            </Link>
                         </div>
                     </div>
                 </div>
-            </a>
+            </Link>
         </motion.div>
     );
 };
