@@ -168,16 +168,20 @@ const ProductosPage = () => {
                         {categorias.map((cat, index) => (
                             <div
                                 key={index}
-                                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full"
+                                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-gray-100"
                             >
-                                {/* Encabezado de la categoría */}
-                                <div className="relative bg-gradient-to-r from-green-700 to-green-600 p-5 text-white">
-                                    <h3 className="text-xl font-bold">{cat.name}</h3>
-                                    <div className="absolute -bottom-3 right-5 w-8 h-8 bg-green-500 rotate-45 transform"></div>
-                                </div>
-                                
-                                {/* Contenido de la tarjeta */}
+                                {/* Contenido de la tarjeta con encabezado minimalista */}
                                 <div className="p-5 flex-grow">
+                                    {/* Encabezado minimalista */}
+                                    <div className="mb-4 border-b border-gray-100 pb-3 flex items-center justify-between">
+                                        <h3 className="text-xl font-bold text-gray-800">{cat.name}</h3>
+                                        <span className="text-green-600">
+                                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    
                                     {cat.showMultipleProducts ? (
                                         <>
                                             {/* Carousel con flechas de navegación */}
@@ -237,7 +241,7 @@ const ProductosPage = () => {
                                             
                                             {/* Lista de productos */}
                                             <div className="mt-6">
-                                                <h4 className="font-semibold text-gray-800 mb-2">Productos destacados:</h4>
+                                                <h4 className="font-medium text-gray-800 mb-2">Productos destacados:</h4>
                                                 <ul className="space-y-1.5">
                                                     {cat.productos?.map((producto, idx) => (
                                                         <li key={idx} className="flex items-center text-gray-700">
@@ -249,7 +253,7 @@ const ProductosPage = () => {
                                                     ))}
                                                 </ul>
                                                 
-                                                <p className="text-sm text-gray-600 italic mt-2">Y más productos...</p>
+                                                <p className="text-sm text-gray-500 italic mt-2">Y más productos...</p>
                                             </div>
                                         </>
                                     ) : (

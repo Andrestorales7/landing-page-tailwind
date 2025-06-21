@@ -22,7 +22,14 @@ const logos = [
 
 const Marcas = () => {
   return (
-    <section className="bg-gray-50 py-12">
+    <section className="bg-gray-50 py-12 relative">
+      {/* Texto metalico centrado en la parte inferior */}
+      <div className="absolute top-2 left-1/2 transform -translate-x-1/2 z-10">
+        <h3 className="text-xs font-bold tracking-wide uppercase bg-clip-text text-transparent bg-gradient-to-r from-gray-400 via-gray-600 to-gray-400 drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]">
+          Trabajamos con las mejores marcas
+        </h3>
+      </div>
+      
       <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden">
         <div className="flex items-center gap-10 animate-marcas-slide">
           {logos.concat(logos).map((logo, idx) => (
