@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { useState } from 'react';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
 import Image from "next/image";
+import type { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
 
 // Puedes extraer este array a un archivo común si lo deseas
 const products = [
@@ -211,21 +213,47 @@ const products = [
   },
 ];
 
-export default function EnsilajeProductDetail() {
-  const router = useRouter();
-  const { slug } = router.query;
-  const product = products.find((p) => p.slug === slug);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+export const getStaticPaths: GetStaticPaths = async () => {
+  // Define las rutas que se generarán en tiempo de compilación
+  const paths = products.map((product) => ({
+    params: { slug: product.slug },
+  }));
+
+  return {
+    paths,
+    fallback: false, // Si intentas acceder a un slug que no existe, mostrará 404
+  };
+};
+
+export const getStaticProps: GetStaticProps<ProductPageProps> = async ({ params }) => {
+  // Obtener datos para la página específica
+  const product = products.find((p) => p.slug === params?.slug);
 
   if (!product) {
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center">
-        <h2 className="text-2xl font-bold mb-4">Producto no encontrado</h2>
-        <Link href="/productos/ensilaje" className="text-green-700 underline">
-          Volver
-        </Link>
-      </div>
-    );
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      product,
+    },
+  };
+};
+
+interface ProductPageProps {
+  product: typeof products[0];
+}
+
+// Modifica la firma de tu componente para recibir props
+export default function EnsilajeProductDetail({ product }: ProductPageProps) {
+  const router = useRouter();
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Mantén la lógica por si se accede a la página mediante navegación del lado del cliente
+  if (router.isFallback) {
+    return <div className="min-h-screen flex items-center justify-center">Cargando...</div>;
   }
 
   const nextImage = () => {
@@ -236,8 +264,24 @@ export default function EnsilajeProductDetail() {
     setCurrentImageIndex((prev) => (prev - 1 + product.images.length) % product.images.length);
   };
 
+  // Añade metadatos SEO para mejorar la indexación
+  const pageTitle = `${product.name} | Productos de Ensilaje | CMP Agro`;
+  const pageDescription = `${product.name}: solución especializada para conservación de forrajes y ensilaje. Alta calidad y durabilidad. Distribuido por CMP Agro Paraguay.`;
+  const canonicalUrl = `https://www.cmpagro.com.py/productos/ensilaje/${product.slug}`;
+
   return (
     <>
+      <Head>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:image" content={`https://www.cmpagro.com.py${product.images[0]}`} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="canonical" href={canonicalUrl} />
+      </Head>
+
       {/* Hero Section */}
       <div className="relative min-h-[40vh] bg-green-900 overflow-hidden">
         {/* Imagen de fondo */}
