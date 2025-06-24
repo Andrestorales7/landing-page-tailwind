@@ -16,6 +16,74 @@ export interface Article {
 export const fetchArticles = async (): Promise<Article[]> => {
   const articles = [
     {
+      id: 6,
+      title: "CMP Agro presente en Cooprolanda 2025",
+      description: "Participaremos en la Expo-Feria Lechera más importante del país, presentando soluciones innovadoras",
+      category: "Eventos",
+      author: "CMP Noticias",
+      date: "2025-06-20",
+      image: "/images/eventos/cooprolanda025/portadacoopro1.JPG",
+      authorImage: "/images/eventos/noticias-logo.png",
+      content: `
+  <article class="news-content">
+    <h2 class="text-2xl font-bold mb-4">CMP Agro dice presente en Cooprolanda 2025</h2>
+    
+    <p class="mb-4">
+      Del <strong>25 al 27 de junio</strong>, en el km 222 de la Ruta PY02, Juan Eulogio Estigarribia (ex Campo 9), se celebrará una nueva edición de <strong>Cooprolanda</strong>, la Expo-Feria Lechera más importante del país.
+    </p>
+    
+    <p class="mb-4">
+      Este evento se consolida como un punto de encuentro clave para productores, técnicos, empresas y todos los protagonistas de la industria lechera nacional, con un enfoque en <strong>innovación, genética, eficiencia y sostenibilidad</strong>.
+    </p>
+    
+    <p class="mb-4">
+      En esta edición 2025, se esperan niveles récord de participación, tanto en expositores como en público, con un programa que incluye muestras de animales de alto rendimiento genético, lideradas por el reconocido Dr. Anastacio Invernizzi, y una amplia exposición de tecnología de punta aplicada al sector lechero.
+    </p>
+
+    <!-- En vez del iframe, pon esto: -->
+    <div class="my-8 flex flex-col items-center">
+      <a
+        href="https://www.youtube.com/watch?v=YWD_aIaIaMY&t=79s"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center px-6 py-3 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition"
+      >
+        ▶️ Ver video en YouTube
+      </a>
+      <p class="mt-2 text-sm text-gray-500">El video se abrirá en una nueva pestaña.</p>
+    </div>
+    
+    <h3 class="text-xl font-semibold mt-8 mb-4">📍 CMP Agro estará presente una vez más</h3>
+    
+    <p class="mb-4">
+      Compartiendo con clientes, amigos y productores soluciones concretas para mejorar la eficiencia y conservación en el agro. En nuestro stand podrán conocer de cerca tecnologías como:
+    </p>
+    
+    <ul class="list-none space-y-2 mb-6">
+      <li>🔹 <span class="ml-2"><strong>Silobolsas</strong> para almacenamiento seguro y eficiente.</span></li>
+      <li>🔹 <span class="ml-2"><strong>Inoculación de reservas forrajeras</strong> para optimizar el rendimiento.</span></li>
+      <li>🔹 <span class="ml-2"><strong>Mantas, redes, hilos y films para fardos</strong> de alta calidad y resistencia.</span></li>
+      <li>🔹 <span class="ml-2"><strong>Máquinas costuradoras y selladoras de bolsas</strong> para facilitar el trabajo.</span></li>
+      <li>🔹 <span class="ml-2"><strong>Soluciones para almacenamiento y transporte de líquidos</strong> con la mejor tecnología.</span></li>
+      <li>🔹 <span class="ml-2"><strong>Y mucho más</strong> para potenciar su producción.</span></li>
+    </ul>
+    
+    <figure class="my-8">
+      <img src="/images/eventos/cooprolanda025/fieldcoopro.jpg" alt="Stand de CMP AGRO en Cooprolanda 2025" class="rounded-xl w-full" />
+    </figure>
+
+    <p class="mb-4">
+      Los esperamos para conversar, asesorarlos y seguir apostando juntos a una agroindustria más productiva, sostenible y preparada para el futuro.
+    </p>
+    
+    <blockquote class="bg-gray-50 p-6 rounded-lg border-l-4 border-blue-500 my-6">
+      <p class="font-semibold mb-2">¡Nos vemos en Cooprolanda 2025!</p>
+      <p>Para más información sobre nuestros productos y servicios, contáctenos a través de nuestros canales oficiales.</p>
+    </blockquote>
+  </article>
+`,
+    },
+    {
       id: 5,
       title: "CMP Agro dijo presente en la Expo Pioneros 2025",
       description: "Participamos del evento agropecuario más relevante del Chaco paraguayo, presentando nuestras soluciones innovadoras para el sector productivo.",
@@ -73,7 +141,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
             <p>Para más información sobre nuestros productos presentados en la exposición, contáctenos a través de nuestros canales oficiales.</p>
           </blockquote>
         </article>
-      `
+      `,
     },
     {
       id: 1,
@@ -132,7 +200,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
             <img src="/images/eventos/innovar2025/innovar3.jpg" alt="Personal de CMP AGRO asesorando a productores" class="rounded-xl w-full" />
           </figure>
         </article>
-      `
+      `,
     },
     {
       id: 2,
@@ -181,7 +249,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
             Obtenga más información y una cotización personalizada. Contacte con nuestros asesores a través del botón de WhatsApp en la esquina inferior derecha de su dispositivo y descubra cómo la Malla CTA Aluminet puede marcar la diferencia en su producción.
           </blockquote>
         </article>
-      `
+      `,
     },
     {
       id: 3,
@@ -225,7 +293,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
             Solicite más información y una cotización personalizada a través de nuestro equipo de asesores.
           </blockquote>
         </article>
-      `
+      `,
     },
     {
       id: 4,
@@ -286,7 +354,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
             Solicite más información y una cotización personalizada con nuestro equipo de asesores.
           </blockquote>
         </article>
-      `
+      `,
     },
   ];
   
