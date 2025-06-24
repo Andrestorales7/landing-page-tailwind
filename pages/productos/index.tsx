@@ -65,6 +65,12 @@ const categorias = [
         showMultipleProducts: false
     },
     {
+        name: 'Biosales',
+        image: '/images/productos/biosales/hero-biosales.png',
+        link: '/productos/biosales',
+        showMultipleProducts: false
+    },
+    {
         name: 'Otros Productos',
         image: '/images/productos/otros/costuradoras/cost1.png',
         link: '/productos/otrosproductos',
@@ -170,7 +176,7 @@ const ProductosPage = () => {
                                 key={index}
                                 className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-gray-100"
                             >
-                                {/* Contenido de la tarjeta con encabezado minimalista */}
+                                {/* Contenido de la tarjeta with encabezado minimalista */}
                                 <div className="p-5 flex-grow">
                                     {/* Encabezado minimalista */}
                                     <div className="mb-4 border-b border-gray-100 pb-3 flex items-center justify-between">
