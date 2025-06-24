@@ -6,28 +6,14 @@ import NoticeSlider from '@/components/sections/NoticeSlider';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import SEO from '@/components/SEO';  // Añadida la importación de SEO
+import SEO from '@/components/SEO';
 
 const InoculantesProductPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [activeTab, setActiveTab] = useState('granos');
-  // Estado del slider SOLO para Suprasil Granos
-  const [slide, setSlide] = useState(0);
-  const suprasilGranosImages = [
-    {
-      src: "/images/productos/inoculantes/suprasil-granos1.jpeg",
-      alt: "Inoculante Suprasil Granos 1",
-    },
-    {
-      src: "/images/productos/inoculantes/suprasil-granos2.jpeg",
-      alt: "Inoculante Suprasil Granos 2",
-    },
-  ];
 
   useEffect(() => {
     setIsLoaded(true);
-    // Reinicia el slide al cambiar de pestaña
-    setSlide(0);
   }, [activeTab]);
 
   return (
@@ -36,7 +22,7 @@ const InoculantesProductPage = () => {
         title="Inoculantes Suprasil | Soluciones Biológicas | CMP Agro"
         description="Potencia el rendimiento de tus cultivos con nuestra línea de inoculantes Suprasil para granos, heno y silajes. Mejora la conservación y calidad de tus productos agrícolas."
         url="https://www.cmpagro.com.py/productos/inoculantes"
-        image="/images/productos/inoculantes/hero-inocu.jpg"
+        image="/images/productos/inoculantes/inocu-portada.jpg"
       />
       
       <div id="inoculantes" className="min-h-screen bg-gradient-to-b from-green-50 to-gray-50">
@@ -130,47 +116,17 @@ const InoculantesProductPage = () => {
               <div>
                 <h2 className="text-2xl font-bold text-green-900 mb-4">Suprasil Granos</h2>
                 <div className="flex flex-col md:flex-row items-center md:items-start min-h-[320px]">
-                  {/* Slide de imágenes - modificado para usar width/height como las otras imágenes */}
+                  {/* Imagen única - Reemplazando el slider con una imagen estática */}
                   <div className="w-full md:w-1/2 flex flex-col items-center md:items-start">
                     <div className="relative w-full max-w-lg mb-4">
                       <Image
-                        src={suprasilGranosImages[slide].src}
-                        alt={suprasilGranosImages[slide].alt}
+                        src="/images/productos/inoculantes/suprasil-granos1.jpeg"
+                        alt="Inoculante Suprasil Granos"
                         width={600}
                         height={400}
                         className="rounded-2xl shadow-2xl w-full object-cover"
-                        priority={slide === 0}
+                        priority={true}
                       />
-                      {/* Navigation Arrows */}
-                      <button 
-                        className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-green-800 w-8 h-8 rounded-full flex items-center justify-center shadow-md"
-                        onClick={() => setSlide(slide === 0 ? suprasilGranosImages.length - 1 : slide - 1)}
-                        aria-label="Imagen anterior"
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                        </svg>
-                      </button>
-                      <button 
-                        className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-green-800 w-8 h-8 rounded-full flex items-center justify-center shadow-md"
-                        onClick={() => setSlide((slide + 1) % suprasilGranosImages.length)}
-                        aria-label="Siguiente imagen"
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-                      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
-                        {suprasilGranosImages.map((_, idx) => (
-                          <button
-                            key={idx}
-                            className={`w-3 h-3 rounded-full ${slide === idx ? 'bg-green-800' : 'bg-green-200'} border border-green-800`}
-                            onClick={() => setSlide(idx)}
-                            aria-label={`Ver imagen ${idx + 1}`}
-                            type="button"
-                          />
-                        ))}
-                      </div>
                     </div>
                   </div>
                   {/* Información al costado */}
@@ -197,6 +153,18 @@ const InoculantesProductPage = () => {
                         <span className="font-semibold">En caso de rotura del silobolsa:</span> ayuda a limitar el deterioro de los granos almacenados.
                       </li>
                     </ul>
+                    
+                    {/* Botón de descarga de ficha técnica */}
+                    <a 
+                      href="/fichas/suprasil-granos.pdf" 
+                      download
+                      className="mt-16 flex items-center justify-center px-4 py-2 bg-green-700 hover:bg-green-800 text-white font-medium rounded-md transition-colors duration-300 w-full sm:w-auto shadow-md"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      Descargar Ficha Técnica
+                    </a>
                   </div>
                 </div>
               </div>
@@ -239,6 +207,18 @@ const InoculantesProductPage = () => {
                         <span className="font-semibold">Mayor calidad y digestibilidad:</span> Disminuye la pérdida de nutrientes, mejora la palatabilidad y favorece la digestión de la fibra tratada.
                       </li>
                     </ul>
+                    
+                    {/* Botón de descarga de ficha técnica */}
+                    <a 
+                      href="/fichas/ficha-suprasil.pdf" 
+                      download
+                      className="mt-16 flex items-center justify-center px-4 py-2 bg-green-700 hover:bg-green-800 text-white font-medium rounded-md transition-colors duration-300 w-full sm:w-auto shadow-md"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      Descargar Ficha Técnica
+                    </a>
                   </div>
                 </div>
               </div>
@@ -290,6 +270,18 @@ const InoculantesProductPage = () => {
                         <span className="font-semibold">Fermentación rápida:</span> incluso en cultivos secos.
                       </li>
                     </ul>
+                    
+                    {/* Botón de descarga de ficha técnica */}
+                    <a 
+                      href="/fichas/ficha-suprasil.pdf" 
+                      download
+                      className="mt-16 flex items-center justify-center px-4 py-2 bg-green-700 hover:bg-green-800 text-white font-medium rounded-md transition-colors duration-300 w-full sm:w-auto shadow-md"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      Descargar Ficha Técnica
+                    </a>
                   </div>
                 </div>
               </div>
