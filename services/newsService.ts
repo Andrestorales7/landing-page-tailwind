@@ -17,7 +17,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
   const articles = [
     {
       id: 6,
-      title: "CMP Agro presente en Cooprolanda 2025",
+      title: "CMP Agro estara presente en Cooprolanda 2025",
       description: "Participaremos en la Expo-Feria Lechera más importante del país, presentando soluciones innovadoras",
       category: "Eventos",
       author: "CMP Noticias",
