@@ -73,7 +73,7 @@ export default function HomePage() {
             link: "/productos/agropecuaria",
           },
           {
-            image: "/images/productos/inoculantes/SupraSil_portada.jpg",
+            image: "/images/productos/inoculantes/inocu-portada.jpg",
             title: "Mas Soluciones",
             description: "",
             link: "/productos",
