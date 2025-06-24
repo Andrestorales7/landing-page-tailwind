@@ -60,7 +60,7 @@ const categorias = [
     },
     {
         name: 'Inoculantes',
-        image: '/images/productos/inoculantes/SupraSil_portada.jpg',
+        image: '/images/productos/inoculantes/inocu-portada.jpg',
         link: '/productos/inoculantes',
         showMultipleProducts: false
     },
