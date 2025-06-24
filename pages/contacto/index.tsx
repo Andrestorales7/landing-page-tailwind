@@ -5,6 +5,7 @@ import SEO from "@/components/SEO";
 import { useBreadcrumbSchema } from "@/hooks/useLocationSchema";
 import Head from "next/head";
 import type L from 'leaflet';
+import SectionHeader from "@/components/ui/SectionHeader"; // Add this import
 
 export default function Contacto() {
   // Breadcrumb para la página de contacto
@@ -429,20 +430,12 @@ export default function Contacto() {
         {/* Sección de Vendedores */}
         <section className="bg-white py-16">
           <div className="max-w-6xl mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-emerald-700 mb-4">
-                Nuestros Asesores
-              </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Conoce a nuestro equipo de amplia experiencia, listos para
-                ayudarte a encontrar la solucion agricola que estas buscando.
-              </p>
-            </motion.div>
+            {/* Replaced with SectionHeader component */}
+            <SectionHeader
+              title="Nuestros Asesores"
+              subtitle="Conoce a nuestro equipo de amplia experiencia, listos para ayudarte a encontrar la solución agrícola que estás buscando."
+              withLine={true}
+            />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {vendedores.map((vendedor, index) => (
@@ -532,20 +525,12 @@ export default function Contacto() {
         {/* Sección de Ubicaciones */}
         <section className="bg-emerald-50 py-16">
           <div className="max-w-6xl mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-emerald-700 mb-4">
-                Nuestras Ubicaciones
-              </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Visítanos en cualquiera de nuestras oficinas estratégicamente
-                ubicadas para brindarte el mejor servicio.
-              </p>
-            </motion.div>
+            {/* Replaced with SectionHeader component */}
+            <SectionHeader
+              title="Nuestras Ubicaciones"
+              subtitle="Visítanos en cualquiera de nuestras oficinas estratégicamente ubicadas para brindarte el mejor servicio."
+              withLine={true}
+            />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {ubicaciones.map((ubicacion, index) => (
@@ -617,19 +602,12 @@ export default function Contacto() {
         {/* Mapa */}
         <section className="bg-white py-16">
           <div className="max-w-6xl mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-emerald-700 mb-4">
-                Encuéntranos
-              </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Ubica nuestras oficinas en el mapa y planifica tu visita.
-              </p>
-            </motion.div>
+            {/* Replaced with SectionHeader component */}
+            <SectionHeader
+              title="Encuéntranos"
+              subtitle="Ubica nuestras oficinas en el mapa y planifica tu visita."
+              withLine={true}
+            />
 
             <div className="rounded-2xl overflow-hidden shadow-xl">
               {/* Leaflet Map */}
