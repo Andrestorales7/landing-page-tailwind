@@ -5,7 +5,6 @@ import Marcas from '@/components/sections/Marcas';
 import NoticeSlider from '@/components/sections/NoticeSlider';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import Image from 'next/image';
 import SEO from '../../../components/SEO';
 import { useBreadcrumbSchema } from '../../../hooks/useLocationSchema';
