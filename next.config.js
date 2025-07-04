@@ -38,6 +38,16 @@ const nextConfig = {
         destination: '/noticias/:id',
         permanent: true,
       },
+      {
+        source: '/ProductosPage',
+        destination: '/productos',
+        permanent: true,
+      },
+      {
+        source: '/NosotrosPage',
+        destination: '/nosotros',
+        permanent: true,
+      }
     ]
   }
 };
