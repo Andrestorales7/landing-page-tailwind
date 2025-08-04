@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { useState } from 'react';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
 import Image from "next/image";
+import type { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
 
 // Lista de productos de envases
 const products = [
@@ -193,204 +195,241 @@ const products = [
 	},
 ];
 
-export default function ProductoEnvaseDetalle() {
-	const router = useRouter();
-	const { slug } = router.query;
-	const product = products.find((p) => p.slug === slug);
-	const [currentImageIndex, setCurrentImageIndex] = useState(0);
+interface ProductPageProps {
+  product: typeof products[0];
+}
 
-	if (!product) {
-		return (
-			<div className="min-h-screen flex flex-col items-center justify-center">
-				<h2 className="text-2xl font-bold mb-4">Producto no encontrado</h2>
-				<Link href="/productos/envases" className="text-green-700 underline">
-					Volver
-				</Link>
-			</div>
-		);
-	}
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = products.map((product) => ({
+    params: { slug: product.slug },
+  }));
 
-	const nextImage = () => {
-		setCurrentImageIndex((prev) => (prev + 1) % product.images.length);
-	};
+  return {
+    paths,
+    fallback: false,
+  };
+};
 
-	const prevImage = () => {
-		setCurrentImageIndex((prev) => (prev - 1 + product.images.length) % product.images.length);
-	};
+export const getStaticProps: GetStaticProps<ProductPageProps> = async ({ params }) => {
+  const product = products.find((p) => p.slug === params?.slug);
 
-	return (
-		<>
-			{/* Hero Section */}
-			<div className="relative min-h-[40vh] bg-green-900 overflow-hidden">
-				<div
-					className="absolute inset-0 bg-cover bg-center opacity-80"
-					style={{
-						backgroundImage: `url(${product.images[0]})`,
-					}}
-				></div>
-				<div className="absolute inset-0 bg-black/40 pointer-events-none"></div>
-				<div className="relative z-10 pt-32 pb-16 px-6 sm:px-12 lg:px-18 max-w-6xl mx-auto">
-					<div className="text-center">
-						<h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">
-							{product.name}
-						</h1>
-					</div>
-				</div>
-			</div>
+  if (!product) {
+    return {
+      notFound: true,
+    };
+  }
 
-			{/* Contenido Principal */}
-			<div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-					{/* Breadcrumb */}
-					<nav className="flex mb-8">
-						<Link
-							href="/productos/envases"
-							className="text-green-700 hover:text-green-900 transition-colors"
-						>
-							← Volver a productos de envases
-						</Link>
-					</nav>
+  return {
+    props: {
+      product,
+    },
+  };
+};
 
-					{/* Galería de Imágenes con Slider */}
-					<div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-						<div className="lg:col-span-2">
-							<h2 className="text-2xl font-bold text-gray-900 mb-6">Imágenes</h2>
-							<div className="relative w-full h-72 md:h-80 rounded-2xl overflow-hidden shadow-2xl mb-6 bg-gray-100">
-								<Image
-									src={product.images[currentImageIndex]}
-									alt={`${product.name} imagen ${currentImageIndex + 1}`}
-									fill
-									className="w-full h-full object-contain object-center bg-gray-100 rounded-2xl"
-									sizes="(max-width: 768px) 100vw, 66vw"
-									priority
-								/>
-								{/* Botones de navegación */}
-								{product.images.length > 1 && (
-									<>
-										<button
-											onClick={prevImage}
-											className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg transition-all duration-200"
-										>
-											<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-												<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-											</svg>
-										</button>
-										<button
-											onClick={nextImage}
-											className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg transition-all duration-200"
-										>
-											<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-												<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-											</svg>
-										</button>
-									</>
-								)}
-								{/* Indicadores */}
-								{product.images.length > 1 && (
-									<div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-										{product.images.map((_, idx) => (
-											<button
-												key={idx}
-												onClick={() => setCurrentImageIndex(idx)}
-												className={`w-3 h-3 rounded-full transition-all duration-200 ${
-													idx === currentImageIndex ? 'bg-white' : 'bg-white/50'
-												}`}
-											/>
-										))}
-									</div>
-								)}
-							</div>
-							{/* Thumbnails */}
-							{product.images.length > 1 && (
-								<div className="grid grid-cols-3 gap-4">
-									{product.images.map((img, idx) => (
-										<button
-											key={idx}
-											onClick={() => setCurrentImageIndex(idx)}
-											className={`relative overflow-hidden rounded-lg shadow-md transition-all duration-200 ${
-												idx === currentImageIndex
-													? 'ring-2 ring-green-500 ring-offset-2'
-													: 'hover:shadow-lg'
-											}`}
-										>
-											<Image
-												src={img}
-												alt={`${product.name} thumbnail ${idx + 1}`}
-												width={200}
-												height={96}
-												className="w-full h-24 object-cover object-center bg-gray-100 rounded-lg"
-											/>
-										</button>
-									))}
-								</div>
-							)}
-						</div>
+export default function ProductoEnvaseDetalle({ product }: ProductPageProps) {
+  const router = useRouter();
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-						{/* Información del Producto */}
-						<div className="lg:col-span-1">
-							<div className="sticky top-10">
-								{product.logo && (
-									<div className="flex justify-center mb-8">
-										<div className="w-28 h-28 flex items-center justify-center bg-white rounded-full border border-green-100 shadow-xl p-3">
-											<Image
-												src={product.logo}
-												alt={`${product.name} logo`}
-												width={80}
-												height={80}
-												className="max-w-[80%] max-h-[80%] object-contain"
-											/>
-										</div>
-									</div>
-								)}
-								<h2 className="text-2xl font-bold text-gray-900 mb-6">
-									Características del Producto
-								</h2>
-								<div className="bg-white rounded-2xl shadow-lg p-6 border border-green-100">
-									<ul className="space-y-4">
-										{product.details.map((detail, i) => (
-											<li key={i} className="flex items-start">
-												<div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
-													<span className="text-green-600 text-sm font-bold">✓</span>
-												</div>
-												<span
-													className="text-gray-700 leading-relaxed"
-													dangerouslySetInnerHTML={{ __html: detail }}
-												/>
-											</li>
-										))}
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
+  if (router.isFallback) {
+    return <div className="min-h-screen flex items-center justify-center">Cargando...</div>;
+  }
 
-					{/* Descripción Detallada */}
-					<div className="bg-white rounded-2xl shadow-lg p-8 border border-green-100 prose prose-lg max-w-none text-gray-700">
-						<div dangerouslySetInnerHTML={{ __html: product.description }} />
-					</div>
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % product.images.length);
+  };
 
-					{/* Call to Action */}
-					<div className="mt-12 text-center">
-						<div className="bg-gradient-to-r from-green-600 to-lime-600 rounded-2xl p-8 text-white">
-							<h3 className="text-2xl font-bold mb-4">¿Interesado en este producto?</h3>
-							<p className="text-lg mb-6 opacity-90">
-								Contáctanos para más información y asesoría personalizada
-							</p>
-							<Link
-								href="/Contacto"
-								className="bg-white text-green-700 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors inline-block"
-							>
-								Contactar ahora
-							</Link>
-						</div>
-					</div>
-				</div>
-			</div>
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + product.images.length) % product.images.length);
+  };
 
-			{/* Botón flotante de WhatsApp siempre visible */}
-			<div className="fixed bottom-6 right-6 z-50">
-				<WhatsappContacts />
-			</div>
-		</>
-	);
+  const pageTitle = `${product.name} | Envases Industriales | CMP Agro`;
+  const pageDescription = `${product.name}: solución de envases de alta calidad para almacenamiento y transporte industrial. Distribuido por CMP Agro Paraguay.`;
+  const canonicalUrl = `https://www.cmpagro.com.py/productos/envases/${product.slug}`;
+
+  return (
+    <>
+      <Head>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:image" content={`https://www.cmpagro.com.py${product.images[0]}`} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="canonical" href={canonicalUrl} />
+      </Head>
+
+      {/* Hero Section */}
+      <div className="relative min-h-[40vh] bg-green-900 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-80"
+          style={{
+            backgroundImage: `url(${product.images[0]})`,
+          }}
+        ></div>
+        <div className="absolute inset-0 bg-black/40 pointer-events-none"></div>
+        <div className="relative z-10 pt-32 pb-16 px-6 sm:px-12 lg:px-18 max-w-6xl mx-auto">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">
+              {product.name}
+            </h1>
+          </div>
+        </div>
+      </div>
+
+      {/* Contenido Principal */}
+      <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          {/* Breadcrumb */}
+          <nav className="flex mb-8">
+            <Link
+              href="/productos/envases"
+              className="text-green-700 hover:text-green-900 transition-colors"
+            >
+              ← Volver a productos de envases
+            </Link>
+          </nav>
+
+          {/* Galería de Imágenes con Slider */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            <div className="lg:col-span-2">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Imágenes</h2>
+              <div className="relative w-full h-72 md:h-80 rounded-2xl overflow-hidden shadow-2xl mb-6 bg-gray-100">
+                <Image
+                  src={product.images[currentImageIndex]}
+                  alt={`${product.name} imagen ${currentImageIndex + 1}`}
+                  fill
+                  className="w-full h-full object-contain object-center bg-gray-100 rounded-2xl"
+                  sizes="(max-width: 768px) 100vw, 66vw"
+                  priority
+                />
+                {/* Botones de navegación */}
+                {product.images.length > 1 && (
+                  <>
+                    <button
+                      onClick={prevImage}
+                      className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg transition-all duration-200"
+                    >
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+                      </svg>
+                    </button>
+                    <button
+                      onClick={nextImage}
+                      className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg transition-all duration-200"
+                    >
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </>
+                )}
+                {/* Indicadores */}
+                {product.images.length > 1 && (
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                    {product.images.map((_, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setCurrentImageIndex(idx)}
+                        className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                          idx === currentImageIndex ? 'bg-white' : 'bg-white/50'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                )}
+              </div>
+              {/* Thumbnails */}
+              {product.images.length > 1 && (
+                <div className="grid grid-cols-3 gap-4">
+                  {product.images.map((img, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentImageIndex(idx)}
+                      className={`relative overflow-hidden rounded-lg shadow-md transition-all duration-200 ${
+                        idx === currentImageIndex
+                          ? 'ring-2 ring-green-500 ring-offset-2'
+                          : 'hover:shadow-lg'
+                      }`}
+                    >
+                      <Image
+                        src={img}
+                        alt={`${product.name} thumbnail ${idx + 1}`}
+                        width={200}
+                        height={96}
+                        className="w-full h-24 object-cover object-center bg-gray-100 rounded-lg"
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Información del Producto */}
+            <div className="lg:col-span-1">
+              <div className="sticky top-10">
+                {product.logo && (
+                  <div className="flex justify-center mb-8">
+                    <div className="w-28 h-28 flex items-center justify-center bg-white rounded-full border border-green-100 shadow-xl p-3">
+                      <Image
+                        src={product.logo}
+                        alt={`${product.name} logo`}
+                        width={80}
+                        height={80}
+                        className="max-w-[80%] max-h-[80%] object-contain"
+                      />
+                    </div>
+                  </div>
+                )}
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                  Características del Producto
+                </h2>
+                <div className="bg-white rounded-2xl shadow-lg p-6 border border-green-100">
+                  <ul className="space-y-4">
+                    {product.details.map((detail, i) => (
+                      <li key={i} className="flex items-start">
+                        <div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                          <span className="text-green-600 text-sm font-bold">✓</span>
+                        </div>
+                        <span
+                          className="text-gray-700 leading-relaxed"
+                          dangerouslySetInnerHTML={{ __html: detail }}
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Descripción Detallada */}
+          <div className="bg-white rounded-2xl shadow-lg p-8 border border-green-100 prose prose-lg max-w-none text-gray-700">
+            <div dangerouslySetInnerHTML={{ __html: product.description }} />
+          </div>
+
+          {/* Call to Action */}
+          <div className="mt-12 text-center">
+            <div className="bg-gradient-to-r from-green-600 to-lime-600 rounded-2xl p-8 text-white">
+              <h3 className="text-2xl font-bold mb-4">¿Interesado en este producto?</h3>
+              <p className="text-lg mb-6 opacity-90">
+                Contáctanos para más información y asesoría personalizada
+              </p>
+              <Link
+                href="/contacto"
+                className="bg-white text-green-700 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors inline-block"
+              >
+                Contactar ahora
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Botón flotante de WhatsApp siempre visible */}
+      <div className="fixed bottom-6 right-6 z-50">
+        <WhatsappContacts />
+      </div>
+    </>
+  );
 }

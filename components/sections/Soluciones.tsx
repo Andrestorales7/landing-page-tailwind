@@ -93,7 +93,7 @@ const SolucionesSection: React.FC<SolucionesSectionProps> = ({ soluciones }) => 
               {/* Botón Ver Productos alineado a la derecha en desktop */}
               <div className="flex w-full justify-center">
                 <Link
-                  href="/ProductosPage"
+                  href="/productos"
                   className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-gradient-to-r from-lime-300 to-green-400 text-green-900 font-bold text-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 relative overflow-hidden"
                 >
                   <span className="relative z-10">Ver Productos</span>

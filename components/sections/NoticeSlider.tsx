@@ -4,6 +4,7 @@ interface NoticeSliderProps {
   notices: {
     id: number;
     text: string;
+    link?: string; // Optional link for notices
   }[];
   speed?: number; // Animation speed in seconds (default: 25)
   className?: string;
@@ -15,31 +16,37 @@ const NoticeSlider: React.FC<NoticeSliderProps> = ({
   className = '',
 }) => {
   const [weatherNotice, setWeatherNotice] = useState<string | null>(null);
+  const [mobileWeatherNotice, setMobileWeatherNotice] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchWeather = async () => {
+      setIsLoading(true);
       try {
-        const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY; // Use the environment variable
+        // Call our internal API route instead of OpenWeather directly
+        const response = await fetch('/api/weather');
+        
+        if (!response.ok) {
+          throw new Error(`API returned status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        if (data.error) {
+          throw new Error(data.error);
+        }
 
-        const weatherResponse = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?lat=-25.52&lon=-54.61&appid=${apiKey}&units=metric&lang=es`
-        );
-        const weatherData = await weatherResponse.json();
-        console.log('Weather API Response:', weatherData); // Debug log
-
-        const airQualityResponse = await fetch(
-          `https://api.openweathermap.org/data/2.5/air_pollution?lat=-25.52&lon=-54.61&appid=${apiKey}`
-        );
-        const airQualityData = await airQualityResponse.json();
-        console.log('Air Quality API Response:', airQualityData); // Debug log
+        const weatherData = data.weather;
+        const airQualityData = data.airQuality;
 
         if (weatherData && weatherData.weather && weatherData.main && weatherData.wind) {
-          const description = weatherData.weather[0].description; // Ahora en español
-          const temperature = weatherData.main.temp;
-          const tempMax = weatherData.main.temp_max;
-          const tempMin = weatherData.main.temp_min;
+          const description = weatherData.weather[0].description;
+          const temperature = Math.round(weatherData.main.temp);
+          const tempMax = Math.round(weatherData.main.temp_max);
+          const tempMin = Math.round(weatherData.main.temp_min);
           const windSpeed = weatherData.wind.speed;
-          const precipitation = weatherData.rain ? weatherData.rain['1h'] || 0 : 0; // Precipitation in mm
+          const precipitation = weatherData.rain ? weatherData.rain['1h'] || 0 : 0;
 
           let airQuality = 'Desconocida';
           if (airQualityData && airQualityData.list && airQualityData.list[0]) {
@@ -51,16 +58,38 @@ const NoticeSlider: React.FC<NoticeSliderProps> = ({
                          aqi === 5 ? 'Muy insalubre' : 'Desconocida';
           }
 
-          setWeatherNotice(
-            `🌤️ Clima: ${description} | 🌡️ Temp: ${temperature}°C (Máx: ${tempMax}°C, Mín: ${tempMin}°C) | 💨 Viento: ${windSpeed} m/s | 🌧️ Precip: ${precipitation} mm | 🏭 Calidad del aire: ${airQuality}`
-          );
+          // Versión completa para escritorio
+          const desktopWeather = `🌤️ Clima: ${description} | 🌡️ Temp: ${temperature}°C (Máx: ${tempMax}°C, Mín: ${tempMin}°C) | 💨 Viento: ${windSpeed} m/s | 🌧️ Precip: ${precipitation} mm | 🏭 Calidad del aire: ${airQuality}`;
+          
+          // Versión simplificada para móvil
+          const mobileWeather = `🌤️ ${description} ${temperature}°C | Calidad aire: ${airQuality}`;
+          
+          setWeatherNotice(desktopWeather);
+          setMobileWeatherNotice(mobileWeather);
         }
       } catch (error) {
-        console.error('Error fetching weather or air quality data:', error);
+        console.error('Error fetching weather data:', error);
+        // Add fallback notices so component still works even if API fails
+        setWeatherNotice("⚠️ Información del clima no disponible");
+        setMobileWeatherNotice("⚠️ Clima no disponible");
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchWeather();
+
+    // Add responsive handling
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Check initially and add listener
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    
+    // Clean up
+    return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
   useEffect(() => {
@@ -72,11 +101,12 @@ const NoticeSlider: React.FC<NoticeSliderProps> = ({
     };
   }, []);
 
-  const allNotices = weatherNotice
-    ? [{ id: 0, text: weatherNotice }, ...notices]
+  // Usar la versión móvil del clima cuando estamos en dispositivo móvil
+  const currentWeatherNotice = isMobile ? mobileWeatherNotice : weatherNotice;
+  
+  const allNotices = currentWeatherNotice
+    ? [{ id: 0, text: currentWeatherNotice }, ...notices]
     : notices;
-
-  console.log('All notices:', allNotices); // Debug log
 
   if (!allNotices.length) return null;
 
@@ -86,17 +116,36 @@ const NoticeSlider: React.FC<NoticeSliderProps> = ({
       aria-label="Últimas actualizaciones"
     >
       <div 
-        className="marquee-content"
-        style={{ animationDuration: `${speed}s` }}
+        className="marquee-container"
       >
-        {allNotices.map((notice, index) => (
-          <span key={notice.id} className="notice-item">
-            {notice.text}
-            {index !== allNotices.length - 1 && (
-              <span className="separator">•</span>
-            )}
-          </span>
-        ))}
+        <div 
+          className="marquee-content"
+          style={{ animationDuration: `${isMobile ? speed * 0.5 : speed}s` }}
+        >
+          {allNotices.map((notice, index) => (
+            <span key={`${notice.id}-1-${index}`} className="notice-item">
+              {notice.text}
+              {index !== allNotices.length - 1 && (
+                <span className="separator">•</span>
+              )}
+            </span>
+          ))}
+        </div>
+        
+        {/* Segunda copia para animación continua */}
+        <div 
+          className="marquee-content"
+          style={{ animationDuration: `${isMobile ? speed * 0.5 : speed}s` }}
+        >
+          {allNotices.map((notice, index) => (
+            <span key={`${notice.id}-2-${index}`} className="notice-item">
+              {notice.text}
+              {index !== allNotices.length - 1 && (
+                <span className="separator">•</span>
+              )}
+            </span>
+          ))}
+        </div>
       </div>
 
       {/* Región oculta para lectores de pantalla */}
@@ -110,7 +159,6 @@ const NoticeSlider: React.FC<NoticeSliderProps> = ({
 const styles = `
   .notice-slider {
     background: rgba(255, 255, 255, 0.9);
-    border: 2px solid; 
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding: 8px 0;
     overflow: hidden;
@@ -123,11 +171,16 @@ const styles = `
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
+  .marquee-container {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+  }
+
   .marquee-content {
-    display: inline-block;
+    display: flex;
     white-space: nowrap;
     animation: marquee linear infinite;
-    padding-left: 100%;
   }
 
   .notice-item {
@@ -161,6 +214,22 @@ const styles = `
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0;
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 767px) {
+    .notice-slider {
+      font-size: 0.75rem;
+      padding: 5px 0;
+    }
+    
+    .notice-item {
+      margin-right: 15px;
+    }
+    
+    .separator {
+      margin: 0 8px;
+    }
   }
 `;
 

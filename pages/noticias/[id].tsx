@@ -3,6 +3,7 @@ import { useArticles } from '../../services/newsService';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from "next/image";
+import SEO from '../../components/SEO';
 
 const NoticiaDetalle = () => {
   const router = useRouter();
@@ -32,6 +33,12 @@ const NoticiaDetalle = () => {
 
   return (
     <main>
+      <SEO 
+        title={article.title}
+        description={article.description}
+        url={`https://www.cmpagro.com.py/noticias/${id}`} // URL canónica correcta
+        image={article.image}
+      />
       {/* Hero Section */}
       <section className="relative min-h-[40vh] bg-gradient-to-br from-green-200/30 via-green-100/20 to-green-50/10 overflow-hidden flex items-end">
         {/* Imagen de la noticia como fondo */}
@@ -94,7 +101,7 @@ const NoticiaDetalle = () => {
           <nav className="flex items-center space-x-2 text-sm text-black font-medium">
             <Link href="/" className="hover:text-green-600 transition-colors">Inicio</Link>
             <span className="text-gray-500">/</span>
-            <Link href="/NoticiasPage" className="hover:text-green-600 transition-colors">Noticias</Link>
+            <Link href="/noticias" className="hover:text-green-600 transition-colors">Noticias</Link>
             <span className="text-gray-500">/</span>
             <span className="text-black font-semibold truncate">{article.title}</span>
           </nav>

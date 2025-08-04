@@ -1,19 +1,19 @@
 // NoticiasSection.tsx
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { useArticles, Article } from '../services/newsService';
+import { useArticles, Article } from '../../services/newsService'; // Fixed import path
 import { motion } from 'framer-motion';
 import { MagnifyingGlassIcon, FunnelIcon } from '@heroicons/react/24/outline';
-import Image from 'next/image';
+import SEO from '@/components/SEO';
+import NewsCard from '@/components/ui/NewsCard';
 
 const NoticiasPage: React.FC = () => {
     const { articles, loading, error } = useArticles();
-    const [isLoaded, setIsLoaded] = useState(false);
+    const [, setIsLoaded] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('Todas');
     const [filteredArticles, setFilteredArticles] = useState<Article[]>([]);
 
-    const categories = ['Todas', 'Tecnología', 'Sostenibilidad', 'Innovación', 'Tendencias'];
+    const categories = ['Todas', 'Tecnología', 'Sostenibilidad', 'Innovación', 'Tendencias', 'Eventos'];
 
     useEffect(() => {
         setIsLoaded(true);
@@ -34,22 +34,44 @@ const NoticiasPage: React.FC = () => {
 
     if (loading) {
         return (
-            <div className="min-h-screen bg-emerald-50 flex justify-center items-center">
-                <div className="animate-pulse text-emerald-600 text-xl">Cargando noticias...</div>
-            </div>
+            <>
+                <SEO 
+                    title="Noticias y Artículos | CMP Agro"
+                    description="Mantente informado con las últimas noticias y tendencias del sector agrícola en Paraguay. Artículos sobre tecnología, sostenibilidad e innovación en agricultura."
+                    url="https://www.cmpagro.com.py/noticias"
+                    image="/images/hero/hero-noticias.webp"
+                />
+                <div className="min-h-screen bg-emerald-50 flex justify-center items-center">
+                    <div className="animate-pulse text-emerald-600 text-xl">Cargando noticias...</div>
+                </div>
+            </>
         );
     }
 
     if (error) {
         return (
-            <div className="min-h-screen bg-emerald-50 flex justify-center items-center">
-                <div className="text-red-500 text-xl">Error al cargar las noticias. Intente más tarde.</div>
-            </div>
+            <>
+                <SEO 
+                    title="Noticias y Artículos | CMP Agro"
+                    description="Mantente informado con las últimas noticias y tendencias del sector agrícola en Paraguay. Artículos sobre tecnología, sostenibilidad e innovación en agricultura."
+                    url="https://www.cmpagro.com.py/noticias"
+                    image="/images/hero/hero-noticias.webp"
+                />
+                <div className="min-h-screen bg-emerald-50 flex justify-center items-center">
+                    <div className="text-red-500 text-xl">Error al cargar las noticias. Intente más tarde.</div>
+                </div>
+            </>
         );
     }
 
     return (
         <>
+            <SEO 
+                title="Noticias y Artículos | CMP Agro"
+                description="Mantente informado con las últimas noticias y tendencias del sector agrícola en Paraguay. Artículos sobre tecnología, sostenibilidad e innovación en agricultura."
+                url="https://www.cmpagro.com.py/noticias"
+                image="/images/hero/hero-noticias.webp"
+            />
             <div id="noticias" className="min-h-screen bg-gradient-to-b from-green-50 to-gray-50">
                 {/* Hero Section */}
                 <div className="relative min-h-[52vh] bg-gradient-to-br from-green-900/70 via-green-800/60 to-green-700/50 overflow-hidden">
@@ -138,92 +160,35 @@ const NoticiasPage: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Noticias Grid - Tarjetas Mejoradas */}
+                {/* Noticias Grid - Usando el Componente NewsCard */}
                 <div className="max-w-7xl mx-auto pt-12 pb-16 px-4 sm:px-6 lg:px-8">
                     <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                         {filteredArticles.map((article, index) => (
-                            <motion.div
+                            <NewsCard
                                 key={article.id}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
-                                transition={{ 
-                                    duration: 0.5, 
-                                    delay: index * 0.1,
-                                    ease: [0.4, 0, 0.2, 1]
+                                href={`/noticias/${article.id}`}
+                                image={{
+                                    src: article.image,
+                                    alt: article.title,
+                                    width: 400,
+                                    height: 300
                                 }}
-                                className="group relative bg-white overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full"
-                            >
-                                {/* Etiqueta de categoría flotante */}
-                                <div className="absolute top-4 right-4 z-10">
-                                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-emerald-600/90 text-white backdrop-blur-sm">
-                                        {article.category}
-                                    </span>
-                                </div>
-                                
-                                {/* Imagen con efecto hover */}
-                                <Link href={`/noticias/${article.id}`} className="block overflow-hidden h-56">
-                                    <div className="h-full w-full overflow-hidden">
-                                        <Image
-                                            src={article.image}
-                                            alt={article.title}
-                                            width={400}
-                                            height={300}
-                                            className="h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                                        />
-                                    </div>
-                                </Link>
-                                
-                                {/* Contenido */}
-                                <div className="p-6 flex-grow flex flex-col">
-                                    {/* Fecha */}
-                                    <div className="flex items-center gap-2 text-emerald-600 text-sm mb-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                        </svg>
-                                        <span>{new Date(article.date).toLocaleDateString("es-ES", { 
-                                            year: 'numeric', 
-                                            month: 'long', 
-                                            day: 'numeric' 
-                                        })}</span>
-                                    </div>
-                                    
-                                    {/* Título */}
-                                    <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-emerald-600 transition-colors">
-                                        <Link href={`/noticias/${article.id}`}>
-                                            {article.title}
-                                        </Link>
-                                    </h3>
-                                    
-                                    {/* Descripción */}
-                                    <p className="text-gray-600 line-clamp-3 mb-4 flex-grow">
-                                        {article.description}
-                                    </p>
-                                    
-                                    {/* Autor */}
-                                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                                        <div className="flex items-center space-x-3">
-                                            <Image 
-                                                src={article.authorImage || "https://via.placeholder.com/40"}
-                                                alt={article.author}
-                                                width={40}
-                                                height={40}
-                                                className="h-8 w-8 rounded-full object-cover border-2 border-white shadow-sm" 
-                                            />
-                                            <span className="text-sm text-black font-medium">{article.author}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                {/* Botón leer más con efecto hover */}
-                                <div className="px-6 pb-6">
-                                    <Link 
-                                        href={`/noticias/${article.id}`}
-                                        className="block w-full text-center py-3 bg-gray-50 hover:bg-emerald-50 border border-gray-200 hover:border-emerald-200 rounded-lg text-emerald-600 text-sm font-medium transition-all duration-300"
-                                    >
-                                        Leer más
-                                    </Link>
-                                </div>
-                            </motion.div>
+                                badge={{
+                                    text: article.category
+                                }}
+                                date={new Date(article.date).toLocaleDateString("es-ES", { 
+                                    year: 'numeric', 
+                                    month: 'long', 
+                                    day: 'numeric' 
+                                })}
+                                title={article.title}
+                                description={article.description}
+                                author={{
+                                    name: article.author,
+                                    image: article.authorImage
+                                }}
+                                index={index}
+                            />
                         ))}
                     </div>
                     

@@ -1,0 +1,12 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /private
+Disallow: /api/*
+
+# Host
+Host: https://www.cmpagro.com.py
+
+# Sitemaps
+Sitemap: https://www.cmpagro.com.py/sitemap.xml

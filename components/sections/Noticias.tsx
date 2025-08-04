@@ -5,6 +5,7 @@ import { useInView } from "react-intersection-observer";
 import { BookOpenIcon, CalendarIcon } from "@heroicons/react/24/outline";
 import { useArticles } from "../../services/newsService"; // importa el hook
 import Image from "next/image";
+import SectionHeader from "../ui/SectionHeader"; // Asegúrate de que la ruta sea correcta
 
 const Noticias: React.FC = () => {
     const { articles, loading, error } = useArticles(3); // solo 3 noticias
@@ -19,21 +20,15 @@ const Noticias: React.FC = () => {
             </div>
             
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="text-center"
-                >
-                    <div className="inline-flex items-center gap-2 mb-1 text-emerald-600">
-                        <div className="h-px w-12 bg-emerald-300" />
-                        <span className="text-2xl sm:text-3xl font-bold uppercase tracking-wide">Actualidad Agrícola</span>
-                        <div className="h-px w-12 bg-emerald-300" />
-                    </div>
-                    <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
-                        Eventos, actualizaciones y noticias relevantes del sector agrícola. Mantente informado con nosotros aqui en  CMP Agro.
-                    </p>
-                </motion.div>
+                {/* REMOVE the old motion.div section and KEEP ONLY the SectionHeader */}
+                <SectionHeader
+                    title="Actualidad Agrícola"
+                    subtitle="Eventos, actualizaciones y noticias relevantes del sector agrícola. Mantente informado con nosotros aquí en CMP Agro."
+                    titleColor="text-emerald-700"
+                    withLine={true}
+                    lineColor="bg-emerald-300"
+                    className="tracking-wide"
+                />
 
                 <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                     {loading && <p>Cargando noticias...</p>}
@@ -45,7 +40,7 @@ const Noticias: React.FC = () => {
                 
                 {/* Botón para ver todas las noticias */}
                 <div className="mt-12 text-center">
-                    <Link href="/NoticiasPage">
+                    <Link href="/noticias">
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             className="px-6 py-3 bg-emerald-600 text-white rounded-lg shadow-md hover:bg-emerald-700 transition-colors font-semibold"
@@ -93,7 +88,7 @@ const AnimatedCard: React.FC<{ article: any }> = ({ article }) => {
             style={{ minHeight: 440, maxHeight: 510 }}
         >
             {/* Hacemos que toda la tarjeta sea clickeable */}
-            <a href={`/NoticiasPage?id=${article.id}`} className="flex flex-col h-full">
+            <Link href={`/noticias/${article.id}`} className="flex flex-col h-full">
                 <div className="relative h-56 overflow-hidden flex-shrink-0">
                     <Image
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -126,22 +121,14 @@ const AnimatedCard: React.FC<{ article: any }> = ({ article }) => {
                                 <CalendarIcon className="h-4 w-4 text-emerald-500" />
                                 <span>{new Date(article.date).toLocaleDateString()}</span>
                             </div>
-                            <motion.div 
-                                whileHover={{ scale: 1.05 }}
-                                className="flex items-center gap-1 text-emerald-600 hover:text-emerald-700 text-sm font-semibold"
-                                onClick={e => {
-                                    e.preventDefault();
-                                    e.stopPropagation();
-                                    window.location.href = `/NoticiasPage?id=${article.id}`;
-                                }}
-                            >
+                            <Link href={`/noticias/${article.id}`} className="flex items-center gap-1 text-emerald-600 hover:text-emerald-700 text-sm font-semibold">
                                 <BookOpenIcon className="h-5 w-5" />
                                 <span>Leer</span>
-                            </motion.div>
+                            </Link>
                         </div>
                     </div>
                 </div>
-            </a>
+            </Link>
         </motion.div>
     );
 };

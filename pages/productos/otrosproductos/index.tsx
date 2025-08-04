@@ -5,8 +5,8 @@ import Marcas from '@/components/sections/Marcas';
 import NoticeSlider from '@/components/sections/NoticeSlider';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
-import Image from 'next/image';
+import SEO from '@/components/SEO';  // Añadida la importación de SEO
+import ProductCard from '@/components/ui/ProductCard';
 
 const OtrosProductosPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -52,6 +52,13 @@ const OtrosProductosPage = () => {
 
   return (
     <>
+      <SEO 
+        title="Productos Complementarios | Cintas, Precintos y Máquinas | CMP Agro"
+        description="Descubra nuestra selección de equipamiento agrícola especializado: cintas flexográficas, precintos, máquinas cerradoras y selladoras de silobolsas. Soluciones complementarias para optimizar su operación."
+        url="https://www.cmpagro.com.py/productos/otrosproductos"
+        image="/images/hero/otros-productos.png"
+      />
+      
       <div id="otros-productos" className="min-h-screen bg-gradient-to-b from-green-50 to-gray-50">
         {/* Hero Section */}
         <div className="relative min-h-[52vh] bg-gradient-to-br from-green-900/70 via-green-800/60 to-green-700/50 overflow-hidden">
@@ -119,53 +126,17 @@ const OtrosProductosPage = () => {
         <div className="max-w-7xl mx-auto pt-8 pb-16 px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {products.map((product, index) => (
-              <Link
-                key={index}
-                href={`/productos/otrosproductos/${product.slug}`}
-                className={`group bg-white border border-green-200 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 ease-out flex flex-col overflow-hidden cursor-pointer relative ${
-                  isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
-                }`}
-                style={{ transitionDelay: `${index * 120}ms` }}
-              >
-                <div className="relative">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    width={400}
-                    height={192}
-                    className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-                    priority={index === 0}
-                  />
-                  <div className="absolute top-3 right-3 bg-white/80 rounded-full p-2 shadow-md">
-                    <Image
-                      src={product.logo}
-                      alt={`${product.name} logo`}
-                      width={40}
-                      height={40}
-                      className="w-10 h-10 object-contain"
-                    />
-                  </div>
-                </div>
-                <div className="p-5 flex flex-col flex-grow">
-                  <h3 className="text-lg font-bold text-green-800 mb-1">{product.name}</h3>
-                  <p className="text-sm text-gray-600 mb-3 line-clamp-2">
-                    {product.description}
-                  </p>
-                  <ul className="mb-2 space-y-2">
-                    {product.details && product.details.map((detail, i) => (
-                      <li key={i} className="flex items-center bg-lime-100 rounded px-2 py-1 text-sm text-green-700">
-                        <span className="mr-2 text-lime-500">✔</span>
-                        <span>{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-auto pt-2 flex justify-center">
-                    <span className="inline-block w-full text-center bg-green-700 text-white rounded-lg px-4 py-2 text-sm font-semibold hover:bg-green-800 transition">
-                      Ver producto
-                    </span>
-                  </div>
-                </div>
-              </Link>
+              <ProductCard
+                key={product.slug}
+                name={product.name}
+                slug={product.slug}
+                image={product.image}
+                description={product.description}
+                details={product.details}
+                logo={product.logo}
+                baseUrl="/productos/otrosproductos"
+                index={index}
+              />
             ))}
           </div>
         </div>

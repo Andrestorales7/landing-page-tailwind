@@ -51,10 +51,10 @@ const Footer: React.FC = () => {
               {/* Navigation Links */}
               <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm">
                 {[
-                  { name: "Productos", href: "/ProductosPage" },
-                  { name: "Nosotros", href: "/NosotrosPage" },
-                  { name: "Noticias", href: "/NoticiasPage" },
-                  { name: "Contacto", href: "/Contacto" }
+                  { name: "Productos", href: "/productos" },
+                  { name: "Nosotros", href: "/nosotros" },
+                  { name: "Noticias", href: "/noticias" },
+                  { name: "Contacto", href: "/contacto" }
                 ].map((link, idx) => (
                   <motion.a 
                     key={idx}

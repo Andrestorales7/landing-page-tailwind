@@ -5,15 +5,63 @@ import Marcas from '@/components/sections/Marcas';
 import NoticeSlider from '@/components/sections/NoticeSlider';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import Image from 'next/image';
+import SEO from '../../../components/SEO';
+import { useBreadcrumbSchema } from '../../../hooks/useLocationSchema';
+import ProductCard from '@/components/ui/ProductCard';
 
-const AgroProductPage = () => {
+const EnsilajeProductsPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     setIsLoaded(true);
   }, []);
+
+  // Breadcrumb para esta página
+  const breadcrumbItems = [
+    { name: "Inicio", url: "https://www.cmpagro.com.py" },
+    { name: "Productos", url: "https://www.cmpagro.com.py/productos" },
+    { name: "Ensilaje", url: "https://www.cmpagro.com.py/productos/ensilaje" }
+  ];
+
+  const breadcrumbSchema = useBreadcrumbSchema(breadcrumbItems);
+
+  // Schema para la colección de productos
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Productos de Ensilaje",
+    "description": "Amplia gama de productos para ensilaje: films para fardos, hilos, mallas, silobolsas y techos para almacenamiento de forrajes",
+    "url": "https://www.cmpagro.com.py/productos/ensilaje",
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": 7, // Ajustar según tu cantidad de productos
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Product",
+            "name": "Film para Fardos",
+            "description": "Films de alta calidad para ensilaje de fardos",
+            "url": "https://www.cmpagro.com.py/productos/ensilaje/film-fardos"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Product",
+            "name": "Silobolsas",
+            "description": "Silobolsas para almacenamiento de granos y forrajes",
+            "url": "https://www.cmpagro.com.py/productos/ensilaje/silobolsas"
+          }
+        }
+        // Agregar más productos según tu catálogo
+      ]
+    },
+    "breadcrumb": breadcrumbSchema
+  };
 
   const products = [
     {
@@ -80,6 +128,14 @@ const AgroProductPage = () => {
 
   return (
     <>
+      <SEO
+        title="Productos de Ensilaje | Films, Silobolsas y Mallas | CMP Agro"
+        description="Productos de alta calidad para ensilaje: films para fardos, hilos, mallas, silobolsas y techos. Soluciones especializadas para almacenamiento y protección de cultivos y forrajes en Paraguay."
+        url="https://www.cmpagro.com.py/productos/ensilaje"
+        image="https://www.cmpagro.com.py/images/hero/soluciones-ensilaje.webp"
+        type="website"
+        structuredData={[breadcrumbSchema, collectionSchema]}
+      />
       <div id="agro-productos" className="min-h-screen bg-gradient-to-b from-green-50 to-gray-50">
         {/* Hero Section */}
         <div className="relative min-h-[52vh] bg-gradient-to-br from-green-900/70 via-green-800/60 to-green-700/50 overflow-hidden">
@@ -146,64 +202,21 @@ const AgroProductPage = () => {
           </div>
         </div>
 
-        {/* Product Grid */}
+        {/* Product Grid - Updated section */}
         <div className="max-w-7xl mx-auto pt-8 pb-16 px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {products.map((product, index) => (
-              <motion.div
-                key={index}
-                layout
-                transition={{ layout: { duration: 0.4, type: "spring" } }}
-                className={`group bg-white border border-green-200 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 ease-out flex flex-col overflow-hidden cursor-pointer relative ${
-                  isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
-                }`}
-                style={{ transitionDelay: `${index * 120}ms` }}
-              >
-                <Link
-                  href={`/productos/ensilaje/${product.slug}`}
-                  className="flex flex-col flex-grow h-full"
-                  tabIndex={0}
-                >
-                  <div className="relative">
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      width={400}
-                      height={192}
-                      className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-                      priority={index === 0}
-                    />
-                    <div className="absolute top-3 right-3 bg-white/80 rounded-full p-2 shadow-md">
-                      <Image
-                        src={product.logo}
-                        alt={`${product.name} logo`}
-                        width={40}
-                        height={40}
-                        className="w-10 h-10 object-contain"
-                      />
-                    </div>
-                  </div>
-                  <div className="p-5 flex flex-col flex-grow">
-                    <h3 className="text-lg font-bold text-green-800 mb-1">{product.name}</h3>
-                    <p className="text-sm text-gray-600 mb-3 line-clamp-2">
-                      {product.description}
-                    </p>
-                    <ul className="mb-2 space-y-2">
-                      {product.details && product.details.map((detail, i) => (
-                        <li key={i} className="flex items-center bg-lime-100 rounded px-2 py-1 text-sm text-green-700">
-                          <span className="mr-2 text-lime-500">✔</span>
-                          <span>{detail}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="mt-auto pt-2">
-                      <span className="inline-block w-full text-center bg-green-700 hover:bg-green-800 text-white font-medium rounded-lg px-4 py-2 transition-colors duration-200">
-                        Ver producto
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
+              <ProductCard
+                key={product.slug}
+                name={product.name}
+                slug={product.slug}
+                image={product.image}
+                description={product.description}
+                details={product.details}
+                logo={product.logo}
+                baseUrl="/productos/ensilaje"
+                index={index}
+              />
             ))}
           </div>
         </div>
@@ -233,4 +246,4 @@ const AgroProductPage = () => {
   );
 };
 
-export default AgroProductPage;
+export default EnsilajeProductsPage;

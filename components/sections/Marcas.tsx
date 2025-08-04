@@ -1,46 +1,61 @@
 import Image from 'next/image';
 import React from 'react';
+import Link from 'next/link';
 
 const logos = [
-  { src: '/images/logos/agrinpex-logo.webp', alt: 'agrinpex' },
-  { src: '/images/logos/agroman-logo.webp', alt: 'Logo Marca 2' },
-  { src: '/images/logos/azulpack-logo.png', alt: 'Logo Marca 3' },
-  { src: '/images/logos/biotech-logo.png', alt: 'Logo Marca 4' },
-  { src: '/images/logos/exporplas-logo.png', alt: 'Logo Marca 5' },
-  { src: '/images/logos/genofeed-logo.png', alt: 'Logo Marca 6' },
-  { src: '/images/logos/ginegar-logo.png', alt: 'Logo Marca 7' },
-  { src: '/images/logos/klabin-logo.png', alt: 'Logo Marca 8' },
-  { src: '/images/logos/magnum-logo.png', alt: 'Logo Marca 9' },
-  { src: '/images/logos/mauser-logo.png', alt: 'Logo Marca 10' },
-  { src: '/images/logos/nortene-logo.png', alt: 'Logo Marca 11' },
-  { src: '/images/logos/rafitec-logo.webp', alt: 'Logo Marca 12' },
-  { src: '/images/logos/pipiola-logo.png', alt: 'Logo Marca 13' },
-  { src: '/images/logos/silox-logo.png', alt: 'Logo Marca 14' },
-  { src: '/images/logos/suprasil-logo.png', alt: 'Logo Marca 15' },
-  { src: '/images/logos/technipes-logo.png', alt: 'Logo Marca 16' },
-  { src: '/images/logos/textil-logo.png', alt: 'Logo Marca 17' },
-  { src: '/images/logos/sugrand-logo2.png', alt: 'Logo Marca 18' },
-  
- 
+  { src: '/images/logos/agrinpex-logo.webp', alt: 'Agrinpex', link: 'https://www.instagram.com/agrinplex' },
+  { src: '/images/logos/rotor-logo.png', alt: 'Rotor', link: 'https://www.rotortanques.com/' },
+  { src: '/images/logos/azulpack-logo.png', alt: 'Azulpack', link: 'https://www.azulpack.com.br/es/' },
+  { src: '/images/logos/biotech-logo.png', alt: 'Biotech', link: 'https://www.instagram.com/biotechpar_paraguay/' },
+  { src: '/images/logos/exporplas-logo.png', alt: 'Exporplas', link: 'https://exporplas.pt/es/' },
+  { src: '/images/logos/genofeed-logo.png', alt: 'Genofeed', link: 'https://genofeed.com.ar/' },
+  { src: '/images/logos/ginegar-logo.png', alt: 'Ginegar', link: 'https://ginegar.com/' },
+  { src: '/images/logos/klabin-logo.png', alt: 'Klabin', link: 'https://klabin.com.br/es/' },
+  { src: '/images/logos/mauser-logo.png', alt: 'Mauser', link: 'https://mauserpackaging.com/' },
+  { src: '/images/logos/nortene-logo.png', alt: 'Nortene', link: 'https://nortene.com.br/es/' },
+  { src: '/images/logos/rafitec-logo.webp', alt: 'Rafitec', link: 'https://rafitec.com.br/' },
+  { src: '/images/logos/pipiola-logo.png', alt: 'Pipiola', link: 'http://www.selladorasilobolsa.com.ar/' },
+  { src: '/images/logos/silox-logo.png', alt: 'Silox', link: '' },
+  { src: '/images/logos/technipes-logo.png', alt: 'Technipes', link: 'https://technipes.com/es/' },
+  { src: '/images/logos/sugrand-logo2.png', alt: 'Sugrand', link: 'https://es.grandnets.com/' },
 ];
 
 const Marcas = () => {
   return (
-    <section className="bg-gray-50 py-12">
+    <section className="bg-gray-50 py-12 relative">
+      {/* Texto metalico centrado en la parte inferior */}
+      <div className="absolute top-2 left-1/2 transform -translate-x-1/2 z-10">
+        <h3 className="text-xs font-bold tracking-wide uppercase bg-clip-text text-transparent bg-gradient-to-r from-gray-400 via-gray-600 to-gray-400 drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]">
+          Trabajamos con las mejores marcas
+        </h3>
+      </div>
+      
       <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden">
         <div className="flex items-center gap-10 animate-marcas-slide">
           {logos.concat(logos).map((logo, idx) => (
             <div
               key={idx}
-              className="flex-shrink-0 flex items-center justify-center grayscale hover:grayscale-0 transition duration-300"
+              className="flex-shrink-0 flex items-center justify-center transition duration-300"
             >
-              <Image
-                src={logo.src}
-                alt={logo.alt}
-                width={120}
-                height={60}
-                className="object-contain max-h-16"
-              />
+              {logo.link ? (
+                <Link href={logo.link} target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt}
+                    width={120}
+                    height={60}
+                    className="object-contain max-h-16"
+                  />
+                </Link>
+              ) : (
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={120}
+                  height={60}
+                  className="object-contain max-h-16"
+                />
+              )}
             </div>
           ))}
         </div>

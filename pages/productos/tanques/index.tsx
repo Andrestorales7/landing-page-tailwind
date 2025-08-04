@@ -2,11 +2,13 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link'; // Add this import
+import Link from 'next/link';
 import Marcas from '@/components/sections/Marcas';
 import NoticeSlider from '@/components/sections/NoticeSlider';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
 import { motion, AnimatePresence } from 'framer-motion';
+import SEO from '@/components/SEO';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 const TanquesPage = () => {
   const tanques = [
@@ -170,7 +172,6 @@ const TanquesPage = () => {
   ];
 
   const tanquesOrdenados = [...tanques].sort((a, b) => a.capacity - b.capacity);
-
   const [selected, setSelected] = useState(tanquesOrdenados[0]);
 
   const handleTanqueSelection = (tanque: React.SetStateAction<{ name: string; slug: string; image: string; description: string; details: string[]; capacity: number; }>) => {
@@ -179,6 +180,13 @@ const TanquesPage = () => {
 
   return (
     <>
+      <SEO 
+        title="Tanques de Polietileno | Capacidades de 750L a 12.000L | CMP Agro"
+        description="Amplia gama de tanques rotomoldeados de polietileno de alta densidad con protección UV. Ideales para agua, alimentos y químicos no corrosivos. Capacidades desde 750L hasta 12.000L."
+        url="https://www.cmpagro.com.py/productos/tanques"
+        image="/images/productos/tanques/tanque-1500lt.jpg"
+      />
+      
       <div id="tanques" className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
         {/* Hero Section */}
         <div className="relative min-h-[52vh] bg-gradient-to-br from-green-900/70 via-green-800/60 to-green-700/50 overflow-hidden">
@@ -277,6 +285,16 @@ const TanquesPage = () => {
 
         {/* Nueva sección de selección de tanque por tamaño */}
         <section className="max-w-6xl mx-auto py-1 px-2 sm:px-6">
+          {/* Add SectionHeader for the tanque selection section */}
+          <SectionHeader
+            title="Variedad de Tanques Disponibles"
+            subtitle="Selecciona la capacidad que necesitas para explorar las especificaciones"
+            withLine={true}
+            lineColor="bg-green-500"
+            titleColor="text-gray-800"
+            className="mb-8"
+          />
+            
           {/* Tarjeta de detalle del tanque seleccionado */}
           <AnimatePresence mode="wait">
             <motion.div
@@ -322,9 +340,38 @@ const TanquesPage = () => {
                       Tanque rotomoldeado de {selected.description.toLowerCase()} fabricado con polietileno de alta densidad
                       y protección UV. Ideal para almacenar agua potable, productos alimenticios y químicos no corrosivos.
                     </p>
+                    <div className="bg-green-50 p-4 rounded-xl mb-4 border border-green-100">
+                      <h4 className="font-semibold text-green-700 mb-2">Apto para contener:</h4>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                        <div className="flex items-center">
+                          <span className="mr-2">💧</span>
+                          <span className="text-gray-700">Agua potable</span>
+                        </div>
+                        <div className="flex items-center">
+                          <span className="mr-2">🍯</span>
+                          <span className="text-gray-700">Miel</span>
+                        </div>
+                        <div className="flex items-center">
+                          <span className="mr-2">🫙</span>
+                          <span className="text-gray-700">Aceites</span>
+                        </div>
+                        <div className="flex items-center">
+                          <span className="mr-2">🧪</span>
+                          <span className="text-gray-700">Líquidos densos</span>
+                        </div>
+                        <div className="flex items-center">
+                          <span className="mr-2">🥛</span>
+                          <span className="text-gray-700">Leche</span>
+                        </div>
+                        <div className="flex items-center">
+                          <span className="mr-2">⛽</span>
+                          <span className="text-gray-700">Combustible</span>
+                        </div>
+                      </div>
+                    </div>
                     <div className="flex justify-center">
                       <Link 
-                        href="/Contacto" 
+                        href="/contacto" 
                         className="px-6 py-3 bg-green-500 text-white font-medium rounded-xl shadow hover:bg-green-600 focus:ring-2 focus:ring-green-300 focus:outline-none transition duration-200 flex items-center justify-center"
                       >
                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -360,45 +407,7 @@ const TanquesPage = () => {
           </AnimatePresence>
         </section>
 
-        {/* Apto para */}
-        <section className="py-12 sm:py-20 bg-gradient-to-b from-gray-50 to-gray-100">
-          <div className="max-w-5xl mx-auto px-4">
-            <div className="text-center mb-8 sm:mb-10">
-              <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
-                Apto y Aprobado para Contener
-              </h3>
-              <div className="w-24 h-1 bg-green-500 mx-auto"></div>
-            </div>
-            
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 justify-items-center">
-              {[
-                { text: 'Agua Potable', icon: 'water_drop' },
-                { text: 'Miel', icon: 'hive' },
-                { text: 'Aceites', icon: 'oil_barrel' },
-                { text: 'Líquidos Densos', icon: 'opacity' },
-                { text: 'Leche', icon: 'water_drop' },
-                { text: 'Combustible', icon: 'local_gas_station' },
-              ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  whileHover={{ scale: 1.05 }}
-                  className="flex flex-col items-center group"
-                >
-                  <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mb-3 group-hover:bg-green-100 transition-colors duration-300 shadow-sm">
-                    <span className="material-icons text-green-600 text-3xl">{item.icon}</span>
-                  </div>
-                  <p className="text-gray-700 font-medium text-center text-sm sm:text-base">{item.text}</p>
-                </motion.div>
-              ))}
-            </div>
-            
-            <p className="text-center text-gray-500 mt-8 sm:mt-12 max-w-2xl mx-auto text-sm sm:text-base">
-              Nuestros tanques están fabricados con materiales certificados para el almacenamiento seguro 
-              de diversos líquidos y sustancias, cumpliendo con los más altos estándares de calidad.
-            </p>
-          </div>
-        </section>
-      </div>
+        {/* Lista de tanques */}
 
       {/* Secciones adicionales */}
       <Marcas />
@@ -410,6 +419,7 @@ const TanquesPage = () => {
         ]}
       />
       <WhatsappContacts />
+      </div>
     </>
   );
 };

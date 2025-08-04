@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { useState } from 'react';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
 import Image from "next/image";
+import type { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
 
 const products = [
 	{
@@ -293,33 +295,77 @@ const products = [
 	},
 ];
 
-export default function ProductoAgropecuarioDetalle() {
-	const router = useRouter();
-	const { slug } = router.query;
-	const product = products.find((p) => p.slug === slug);
-	const [currentImageIndex, setCurrentImageIndex] = useState(0);
+// Añade estos tipos para mejorar el tipado
+interface ProductPageProps {
+  product: typeof products[0];
+}
 
-	if (!product) {
-		return (
-			<div className="min-h-screen flex flex-col items-center justify-center">
-				<h2 className="text-2xl font-bold mb-4">Producto no encontrado</h2>
-				<Link href="/productos/agropecuaria" className="text-green-700 underline">
-					Volver
-				</Link>
-			</div>
-		);
-	}
+// Añade estas funciones antes de la función del componente
+export const getStaticPaths: GetStaticPaths = async () => {
+  // Define las rutas que se generarán en tiempo de compilación
+  const paths = products.map((product) => ({
+    params: { slug: product.slug },
+  }));
 
-	const nextImage = () => {
-		setCurrentImageIndex((prev) => (prev + 1) % product.images.length);
-	};
+  return {
+    paths,
+    fallback: false, // Si intentas acceder a un slug que no existe, mostrará 404
+  };
+};
 
-	const prevImage = () => {
-		setCurrentImageIndex((prev) => (prev - 1 + product.images.length) % product.images.length);
-	};
+export const getStaticProps: GetStaticProps<ProductPageProps> = async ({ params }) => {
+  // Obtener datos para la página específica
+  const product = products.find((p) => p.slug === params?.slug);
 
-	return (
-		<>
+  if (!product) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      product,
+    },
+  };
+};
+
+// Modifica la firma de tu componente para recibir props
+export default function ProductoAgropecuarioDetalle({ product }: ProductPageProps) {
+  const router = useRouter();
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Mantén la lógica por si se accede a la página mediante navegación del lado del cliente
+  if (router.isFallback) {
+    return <div className="min-h-screen flex items-center justify-center">Cargando...</div>;
+  }
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % product.images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + product.images.length) % product.images.length);
+  };
+
+  // Añade metadatos SEO para mejorar la indexación
+  const pageTitle = `${product.name} | Productos Agropecuarios | CMP Agro`;
+  const pageDescription = `${product.name}: solución especializada para el sector agropecuario. Calidad y durabilidad garantizada. Distribuido por CMP Agro Paraguay.`;
+  const canonicalUrl = `https://www.cmpagro.com.py/productos/agropecuaria/${product.slug}`;
+
+  return (
+    <>
+      <Head>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:image" content={`https://www.cmpagro.com.py${product.images[0]}`} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="canonical" href={canonicalUrl} />
+      </Head>
+
 			{/* Hero Section */}
 			<div className="relative min-h-[40vh] bg-green-900 overflow-hidden">
 				{/* Imagen de fondo */}
@@ -478,7 +524,7 @@ export default function ProductoAgropecuarioDetalle() {
             Contáctanos para más información y asesoría personalizada
         </p>
         <Link
-            href="/Contacto"
+            href="/contacto"
             className="bg-white text-green-700 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors inline-block"
         >
             Contactar ahora
