@@ -246,6 +246,7 @@ export default function Contacto() {
     {
       id: 1,
       nombre: "Asuncion",
+      ciudad: "Asunción", // <-- Agrega esto
       direccion: "Avda. Artigas 4145 c/ Gral. Delgado",
       telefono: "(0981) 176 060",
       horario: "Lun - Vie: 07:30 - 17:00",
@@ -254,6 +255,7 @@ export default function Contacto() {
     {
       id: 2,
       nombre: " Minga Guazu",
+      ciudad: "Minga Guazú", // <-- Agrega esto
       direccion: "Ruta 2 - Km.16",
       telefono: "(0981) 253 081",
       horario: "Lun - Vie: 07:30 - 17:00",
@@ -262,6 +264,7 @@ export default function Contacto() {
     {
       id: 3,
       nombre: "Loma Plata",
+      ciudad: "Loma Plata", // <-- Agrega esto
       direccion: "Oficina 4 - Predio Plasti Chaco",
       telefono: "(0986) 778 771",
       horario: "Lun - Vie: 07:30 - 17:00",
