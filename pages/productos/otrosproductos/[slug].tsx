@@ -8,13 +8,12 @@ import Head from 'next/head';
 
 const products = [
     {
-        name: 'Cintas Flexográficas',
+        name: 'Cintas Industriales',
         slug: 'cintas-flexograficas',
         images: ['/images/productos/otros/cintasflex/cintas1.jpg',
 			'/images/productos/otros/cintasflex/cintas2.jpg',
-			
-		],
-        description: 'Cintas impresas de alta calidad para embalaje y seguridad. Certificadas con Full HD Flexo por Esko, ofrecen una resolución muy alta en impresión flexográfica con reproducción precisa de puntos finos y semitonos.',
+        ],
+        description: 'Cintas de alta calidad para impresion de embalajes flexibles y cartones. Certificadas con Full HD Flexo por Esko, que ofrecen una muy alta calidad en impresión. Enfocadas cada una de ellas en trabajos de: plenos, semi-plenos y reticulas.',
         details: [
             'Soporte de espuma de alta calidad',
             'Certificación Full HD Flexo (Esko)',
@@ -97,7 +96,7 @@ const products = [
         },
     },
     {
-        name: 'Máquinas Cerradoras',
+        name: 'Máquinas Cerradoras de Bolsas',
         slug: 'maquinas-cerradoras',
         images: [
             '/images/productos/otros/costuradoras/union1.png',
@@ -140,7 +139,7 @@ const products = [
                     titulo: 'Modelos destacados',
                     detalles: [
                         'Union Special 80800™: Especial para cierre de bolsas con productos pesados (ráfia, plástico, papel). Velocidad de hasta 1800 rpm. Lubricación manual, costura de 1 o 2 hilos, con diseño robusto y sencillo',
-                        'Union Special 4000A™: Modelo portátil (solo 5,5 kg) para bolsas livianas de rafia, algodón, lino o papel. Reduce el ruido al mínimo, ideal para ambientes acústicamente sensibles. Costura de tipo simple (1 hilo), lubricación manual',
+                        'Union Special 4000A™: Modelo portátil (solo 5,5 kg) para bolsas de todo tipo. Reduce el ruido al mínimo, ideal para ambientes acústicamente sensibles. Costura de tipo simple (1 hilo), lubricación manual',
                         'Union Special 2200AA™: Diseñada para geotextiles, con excelente eficiencia, flexibilidad y confiabilidad. Uso de 1 o 2 hilos, lubricación manual, preparada para uso intenso',
                         'Union Special BC200™: Versión de alta resistencia con corona cerrada y piezas anticorrosión, ideal para entornos con químicos. Lubricación automática, costura de hasta 2750 rpm y opción de corte de cadeneta automático o manual'
                     ]

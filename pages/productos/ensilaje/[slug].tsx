@@ -142,7 +142,7 @@ const products = [
 <span class="font-semibold">Protección de Cultivos:</span> Actúa como cubierta para cultivos, resguardándolos de condiciones climáticas adversas.
 `,
     details: ['Negro: 8 x 100 m (100 micras)'],
-    logo: '/images/logos/tech-logo.png',
+    logo: '/images/logos/azul-pack2-removebg.png',
   },
   {
     name: 'Tech Silo',
@@ -171,7 +171,7 @@ const products = [
 <span class="font-semibold">Versatilidad de Uso:</span> Además de la cobertura de silajes, puede ser utilizada en otras aplicaciones agrícolas que requieran protección contra factores ambientales.
 `,
     details: ['Blanco/Negro: 12 x 50 m y 14 x 50 m', 'Disponible en 100 y 150 micras'],
-    logo: '/images/logos/tech-logo.png',
+    logo: '/images/logos/azul-pack2-removebg.png',
   },
   {
     name: 'TechO2 Barrier',
@@ -209,7 +209,7 @@ const products = [
       'Blanco/Negro: 7 capas, con barrera de EVOH',
       'Azul: 45 micras (12 x 50 m y 14 x 50 m) con barrera de EVOH',
     ],
-    logo: '/images/logos/tech-logo.png',
+    logo: '/images/logos/azul-pack2-removebg.png',
   },
 ];
 

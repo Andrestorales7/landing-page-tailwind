@@ -114,7 +114,7 @@ const Footer: React.FC = () => {
                   },
                   { 
                     title: "Minga Guazú",
-                    address: "Ruta 2 Km. 14",
+                    address: "Ruta 2 Km. 16",
                     mapUrl: "https://maps.app.goo.gl/55n3QaB3PSMib1kK6",
                     phones: ["(0981) 253 081", "(0983) 846 825"]
                   },

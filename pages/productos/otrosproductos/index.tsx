@@ -25,11 +25,11 @@ const OtrosProductosPage = () => {
       logo: '/images/logos/tesa-logo.svg',
     },
     {
-      name: 'Máquinas Cerradoras',
+      name: 'Máquinas Cerradoras de Bolsas',
       slug: 'maquinas-cerradoras',
       image: '/images/productos/otros/costuradoras/union1.png',
-      description: 'Máquinas para cerrar cajas y paquetes de forma eficiente.',
-      details: ['Automáticas y manuales', 'Fácil mantenimiento'],
+      description: 'Máquinas para cerrar todo tipo de bolsas: Rafia, papel, yute, plásticos.',
+      details: ['Equipos Autónomos y Manuales', 'Robustas', 'Fácil mantenimiento y Stock de Repuestos garantizado'],
       logo: '/images/productos/otros/costuradoras/union-logo.jpg',
     },
     {

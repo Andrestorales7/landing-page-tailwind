@@ -5,12 +5,83 @@ import Marcas from '@/components/sections/Marcas';
 import NoticeSlider from '@/components/sections/NoticeSlider';
 import WhatsappContacts from '@/components/layout/WhatsappContacts';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import SEO from '@/components/SEO';
+import ProductTabDisplay from '@/components/ui/ProductTabDisplay';
 
 const BiosalesProductPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [activeTab, setActiveTab] = useState('premix');
+  const [activeTab] = useState('premix');
+  
+  // Define product data for the component
+  const biosalesProducts = [
+    {
+      id: 'premix',
+      label: 'Bio-Núcleo Ruminant',
+      title: 'Bio-Núcleo Premix Engorde 1%',
+      imageSrc: '/images/productos/biosales/bio-nucleo-premix.jpg',
+      imageAlt: 'Bio-Núcleo Premix Engorde 1%',
+      description: [
+        'Se trata de una premix (pre-mezcla) ingredientes bio-orgánicos e inorgánicos formulada para la elaboración de raciones tipo RTM (Raciones Totalmente Mezcladas) en mixer u otro tipo de mezclador que generalmente se destinan al autoconsumo en el mismo establecimiento ganadero.',
+        'Por su formulación permite el uso de ingredientes secos, húmedos o una combinación de ambos logrando una amplia versatilidad en la formulación para las diferentes categorías de engorde.',
+        'Por sus contenidos de fermentos, levaduras y enzimas promueve un mejor equilibrio ruminal mejorando los periodos de adaptación y los niveles de inclusión de ingredientes fibrosos. Se recomienda al utilizar este premix poner especial énfasis al balance proteico en la dieta.'
+      ],
+      technicalSheetUrl: '/fichas/Bio-Nucleo-1.pdf'
+    },
+    {
+      id: 'full',
+      label: 'Bio-Núcleo Full',
+      title: 'Bio-Núcleo Full',
+      imageSrc: '/images/productos/biosales/bio-nucleo-full.jpg',
+      imageAlt: 'Bio-Núcleo Full',
+      description: [
+        'Se trata de un premix (pre-mezcla) de ingredientes bio-orgánicos e inorgánicos formulada para la elaboración de raciones tipo RTM (Raciones Totalmente Mezclados) en mixer u otro tipo de mezclador que generalmente se destinan al autoconsumo en el mismo establecimiento ganadero.',
+        'Esta técnicamente formulada para una mayor inclusión de fibras y suculentos en las RTM elaboradas con este premix debido al uso de fermentos, levaduras y enzimas que favorecen la digestión ruminal de estos ingredientes.',
+        'Al mismo tiempo aporta altos niveles de NNP (Nitrógeno No Proteico) de liberación lenta, estimulando así la biota ruminal o producir mayor síntesis de proteína microbiana de alto valor biológico. Es decir, MAYOR PROTEINA A MENOR COSTO.'
+      ],
+      technicalSheetUrl: '/fichas/Bio-Nucleo-Full.pdf'
+    },
+    {
+      id: 'biosalt500',
+      label: 'Biosalt 500',
+      title: 'Biosalt 500',
+      imageSrc: '/images/productos/biosales/biosalt-500.jpg',
+      imageAlt: 'Biosalt 500',
+      description: [
+        'Producto diseñado para ser ofrecido en batea ad libitum (autoconsumo). Su formulación contempla la acción de ingredientes Biotecnológicos con el agregado de azucares reductores y almidón modificado.',
+        'De esta forma se mejora el balance electrolítico y la presión osmótica del rumen, logrando un mejor aprovechamiento de los forrajes de baja calidad (espartillos, diferidos, rollos y otros pastos fibrosos); mejorando la performance del rodeo.',
+        'Este producto de Bionutrición Ruminal, potencia la capacidad natural del rumen para transformar alimentos en nutrientes disponibles para el animal.'
+      ],
+      technicalSheetUrl: '/fichas/Biosalt-500.pdf'
+    },
+    {
+      id: 'premixsalt',
+      label: 'Biosalt Premix Salt',
+      title: 'Biosalt Premix Salt',
+      imageSrc: '/images/productos/biosales/biosalt-premix-salt.jpg',
+      imageAlt: 'Biosalt Premix Salt',
+      description: [
+        'Producto formulado con ingredientes bio-orgánicos e inorgánicos, diseñado para ser suministrada "ad libitum" en comederos de autoconsumo, con el consecuente menor costo de distribución.',
+        'Esta mezcla permite estimular un mejor aprovechamiento de los pastos, corrigiendo el balance electrolítico entre otros aspectos.',
+        'A nivel del rumen trabaja de manera sinérgica con los forrajes consumidos mejorando el funcionamiento de la biota ruminal, permitiendo una mayor producción de proteína microbiana de elevado valor biológico.'
+      ],
+      technicalSheetUrl: '/fichas/Biosalt-Premix-Salt.pdf'
+    },
+    {
+      id: 'premixsaltrumiantes',
+      label: 'Biosalt Premix Salt Pequeños Rumiantes',
+      title: 'Biosalt Premix Salt Pequeños Rumiantes',
+      imageSrc: '/images/productos/biosales/premix_salt_pequenos_rumiantes.jpg',
+      imageAlt: 'Biosalt Premix Salt Pequeños Rumiantes',
+      description: [
+        'Se trata de una mezcla física de diversos ingredientes bio-orgánicos e inorgánicos diseñado para alimentación "ad libitum" DE PEQUEÑOS RUMIANTES suministrada en comederos de autoconsumo, con el consecuente menor costo de distribución.',
+        'Esta mezcla de diseño EXCLUSIVO esta formulada para estimular un mejor aprovechamiento de los pastos CONTEMPLANDO LAS PARTICULARIDADES ANATOMOFISIOLÓGICAS DE LOS PEQUEÑOS RUMIANTES EN SUS HABITOS DE PASTOREO, ESPECIALMENTE FORMULADA PARA UN MEJOR BALANCE ELECTROLÍTICO.',
+        'También provee una cuidadosa selección de fermentos levaduriformes probióticos y complejos enzimáticos exógenos que contribuyen a un mejor funcionamiento de la biota ruminal promoviendo un mayor consumo y digestibilidad de los pastos secos y como consecuencia una mayor producción de proteína microbiana.',
+        'De esta forma los animales aprovechan esta energía extra liberada traduciéndose a campo en una mejor performance zootécnica de todas las categorías lográndose una mayor respuesta sanitaria y un mejor bienestar animal que se nota en una mayor vitalidad en las majadas.',
+        'En algunos casos hasta se ha observado cambios importantes en los hábitos de consumo y pastoreo que permiten mejorar las cargas animales con el consecuente beneficio económico.'
+      ],
+      technicalSheetUrl: '/fichas/Premix-Salt-Pequenos-rumiantes.pdf'
+    }
+  ];
 
   useEffect(() => {
     setIsLoaded(true);
@@ -69,263 +140,12 @@ const BiosalesProductPage = () => {
           </div>
         </div>
 
-        {/* Botones de pestañas */}
-        <div className="flex flex-wrap justify-center gap-4 mt-8 px-4">
-          <button
-            className={`px-6 py-2 rounded-full font-semibold transition-all ${
-              activeTab === 'premix'
-                ? 'bg-green-800 text-white shadow-lg'
-                : 'bg-white text-green-800 border border-green-800'
-            }`}
-            onClick={() => setActiveTab('premix')}
-          >
-            Bio-Núcleo Premix Engorde 1%
-          </button>
-          <button
-            className={`px-6 py-2 rounded-full font-semibold transition-all ${
-              activeTab === 'full'
-                ? 'bg-green-800 text-white shadow-lg'
-                : 'bg-white text-green-800 border border-green-800'
-            }`}
-            onClick={() => setActiveTab('full')}
-          >
-            Bio-Núcleo Full
-          </button>
-          <button
-            className={`px-6 py-2 rounded-full font-semibold transition-all ${
-              activeTab === 'biosalt500'
-                ? 'bg-green-800 text-white shadow-lg'
-                : 'bg-white text-green-800 border border-green-800'
-            }`}
-            onClick={() => setActiveTab('biosalt500')}
-          >
-            Biosalt 500
-          </button>
-          <button
-            className={`px-6 py-2 rounded-full font-semibold transition-all ${
-              activeTab === 'premixsalt'
-                ? 'bg-green-800 text-white shadow-lg'
-                : 'bg-white text-green-800 border border-green-800'
-            }`}
-            onClick={() => setActiveTab('premixsalt')}
-          >
-            Biosalt Premix Salt
-          </button>
-        </div>
-
-        {/* Contenido de pestañas */}
-        <div className="max-w-5xl mx-auto px-4 py-16 min-h-[320px]">
-          <motion.div
-            key={activeTab}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4 }}
-          >
-            {activeTab === 'premix' && (
-              <div>
-                <h2 className="text-2xl font-bold text-green-900 mb-4">Bio-Núcleo Premix Engorde 1%</h2>
-                <div className="flex flex-col md:flex-row items-center md:items-start min-h-[320px]">
-                  {/* Imagen única */}
-                  <div className="w-full md:w-1/2 flex flex-col items-center md:items-start">
-                    <div className="relative w-full max-w-lg mb-4">
-                      <Image
-                        src="/images/productos/biosales/bio-nucleo-premix.jpg"
-                        alt="Bio-Núcleo Premix Engorde 1%"
-                        width={600}
-                        height={400}
-                        className="rounded-2xl shadow-2xl w-full object-cover"
-                        priority={true}
-                      />
-                    </div>
-                  </div>
-                  {/* Información al costado */}
-                  <div className="w-full md:w-1/2 flex flex-col justify-center md:pl-8 mt-4 md:mt-0">
-                    <h3 className="text-xl font-semibold text-green-800 mb-2">Descripción del Producto</h3>
-                    <p className="text-gray-700 text-base mb-4">
-                      Se trata de una premix (pre-mezcla) ingredientes bio-orgánicos e inorgánicos
-                      formulada para la elaboración de raciones tipo RTM (Raciones Totalmente
-                      Mezcladas) en mixer u otro tipo de mezclador que generalmente se destinan al
-                      autoconsumo en el mismo establecimiento ganadero.
-                    </p>
-                    <p className="text-gray-700 text-base mb-4">
-                      Por su formulación permite el uso de ingredientes secos, húmedos o una combinación 
-                      de ambos logrando una amplia versatilidad en la formulación para las diferentes 
-                      categorías de engorde.
-                    </p>
-                    <p className="text-gray-700 text-base mb-4">
-                      Por sus contenidos de fermentos, levaduras y enzimas promueve un mejor
-                      equilibrio ruminal mejorando los periodos de adaptación y los niveles de inclusión
-                      de ingredientes fibrosos. Se recomienda al utilizar este premix poner especial
-                      énfasis al balance proteico en la dieta.
-                    </p>
-                    
-                    {/* Botón de descarga de ficha técnica */}
-                    <a 
-                      href="/fichas/Bio-Nucleo-1.pdf" 
-                      download
-                      className="mt-8 flex items-center justify-center px-4 py-2 bg-green-700 hover:bg-green-800 text-white font-medium rounded-md transition-colors duration-300 w-full sm:w-auto shadow-md"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                      </svg>
-                      Descargar Ficha Técnica
-                    </a>
-                  </div>
-                </div>
-              </div>
-            )}
-            {activeTab === 'full' && (
-              <div>
-                <h2 className="text-2xl font-bold text-green-900 mb-4">Bio-Núcleo Full</h2>
-                <div className="flex flex-col md:flex-row items-center md:items-start min-h-[320px]">
-                  {/* Imagen única */}
-                  <div className="w-full md:w-1/2 flex flex-col items-center md:items-start">
-                    <div className="relative w-full max-w-lg mb-4">
-                      <Image
-                        src="/images/productos/biosales/bio-nucleo-full.jpg"
-                        alt="Bio-Núcleo Full"
-                        width={600}
-                        height={400}
-                        className="rounded-2xl shadow-2xl w-full object-cover"
-                      />
-                    </div>
-                  </div>
-                  {/* Información al costado */}
-                  <div className="w-full md:w-1/2 flex flex-col justify-center md:pl-8 mt-4 md:mt-0">
-                    <h3 className="text-xl font-semibold text-green-800 mb-2">Descripción del Producto</h3>
-                    <p className="text-gray-700 text-base mb-4">
-                      Se trata de un premix (pre-mezcla) de ingredientes bio-orgánicos e inorgánicos
-                      formulada para la elaboración de raciones tipo RTM (Raciones Totalmente
-                      Mezclados) en mixer u otro tipo de mezclador que generalmente se destinan
-                      al autoconsumo en el mismo establecimiento ganadero.
-                    </p>
-                    <p className="text-gray-700 text-base mb-4">
-                      Esta técnicamente formulada para una mayor inclusión de fibras y suculentos en las 
-                      RTM elaboradas con este premix debido al uso de fermentos, levaduras y enzimas que 
-                      favorecen la digestión ruminal de estos ingredientes.
-                    </p>
-                    <p className="text-gray-700 text-base mb-4">
-                      Al mismo tiempo aporta altos niveles de NNP (Nitrógeno No Proteico) de liberación 
-                      lenta, estimulando así la biota ruminal o producir mayor síntesis de proteína 
-                      microbiana de alto valor biológico. Es decir, MAYOR PROTEINA A MENOR COSTO.
-                    </p>
-                    
-                    {/* Botón de descarga de ficha técnica */}
-                    <a 
-                      href="/fichas/Bio-Nucleo-Full.pdf" 
-                      download
-                      className="mt-8 flex items-center justify-center px-4 py-2 bg-green-700 hover:bg-green-800 text-white font-medium rounded-md transition-colors duration-300 w-full sm:w-auto shadow-md"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                      </svg>
-                      Descargar Ficha Técnica
-                    </a>
-                  </div>
-                </div>
-              </div>
-            )}
-            {activeTab === 'biosalt500' && (
-              <div>
-                <h2 className="text-2xl font-bold text-green-900 mb-4">Biosalt 500</h2>
-                <div className="flex flex-col md:flex-row items-center md:items-start min-h-[320px]">
-                  {/* Imagen única */}
-                  <div className="w-full md:w-1/2 flex flex-col items-center md:items-start">
-                    <div className="relative w-full max-w-lg mb-4">
-                      <Image
-                        src="/images/productos/biosales/biosalt-500.jpg"
-                        alt="Biosalt 500"
-                        width={600}
-                        height={400}
-                        className="rounded-2xl shadow-2xl w-full object-cover"
-                      />
-                    </div>
-                  </div>
-                  {/* Información al costado */}
-                  <div className="w-full md:w-1/2 flex flex-col justify-center md:pl-8 mt-4 md:mt-0">
-                    <h3 className="text-xl font-semibold text-green-800 mb-2">Descripción del Producto</h3>
-                    <p className="text-gray-700 text-base mb-4">
-                      Producto diseñado para ser ofrecido en batea ad libitum (autoconsumo). Su
-                      formulación contempla la acción de ingredientes Biotecnológicos con el agregado 
-                      de azucares reductores y almidón modificado.
-                    </p>
-                    <p className="text-gray-700 text-base mb-4">
-                      De esta forma se mejora el balance electrolítico y la presión osmótica del rumen, 
-                      logrando un mejor aprovechamiento de los forrajes de baja calidad (espartillos, 
-                      diferidos, rollos y otros pastos fibrosos); mejorando la performance del rodeo.
-                    </p>
-                    <p className="text-gray-700 text-base mb-4">
-                      Este producto de Bionutrición Ruminal, potencia la capacidad natural del rumen 
-                      para transformar alimentos en nutrientes disponibles para el animal.
-                    </p>
-                    
-                    {/* Botón de descarga de ficha técnica */}
-                    <a 
-                      href="/fichas/Biosalt-500.pdf" 
-                      download
-                      className="mt-8 flex items-center justify-center px-4 py-2 bg-green-700 hover:bg-green-800 text-white font-medium rounded-md transition-colors duration-300 w-full sm:w-auto shadow-md"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                      </svg>
-                      Descargar Ficha Técnica
-                    </a>
-                  </div>
-                </div>
-              </div>
-            )}
-            {activeTab === 'premixsalt' && (
-              <div>
-                <h2 className="text-2xl font-bold text-green-900 mb-4">Biosalt Premix Salt</h2>
-                <div className="flex flex-col md:flex-row items-center md:items-start min-h-[320px]">
-                  {/* Imagen única */}
-                  <div className="w-full md:w-1/2 flex flex-col items-center md:items-start">
-                    <div className="relative w-full max-w-lg mb-4">
-                      <Image
-                        src="/images/productos/biosales/biosalt-premix-salt.jpg"
-                        alt="Biosalt Premix Salt"
-                        width={600}
-                        height={400}
-                        className="rounded-2xl shadow-2xl w-full object-cover"
-                      />
-                    </div>
-                  </div>
-                  {/* Información al costado */}
-                  <div className="w-full md:w-1/2 flex flex-col justify-center md:pl-8 mt-4 md:mt-0">
-                    <h3 className="text-xl font-semibold text-green-800 mb-2">Descripción del Producto</h3>
-                    <p className="text-gray-700 text-base mb-4">
-                      Producto formulado con ingredientes bio-orgánicos e inorgánicos, diseñado
-                      para ser suministrada "ad libitum" en comederos de autoconsumo, con el consecuente 
-                      menor costo de distribución.
-                    </p>
-                    <p className="text-gray-700 text-base mb-4">
-                      Esta mezcla permite estimular un mejor aprovechamiento de los pastos, 
-                      corrigiendo el balance electrolítico entre otros aspectos.
-                    </p>
-                    <p className="text-gray-700 text-base mb-4">
-                      A nivel del rumen trabaja de manera sinérgica con los forrajes consumidos mejorando 
-                      el funcionamiento de la biota ruminal, permitiendo una mayor producción de proteína 
-                      microbiana de elevado valor biológico.
-                    </p>
-                    
-                    {/* Botón de descarga de ficha técnica */}
-                    <a 
-                      href="/fichas/Biosalt-Premix-Salt.pdf" 
-                      download
-                      className="mt-8 flex items-center justify-center px-4 py-2 bg-green-700 hover:bg-green-800 text-white font-medium rounded-md transition-colors duration-300 w-full sm:w-auto shadow-md"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                      </svg>
-                      Descargar Ficha Técnica
-                    </a>
-                  </div>
-                </div>
-              </div>
-            )}
-          </motion.div>
-        </div>
+        {/* Componente ProductTabDisplay */}
+        <ProductTabDisplay
+          products={biosalesProducts}
+          initialTab="premix"
+          accentColor="green"
+        />
         
         {/* Additional Sections */}
         <div className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}

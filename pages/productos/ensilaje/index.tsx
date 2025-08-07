@@ -103,7 +103,7 @@ const EnsilajeProductsPage = () => {
       image: '/images/productos/ensilaje/tech-lona.jpeg',
       description: 'Lona multicapa resistente y durable.',
       details: ['Negro: 8 x 100 m (100 micras)'],
-      logo: '/images/logos/tech-logo.png',
+      logo: '/images/logos/azul-pack2-removebg.png',
     },
     {
       name: 'Tech Silo',
@@ -111,7 +111,7 @@ const EnsilajeProductsPage = () => {
       image: '/images/productos/ensilaje/tech-silo.jpg',
       description: 'Lámina multicapa para cubrir ensilaje.',
       details: ['Blanco/Negro: 12 x 50 m y 14 x 50 m', 'Disponible en 100 y 150 micras'],
-      logo: '/images/logos/tech-logo.png',
+      logo: '/images/logos/azul-pack2-removebg.png',
     },
     {
       name: 'TechO2 Barrier',
@@ -122,7 +122,7 @@ const EnsilajeProductsPage = () => {
         'Blanco/Negro: 7 capas, con barrera de EVOH',
         'Azul: 45 micras (12 x 50 m y 14 x 50 m) con barrera de EVOH',
       ],
-      logo: '/images/logos/tech-logo.png',
+      logo: '/images/logos/azul-pack2-removebg.png',
     },
   ];
 

@@ -5,7 +5,7 @@ import Link from 'next/link';
 const logos = [
   { src: '/images/logos/agrinpex-logo.webp', alt: 'Agrinpex', link: 'https://www.instagram.com/agrinplex' },
   { src: '/images/logos/rotor-logo.png', alt: 'Rotor', link: 'https://www.rotortanques.com/' },
-  { src: '/images/logos/azulpack-logo.png', alt: 'Azulpack', link: 'https://www.azulpack.com.br/es/' },
+  { src: '/images/logos/azul-pack2-removebg.png', alt: 'Azulpack', link: 'https://www.azulpack.com.br/es/' },
   { src: '/images/logos/biotech-logo.png', alt: 'Biotech', link: 'https://www.instagram.com/biotechpar_paraguay/' },
   { src: '/images/logos/exporplas-logo.png', alt: 'Exporplas', link: 'https://exporplas.pt/es/' },
   { src: '/images/logos/genofeed-logo.png', alt: 'Genofeed', link: 'https://genofeed.com.ar/' },
