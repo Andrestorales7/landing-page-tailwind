@@ -30,8 +30,8 @@ const ProductTabDisplay: React.FC<ProductTabDisplayProps> = ({
 
   return (
     <>
-      {/* Tab buttons */}
-      <div className="flex flex-wrap justify-center gap-4 mt-8 px-4">
+      {/* Tab buttons - Updated to match inoculantes design */}
+      <div className="flex justify-center gap-4 mt-8 px-4">
         {products.map((product) => (
           <button
             key={product.id}
@@ -83,12 +83,12 @@ const ProductTabDisplay: React.FC<ProductTabDisplayProps> = ({
                       </p>
                     ))}
                     
-                    {/* Technical sheet download button */}
+                    {/* Technical sheet download button - Updated to match inoculantes design */}
                     {product.technicalSheetUrl && (
                       <a 
                         href={product.technicalSheetUrl}
                         download
-                        className={`mt-8 flex items-center justify-center px-4 py-2 bg-${accentColor}-700 hover:bg-${accentColor}-800 text-white font-medium rounded-md transition-colors duration-300 w-full sm:w-auto shadow-md`}
+                        className={`mt-16 flex items-center justify-center px-4 py-2 bg-${accentColor}-700 hover:bg-${accentColor}-800 text-white font-medium rounded-md transition-colors duration-300 w-full sm:w-auto shadow-md`}
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />

@@ -94,14 +94,16 @@ const products = [
 		name: 'Comederos',
 		slug: 'comederos-nortene',
 		images: [
+      '/images/productos/agropecuaria/comedero-vacio.jpg',
 			'/images/productos/agropecuaria/comedero.jpg',
 			'/images/productos/agropecuaria/comedero2.jpg',
+      
 			
 		],
 		description: `
-    <h2 class="text-2xl font-bold mb-2">Comederos Agrinplex – Eficiencia y durabilidad para la alimentación ganadera</h2>
+    <h2 class="text-2xl font-bold mb-2">Comederos de Geomembranas – Eficiencia y durabilidad para la alimentación ganadera</h2>
     <p>
-      Los <strong>Comederos Agrinplex de CMP Agro</strong> están diseñados para satisfacer las exigencias del sector ganadero, ofreciendo una solución práctica, económica y de alta resistencia para la alimentación de bovinos y porcinos. Fabricados con geomembranas de 1.000 micrones, estos comederos garantizan una larga vida útil y un rendimiento óptimo en diversas condiciones climáticas.
+      Los <strong>Comederos de Geomembranas de CMP Agro</strong> están diseñados para satisfacer las exigencias del sector ganadero, ofreciendo una solución práctica, económica y de alta resistencia para la alimentación de bovinos y porcinos. Fabricados con geomembranas de 1.000 micrones, estos comederos garantizan una larga vida útil y un rendimiento óptimo en diversas condiciones climáticas.
     </p>
     <h3 class="text-xl font-semibold mt-6 mb-2">🔍 Características destacadas:</h3>
     <ul class="list-disc pl-6 mb-4">
@@ -112,19 +114,19 @@ const products = [
     </ul>
     <h3 class="text-xl font-semibold mt-6 mb-2">📐 Especificaciones técnicas:</h3>
     <ul class="list-disc pl-6 mb-4">
-      <li><strong>Medidas estándar:</strong> 1,18 m de ancho x 25 o 50 m de largo.</li>
-      <li><strong>Peso:</strong> Varía según la longitud seleccionada.</li>
+      <li><strong>Medidas estándar:</strong> Disponibles en anchos de 1 m, 1,20 m y 1,50 m, con longitudes de 25 m o 50 m.</li>
+      <li><strong>Peso:</strong> Varía según las dimensiones seleccionadas.</li>
       <li><strong>Color:</strong> Negro.</li>
     </ul>
   `,
 		details: [
 			'<span class="font-semibold">Material:</span> Geomembrana de 1.000 micrones, resistente a químicos y rayos UV',
-			'<span class="font-semibold">Medidas estándar:</span> 1,18 m de ancho x 25 o 50 m de largo',
+			'<span class="font-semibold">Medidas estándar:</span> Anchos de 1 m, 1,20 m y 1,50 m x longitudes de 25 m o 50 m',
 			'<span class="font-semibold">Color:</span> Negro',
 			'<span class="font-semibold">Usos:</span> Alimentación de bovinos y porcinos, raciones sólidas, semisólidas y líquidas',
 			'<span class="font-semibold">Diseño:</span> Estructura ligera y adaptable, fácil de instalar',
 		],
-		logo: '/images/logos/agrinpex-logo.png',
+		logo: '/images/logos/cmp-logo.png',
 	},
 	{
 		name: 'Geomembranas',
@@ -148,11 +150,39 @@ const products = [
       <li><strong>Fácil instalación:</strong> Su flexibilidad y ligereza facilitan el transporte y la colocación en obra.</li>
     </ul>
     <h3 class="text-xl font-semibold mt-6 mb-2">📏 Especificaciones disponibles:</h3>
-    <ul class="list-disc pl-6 mb-4">
-      <li><strong>Espesores:</strong> 500 mm, 800 mm y 1000 micras.</li>
-      <li><strong>Ancho de rollo:</strong> 7 metros.</li>
-      <li><strong>Longitudes estándar:</strong> 200 metros (0.75 mm y 1.00 mm) y 140 metros (1.50 mm).</li>
-    </ul>
+    <div class="overflow-x-auto mb-6">
+      <table class="min-w-full bg-white border border-gray-300 rounded-lg">
+        <thead>
+          <tr class="bg-green-100">
+            <th class="py-2 px-4 border-b text-left">Espesor</th>
+            <th class="py-2 px-4 border-b text-left">Ancho</th>
+            <th class="py-2 px-4 border-b text-left">Largo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="py-2 px-4 border-b">500 micras</td>
+            <td class="py-2 px-4 border-b">7 metros</td>
+            <td class="py-2 px-4 border-b">100 metros</td>
+          </tr>
+          <tr>
+            <td class="py-2 px-4 border-b">800 micras</td>
+            <td class="py-2 px-4 border-b">7 metros</td>
+            <td class="py-2 px-4 border-b">100 metros</td>
+          </tr>
+          <tr>
+            <td class="py-2 px-4 border-b">1000 micras</td>
+            <td class="py-2 px-4 border-b">7 metros</td>
+            <td class="py-2 px-4 border-b">100 metros</td>
+          </tr>
+          <tr>
+            <td class="py-2 px-4 border-b">1500 micras</td>
+            <td class="py-2 px-4 border-b">7 metros</td>
+            <td class="py-2 px-4 border-b">140 metros</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <h3 class="text-xl font-semibold mt-6 mb-2">🛠️ Aplicaciones recomendadas:</h3>
     <ul class="list-disc pl-6 mb-4">
       <li>Reservorios para riego y consumo animal.</li>
@@ -160,6 +190,9 @@ const products = [
       <li>Lagunas de tratamiento de efluentes industriales y agrícolas.</li>
       <li>Sistemas de contención en minería y rellenos sanitarios.</li>
       <li>Proyectos de impermeabilización en construcción civil.</li>
+      <li>Estercoleras y tratamiento de residuos orgánicos.</li>
+      <li>Revestimiento interno de silos (tolva, silo en V, pulmones).</li>
+      <li>Siloestático y sistemas de almacenamiento de granos.</li>
     </ul>
     <h3 class="text-xl font-semibold mt-6 mb-2">🌿 Compromiso con el medio ambiente:</h3>
     <p>
@@ -167,11 +200,11 @@ const products = [
     </p>
   `,
 		details: [
-			'<span class="font-semibold">Material:</span> Polietileno de alta densidad (HDPE), atóxico',
-			'<span class="font-semibold">Espesores:</span> 500 mm, 800 mm, 1000 micras',
+			'<span class="font-semibold">Material:</span> Polietileno de alta densidad (HDPE) no reciclado, atóxico',
+			'<span class="font-semibold">Espesores:</span> 500 micras, 800 micras, 1000 micras, 1500 micras',
 			'<span class="font-semibold">Ancho de rollo:</span> 7 metros',
-			'<span class="font-semibold">Longitudes estándar:</span> 200 m (0.75 mm y 1.00 mm), 140 m (1.50 mm)',
-			'<span class="font-semibold">Aplicaciones:</span> Reservorios, lagos, estanques, lagunas de tratamiento, minería, rellenos sanitarios, construcción civil',
+			'<span class="font-semibold">Longitudes:</span> 100 metros (500, 800 y 1000 micras), 140 metros (1500 micras)',
+			'<span class="font-semibold">Aplicaciones:</span> Reservorios, lagos, estanques, estercoleras, revestimiento de silos, siloestático, lagunas de tratamiento, minería, rellenos sanitarios',
 			'<span class="font-semibold">Propiedades:</span> Alta resistencia química, mecánica y a la intemperie, impermeabilidad superior, larga vida útil',
 		],
 		logo: '/images/logos/nortene-logo.png',

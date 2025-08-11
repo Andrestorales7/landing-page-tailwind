@@ -16,6 +16,162 @@ export interface Article {
 export const fetchArticles = async (): Promise<Article[]> => {
   const articles = [
     {
+      id: 9,
+      title: "Inauguración de renovada sucursal en Minga Guazú",
+      description: "Soluciones eficientes para el campo, más cerca del productor paraguayo.",
+      category: "Institucional",
+      author: "CMP Noticias",
+      date: "2025-08-08",
+      image: "/images/eventos/sucursal-minga/portada-sucursal.png",
+
+      authorImage: "/images/eventos/noticias-logo.png",
+      content: `
+        <article class="news-content">
+          <h2 class="text-2xl font-bold mb-4">Expansión estratégica para estar más cerca del productor</h2>
+          <p class="mb-4">
+            CMP Agro continúa expandiendo su presencia en Paraguay con la inauguración de su tercera sucursal, ubicada en la ciudad de Minga Guazú, departamento de Alto Paraná.
+          </p>
+          <p class="mb-4">
+            Este nuevo punto de atención reafirma nuestro compromiso con los trabajadores del campo, acercando soluciones más eficientes, innovadoras y sustentables para el productor paraguayo.
+          </p>
+          <figure class="my-8">
+            <img src="/images/eventos/sucursal-minga/portada-sucursal.jpeg" alt="Fachada de la nueva sucursal de CMP Agro en Minga Guazú" class="rounded-xl w-full shadow-lg" />
+          </figure>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4">Ubicación estratégica</h3>
+          <p class="mb-4">
+            Con una sucursal renovada y equipada para ofrecer la mejor experiencia, invitamos a todos nuestros clientes y amigos a visitarnos en:
+          </p>
+          <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500 my-5 text-center shadow-sm hover:shadow-md transition-shadow duration-300">
+            <p class="font-bold text-lg text-green-800">Km 16 Lado Monday – Sobre Ruta Internacional PY02</p>
+          </div>
+         
+
+          <h3 class="text-xl font-semibold mt-8 mb-4">Compromiso con el desarrollo local</h3>
+          <p class="mb-4">
+            Seguimos trabajando para estar más cerca, brindar atención personalizada y garantizar el acceso a productos y tecnologías que impulsan el desarrollo del agro en todo el país.
+          </p>
+          <p class="mb-4">
+            Esta nueva sucursal se suma a nuestra red de atención, ofreciendo toda la gama de productos y servicios que caracterizan a CMP Agro, con el respaldo técnico y la calidad que nos distingue.
+          </p>
+        
+          
+          <blockquote class="bg-gray-50 p-6 rounded-lg border-l-4 border-blue-500 my-6">
+            <p class="font-semibold mb-2">¡Los esperamos en nuestra nueva sucursal!</p>
+            <p>Horarios de atención: Lunes a viernes de 07:30 a 17:30 hs. y sábados de 07:30 a 12:00 hs.</p>
+          </blockquote>
+        </article>
+      `,
+    },
+    {
+      id: 8,
+      title: "CMP Agro presenta en Paraguay las nuevas bolsas de rafia Rafitec",
+      description: "Tecnología única en envases diseñados para productos que merecen ser vistos.",
+      category: "Productos",
+      author: "CMP Noticias",
+      date: "2025-08-08",
+      image: "/images/eventos/rafitec/lateral-view.jpg",
+      authorImage: "/images/eventos/noticias-logo.png",
+      content: `
+        <article class="news-content">
+          <h2 class="text-2xl font-bold mb-4">Innovación en soluciones de empaque premium</h2>
+          <p class="mb-4">
+            Nuevos lanzamientos de Rafitec llegan al mercado paraguayo de la mano de CMP Agro, ofreciendo soluciones de empaque que combinan resistencia, presentación premium y tecnología de última generación.
+          </p>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4">Sacaria Lateral View</h3>
+          <p class="mb-4">
+            Como parte de la línea Premium Sack de Rafitec, la <strong>Sacaria Lateral View</strong> se destaca por su resistencia, seguridad y apariencia impecable. Su laminación de polipropileno garantiza la protección del contenido y elimina la necesidad de recubrimientos internos.
+          </p>
+          <p class="mb-4">
+            Gracias a su tecnología de impresión y laminación interna, asegura la seguridad alimentaria, mientras que el diseño de vista lateral permite mostrar el producto real, generando un fuerte impacto visual y aumentando la efectividad del marketing en el punto de venta.
+          </p>
+          <figure class="my-8 flex justify-center">
+            <img src="/images/eventos/rafitec/portada-rafitec.jpg" alt="Bolsas Sacaria Lateral View de Rafitec" class="rounded-xl w-3/4 md:w-2/3 lg:w-1/2" />
+          </figure>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4">Sacaria Special Coating</h3>
+          <p class="mb-4">
+            Desarrollados para quienes buscan protección extra, rendimiento técnico y una presentación llamativa, los sacos con recubrimiento metalizado ofrecen un acabado premium que resalta la marca y protege el producto.
+          </p>
+          <p class="mb-4">
+            El efecto metálico impide que la luz degrade la materia prima, asegurando su integridad y calidad durante más tiempo, además de ofrecer una imagen diferenciadora en el mercado.
+          </p>
+          <figure class="my-8">
+            <img src="/images/eventos/rafitec/special-coating.jpg" alt="Bolsas Sacaria Special Coating con efecto metalizado" class="rounded-xl w-full" />
+          </figure>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4">Disponibles en Paraguay</h3>
+          <p class="mb-4">
+            Ambos modelos ya están disponibles en el mercado paraguayo, con calidad garantizada y el respaldo de CMP Agro como representante y distribuidor oficial de Rafitec. Realizamos envíos a todo el país.
+          </p>
+          <p class="mb-4">
+            Estas soluciones innovadoras están diseñadas para empresas que buscan destacar la calidad de sus productos a través de un envase que comunica valor y distinción.
+          </p>
+          
+          <blockquote class="bg-gray-50 p-6 rounded-lg border-l-4 border-blue-500 my-6">
+            <p class="font-semibold mb-2">¡Eleve la presentación de sus productos con Rafitec!</p>
+            <p>Para más información y pedidos, visite nuestras sucursales o contacte con nuestros asesores a través de nuestros canales oficiales.</p>
+          </blockquote>
+        </article>
+      `,
+    },
+    {
+      id: 7,
+      title: "CMP Agro y Rafitec en el VI Congreso Paraguayo de Semillas",
+      description: "Innovación y soluciones para el sector semillero en un evento que reunió a los protagonistas del agro nacional.",
+      category: "Eventos",
+      author: "CMP Noticias",
+      date: "2025-08-07",
+      image: "/images/eventos/congreso-semillas/portada-congreso.jpg",
+      authorImage: "/images/eventos/noticias-logo.png",
+      content: `
+        <article class="news-content">
+          <h2 class="text-2xl font-bold mb-4">CMP Agro y Rafitec: Protagonistas en el VI Congreso Paraguayo de Semillas</h2>
+          <p class="mb-4">
+            CMP Agro, en conjunto con Rafitec, participó exitosamente del <strong>VI Congreso Paraguayo de Semillas</strong>, realizado los días 6 y 7 de agosto en el Gran Nobile Hotel & Convention de Ciudad del Este.
+          </p>
+          <p class="mb-4">
+            El evento, organizado por la <strong>Asociación de Productores de Semillas del Paraguay (APROSEMP)</strong>, el <strong>Servicio Nacional de Calidad y Sanidad Vegetal y de Semillas (SENAVE)</strong> y la <strong>Asociación Paraguaya de Obtentores Vegetales (PARPOV)</strong>, reunió a productores, técnicos, investigadores, empresas y referentes de la industria semillera nacional e internacional.
+          </p>
+          
+
+          <h3 class="text-xl font-semibold mt-8 mb-4">Soluciones innovadoras para el sector semillero</h3>
+          <p class="mb-4">
+            Durante las dos jornadas, nuestro equipo recibió a clientes, amigos y visitantes en el stand, presentando soluciones únicas para conservación, almacenamiento y empaque de semillas, destacando la calidad y durabilidad de las bolsas y big bags Rafitec, así como otras tecnologías que ofrecemos para el sector.
+          </p>
+          <p class="mb-4">
+            Nuestra propuesta se centró en productos específicamente diseñados para garantizar la integridad y calidad de las semillas durante todo el proceso de almacenamiento y distribución, factor clave para el éxito de los productores semilleros.
+          </p>
+          <figure class="my-2 flex justify-center">
+            <video controls class="rounded-xl w-3/4 md:w-2/3 lg:w-1/2">
+              <source src="/images/eventos/congreso-semillas/video-semillas.mp4" type="video/mp4" />
+              Tu navegador no soporta la reproducción de videos.
+            </video>
+          </figure>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4">Networking e intercambio de conocimientos</h3>
+          <p class="mb-4">
+            Además de presentar nuestras soluciones, escuchamos activamente en espacios de networking e intercambio de conocimientos, fortaleciendo vínculos y generando nuevas oportunidades de colaboración para seguir aportando al desarrollo del agro paraguayo.
+          </p>
+          <p class="mb-4">
+            El congreso también sirvió como plataforma para conocer las últimas tendencias e innovaciones en el sector semillero, permitiéndonos alinear nuestras soluciones con las necesidades actuales y futuras de los productores.
+          </p>
+          <figure class="my-8">
+            <img src="/images/eventos/congreso-semillas/congreso3.jpg" alt="Equipo de CMP Agro y Rafitec interactuando con visitantes" class="rounded-xl w-full" />
+          </figure>
+
+          <p class="mb-4">
+            Agradecemos a todos los que se acercaron a nuestro stand y fueron parte de esta experiencia. Nos despedimos con el compromiso de seguir sembrando innovación y de reencontrarnos en la próxima edición.
+          </p>
+          <blockquote class="bg-gray-50 p-6 rounded-lg border-l-4 border-blue-500 my-6">
+            <p class="font-semibold mb-2">¡Gracias por acompañarnos en este importante evento!</p>
+            <p>Para conocer más sobre nuestras soluciones para el sector semillero, contáctenos a través de nuestros canales oficiales.</p>
+          </blockquote>
+        </article>
+      `,
+    },
+    {
       id: 6,
       title: "CMP Agro estará presente en Cooprolanda 2025",
       description: "Participaremos en la Expo-Feria Lechera más importante del país, presentando soluciones innovadoras.",
@@ -207,9 +363,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
             <li>✅ <span class="ml-2"><strong>Reducción de la frecuencia respiratoria</strong>, favoreciendo el confort animal.</span></li>
             <li>✅ <span class="ml-2"><strong>Mayor eficiencia reproductiva</strong>, impactando positivamente en la producción ganadera.</span></li>
           </ul>
-          <figure class="my-8">
-            <img src="/images/eventos/cta/cta2.jpg" alt="Ganado bajo Malla CTA Aluminet" class="rounded-xl w-full" />
-          </figure>
+         
 
           <p class="mb-6">
             Miles de agroganaderos en Paraguay ya han implementado esta tecnología, logrando una mayor eficiencia y rentabilidad en sus establecimientos.

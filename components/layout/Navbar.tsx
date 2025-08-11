@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
@@ -7,9 +7,59 @@ const Navbar: React.FC = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isProductMenuOpen, setIsProductMenuOpen] = useState(false);
+    const [isMobileProductMenuOpen, setIsMobileProductMenuOpen] = useState(false);
+    const [activeCategory, setActiveCategory] = useState<string | null>(null);
+    const [mobileActiveCategory, setMobileActiveCategory] = useState<string | null>(null);
     const router = useRouter();
+    const productMenuRef = useRef<HTMLLIElement>(null);
+    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const categoryTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
     const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+
+    // Manejo mejorado del menú desplegable
+    const handleCloseProductMenu = () => {
+        timeoutRef.current = setTimeout(() => {
+            setIsProductMenuOpen(false);
+            setActiveCategory(null);
+        }, 100);
+    };
+
+    const handleMenuInteraction = (isEntering: boolean) => {
+        if (isEntering) {
+            if (timeoutRef.current) clearTimeout(timeoutRef.current);
+            setIsProductMenuOpen(true);
+        } else {
+            handleCloseProductMenu();
+        }
+    };
+
+    const handleCategoryInteraction = (categoryId: string | null, isEntering: boolean) => {
+        if (isEntering) {
+            if (categoryTimeoutRef.current) clearTimeout(categoryTimeoutRef.current);
+            setActiveCategory(categoryId);
+        } else {
+            categoryTimeoutRef.current = setTimeout(() => {
+                // Solo limpiar si no hay otro hover activo
+                if (activeCategory === categoryId) {
+                    setActiveCategory(null);
+                }
+            }, 100);
+        }
+    };
+
+    // Cierra el menú al hacer clic fuera de él
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (productMenuRef.current && !productMenuRef.current.contains(event.target as Node)) {
+                setIsProductMenuOpen(false);
+                setActiveCategory(null);
+            }
+        };
+        
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -21,10 +71,25 @@ const Navbar: React.FC = () => {
     }, []);
 
     useEffect(() => {
-        const handleRouteChange = () => setIsMobileMenuOpen(false);
+        const handleRouteChange = () => {
+            setIsMobileMenuOpen(false);
+            setIsProductMenuOpen(false);
+            setIsMobileProductMenuOpen(false);
+            setActiveCategory(null);
+            setMobileActiveCategory(null);
+        };
+        
         router.events.on("routeChangeComplete", handleRouteChange);
         return () => router.events.off("routeChangeComplete", handleRouteChange);
     }, [router]);
+
+    // Limpiar timeouts al desmontar
+    useEffect(() => {
+        return () => {
+            if (timeoutRef.current) clearTimeout(timeoutRef.current);
+            if (categoryTimeoutRef.current) clearTimeout(categoryTimeoutRef.current);
+        };
+    }, []);
 
     const scrollToSection = (sectionId: string) => {
         if (router.pathname !== "/") {
@@ -46,15 +111,39 @@ const Navbar: React.FC = () => {
         }
     };
 
-    const productSubcategories = [
-        { name: "Horticultura", id: "horticultura", path: "/productos/horticultura" },
-        { name: "Ensilaje", id: "ensilaje", path: "/productos/ensilaje" },
-        { name: "Agropecuaria", id: "agropecuaria", path: "/productos/agropecuaria" },
-        { name: "Tanques", id: "tanques", path: "/productos/tanques" },
-        { name: "Envases", id: "envases", path: "/productos/envases" },
-        { name: "Inoculantes", id: "inoculantes", path: "/productos/inoculantes" },
-        { name: "Biosales", id: "biosales", path: "/productos/biosales" },
-        { name: "Otros...", id: "soluciones", path: "/productos/otrosproductos" }
+    const productCategories = [
+        { 
+            name: "Agricultura y Ganadería", 
+            id: "agricultura",
+            subcategories: [
+                { name: "Horticultura", id: "horticultura", path: "/productos/horticultura" },
+                { name: "Ensilaje", id: "ensilaje", path: "/productos/ensilaje" },
+                { name: "Agropecuaria", id: "agropecuaria", path: "/productos/agropecuaria" },
+            ]
+        },
+        { 
+            name: "Sistemas de Almacenamiento", 
+            id: "almacenamiento",
+            subcategories: [
+                { name: "Envases", id: "envases", path: "/productos/envases" },
+                { name: "Tanques", id: "tanques", path: "/productos/tanques" },
+            ]
+        },
+        { 
+            name: "Bio-insumos", 
+            id: "bioinsumos",
+            subcategories: [
+                { name: "Inoculantes", id: "inoculantes", path: "/productos/inoculantes" },
+                { name: "Biosales", id: "biosales", path: "/productos/biosales" },
+            ]
+        },
+        { 
+            name: "Otros Productos", 
+            id: "otros",
+            subcategories: [
+                { name: "Ver todos", id: "soluciones", path: "/productos/otrosproductos" }
+            ]
+        }
     ];
 
     return (
@@ -74,9 +163,9 @@ const Navbar: React.FC = () => {
                                 <Image 
                                     src="/images/logos/cmp-logo3.png" 
                                     alt="Company Logo" 
-                                    width={124} // Doble del tamaño mostrado
+                                    width={124}
                                     height={124}
-                                    className="h-22 w-22 object-contain" // h-22 = 88px
+                                    className="h-22 w-22 object-contain"
                                     priority
                                     quality={100}
                                 />
@@ -111,8 +200,9 @@ const Navbar: React.FC = () => {
 
                                 <li
                                     className="relative"
-                                    onMouseEnter={() => setIsProductMenuOpen(true)}
-                                    onMouseLeave={() => setIsProductMenuOpen(false)}
+                                    ref={productMenuRef}
+                                    onMouseEnter={() => handleMenuInteraction(true)}
+                                    onMouseLeave={() => handleMenuInteraction(false)}
                                 >
                                     <div className="flex flex-col">
                                         <Link
@@ -120,39 +210,62 @@ const Navbar: React.FC = () => {
                                             className="flex items-center font-medium tracking-wide transition-colors hover:text-green-500"
                                             aria-haspopup="true"
                                             aria-expanded={isProductMenuOpen}
-                                            onClick={() => setIsProductMenuOpen(false)}
                                         >
                                             Productos
-                                            <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <svg className={`w-4 h-4 ml-1 transition-transform duration-200 ${isProductMenuOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                             </svg>
                                         </Link>
-                                        <div
-                                            className={`absolute left-0 top-full bg-white shadow-xl rounded-lg p-3 min-w-[220px] z-10 border-t-2 border-green-500 text-gray-800 transition-all duration-200 ${
-                                                isProductMenuOpen ? "block" : "hidden"
-                                            }`}
-                                        >
-                                            <Link
-                                                href="/productos"
-                                                className="block w-full text-left px-4 py-2.5 text-base font-semibold text-green-600 hover:bg-gray-50 hover:text-green-700 rounded-md transition-colors mb-1 border-b border-gray-200"
-                                                onClick={() => setIsProductMenuOpen(false)}
+                                        
+                                        {isProductMenuOpen && (
+                                            <div 
+                                                className="absolute left-0 top-full bg-white shadow-xl rounded-lg p-3 min-w-[320px] z-10 border-t-2 border-green-500 text-gray-800 animate-fadeIn"
+                                                aria-label="Submenú de productos"
                                             >
-                                                Categorias
-                                            </Link>
-                                            {productSubcategories.map((subcategory) => (
-                                                <Link
-                                                    key={subcategory.id}
-                                                    href={subcategory.path}
-                                                    className="block w-full text-left px-4 py-2 text-sm text-gray-800 hover:text-green-500 rounded-md transition-colors"
-                                                    onClick={() => {
-                                                        setIsProductMenuOpen(false);
-                                                        setIsMobileMenuOpen(false);
-                                                    }}
-                                                >
-                                                    {subcategory.name}
-                                                </Link>
-                                            ))}
-                                        </div>
+                                                <div className="grid grid-cols-1 gap-2">
+                                                    {productCategories.map((category) => (
+                                                        <div 
+                                                            key={category.id}
+                                                            className="relative"
+                                                            onMouseEnter={() => handleCategoryInteraction(category.id, true)}
+                                                            onMouseLeave={() => handleCategoryInteraction(category.id, false)}
+                                                        >
+                                                            <div
+                                                                className={`block w-full text-left px-4 py-2.5 text-base text-gray-700 hover:bg-gray-50 hover:text-green-500 rounded-md transition-colors flex items-center justify-between cursor-pointer group ${activeCategory === category.id ? 'bg-gray-50 text-green-500' : ''}`}
+                                                            >
+                                                                <span>{category.name}</span>
+                                                                <svg 
+                                                                    className={`w-4 h-4 transition-transform duration-200 text-gray-400 group-hover:text-green-500 ${activeCategory === category.id ? 'rotate-180 text-green-500' : ''}`} 
+                                                                    fill="none" 
+                                                                    stroke="currentColor" 
+                                                                    viewBox="0 0 24 24"
+                                                                >
+                                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                                                </svg>
+                                                            </div>
+                                                            
+                                                            <div 
+                                                                id={`subcategory-${category.id}`}
+                                                                className={`overflow-hidden transition-all duration-300 ease-in-out ${activeCategory === category.id ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'}`}
+                                                            >
+                                                                <div className="bg-gray-50 rounded-md mt-1 mb-2 py-1.5 px-2">
+                                                                    {category.subcategories.map((subcategory) => (
+                                                                        <Link
+                                                                            key={subcategory.id}
+                                                                            href={subcategory.path}
+                                                                            className="flex items-center w-full text-left px-4 py-2 text-sm text-gray-600 hover:text-green-500 hover:bg-white rounded-md transition-all duration-150 border-l-2 border-transparent hover:border-green-400 group"
+                                                                        >
+                                                                            <span className="w-1.5 h-1.5 bg-gray-300 rounded-full mr-2 group-hover:bg-green-400 transition-colors duration-200"></span>
+                                                                            {subcategory.name}
+                                                                        </Link>
+                                                                    ))}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        )}
                                     </div>
                                 </li>
 
@@ -194,6 +307,7 @@ const Navbar: React.FC = () => {
                                     onClick={toggleMobileMenu}
                                     className="rounded-full bg-gray-100 p-2 text-gray-700 hover:text-green-500 hover:bg-gray-200 transition-colors"
                                     aria-label="Toggle menu"
+                                    aria-expanded={isMobileMenuOpen}
                                 >
                                     {isMobileMenuOpen ? (
                                         <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -211,11 +325,15 @@ const Navbar: React.FC = () => {
                 </div>
 
                 {isMobileMenuOpen && (
-                    <div className="md:hidden bg-white border-t border-gray-100 rounded-b-lg shadow-lg animate-fadeIn">
+                    <div 
+                        className="md:hidden bg-white border-t border-gray-100 rounded-b-lg shadow-lg animate-fadeIn" 
+                        role="dialog" 
+                        aria-modal="true"
+                    >
                         <div className="pt-4 pb-6 space-y-3 px-4">
                             <Link
                                 href="/"
-                                className="block font-medium text-gray-800 py-2 hover:text-green-500"
+                                className="block text-gray-800 py-2 hover:text-green-500"
                                 onClick={() => {
                                     setIsMobileMenuOpen(false);
                                 }}
@@ -224,7 +342,7 @@ const Navbar: React.FC = () => {
                             </Link>
                             <Link
                                 href="/#productSect"
-                                className="block w-full text-left font-medium text-gray-800 py-2 hover:text-green-500"
+                                className="block w-full text-left text-gray-800 py-2 hover:text-green-500"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     setIsMobileMenuOpen(false);
@@ -233,48 +351,70 @@ const Navbar: React.FC = () => {
                             >
                                 Soluciones
                             </Link>
-                            <div className="relative">
-                                <Link
-                                    href="#"
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        setIsProductMenuOpen((open) => !open);
-                                    }}
-                                    className="block w-full text-left font-medium text-gray-800 py-2 hover:text-green-500 flex items-center justify-between"
+                            
+                            {/* Productos con acordeón para móvil */}
+                            <div className="space-y-2">
+                                <button
+                                    onClick={() => setIsMobileProductMenuOpen(!isMobileProductMenuOpen)}
+                                    className="block w-full text-left text-gray-800 py-2 hover:text-green-500 flex items-center justify-between"
+                                    aria-expanded={isMobileProductMenuOpen}
                                 >
                                     Productos
-                                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg className={`w-4 h-4 transition-transform duration-200 ${isMobileProductMenuOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                     </svg>
-                                </Link>
-                                {isProductMenuOpen && (
-                                    <div className="bg-white border rounded-lg shadow-lg mt-2">
-                                        <Link
-                                            href="/productos"
-                                            className="block w-full text-left px-4 py-2.5 text-base font-semibold text-green-600 hover:bg-gray-50 hover:text-green-700 rounded-md transition-colors mb-1 border-b border-gray-200"
-                                            onClick={() => setIsProductMenuOpen(false)}
-                                        >
-                                            Categorias
-                                        </Link>
-                                        {productSubcategories.map((subcategory) => (
-                                            <Link
-                                                key={subcategory.id}
-                                                href={subcategory.path}
-                                                className="block w-full text-left px-4 py-2 text-sm text-gray-800 hover:text-green-500 rounded-md transition-colors"
-                                                onClick={() => {
-                                                    setIsProductMenuOpen(false);
-                                                    setIsMobileMenuOpen(false);
-                                                }}
-                                            >
-                                                {subcategory.name}
-                                            </Link>
+                                </button>
+                                
+                                <div 
+                                    className={`overflow-hidden transition-all duration-300 ease-in-out ${isMobileProductMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
+                                >
+                                    <div className="pl-4 space-y-2 mt-1">
+                                        {productCategories.map((category) => (
+                                            <div key={category.id} className="space-y-1">
+                                                <div 
+                                                    className={`block w-full text-left text-gray-700 py-2 flex items-center justify-between cursor-pointer group rounded-md hover:bg-gray-50 px-2 ${mobileActiveCategory === category.id ? 'bg-gray-50 text-green-500' : ''}`}
+                                                    onClick={() => setMobileActiveCategory(mobileActiveCategory === category.id ? null : category.id)}
+                                                >
+                                                    <span>{category.name}</span>
+                                                    <svg 
+                                                        className={`w-4 h-4 transition-transform duration-200 text-gray-400 group-hover:text-green-500 ${mobileActiveCategory === category.id ? 'rotate-180 text-green-500' : ''}`} 
+                                                        fill="none" 
+                                                        stroke="currentColor" 
+                                                        viewBox="0 0 24 24"
+                                                    >
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                                    </svg>
+                                                </div>
+                                                
+                                                <div 
+                                                    id={`mobile-subcategory-${category.id}`}
+                                                    className={`overflow-hidden transition-all duration-300 ease-in-out ${mobileActiveCategory === category.id ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'}`}
+                                                >
+                                                    <div className="pl-6 space-y-1 bg-gray-50 rounded-md py-2 px-1">
+                                                        {category.subcategories.map((subcategory) => (
+                                                            <Link
+                                                                key={subcategory.id}
+                                                                href={subcategory.path}
+                                                                className="flex items-center w-full text-left py-2 text-sm text-gray-600 hover:text-green-500 rounded-md hover:bg-white px-2 transition-all duration-150 group"
+                                                                onClick={() => {
+                                                                    setIsMobileMenuOpen(false);
+                                                                }}
+                                                            >
+                                                                <span className="w-1.5 h-1.5 bg-gray-300 rounded-full mr-2 group-hover:bg-green-400 transition-colors duration-200"></span>
+                                                                {subcategory.name}
+                                                            </Link>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </div>
                                         ))}
                                     </div>
-                                )}
+                                </div>
                             </div>
+                            
                             <Link
                                 href="/#nosotros"
-                                className="block w-full text-left font-medium text-gray-800 py-2 hover:text-green-500"
+                                className="block w-full text-left text-gray-800 py-2 hover:text-green-500"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     setIsMobileMenuOpen(false);
@@ -285,7 +425,7 @@ const Navbar: React.FC = () => {
                             </Link>
                             <Link
                                 href="/noticias"
-                                className="block w-full text-left font-medium text-gray-800 py-2 hover:text-green-500"
+                                className="block w-full text-left text-gray-800 py-2 hover:text-green-500"
                                 onClick={() => {
                                     setIsMobileMenuOpen(false);
                                 }}
@@ -294,7 +434,7 @@ const Navbar: React.FC = () => {
                             </Link>
                             <Link
                                 href="/contacto"
-                                className="block w-full text-left rounded-full bg-green-600 px-7 py-3 text-base font-medium text-white shadow hover:bg-green-500 transition-colors mt-2"
+                                className="block w-full text-center rounded-full bg-green-600 px-7 py-3 text-base font-medium text-white shadow hover:bg-green-500 transition-colors mt-4"
                                 onClick={() => {
                                     setIsMobileMenuOpen(false);
                                 }}

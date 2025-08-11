@@ -28,11 +28,12 @@ const AgroPecuariaPage = () => {
     },
     {
       name: 'Tejido Aviar',
-      slug: 'tejido-aviar',
+      slug: 'super-tejidoaviar', // Change this from 'tejido-aviar' to 'super-tejidoaviar'
       image: '/images/productos/agropecuaria/tejido-aviar.jpg',
       description: 'Tejido aviary porcícola con diferentes características.',
       details: ['Colores y gramajes variados'],
       logo: '/images/logos/rafitec-logo.png',
+      directLink: true, // Optionally add this property to indicate it uses a direct link rather than a slug
     },
     {
       name: 'Comederos',
