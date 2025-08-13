@@ -299,30 +299,41 @@ const products = [
 			'/images/productos/agropecuaria/techazo3.jpeg',
 		],
 		description: `
-    <h2 class="text-2xl font-bold mb-2">Techazo – Lámina plástica multipropósito para techos y coberturas</h2>
+    <h2 class="text-2xl font-bold mb-2">Techazo – Solución avanzada para control térmico y protección en instalaciones agropecuarias</h2>
     <p>
-      <strong>Techazo</strong> es una lámina plástica de alta resistencia, ideal para la construcción de techos temporales o permanentes en instalaciones agrícolas, industriales y residenciales. Su composición especial la hace resistente a los rayos UV, la lluvia y el viento, garantizando protección y durabilidad.
+      <strong>Techazo</strong> es una lámina plástica de alta tecnología, diseñada específicamente para optimizar el control térmico y proporcionar protección superior en instalaciones agropecuarias. Su composición especializada ofrece una barrera efectiva contra los rayos UV, la lluvia y el viento, garantizando un ambiente controlado y confortable para la producción animal.
     </p>
     <h3 class="text-xl font-semibold mt-6 mb-2">🔧 Características principales:</h3>
     <ul class="list-disc pl-6 mb-4">
-      <li><strong>Resistencia UV:</strong> Protege contra la degradación solar y mantiene su integridad por más tiempo.</li>
-      <li><strong>Impermeabilidad total:</strong> Evita filtraciones y protege los espacios cubiertos.</li>
-      <li><strong>Fácil de manipular:</strong> Ligera y flexible, se corta y adapta fácilmente a cualquier estructura.</li>
-      <li><strong>Versatilidad:</strong> Apta para techos, cobertizos, galpones y cerramientos.</li>
+      <li><strong>Control térmico avanzado:</strong> Reduce significativamente la temperatura interior, proporcionando un ambiente óptimo para el bienestar animal.</li>
+      <li><strong>Resistencia UV superior:</strong> Protege contra la degradación solar y mantiene sus propiedades térmicas a largo plazo.</li>
+      <li><strong>Impermeabilidad total:</strong> Sistema de protección integral contra lluvia y humedad.</li>
+      <li><strong>Diseño ergonómico:</strong> Estructura ligera y flexible que facilita la instalación y mantenimiento.</li>
+      <li><strong>Durabilidad garantizada:</strong> Material de alta resistencia diseñado para condiciones exigentes.</li>
     </ul>
-    <h3 class="text-xl font-semibold mt-6 mb-2">🏠 Usos recomendados:</h3>
+    <h3 class="text-xl font-semibold mt-6 mb-2">� Aplicaciones especializadas:</h3>
     <ul class="list-disc pl-6 mb-4">
-      <li>Techos de galpones y establos</li>
-      <li>Cubiertas temporales para obras</li>
-      <li>Cerramientos y divisiones</li>
-      <li>Protección de maquinaria y materiales</li>
+      <li><strong>Producción avícola:</strong> Galpones para aves con control térmico optimizado</li>
+      <li><strong>Sector porcino:</strong> Instalaciones con ambiente controlado para mejor desarrollo animal</li>
+      <li><strong>Establos ganaderos:</strong> Áreas de descanso con temperatura regulada</li>
+      <li><strong>Instalaciones multiuso:</strong> Adaptable a diferentes necesidades de la producción agropecuaria</li>
+      <li><strong>Áreas de manejo:</strong> Espacios protegidos para actividades específicas</li>
+    </ul>
+    <h3 class="text-xl font-semibold mt-6 mb-2">✨ Beneficios clave:</h3>
+    <ul class="list-disc pl-6 mb-4">
+      <li><strong>Bienestar animal mejorado:</strong> Reducción significativa del estrés térmico</li>
+      <li><strong>Mayor productividad:</strong> Condiciones óptimas para el desarrollo animal</li>
+      <li><strong>Eficiencia energética:</strong> Regulación natural de la temperatura</li>
+      <li><strong>Versatilidad de uso:</strong> Adaptable a diferentes tipos de instalaciones</li>
     </ul>
   `,
 		details: [
-			'<span class="font-semibold">Material:</span> Polietileno de alta resistencia con aditivos UV',
-			'<span class="font-semibold">Presentación:</span> Rollos de 2 x 50 m y 4 x 50 m',
-			'<span class="font-semibold">Colores:</span> Blanco, verde y azul',
-			'<span class="font-semibold">Aplicaciones:</span> Techos, cobertizos, cerramientos y protección de materiales',
+			'<span class="font-semibold">Material:</span> Polietileno de alta resistencia con aditivos UV y control térmico',
+			'<span class="font-semibold">Presentación:</span> Rollos de 8,50 x 50 m',
+			'<span class="font-semibold">Colores:</span> Blanco y negro',
+			'<span class="font-semibold">Aplicaciones:</span> Galpones avícolas, instalaciones porcinas, establos y áreas de descanso animal',
+			'<span class="font-semibold">Beneficios:</span> Reducción significativa de temperatura, mejora del bienestar animal, ambiente controlado',
+			'<span class="font-semibold">Características técnicas:</span> Alta reflectividad térmica, resistencia mecánica superior, protección UV avanzada',
 		],
 		logo: '/images/logos/agrinpex-logo.png',
 	},

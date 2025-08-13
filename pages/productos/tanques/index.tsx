@@ -169,6 +169,22 @@ const TanquesPage = () => {
       ],
       capacity: 12000,
     },
+    {
+      name: 'Tanque 15.000 litros',
+      slug: 'tanque-15000-litros',
+      image: '/images/productos/tanques/tanque-15mlt.png',
+      description: 'Capacidad de 15.000 litros',
+      details: [
+        'Ancho: 2,35 m.',
+        'Largo: 4,80 m.',
+        'Altura: 1,90 m.',
+        'Peso: 600 Kg.',
+        'Doble Rompeolas interno.',
+        'Tapa superior de 450 mm.',
+        'Salida de descarga de 2″.',
+      ],
+      capacity: 15000,
+    },
   ];
 
   const tanquesOrdenados = [...tanques].sort((a, b) => a.capacity - b.capacity);

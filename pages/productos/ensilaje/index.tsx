@@ -35,16 +35,16 @@ const EnsilajeProductsPage = () => {
     "url": "https://www.cmpagro.com.py/productos/ensilaje",
     "mainEntity": {
       "@type": "ItemList",
-      "numberOfItems": 7, // Ajustar según tu cantidad de productos
+      "numberOfItems": 8, // Ajustado al nuevo número de productos
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
           "item": {
             "@type": "Product",
-            "name": "Film para Fardos",
-            "description": "Films de alta calidad para ensilaje de fardos",
-            "url": "https://www.cmpagro.com.py/productos/ensilaje/film-fardos"
+            "name": "Silobolsas",
+            "description": "Silobolsas para almacenamiento de granos y forrajes",
+            "url": "https://www.cmpagro.com.py/productos/ensilaje/silobolsas"
           }
         },
         {
@@ -52,9 +52,19 @@ const EnsilajeProductsPage = () => {
           "position": 2,
           "item": {
             "@type": "Product",
-            "name": "Silobolsas",
-            "description": "Silobolsas para almacenamiento de granos y forrajes",
-            "url": "https://www.cmpagro.com.py/productos/ensilaje/silobolsas"
+            "name": "Selladora de Silobolsas",
+            "description": "Sistema especializado para el sellado hermético de silos",
+            "url": "https://www.cmpagro.com.py/productos/ensilaje/selladora-silos"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Product",
+            "name": "Mallas para Fardos",
+            "description": "Mallas para empaque eficiente de fardos",
+            "url": "https://www.cmpagro.com.py/productos/ensilaje/mallas-fardos"
           }
         }
         // Agregar más productos según tu catálogo
@@ -64,6 +74,30 @@ const EnsilajeProductsPage = () => {
   };
 
   const products = [
+    {
+      name: 'Silobolsas',
+      slug: 'silobolsas-agrinpex',
+      image: '/images/productos/ensilaje/silobolsa-3.jpg',
+      description: 'Bolsas resistentes para almacenar silos.',
+      details: ['6 pies x 60 m', '6.5 pies x 60 m', '9 pies x 60 m', '9 pies x 75 m'],
+      logo: '/images/logos/agrinpex-logo.png',
+    },
+    {
+      name: 'Selladora de Silobolsas',
+      slug: 'selladora-silos',
+      image: '/images/productos/otros/cerradoras/la-pipiola-selladora-de-silos-09.png',
+      description: 'Sistema especializado para el sellado hermético de silos y estructuras de almacenamiento agrícola.',
+      details: ['Sellado hermético', 'Protección contra humedad', 'Preservación de granos'],
+      logo: '/images/logos/pipiola-logo.png',
+    },
+    {
+      name: 'Mallas para fardos',
+      slug: 'mallas-exporplas',
+      image: '/images/productos/ensilaje/malla-fardos.png',
+      description: 'Mallas para empaque eficiente de fardos.',
+      details: ['HORIZON™: 125 x 3,600 cm, 130 x 3,600 cm', 'EMPACADOR: 124 x 3,600 cm, 130 x 3,600 cm'],
+      logo: '/images/logos/exporplas-logo.png',
+    },
     {
       name: 'Film para fardos',
       slug: 'film-agripower',
@@ -80,23 +114,6 @@ const EnsilajeProductsPage = () => {
       details: ['Hilo e1000 - 5,400 m (fardos redondos)', 'Hilo e130 - 1,300 m (fardos cuadrados)'],
       logo: '/images/logos/exporplas-logo.png',
     },
-    {
-      name: 'Mallas para fardos',
-      slug: 'mallas-exporplas',
-      image: '/images/productos/ensilaje/malla-fardos.png',
-      description: 'Mallas para empaque eficiente de fardos.',
-      details: ['HORIZON™: 125 x 3,600 cm, 130 x 3,600 cm', 'EMPACADOR: 124 x 3,600 cm, 130 x 3,600 cm'],
-      logo: '/images/logos/exporplas-logo.png',
-    },
-    {
-      name: 'Silobolsas',
-      slug: 'silobolsas-agrinpex',
-      image: '/images/productos/ensilaje/silobolsa-3.jpg',
-      description: 'Bolsas resistentes para almacenar silos.',
-      details: ['6 pies x 60 m', '6.5 pies x 60 m', '9 pies x 60 m', '9 pies x 75 m'],
-      logo: '/images/logos/agrinpex-logo.png',
-    },
-    
     {
       name: 'Tech Lona',
       slug: 'tech-lona-azul',

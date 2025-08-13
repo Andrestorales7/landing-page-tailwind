@@ -13,6 +13,7 @@ const products = [
 		images: [
 			'/images/productos/horticultura/pelicula-invernadero.jpg',
 			'/images/productos/horticultura/pelicula-invernadero2.webp',
+			'/images/productos/horticultura/pelicula-invernadero3.jpeg',
 			
 		],
 		description:
@@ -48,13 +49,22 @@ const products = [
 				},
 			],
 			medidas: [
-				'2,5 x 100 mts. – 100 micras',
-				'8 x 50 mts. – 100 micras',
-				'7,6 x 105 mts. – 120 micras',
-				'8 x 105 mts. – 120 micras',
-				'9 x 105 mts. – 105 micras',
-				'10 x 105 mts. – 150 micras',
+				'ALD (L) 2.5 x 100 mts - 100 micras',
+				'ALDT 2000 4.20 x 105 mts - 120 micras',
+				'ALDT 2000 6 x 105 mts - 100 micras',
+				'ALDT 2000 6 x 105 mts - 120 micras',
+				'6 x 105 mts - 150 micras',
+				'7,60 x 105 mts - 120 micras',
+				'8 x 50 mts - 100 micras',
+				'8 x 105 mts - 120 micras',
+				'8 x 105 mts - 150 micras',
+				'ALDT AV 9 x 105 mts - 120 micras',
+				'ALDT AV 9 x 105 mts - 150 micras',
+				'10 x 105 mts - 120 micras',
+				'10 x 105 mts - 200 micras',
+				'12 x 50 mts - 150 micras',
 			],
+			
 		},
 	},
 	{
@@ -63,7 +73,7 @@ const products = [
 		images: [
 			'/images/productos/horticultura/media-sombra1.jpeg',
 			'/images/productos/horticultura/media-sombra2.jpeg',
-			'/images/productos/horticultura/media-sombra3.jpeg',
+			'/images/productos/horticultura/Media-sombra.jpeg',
 		],
 		description:
 			'Mallas de media sombra de alta calidad, ideales para proteger cultivos y áreas específicas del exceso de radiación solar. Perfectas para horticultura, viveros, invernaderos y otros usos agrícolas.',
@@ -119,6 +129,7 @@ const products = [
 			
 			'/images/productos/horticultura/mulching1.jpg',
 			'/images/productos/horticultura/mulching2.png',
+			'/images/productos/horticultura/mulching3.jpeg',
 		],
 		description:
 			'Mulching de alta calidad para aplicaciones agrícolas, destacando por su resistencia mecánica, elasticidad y protección eficiente contra condiciones climáticas extremas.',
@@ -141,16 +152,17 @@ const products = [
 				'Durabilidad y resistencia a condiciones adversas',
 			],
 			medidas: [
-				{ tipo: 'Negro', dimensiones: '1,6 x 1000 mts', espesor: '22 micras' },
-				{ tipo: 'Negro', dimensiones: '1,4 x 1000 mts', espesor: '25 micras' },
-				{ tipo: 'Negro', dimensiones: '1,4 x 1000 mts', espesor: '23 micras' },
-				{ tipo: 'Negro', dimensiones: '1,2 x 1000 mts', espesor: '23 micras' },
-				{ tipo: 'Blanco/Negro', dimensiones: '1,6 x 1000 mts', espesor: '22 micras' },
-				{ tipo: 'Blanco/Negro', dimensiones: '1,4 x 1000 mts', espesor: '25 micras' },
-				{ tipo: 'Blanco/Negro', dimensiones: '1,4 x 1000 mts', espesor: '30 micras' },
-				{ tipo: 'Blanco/Negro', dimensiones: '1,2 x 1000 mts', espesor: '22 micras' },
-				{ tipo: 'ABNUL', dimensiones: '1,6 x 1000 mts', espesor: '22 micras' },
-				{ tipo: 'ABNUL Perforado', dimensiones: '1,0 x 1000 mts', espesor: '' },
+				{ tipo: 'Negro', dimensiones: '0,80 x 500 mts', espesor: '' },
+				{ tipo: 'Blanco/Negro', dimensiones: '0,80 x 500 mts', espesor: '' },
+				{ tipo: 'Negro', dimensiones: '1 x 1000 mts', espesor: '18 micras' },
+				{ tipo: 'Blanco/Negro Perforado', dimensiones: '1 x 500 mts', espesor: 'Perforado c/20cm' },
+				{ tipo: 'Blanco/Negro Perforado', dimensiones: '1 x 500 mts', espesor: 'Perforado c/25cm' },
+				{ tipo: 'Blanco/Negro', dimensiones: '1 x 500 mts', espesor: 'Liso' },
+				{ tipo: 'Blanco/Negro', dimensiones: '1,20 x 500 mts', espesor: 'Liso' },
+				{ tipo: 'Negro', dimensiones: '1,20 x 1000 mts', espesor: '' },
+				{ tipo: 'Blanco/Negro', dimensiones: '1,60 x 500 mts', espesor: '30 micras ZZ' },
+				{ tipo: 'Blanco/Negro', dimensiones: '1,60 x 500 mts', espesor: '20 micras Liso' },
+				{ tipo: 'Negro', dimensiones: '1,60 x 500 mts', espesor: '20 micras Liso' }
 			],
 		},
 	},
@@ -222,7 +234,7 @@ const products = [
 		images: [
 			'/images/productos/horticultura/manta1.jpeg',
 			'/images/productos/horticultura/manta2.jpg',
-			'/images/productos/horticultura/manta3.webp',
+			'/images/productos/horticultura/manta3.JPEG',
 		],
 		description:
 			'Control natural de plagas, malezas y patógenos del suelo. Solución ecológica y eficiente para la desinfección de suelos agrícolas mediante energía solar.',

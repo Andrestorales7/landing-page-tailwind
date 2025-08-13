@@ -118,6 +118,96 @@ const products = [
     logo: '/images/logos/agrinpex-logo.png',
   },
   {
+    name: 'Selladora de Silobolsas',
+    slug: 'selladora-silos',
+    images: [
+        '/images/productos/otros/cerradoras/la-pipiola-selladora-de-silos-09.png',
+        '/images/productos/otros/cerradoras/la-pipiola-selladora-de-silos-07.png',
+        
+        
+    ],
+    description: `
+<span class="font-bold underline">Selladora de Silobolsas: Sistema de Sellado Hermético para Preservación de Granos</span>
+
+<span class="font-bold">Características Técnicas</span><br/>
+<span class="font-semibold">Sistema de Sellado por Termo-fusión:</span> Tecnología avanzada que garantiza uniones perfectas en las juntas, creando una barrera hermética contra factores ambientales.<br/>
+<span class="font-semibold">Materiales de Alta Resistencia:</span> Compuestos especialmente diseñados para resistir cambios de temperatura y condiciones climáticas extremas.<br/>
+<span class="font-semibold">Compatibilidad Universal:</span> Diseñada para trabajar con diferentes tipos y marcas de silobolsas, ofreciendo versatilidad en su aplicación.<br/>
+<span class="font-semibold">Kit de Reparación Incluido:</span> Incluye herramientas y materiales para reparaciones de emergencia en caso de daños menores.
+
+<br/><span class="font-bold underline">Beneficios para el Productor</span>
+
+<span class="font-semibold">Preservación Óptima:</span> Reduce significativamente las pérdidas por humedad y plagas (hasta un 35% menos), manteniendo la calidad del grano por períodos prolongados.<br/>
+<span class="font-semibold">Fácil Aplicación:</span> Sistema intuitivo que permite una instalación rápida y eficiente, minimizando el tiempo de exposición del grano.<br/>
+<span class="font-semibold">Durabilidad Extendida:</span> El sellado efectivo extiende la vida útil de las silobolsas, permitiendo un almacenamiento seguro por más tiempo.<br/>
+<span class="font-semibold">Protección Integral:</span> Previene la formación de hongos y micotoxinas, manteniendo un control estable de la atmósfera interna.
+`,
+    details: [
+        'Sellado hermético que previene filtraciones',
+        'Resistente a condiciones climáticas extremas',
+        'Compatible con diferentes tipos de silobolsas',
+        'Fácil aplicación y mantenimiento'
+    ],
+    logo: '/images/logos/pipiola-logo.png',
+    specs: {
+        usos: [
+            'Silobolsas de almacenamiento de granos',
+            'Estructuras de almacenamiento agrícola temporales',
+            'Preservación a largo plazo de cosechas',
+            'Protección contra factores ambientales adversos'
+        ],
+        caracteristicas: [
+            {
+                titulo: 'Tecnología de sellado',
+                detalles: [
+                    'Sistema de sellado por termo-fusión que garantiza uniones perfectas en las juntas',
+                    'Materiales compuestos especialmente diseñados para resistir cambios de temperatura',
+                    'Barrera efectiva contra la entrada de humedad, insectos y roedores'
+                ]
+            },
+            {
+                titulo: 'Aplicaciones principales',
+                detalles: [
+                    'Sellado de extremos en silobolsas para almacenamiento de granos',
+                    'Reparación de perforaciones o daños en bolsas existentes',
+                    'Tratamiento preventivo en zonas susceptibles a filtraciones',
+                    'Extensión de la vida útil de silobolsas ya instaladas'
+                ]
+            },
+            {
+                titulo: 'Ventajas de conservación',
+                detalles: [
+                    'Reducción significativa de pérdidas por humedad y plagas (hasta un 35% menos)',
+                    'Mantenimiento de la calidad del grano por períodos prolongados',
+                    'Prevención de la formación de hongos y micotoxinas',
+                    'Control de la atmósfera interna más estable'
+                ]
+            }
+        ],
+        tabla: {
+            titulo: 'Especificaciones del sistema',
+            columnas: ['Componente', 'Características', 'Durabilidad'],
+            filas: [
+                ['Sellante base', 'Compuesto polímero de alta densidad', '1-2 campañas'],
+                ['Capa protectora', 'Revestimiento UV y anti-filtraciones', 'Hasta 18 meses'],
+                ['Sistema de aplicación', 'Equipo portátil de termo-fusión', 'N/A'],
+                ['Kit de reparación', 'Para perforaciones y daños menores', 'Uso inmediato']
+            ]
+        },
+        cuandoUtilizar: [
+            'En nuevas instalaciones de silobolsas para garantizar un sellado óptimo desde el inicio',
+            'En silobolsas existentes con problemas de filtraciones o daños menores',
+            'Como tratamiento preventivo antes de condiciones climáticas adversas',
+            'En zonas con alta presencia de roedores o plagas que puedan dañar las bolsas'
+        ],
+        presentacion: [
+            'Kit completo de sellado con aplicador',
+            'Sistema de sellante por separado',
+            'Servicio de aplicación profesional disponible'
+        ]
+    }
+  },
+  {
     name: 'Tech Lona',
     slug: 'tech-lona-azul',
     images: [
@@ -518,6 +608,105 @@ export default function EnsilajeProductDetail({ product }: ProductPageProps) {
                   {product.details.map((detail, i) => (
                     <li key={i}>{detail}</li>
                   ))}
+                </ul>
+              </div>
+            ) : product.slug === 'selladora-silos' ? (
+              <div className="prose prose-lg max-w-none text-gray-700">
+                <h3 className="text-2xl font-semibold mb-2">Selladora de Silobolsas – La Pipiola</h3>
+                <p>
+                  Sistema de sellado por termo-fusión que garantiza uniones perfectas en las juntas de las silobolsas.
+                  Reduce pérdidas por humedad y plagas, manteniendo la calidad del grano. Fácil aplicación y durabilidad extendida.
+                </p>
+                <h4 className="mt-6 mb-2 font-bold text-green-700">Beneficios para el Productor</h4>
+                <ul className="list-disc pl-6">
+                  <li>Preservación óptima: reduce pérdidas por humedad y plagas (hasta un 35% menos).</li>
+                  <li>Fácil aplicación: instalación rápida y eficiente.</li>
+                  <li>Durabilidad extendida: el sellado efectivo extiende la vida útil de las silobolsas.</li>
+                  <li>Protección integral: previene la formación de hongos y micotoxinas.</li>
+                </ul>
+                <h4 className="mt-6 mb-2 font-bold text-green-700">Características Técnicas</h4>
+                <ul className="list-disc pl-6">
+                  <li>Sistema de sellado por termo-fusión.</li>
+                  <li>Materiales de alta resistencia a cambios de temperatura.</li>
+                  <li>Compatibilidad con diferentes tipos y marcas de silobolsas.</li>
+                  <li>Kit de reparación incluido para daños menores.</li>
+                </ul>
+                <h4 className="mt-6 mb-2 font-bold text-green-700">Especificaciones del Sistema</h4>
+                <div className="overflow-x-auto">
+                  <table className="min-w-full divide-y divide-gray-200">
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Componente
+                        </th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Características
+                        </th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Durabilidad
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="bg-white divide-y divide-gray-200">
+                      <tr>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                          Sellante base
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                          Compuesto polímero de alta densidad
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                          1-2 campañas
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                          Capa protectora
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                          Revestimiento UV y anti-filtraciones
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                          Hasta 18 meses
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                          Sistema de aplicación
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                          Equipo portátil de termo-fusión
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                          N/A
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                          Kit de reparación
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                          Para perforaciones y daños menores
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                          Uso inmediato
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <h4 className="mt-6 mb-2 font-bold text-green-700">Cuándo Utilizar</h4>
+                <ul className="list-disc pl-6">
+                  <li>En nuevas instalaciones de silobolsas para garantizar un sellado óptimo desde el inicio.</li>
+                  <li>En silobolsas existentes con problemas de filtraciones o daños menores.</li>
+                  <li>Como tratamiento preventivo antes de condiciones climáticas adversas.</li>
+                  <li>En zonas con alta presencia de roedores o plagas que puedan dañar las bolsas.</li>
+                </ul>
+                <h4 className="mt-6 mb-2 font-bold text-green-700">Presentación</h4>
+                <ul className="list-disc pl-6">
+                  <li>Kit completo de sellado con aplicador.</li>
+                  <li>Sistema de sellante por separado.</li>
+                  <li>Servicio de aplicación profesional disponible.</li>
                 </ul>
               </div>
             ) : product.slug === 'tech-lona-azul' ? (
