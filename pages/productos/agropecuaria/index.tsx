@@ -102,6 +102,7 @@ const AgroPecuariaPage = () => {
         url="https://www.cmpagro.com.py/productos/agropecuaria"
         image="https://www.cmpagro.com.py/images/hero/soluciones-agropecuaria.webp"
         type="website"
+        keywords="malla aluminet, tejido aviar, comederos ganaderos, geomembranas hdpe, acquapex, georain cover, techazo, productos agropecuarios, equipos ganaderos, suministros agrícolas, Paraguay, CMP Agro"
         structuredData={[breadcrumbSchema, collectionSchema]}
       />
       <div id="agropecuaria-productos" className="min-h-screen bg-gradient-to-b from-green-50 to-gray-50">

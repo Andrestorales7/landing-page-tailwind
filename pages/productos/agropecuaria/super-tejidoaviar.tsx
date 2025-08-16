@@ -385,6 +385,50 @@ const TejidoAviarPage = () => {
     setIsLoaded(true);
   }, []);
 
+  // Define structured data for SEO
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://www.cmpagro.com.py/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Productos",
+        "item": "https://www.cmpagro.com.py/productos"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Agropecuaria",
+        "item": "https://www.cmpagro.com.py/productos/agropecuaria"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Tejido Aviar",
+        "item": "https://www.cmpagro.com.py/productos/agropecuaria/super-tejidoaviar"
+      }
+    ]
+  };
+
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Tejido Aviar",
+    "description": "Soluciones completas en tejidos para galpones avícolas. Laterales en varios colores, cielo raso y accesorios de levantamiento de alta calidad.",
+    "image": "https://www.cmpagro.com.py/images/productos/agropecuaria/hero-tejidoaviar.jpg",
+    "brand": {
+      "@type": "Brand",
+      "name": "CMP Agro"
+    }
+  };
+
   return (
     <>
       <SEO 
@@ -392,6 +436,9 @@ const TejidoAviarPage = () => {
         description="Soluciones completas en tejidos para galpones avícolas. Laterales en varios colores, cielo raso y accesorios de levantamiento de alta calidad."
         url="https://www.cmpagro.com.py/productos/agropecuaria/super-tejidoaviar"
         image="/images/productos/agropecuaria/hero-tejidoaviar.jpg"
+        type="product"
+        keywords="tejido aviar, cortinas para galpones, sistema de ventilación avícola, cielo raso para galpones, cortinas laterales, control climático avícola, accesorios para cortinas, tejido blackout, tejido aviario azul, tejido aviario amarillo, roldanas industriales, catraca tipo molinete, control de temperatura galpones, equipamiento avícola Paraguay, CMP Agro"
+        structuredData={[breadcrumbSchema, productSchema]}
       />
       
       <div id="tejido-aviar" className="min-h-screen bg-gradient-to-b from-green-50 to-white">
