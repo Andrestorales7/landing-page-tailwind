@@ -8,6 +8,7 @@ type SEOProps = {
   imageAlt?: string;
   type?: 'website' | 'product' | 'article';
   structuredData?: any;
+  keywords?: string | string[]; // Add this line
 };
 
 export default function SEO({
@@ -18,7 +19,11 @@ export default function SEO({
   imageAlt = 'CMP Agro - Soluciones para el Agro',
   type = 'website',
   structuredData,
+  keywords = '', // Add this line
 }: SEOProps) {
+  // Format keywords if they're provided as an array
+  const formattedKeywords = Array.isArray(keywords) ? keywords.join(', ') : keywords;
+
   // Ensure URL is absolute
   const canonicalUrl = url.startsWith('http') ? url : `https://www.cmpagro.com.py${url.startsWith('/') ? url : `/${url}`}`;
   const formattedTitle = title.includes('CMP Agro') ? title : `${title} | CMP Agro`;
@@ -132,6 +137,8 @@ export default function SEO({
       <meta name="description" content={description} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
+      {/* Add keywords meta tag */}
+      {formattedKeywords && <meta name="keywords" content={formattedKeywords} />}
       
       {/* Canonical URL - this ensures proper indexing */}
       <link rel="canonical" href={canonicalUrl} />

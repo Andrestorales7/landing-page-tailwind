@@ -90,10 +90,32 @@ const BiosalesProductPage = () => {
   return (
     <>
       <SEO 
-        title="Biosales | Suplementos Nutricionales | CMP Agro"
-        description="Mejora el rendimiento de tu ganado con nuestra línea de productos Biosales. Soluciones biotecnológicas que optimizan la nutrición y digestión ruminal."
+        title="Biosales y Suplementos Nutricionales | Bio-Núcleo, Biosalt | CMP Agro"
+        description="Suplementos minerales y biotecnológicos para ganado. Incluye Bio-Núcleo Premix, Bio-Núcleo Full, Biosalt 500 y más. Mejore la nutrición y el rendimiento de su ganado con productos especializados."
         url="https://www.cmpagro.com.py/productos/biosales"
         image="/images/productos/biosales/hero-biosales.png"
+        type="product"
+        keywords="biosales, suplementos minerales, bio-núcleo, biosalt, nutrición animal, ganadería paraguay"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "ProductCollection",
+          "name": "Biosales y Suplementos Nutricionales",
+          "description": "Línea completa de suplementos minerales y biotecnológicos para ganado",
+          "offers": {
+            "@type": "AggregateOffer",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "PYG",
+            "seller": {
+              "@type": "Organization",
+              "name": "CMP Agro",
+              "url": "https://www.cmpagro.com.py"
+            }
+          },
+          "brand": {
+            "@type": "Brand",
+            "name": "CMP Agro"
+          }
+        }}
       />
       
       <div id="biosales" className="min-h-screen bg-gradient-to-b from-green-50 to-gray-50">
