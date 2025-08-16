@@ -19,21 +19,64 @@ const products = [
 			'/images/productos/envases/baginbox3.png',
 		],
 		description: `
-      <h2 class="text-2xl font-bold mb-2">Bag in Box – Envase flexible para líquidos a granel</h2>
+      <h2 class="text-2xl font-bold mb-2">Bag in Box – Sistema de Acondicionamiento Premium</h2>
       <p>
-        El <strong>Bag in Box</strong> es un sistema innovador de envasado flexible diseñado para el almacenamiento y transporte eficiente de líquidos a granel. Su estructura permite una manipulación sencilla, reduce el desperdicio y optimiza el espacio durante el transporte. Ideal para industrias alimentarias, químicas y farmacéuticas que requieren máxima higiene y seguridad.
+        El <strong>Bag in Box</strong> es un sistema avanzado de acondicionamiento diseñado para productos líquidos y pastosos, que garantiza máxima seguridad, asepsia y facilidad de manejo. Compatible con más de 300 productos no peligrosos en industrias alimenticias, químicas y petroquímicas.
       </p>
-      <ul class="list-disc pl-6 mb-4">
-        <li>Fabricado con materiales de alta resistencia y calidad alimentaria.</li>
-        <li>Minimiza el riesgo de contaminación y prolonga la vida útil del producto.</li>
-        <li>Fácil de llenar, vaciar y desechar, contribuyendo a la sostenibilidad ambiental.</li>
+      
+      <h3 class="text-xl font-bold mt-6 mb-3">Ventajas del Sistema</h3>
+      <ul class="list-disc pl-6 mb-6">
+        <li>Seguridad superior con tratamiento especial del cartón corrugado para alta humedad</li>
+        <li>Máxima asepsia que previene la contaminación de productos</li>
+        <li>Proceso eficiente de llenado y vaciado</li>
+        <li>Almacenaje económico y montaje simplificado</li>
+        <li>Compromiso con la sostenibilidad: materiales 100% reciclables</li>
       </ul>
+
+      <h3 class="text-xl font-bold mt-6 mb-3">Especificaciones Técnicas</h3>
+      <div class="bg-gray-50 p-6 rounded-lg mb-6">
+        <h4 class="font-bold mb-2">Componentes del Sistema (1000 litros):</h4>
+        <ul class="space-y-2">
+          <li><span class="font-semibold">Cuerpo Octogonal:</span> Altura interna de 1050 mm</li>
+          <li><span class="font-semibold">Bandejas:</span> 2 unidades octogonales (fondo y tapa)</li>
+          <li><span class="font-semibold">Base (Casete):</span> Cartón corrugado con bolsa integrada</li>
+          <li><span class="font-semibold">Pallet:</span> 1150 x 1150 mm</li>
+          <li><span class="font-semibold">Accesorios:</span> Válvulas de llenado/vaciado, cintas plásticas, grapadora, estirador</li>
+        </ul>
+      </div>
+
+      <h3 class="text-xl font-bold mt-6 mb-3">Proceso de Montaje y Uso</h3>
+      <ul class="list-disc pl-6 mb-6">
+        <li>Espacio de montaje recomendado: 10 m²</li>
+        <li>Requiere 2 personas para el montaje</li>
+        <li>Sistema de válvulas de fácil instalación para llenado y vaciado</li>
+        <li>Diseño optimizado para apilamiento seguro</li>
+      </ul>
+
+      <div class="bg-green-50 p-6 rounded-lg mt-8">
+        <h3 class="text-xl font-bold mb-3 text-green-800">¿Por qué elegir Bag in Box?</h3>
+        <p class="text-green-700">
+          Nuestro sistema Bag in Box representa la solución más avanzada en el mercado para el manejo de líquidos y productos pastosos, combinando eficiencia operativa con sostenibilidad ambiental. Para un montaje exitoso, consulta la guía detallada de ensamblaje disponible en nuestra ficha técnica.
+        </p>
+      </div>
+      
+      <div class="mt-8 mb-4">
+        <a href="/fichas/bag-in-box-ficha-tecnica.pdf" class="inline-flex items-center px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          Descargar Ficha Técnica
+        </a>
+      </div>
     `,
 		details: [
-			'<span class="font-semibold">Capacidad:</span> 1000 litros',
-			'<span class="font-semibold">Aplicación:</span> Líquidos a granel',
+			'<span class="font-semibold">Capacidades:</span> 5, 10 y 1000 litros',
+			'<span class="font-semibold">Material:</span> Fibra virgen con doble capa y laminación',
+			'<span class="font-semibold">Aplicación:</span> Productos líquidos y pastosos no peligrosos',
+			'<span class="font-semibold">Espacio de montaje:</span> 10 m² (modelo 1000L)'
 		],
 		logo: '/images/logos/embaquim-logo.png',
+		techSheet: '/fichas/bag-in-box-ficha-tecnica.pdf'
 	},
 	{
 		name: 'IBC',
@@ -294,13 +337,14 @@ export default function ProductoEnvaseDetalle({ product }: ProductPageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
             <div className="lg:col-span-2">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Imágenes</h2>
-              <div className="relative w-full h-72 md:h-80 rounded-2xl overflow-hidden shadow-2xl mb-6 bg-gray-100">
+              <div className="relative w-full h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl mb-6 bg-gradient-to-br from-white to-gray-50">
                 <Image
                   src={product.images[currentImageIndex]}
                   alt={`${product.name} imagen ${currentImageIndex + 1}`}
                   fill
-                  className="w-full h-full object-contain object-center bg-gray-100 rounded-2xl"
+                  className="w-full h-full object-contain object-center p-4 transition-transform duration-300 hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 66vw"
+                  quality={100}
                   priority
                 />
                 {/* Botones de navegación */}
@@ -341,24 +385,26 @@ export default function ProductoEnvaseDetalle({ product }: ProductPageProps) {
               </div>
               {/* Thumbnails */}
               {product.images.length > 1 && (
-                <div className="grid grid-cols-3 gap-4">
+                <div className="flex justify-center gap-4 mt-8">
                   {product.images.map((img, idx) => (
                     <button
                       key={idx}
                       onClick={() => setCurrentImageIndex(idx)}
-                      className={`relative overflow-hidden rounded-lg shadow-md transition-all duration-200 ${
+                      className={`relative overflow-hidden rounded-xl transition-all duration-300 transform ${
                         idx === currentImageIndex
-                          ? 'ring-2 ring-green-500 ring-offset-2'
-                          : 'hover:shadow-lg'
+                          ? 'ring-4 ring-green-500 ring-offset-4 scale-110'
+                          : 'hover:scale-105 hover:shadow-xl opacity-70 hover:opacity-100'
                       }`}
                     >
-                      <Image
-                        src={img}
-                        alt={`${product.name} thumbnail ${idx + 1}`}
-                        width={200}
-                        height={96}
-                        className="w-full h-24 object-cover object-center bg-gray-100 rounded-lg"
-                      />
+                      <div className="w-24 h-24 md:w-32 md:h-32">
+                        <Image
+                          src={img}
+                          alt={`${product.name} thumbnail ${idx + 1}`}
+                          width={200}
+                          height={200}
+                          className="w-full h-full object-cover object-center bg-gradient-to-br from-white to-gray-50 rounded-xl"
+                        />
+                      </div>
                     </button>
                   ))}
                 </div>

@@ -67,7 +67,7 @@ export default function HomePage() {
             link: "/productos/ensilaje",
           },
           {
-            image: "/images/productos/agropecuaria/agropecuaria.jpg",
+            image: "/images/productos/agropecuaria/comedero.jpg",
             title: "Agropecuaria",
             description: "",
             link: "/productos/agropecuaria",

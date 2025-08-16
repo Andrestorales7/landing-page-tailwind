@@ -52,7 +52,8 @@ const products = [
 		details: [
 			'<span class="font-semibold">Material:</span> Polietileno aluminizado',
 			'<span class="font-semibold">Aplicación:</span> Sombra y protección térmica',
-			'<span class="font-semibold">Medidas:</span> 4.2 x 100 m, 6 x 50 m, 8 x 50 m',
+			'<span class="font-semibold">Medidas:</span> 4 x 50 m, 8 x 50 m',
+			'<span class="font-semibold">Sombra:</span> 80% de protección solar',
 		],
 		logo: '/images/logos/sugrand.png',
 	},

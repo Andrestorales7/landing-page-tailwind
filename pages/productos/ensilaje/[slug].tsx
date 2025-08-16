@@ -114,7 +114,7 @@ const products = [
 <span class="font-semibold">Almacenaje de Granos:</span> Maíz, girasol, soja, trigo, arroz, entre otros.<br/>
 <span class="font-semibold">Ensilado de Forrajes:</span> Pasturas, sorgo, maíz forrajero y otros cultivos destinados a la alimentación animal.
 `,
-    details: ['6 pies x 60 m', '6.5 pies x 60 m', '9 pies x 60 m', '9 pies x 75 m'],
+    details: ['6 pies x 60 m', '6.5 pies x 60 m', '9 pies x 60 m', '9 pies x 75 m', '9 pies x 100 m'],
     logo: '/images/logos/agrinpex-logo.png',
   },
   {
@@ -583,7 +583,7 @@ export default function EnsilajeProductDetail({ product }: ProductPageProps) {
               </div>
             ) : product.slug === 'silobolsas-agrinpex' ? (
               <div className="prose prose-lg max-w-none text-gray-700">
-                <h3 className="text-2xl font-semibold mb-2">Silobolsas – Agrinpex</h3>
+                <h3 className="text-2xl font-semibold mb-2">Silobolsas</h3>
                 <h4 className="mt-4 mb-2 font-bold text-green-700">Características Técnicas</h4>
                 <ul className="list-disc pl-6">
                   <li>Coextrusión en tres capas para máxima resistencia mecánica y durabilidad.</li>
