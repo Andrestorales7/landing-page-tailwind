@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/sections/Footer";
 import "@/styles/globals.css";
@@ -46,11 +47,16 @@ const materialIcons = () => {
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <main className={rubik.variable}>
-      {materialIcons()}
-      <Navbar />
-      <Component {...pageProps} />
-      <Footer />
-    </main>
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <main className={rubik.variable}>
+        {materialIcons()}
+        <Navbar />
+        <Component {...pageProps} />
+        <Footer />
+      </main>
+    </>
   );
 }
