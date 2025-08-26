@@ -138,7 +138,7 @@ const Navbar: React.FC = () => {
             ]
         },
         { 
-            name: "Otros Productos", 
+            name: "Ver más", 
             id: "otros",
             subcategories: [
                 { name: "Ver todos", id: "soluciones", path: "/productos/otrosproductos" },
