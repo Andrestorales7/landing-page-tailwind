@@ -11,7 +11,7 @@ const products = [
         name: 'Cintas Industriales',
         slug: 'cintas-flexograficas',
         images: ['/images/productos/otros/cintasflex/cintas1.jpg',
-			'/images/productos/otros/cintasflex/cintas2.jpg',
+            '/images/productos/otros/cintasflex/cintas2.jpg',
         ],
         description: 'Cintas de alta calidad para impresion de embalajes flexibles y cartones. Certificadas con Full HD Flexo por Esko, que ofrecen una muy alta calidad en impresión. Enfocadas cada una de ellas en trabajos de: plenos, semi-plenos y reticulas.',
         details: [
@@ -96,87 +96,6 @@ const products = [
         },
     },
     {
-        name: 'Máquinas Cerradoras de Bolsas',
-        slug: 'maquinas-cerradoras',
-        images: [
-            '/images/productos/otros/costuradoras/union1.png',
-            '/images/productos/otros/costuradoras/union2.png',
-            '/images/productos/otros/costuradoras/union3.png',
-            '/images/productos/otros/costuradoras/union4.png',
-        ],
-        description: 'Máquinas Union Special para cerrar bolsas y sacos de forma eficiente. Representamos oficialmente esta reconocida marca estadounidense en Paraguay, ofreciendo diversos modelos para distintas necesidades industriales.',
-        details: [
-            'Estructura completamente cerrada que reduce ruido y vibración',
-            'Sistemas de lubricación automática o manual según modelo', 
-            'Corte de hilo integrado que facilita y acelera el trabajo',
-            'Soporte técnico y repuestos disponibles en todo el país'
-        ],
-        logo: '/images/productos/otros/costuradoras/union-logo.jpg',
-        specs: {
-            tipos: [
-                'Cerradoras para productos pesados',
-                'Cerradoras portátiles para bolsas livianas',
-                'Cerradoras para geotextiles',
-                'Cerradoras de alta resistencia'
-            ],
-            ventajas: [
-                'Reducción de ruido y vibraciones en el entorno de trabajo',
-                'Cambio rápido de bobina minimizando tiempos muertos',
-                'Corte automático o manual según el modelo',
-                'Respaldo postventa con técnicos especializados'
-            ],
-            caracteristicas: [
-                {
-                    titulo: 'Variedad de modelos Union Special',
-                    detalles: [
-                        'Representamos en Paraguay la reconocida marca estadounidense Union Special, líder en maquinaria para cierre de bolsas industrial',
-                        'Todos los modelos están diseñados con estructura completamente cerrada, garantizando bajos niveles de ruido y vibración',
-                        'Sistemas de lubricación automática o manual, según el modelo específico',
-                        'Corte de hilo integrado que facilita y acelera el trabajo diario'
-                    ]
-                },
-                {
-                    titulo: 'Modelos destacados',
-                    detalles: [
-                        'Union Special 80800™: Especial para cierre de bolsas con productos pesados (ráfia, plástico, papel). Velocidad de hasta 1800 rpm. Lubricación manual, costura de 1 o 2 hilos, con diseño robusto y sencillo',
-                        'Union Special 4000A™: Modelo portátil (solo 5,5 kg) para bolsas de todo tipo. Reduce el ruido al mínimo, ideal para ambientes acústicamente sensibles. Costura de tipo simple (1 hilo), lubricación manual',
-                        'Union Special 2200AA™: Diseñada para geotextiles, con excelente eficiencia, flexibilidad y confiabilidad. Uso de 1 o 2 hilos, lubricación manual, preparada para uso intenso',
-                        'Union Special BC200™: Versión de alta resistencia con corona cerrada y piezas anticorrosión, ideal para entornos con químicos. Lubricación automática, costura de hasta 2750 rpm y opción de corte de cadeneta automático o manual'
-                    ]
-                },
-                {
-                    titulo: 'Beneficios operativos',
-                    detalles: [
-                        'Reducción de ruido y vibraciones, mejorando el confort en el puesto de trabajo',
-                        'Cambio rápido de bobina y corte automático/manual, disminuyendo tiempos muertos',
-                        'Soporte técnico y stock de repuestos disponible en Asunción, Minga Guazú y Loma Plata',
-                        'Envíos a todo el país, respaldo postventa con técnicos especializados'
-                    ]
-                }
-            ],
-            tabla: {
-                titulo: 'Comparativo de modelos',
-                columnas: ['Modelo', 'Aplicación principal', 'Peso', 'Velocidad', 'Lubricación', 'Corte hilo'],
-                filas: [
-                    ['80800™', 'Bolsas pesadas (ráfia/plástico)', 'Pesada', '1800 rpm', 'Manual', '1-2 hilos'],
-                    ['4000A™', 'Bolsas livianas, portátil', '5,5 kg', '–', 'Manual', '1 hilo'],
-                    ['2200AA™', 'Geotextiles, trabajos industriales', 'Moderada', '–', 'Manual', '1-2 hilos'],
-                    ['BC200™', 'Industrias químicas, alta resistencia', 'Pesada', '2750 rpm', 'Automática', '1 hilo / cadeneta']
-                ]
-            },
-            cuandoUtilizar: [
-                'Para envases pesados (productos agro o químicos): elige la 80800™ o la BC200™',
-                'Si necesitas movilidad y cierre de bolsas livianas: la 4000A™ es ideal',
-                'Para trabajos con geotextiles: la 2200AA™ ofrece balance entre productividad y flexibilidad'
-            ],
-            presentacion: [
-                'Máquinas completas listas para operar',
-                'Kits de repuestos disponibles',
-                'Opciones de capacitación para operadores'
-            ]
-        }
-    },
-    {
         name: 'Precintos',
         slug: 'precintos',
         images: [
@@ -247,87 +166,22 @@ const products = [
                 'Para máxima protección en transporte marítimo o ferroviario: opta por precintos de alta seguridad como el Klicker'
             ]
         }
-    },
-    {
-        name: 'Selladora de Silobolsas',
-        slug: 'selladora-silos',
-        images: [
-            '/images/productos/otros/cerradoras/la-pipiola-selladora-de-silos-09.png',
-            '/images/productos/otros/cerradoras/la-pipiola-selladora-de-silos-06.png',
-			'/images/productos/otros/cerradoras/la-pipiola-selladora-de-silos-07.png',
-			'/images/productos/otros/cerradoras/la-pipiola-selladora-de-silos-04.png',
-        ],
-        description: 'Sistema especializado para el sellado hermético de silobolsas, garantizando la conservación óptima de granos y protegiéndolos contra humedad, plagas e intemperie.',
-        details: [
-            'Sellado hermético que previene filtraciones',
-            'Resistente a condiciones climáticas extremas',
-            'Compatible con diferentes tipos de silobolsas',
-            'Fácil aplicación y mantenimiento'
-        ],
-        logo: '/images/logos/pipiola-logo.png',
-        specs: {
-            usos: [
-                'Silobolsas de almacenamiento de granos',
-                'Estructuras de almacenamiento agrícola temporales',
-                'Preservación a largo plazo de cosechas',
-                'Protección contra factores ambientales adversos'
-            ],
-            caracteristicas: [
-                {
-                    titulo: 'Tecnología de sellado',
-                    detalles: [
-                        'Sistema de sellado por termo-fusión que garantiza uniones perfectas en las juntas',
-                        'Materiales compuestos especialmente diseñados para resistir cambios de temperatura',
-                        'Barrera efectiva contra la entrada de humedad, insectos y roedores'
-                    ]
-                },
-                {
-                    titulo: 'Aplicaciones principales',
-                    detalles: [
-                        'Sellado de extremos en silobolsas para almacenamiento de granos',
-                        'Reparación de perforaciones o daños en bolsas existentes',
-                        'Tratamiento preventivo en zonas susceptibles a filtraciones',
-                        'Extensión de la vida útil de silobolsas ya instaladas'
-                    ]
-                },
-                {
-                    titulo: 'Ventajas de conservación',
-                    detalles: [
-                        'Reducción significativa de pérdidas por humedad y plagas (hasta un 35% menos)',
-                        'Mantenimiento de la calidad del grano por períodos prolongados',
-                        'Prevención de la formación de hongos y micotoxinas',
-                        'Control de la atmósfera interna más estable'
-                    ]
-                }
-            ],
-            tabla: {
-                titulo: 'Especificaciones del sistema',
-                columnas: ['Componente', 'Características', 'Durabilidad'],
-                filas: [
-                    ['Sellante base', 'Compuesto polímero de alta densidad', '1-2 campañas'],
-                    ['Capa protectora', 'Revestimiento UV y anti-filtraciones', 'Hasta 18 meses'],
-                    ['Sistema de aplicación', 'Equipo portátil de termo-fusión', 'N/A'],
-                    ['Kit de reparación', 'Para perforaciones y daños menores', 'Uso inmediato']
-                ]
-            },
-            cuandoUtilizar: [
-                'En nuevas instalaciones de silobolsas para garantizar un sellado óptimo desde el inicio',
-                'En silobolsas existentes con problemas de filtraciones o daños menores',
-                'Como tratamiento preventivo antes de condiciones climáticas adversas',
-                'En zonas con alta presencia de roedores o plagas que puedan dañar las bolsas'
-            ],
-            presentacion: [
-                'Kit completo de sellado con aplicador',
-                'Sistema de sellante por separado',
-                'Servicio de aplicación profesional disponible'
-            ]
-        }
-    },
+    }
 ];
 
 // Añade estos tipos para mejorar el tipado
+interface ProductSpecs {
+  usos?: string[];
+  presentacion?: string[];
+  tipos?: string[];
+  ventajas?: string[];
+  caracteristicas?: { titulo: string; detalles: string[] }[];
+  tabla?: { titulo: string; columnas: string[]; filas: string[][] };
+  cuandoUtilizar?: string[];
+}
+
 interface ProductPageProps {
-  product: typeof products[0];
+  product: typeof products[0] & { specs: ProductSpecs };
 }
 
 // Añade estas funciones antes de la definición de tu componente
@@ -582,7 +436,6 @@ export default function ProductoDetalle({ product }: ProductPageProps) {
                         
                         {/* Características detalladas específicas */}
                         {(product.slug === 'cintas-flexograficas' || 
-  product.slug === 'maquinas-cerradoras' || 
   product.slug === 'precintos' || 
   product.slug === 'selladora-silos') && product.specs?.caracteristicas && (
     <div className="mt-8 space-y-6">
@@ -604,7 +457,6 @@ export default function ProductoDetalle({ product }: ProductPageProps) {
                         
                         {/* Tabla de especificaciones */}
                         {(product.slug === 'cintas-flexograficas' || 
-  product.slug === 'maquinas-cerradoras' || 
   product.slug === 'precintos' || 
   product.slug === 'selladora-silos') && product.specs?.tabla && (
                             <div className="mt-8">
@@ -638,14 +490,12 @@ export default function ProductoDetalle({ product }: ProductPageProps) {
                         
                         {/* Cuándo utilizar */}
                         {(product.slug === 'cintas-flexograficas' || 
-  product.slug === 'maquinas-cerradoras' || 
   product.slug === 'precintos' || 
   product.slug === 'selladora-silos') && product.specs?.cuandoUtilizar && (
     <div className="mt-8 bg-green-700 text-white rounded-xl p-5">
       <h4 className="text-xl font-bold mb-3 flex items-center">
         <span className="mr-2 text-xl">✅</span>
         {product.slug === 'precintos' ? '¿Cómo elegir el precinto correcto?' : 
-        product.slug === 'maquinas-cerradoras' ? '¿Cuál se adapta mejor a tu caso?' :
         product.slug === 'selladora-silos' ? '¿Cuándo utilizar este sistema?' :
         '¿Cuándo utilizar este producto?'}
       </h4>

@@ -58,7 +58,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
           
           <blockquote class="bg-gray-50 p-6 rounded-lg border-l-4 border-blue-500 my-6">
             <p class="font-semibold mb-2">¡Los esperamos en nuestra nueva sucursal!</p>
-            <p>Horarios de atención: Lunes a viernes de 07:30 a 17:30 hs. y sábados de 07:30 a 12:00 hs.</p>
+            <p>Horarios de atención: Lunes a viernes de 07:30 a 17:30 hs.</p>
           </blockquote>
         </article>
       `,

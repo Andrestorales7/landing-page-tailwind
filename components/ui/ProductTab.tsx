@@ -116,17 +116,17 @@ const ProductTab: React.FC<ProductTabProps> = ({
                         d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                       />
                     </svg>
-                    Ficha Técnica
+                    Descargar manual de despiece
                   </a>
                 )}
 
                 {/* Description content */}
-                <div className="rich-content-wrapper prose max-w-none">
+                <div className="rich-content-wrapper prose max-w-none text-gray-900">
                   {product.description.map((content, index) => (
                     <div 
                       key={index}
                       dangerouslySetInnerHTML={{ __html: content }}
-                      className="mb-4 last:mb-0"
+                      className="mb-4 last:mb-0 text-gray-900"
                     />
                   ))}
                 </div>
@@ -138,6 +138,17 @@ const ProductTab: React.FC<ProductTabProps> = ({
       
       {/* Simplified table styles */}
       <style jsx global>{`
+        .rich-content-wrapper {
+          color: #111827; /* text-gray-900 */
+        }
+        
+        .rich-content-wrapper p, 
+        .rich-content-wrapper li, 
+        .rich-content-wrapper h3, 
+        .rich-content-wrapper h4 {
+          color: #111827; /* text-gray-900 */
+        }
+        
         .rich-content-wrapper table {
           width: 100%;
           border-collapse: collapse;
@@ -155,10 +166,16 @@ const ProductTab: React.FC<ProductTabProps> = ({
         .rich-content-wrapper td {
           padding: 0.75rem;
           border-bottom: 1px solid #e5e7eb;
+          color: #111827; /* text-gray-900 */
         }
         
         .rich-content-wrapper tr:last-child td {
           border-bottom: none;
+        }
+        
+        .rich-content-wrapper ul, 
+        .rich-content-wrapper ol {
+          color: #111827; /* text-gray-900 */
         }
       `}</style>
 

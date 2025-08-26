@@ -141,7 +141,8 @@ const Navbar: React.FC = () => {
             name: "Otros Productos", 
             id: "otros",
             subcategories: [
-                { name: "Ver todos", id: "soluciones", path: "/productos/otrosproductos" }
+                { name: "Ver todos", id: "soluciones", path: "/productos/otrosproductos" },
+                { name: "Cerradoras de Bolsas", id: "maquinas-cerradoras", path: "/productos/maquinas-cerradoras" }
             ]
         }
     ];
