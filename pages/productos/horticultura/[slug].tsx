@@ -191,6 +191,17 @@ const products = [
 			medidas: [
 				{ ancho: '4,20 metros', largo: '100 metros' },
 			],
+			tipos: [
+				{
+					nombre: 'Manta para cultivo - Manta Parral',
+					especificaciones: [
+						'Dimensiones: 4.20 x 100 metros',
+						'Espesor: 120 micras',
+						'Bordes reforzados: 300 micras',
+						'Ojales cada 30 cm en bordes reforzados',
+					],
+				},
+			],
 		},
 	},
 	{
@@ -495,11 +506,11 @@ export default function ProductoDetalle({ product }: ProductPageProps) {
 									el espesor.
 								</p>
 								<h4 className="mt-6 mb-2 font-bold text-green-700">Tipos de Películas</h4>
-								{product.specs?.tipos?.map((tipo, idx) => (
+								{product.specs?.tipos?.map((tipo: any, idx: number) => (
 									<div key={idx} className="mb-4">
-										<strong>{tipo.titulo}:</strong>
+										<strong>{tipo.titulo || tipo.nombre}:</strong>
 										<ul className="list-disc pl-6 mt-1">
-											{tipo.items.map((item, i) => (
+											{(tipo.items || tipo.especificaciones)?.map((item: string, i: number) => (
 												<li key={i}>{item}</li>
 											))}
 										</ul>
@@ -627,6 +638,23 @@ export default function ProductoDetalle({ product }: ProductPageProps) {
 										</li>
 									))}
 								</ul>
+								{product.specs?.tipos && (
+									<>
+										<h4 className="mt-6 mb-2 font-bold text-green-700">Tipos Específicos</h4>
+										{product.specs.tipos.map((tipo: any, i: number) => (
+											<div key={i} className="bg-green-50 p-4 rounded-lg mt-4">
+												<h5 className="font-semibold text-green-800 mb-2">
+													{tipo.nombre || tipo.titulo}
+												</h5>
+												<ul className="list-disc pl-6 text-sm">
+													{(tipo.especificaciones || tipo.items)?.map((spec: string, j: number) => (
+														<li key={j}>{spec}</li>
+													))}
+												</ul>
+											</div>
+										))}
+									</>
+								)}
 							</div>
 						) : product.slug === 'hilos-para-tutorado' ? (
 							<div className="prose prose-lg max-w-none text-gray-700">

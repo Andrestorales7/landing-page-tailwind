@@ -17,41 +17,28 @@ const Navbar: React.FC = () => {
 
     const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
-    // Manejo mejorado del menú desplegable
-    const handleCloseProductMenu = () => {
-        timeoutRef.current = setTimeout(() => {
-            setIsProductMenuOpen(false);
+    // Manejo de menú basado en clics
+    const toggleProductMenu = () => {
+        setIsProductMenuOpen(!isProductMenuOpen);
+        if (isProductMenuOpen) {
             setActiveCategory(null);
-        }, 100);
-    };
-
-    const handleMenuInteraction = (isEntering: boolean) => {
-        if (isEntering) {
-            if (timeoutRef.current) clearTimeout(timeoutRef.current);
-            setIsProductMenuOpen(true);
-        } else {
-            handleCloseProductMenu();
         }
     };
 
-    const handleCategoryInteraction = (categoryId: string | null, isEntering: boolean) => {
-        if (isEntering) {
-            if (categoryTimeoutRef.current) clearTimeout(categoryTimeoutRef.current);
-            setActiveCategory(categoryId);
+    const toggleCategoryMenu = (categoryId: string) => {
+        if (activeCategory === categoryId) {
+            setActiveCategory(null);
         } else {
-            categoryTimeoutRef.current = setTimeout(() => {
-                // Solo limpiar si no hay otro hover activo
-                if (activeCategory === categoryId) {
-                    setActiveCategory(null);
-                }
-            }, 100);
+            setActiveCategory(categoryId);
         }
     };
 
     // Cierra el menú al hacer clic fuera de él
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            if (productMenuRef.current && !productMenuRef.current.contains(event.target as Node)) {
+            if (productMenuRef.current && 
+                !productMenuRef.current.contains(event.target as Node) &&
+                isProductMenuOpen) {
                 setIsProductMenuOpen(false);
                 setActiveCategory(null);
             }
@@ -59,7 +46,7 @@ const Navbar: React.FC = () => {
         
         document.addEventListener('mousedown', handleClickOutside);
         return () => document.removeEventListener('mousedown', handleClickOutside);
-    }, []);
+    }, [isProductMenuOpen]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -202,13 +189,11 @@ const Navbar: React.FC = () => {
                                 <li
                                     className="relative"
                                     ref={productMenuRef}
-                                    onMouseEnter={() => handleMenuInteraction(true)}
-                                    onMouseLeave={() => handleMenuInteraction(false)}
                                 >
                                     <div className="flex flex-col">
-                                        <Link
-                                            href="/productos"
-                                            className="flex items-center font-medium tracking-wide transition-colors hover:text-green-500"
+                                        <button
+                                            onClick={toggleProductMenu}
+                                            className="flex items-center font-medium tracking-wide transition-colors hover:text-green-500 bg-transparent text-inherit"
                                             aria-haspopup="true"
                                             aria-expanded={isProductMenuOpen}
                                         >
@@ -216,7 +201,7 @@ const Navbar: React.FC = () => {
                                             <svg className={`w-4 h-4 ml-1 transition-transform duration-200 ${isProductMenuOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                             </svg>
-                                        </Link>
+                                        </button>
                                         
                                         {isProductMenuOpen && (
                                             <div 
@@ -228,11 +213,10 @@ const Navbar: React.FC = () => {
                                                         <div 
                                                             key={category.id}
                                                             className="relative"
-                                                            onMouseEnter={() => handleCategoryInteraction(category.id, true)}
-                                                            onMouseLeave={() => handleCategoryInteraction(category.id, false)}
                                                         >
                                                             <div
-                                                                className={`block w-full text-left px-4 py-2.5 text-base text-gray-700 hover:bg-gray-50 hover:text-green-500 rounded-md transition-colors flex items-center justify-between cursor-pointer group ${activeCategory === category.id ? 'bg-gray-50 text-green-500' : ''}`}
+                                                                onClick={() => toggleCategoryMenu(category.id)}
+                                                                className={`w-full text-left px-4 py-2.5 text-base text-gray-700 hover:bg-gray-50 hover:text-green-500 rounded-md transition-colors flex items-center justify-between cursor-pointer group ${activeCategory === category.id ? 'bg-gray-50 text-green-500' : ''}`}
                                                             >
                                                                 <span>{category.name}</span>
                                                                 <svg 
@@ -357,7 +341,7 @@ const Navbar: React.FC = () => {
                             <div className="space-y-2">
                                 <button
                                     onClick={() => setIsMobileProductMenuOpen(!isMobileProductMenuOpen)}
-                                    className="block w-full text-left text-gray-800 py-2 hover:text-green-500 flex items-center justify-between"
+                                    className="w-full text-left text-gray-800 py-2 hover:text-green-500 flex items-center justify-between"
                                     aria-expanded={isMobileProductMenuOpen}
                                 >
                                     Productos
@@ -373,7 +357,7 @@ const Navbar: React.FC = () => {
                                         {productCategories.map((category) => (
                                             <div key={category.id} className="space-y-1">
                                                 <div 
-                                                    className={`block w-full text-left text-gray-700 py-2 flex items-center justify-between cursor-pointer group rounded-md hover:bg-gray-50 px-2 ${mobileActiveCategory === category.id ? 'bg-gray-50 text-green-500' : ''}`}
+                                                    className={`w-full text-left text-gray-700 py-2 flex items-center justify-between cursor-pointer group rounded-md hover:bg-gray-50 px-2 ${mobileActiveCategory === category.id ? 'bg-gray-50 text-green-500' : ''}`}
                                                     onClick={() => setMobileActiveCategory(mobileActiveCategory === category.id ? null : category.id)}
                                                 >
                                                     <span>{category.name}</span>
