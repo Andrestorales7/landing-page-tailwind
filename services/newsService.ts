@@ -16,6 +16,61 @@ export interface Article {
 export const fetchArticles = async (): Promise<Article[]> => {
   const articles = [
     {
+      id: 10,
+      title: "CMP Agro presente en la Expo Norte Concepción 2025",
+      description: "La vidriera de Concepción reunió a productores, empresas y amigos en una semana de innovación, negocios y actividades para el agro.",
+      category: "Eventos",
+      author: "CMP Noticias",
+      date: "2025-09-09",
+      image: "/images/eventos/expo-norte/expo-portada.JPEG",
+      authorImage: "/images/eventos/noticias-logo.png",
+      content: `
+        <article class="news-content">
+          <h2 class="text-2xl font-bold mb-4">CMP Agro presente en la Expo Norte Concepción 2025</h2>
+          <p class="mb-4">
+            Del <strong>2 al 9 de septiembre</strong>, en la ciudad de Concepción, CMP Agro acompañó una vez más a la <strong>Expo Norte Concepción</strong>, la gran vidriera del norte del país que reúne a productores, empresas y protagonistas del agro nacional.
+          </p>
+          <p class="mb-4">
+            Durante la feria, presentamos nuestras soluciones para las distintas necesidades de los productores, acercándonos un año más a nuestros clientes y amigos de la zona.
+          </p>
+          <figure class="my-8">
+            <img src="/images/eventos/expo-norte/expo-1.JPEG" alt="Stand de CMP Agro en la Expo Norte Concepción 2025" class="rounded-xl w-full shadow-lg" />
+          </figure>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4">Una semana de innovación y negocios</h3>
+          <p class="mb-4">
+            Fue una oportunidad para realizar negocios, intercambiar ideas, compartir conocimientos y disfrutar de un ambiente único, con música, competencias y diversas actividades que caracterizan a este gran evento.
+          </p>
+          <p class="mb-4">
+            Durante los días de exposición, nuestro equipo tuvo la oportunidad de interactuar directamente con productores de la región, conocer sus necesidades específicas y presentar las mejores soluciones tecnológicas para optimizar sus procesos productivos.
+          </p>
+          <figure class="my-8">
+            <img src="/images/eventos/expo-norte/expo-2.JPEG" alt="Interacción con productores en la Expo Norte Concepción" class="rounded-xl w-full shadow-lg" />
+          </figure>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4">Fortaleciendo vínculos en el norte del país</h3>
+          <p class="mb-4">
+            Desde CMP Agro seguimos apostando a este tipo de encuentros para estar siempre cerca de nuestros clientes y fortalecer los vínculos que impulsan el desarrollo del campo paraguayo.
+          </p>
+          <p class="mb-4">
+            La Expo Norte Concepción se consolida año tras año como un evento fundamental para el sector agropecuario del norte del país, y nuestra participación reafirma el compromiso de acompañar a los productores con soluciones innovadoras y de calidad.
+          </p>
+          <figure class="my-8">
+            <img src="/images/eventos/expo-norte/expo-3.JPEG" alt="Actividades y presentaciones en la Expo Norte Concepción 2025" class="rounded-xl w-full shadow-lg" />
+          </figure>
+
+          <p class="mb-4">
+            Agradecemos a todos los que se acercaron a compartir con nosotros durante esta importante semana agropecuaria.
+          </p>
+          
+          <blockquote class="bg-gray-50 p-6 rounded-lg border-l-4 border-blue-500 my-6">
+            <p class="font-semibold mb-2">¡Nos vemos en la próxima edición!</p>
+            <p>Para conocer más sobre nuestras soluciones y servicios, contáctenos a través de nuestros canales oficiales.</p>
+          </blockquote>
+        </article>
+      `,
+    },
+    {
       id: 9,
       title: "Inauguración de renovada sucursal en Minga Guazú",
       description: "Soluciones eficientes para el campo, más cerca del productor paraguayo.",
