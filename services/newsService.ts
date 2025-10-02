@@ -16,6 +16,54 @@ export interface Article {
 export const fetchArticles = async (): Promise<Article[]> => {
   const articles = [
     {
+      id: 11,
+      title: "CMP Agro presente en el CEA 2025",
+      description: "Participamos en el evento ganadero más importante del país, presentando soluciones innovadoras para el sector productivo.",
+      category: "Eventos",
+      author: "CMP Noticias",
+      date: "2025-10-02",
+      image: "/images/eventos/congreso-ganaderia2025/portada1.jpeg",
+      imageStyle: "object-contain", // Asegura que la imagen de portada se vea completa
+      authorImage: "/images/eventos/noticias-logo.png",
+      content: `
+        <article class="news-content">
+          <h2 class="text-2xl font-bold mb-4">CMP Agro presente en el Congreso de Exposición de la Asociación Rural del Paraguay</h2>
+          <p class="mb-4">
+            Nos enorgullece anunciar nuestra participación en el <strong>Congreso de Exposición de la Asociación Rural del Paraguay (CEA)</strong>, el evento ganadero más importante del país, donde presentaremos nuestras soluciones y tecnologías de vanguardia para el sector productivo.
+          </p>
+          <p class="mb-4">
+            Con más de 25 años de trayectoria, en CMP Agro reafirmamos nuestro compromiso de brindar soluciones reales al productor paraguayo, representando marcas líderes y tecnologías innovadoras que marcan la diferencia en el campo.
+          </p>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4">Soluciones innovadoras que presentaremos</h3>
+          <ul class="list-none space-y-3 mb-6">
+            <li>🔹 <span class="ml-2"><strong>Inoculantes SupraSil:</strong> Optimizan el silo para un mejor aprovechamiento del alimento, resultando en mayor producción de carne y leche.</span></li>
+            <li>🔹 <span class="ml-2"><strong>Biosales Genofeed:</strong> Innovación en bionutrición ruminal que aporta minerales, enzimas y microorganismos específicos para mejorar la digestibilidad y el rendimiento.</span></li>
+            <li>🔹 <span class="ml-2"><strong>Comederos:</strong> Soluciones prácticas y resistentes que facilitan la alimentación diaria.</span></li>
+            <li>🔹 <span class="ml-2"><strong>Geomembranas y reservorios:</strong> Ideales para el almacenamiento eficiente de agua y efluentes.</span></li>
+            <li>🔹 <span class="ml-2"><strong>Medias sombras:</strong> Diseñadas para mejorar el confort animal, incrementando el bienestar y la productividad en condiciones extremas.</span></li>
+          </ul>
+
+          <div class="my-8 flex justify-center">
+            <video controls class="rounded-xl w-3/4 md:w-2/3 lg:w-1/2">
+              <source src="/images/eventos/congreso-ganaderia2025/congreso-ganaderia1.mp4" type="video/mp4" />
+              Tu navegador no soporta la reproducción de videos.
+            </video>
+          </div>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4">Compromiso con el sector productivo</h3>
+          <p class="mb-4">
+            Nuestra participación en el CEA 2025 reafirma nuestro compromiso continuo con el desarrollo del sector ganadero paraguayo, acercando tecnologías de vanguardia que impulsan la productividad y eficiencia en el campo.
+          </p>
+          
+          <blockquote class="bg-gray-50 p-6 rounded-lg border-l-4 border-blue-500 my-6">
+            <p class="font-semibold mb-2">¡Los esperamos en nuestro stand!</p>
+            <p>Para más información sobre el congreso, visite la web oficial: <a href="https://congresocea.com.py/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">congresocea.com.py</a></p>
+          </blockquote>
+        </article>
+      `,
+    },
+    {
       id: 10,
       title: "CMP Agro presente en la Expo Norte Concepción 2025",
       description: "La vidriera de Concepción reunió a productores, empresas y amigos en una semana de innovación, negocios y actividades para el agro.",

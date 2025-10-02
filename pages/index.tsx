@@ -48,7 +48,7 @@ export default function HomePage() {
         notices={[
           {
             id: 1,
-            text: "📅 Sexto Congreso Paraguayo de Semillas - 6 - 7 de Agosto ----- Expo Norte del 1 al 7 de Septiembre -"
+            text: "📅 Congreso de Exposición de la Asociación Rural del Paraguay (CEA) 2025 - Octubre 2025"
           }
         ]}
       />
