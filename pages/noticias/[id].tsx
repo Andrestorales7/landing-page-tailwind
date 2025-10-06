@@ -150,9 +150,9 @@ const NoticiaDetalle = () => {
               <Image
                 src={article.image}
                 alt={article.title}
-                width={1200}
+                width={720}
                 height={500}
-                className="w-full h-[400px] md:h-[500px] object-cover rounded-lg shadow-xl border border-gray-200"
+                className="w-full h-[400px] md:h-[500px] object-contain rounded-lg "
               />
             </div>
 

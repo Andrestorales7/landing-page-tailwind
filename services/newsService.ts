@@ -22,8 +22,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
       category: "Eventos",
       author: "CMP Noticias",
       date: "2025-10-02",
-      image: "/images/eventos/congreso-ganaderia2025/portada1.jpeg",
-      imageStyle: "object-contain", // Asegura que la imagen de portada se vea completa
+      image: "/images/eventos/congreso-ganaderia2025/portada2.jpeg",
       authorImage: "/images/eventos/noticias-logo.png",
       content: `
         <article class="news-content">

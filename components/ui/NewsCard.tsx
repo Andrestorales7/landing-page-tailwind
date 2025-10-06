@@ -63,7 +63,7 @@ const NewsCard = ({
               alt={image.alt}
               width={image.width || 400}
               height={image.height || 300}
-              className="h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+              className="h-full w-full object-contain transform group-hover:scale-105 transition-transform duration-500"
             />
           </div>
         </Link>
