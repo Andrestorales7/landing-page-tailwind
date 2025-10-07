@@ -51,9 +51,9 @@ const CintasIndustrialesPage = () => {
     {
       id: 'tesa-4668',
       label: 'tesa® 4668',
-      title: 'tesa® Professional 4668 Transparent PE Tape',
+      title: 'tesa® Professional 4668 Transparent PE-Repairing Tape',
       imageSrc: ['/images/productos/cintas-industriales/tesa-4668-2.jpg'],
-      imageAlt: ['tesa® Professional 4668 Transparent PE Tape'],
+      imageAlt: ['tesa® Professional 4668 Transparent PE-Repairing Tape'],
       description: [
         `<p>La cinta de reparar transparente y resistente ofrece la solución ideal cuando se trata de tareas de empalme en interior o exterior.</p>
         <p><strong>Color:</strong> transparente<br/>
