@@ -17,14 +17,6 @@ const OtrosProductosPage = () => {
 
   const products = [
     {
-      name: 'Cintas Flexográficas',
-      slug: 'cintas-flexograficas',
-      image: '/images/productos/otros/cintasflex/cintas1.jpg',
-      description: 'Cintas impresas de alta calidad para embalaje y seguridad.',
-      details: ['Personalizables', 'Alta resistencia', 'Impresión nítida'],
-      logo: '/images/logos/tesa-logo.svg',
-    },
-    {
       name: 'Precintos',
       slug: 'precintos',
       image: '/images/productos/otros/precintos/precinto-altaseguridad.jpg',

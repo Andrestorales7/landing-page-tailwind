@@ -71,8 +71,19 @@ const categorias = [
         showMultipleProducts: false
     },
     {
+        name: 'Cintas Industriales',
+        image: '/images/productos/cintas-industriales/tesa-4668-2.jpg',
+        link: '/productos/cintas-industriales',
+        productos: [
+            { nombre: 'tesa® 4668', imagen: '/images/productos/cintas-industriales/tesa-4668-2.jpg' },
+            { nombre: 'tesa® 4970', imagen: '/images/productos/cintas-industriales/tesa-4970-1.webp' },
+            { nombre: 'tesa® Extra Power', imagen: '/images/productos/cintas-industriales/tesa-extrapower-universal.webp' }
+        ],
+        showMultipleProducts: true
+    },
+    {
         name: 'Otros Productos',
-        image: '/images/productos/otros/costuradoras/cost1.png',
+        image: '/images/productos/otros/precintos/precinto-altaseguridad.jpg',
         link: '/productos/otrosproductos',
         showMultipleProducts: false
     },

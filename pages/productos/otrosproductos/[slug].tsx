@@ -8,94 +8,6 @@ import Head from 'next/head';
 
 const products = [
     {
-        name: 'Cintas Industriales',
-        slug: 'cintas-flexograficas',
-        images: ['/images/productos/otros/cintasflex/cintas1.jpg',
-            '/images/productos/otros/cintasflex/cintas2.jpg',
-        ],
-        description: 'Cintas de alta calidad para impresion de embalajes flexibles y cartones. Certificadas con Full HD Flexo por Esko, que ofrecen una muy alta calidad en impresión. Enfocadas cada una de ellas en trabajos de: plenos, semi-plenos y reticulas.',
-        details: [
-            'Soporte de espuma de alta calidad',
-            'Certificación Full HD Flexo (Esko)',
-            'Adhesivo doble cara para fotopolímero y hule',
-            'Remoción limpia sin residuos',
-            'Transferencia uniforme de tinta'
-        ],
-        logo: '/images/logos/tesa-logo.svg',
-        specs: {
-            usos: [
-                'Embalaje de cajas y paquetes',
-                'Identificación y seguridad',
-                'Etiquetas de alta definición',
-                'Packaging y envases exigentes'
-            ],
-            presentacion: [
-                'Rollos de diferentes anchos y largos',
-                'Impresión personalizada disponible',
-            ],
-            caracteristicas: [
-                {
-                    titulo: 'Soporte y estructura',
-                    detalles: [
-                        'Espuma de alta calidad diseñada específicamente para soportar clichés de impresión flexográfica',
-                        'Excelente estabilidad y planitud durante el proceso de impresión',
-                        'Compensa irregularidades menores y garantiza un contacto óptimo entre cliché y cilindro'
-                    ]
-                },
-                {
-                    titulo: 'Rendimiento de impresión',
-                    detalles: [
-                        'Certificada con Full HD Flexo por Esko para ofrecer resolución muy alta',
-                        'Mantiene nitidez y contraste de motivos impresos',
-                        'Ideal para trabajos exigentes como packaging, etiquetas y gráficos de alta definición'
-                    ]
-                },
-                {
-                    titulo: 'Adhesividad y flexibilidad',
-                    detalles: [
-                        'Adhesivo doble cara que fija firmemente el cliché al cilindro o manga',
-                        'Compatible con clichés de fotopolímero y de hule (látex)',
-                        'Permite retirar el cliché de manera limpia sin dejar residuos'
-                    ]
-                },
-                {
-                    titulo: 'Eficiencia operativa',
-                    detalles: [
-                        'Garantiza transferencia uniforme de tinta, ideal para tirajes continuos',
-                        'Reducido riesgo de "lifting" o despegue del borde del cliché',
-                        'Mejora la fiabilidad y reduce desperdicios'
-                    ]
-                },
-                {
-                    titulo: 'Disponibilidad y logística',
-                    detalles: [
-                        'Envíos a todo el país',
-                        'Sucursales en Asunción, Minga Guazú y Loma Plata',
-                        'Variedad de modelos para diferentes necesidades de impresión'
-                    ]
-                }
-            ],
-            tabla: {
-                titulo: 'Especificaciones técnicas',
-                columnas: ['Característica', 'Detalle'],
-                filas: [
-                    ['Soporte', 'Espuma de alta calidad'],
-                    ['Adhesivo', 'Doble cara, para fotopolímero y hule'],
-                    ['Calidad', 'Certificación Full HD Flexo (Esko)'],
-                    ['Remoción', 'Limpia, sin residuos'],
-                    ['Aplicaciones', 'Etiquetas, envases, packaging de alta definición'],
-                    ['Logística', 'Sucursales en Asunción, Minga Guazú, Loma Plata']
-                ]
-            },
-            cuandoUtilizar: [
-                'Procesos de flexografía que exigen alta resolución',
-                'Trabajos que requieren consistencia en semitonos',
-                'Impresiones Full HD con clichés de fotopolímero',
-                'Trabajos con frecuentes cambios de cliché'
-            ]
-        },
-    },
-    {
         name: 'Precintos',
         slug: 'precintos',
         images: [
@@ -435,9 +347,7 @@ export default function ProductoDetalle({ product }: ProductPageProps) {
                         )}
                         
                         {/* Características detalladas específicas */}
-                        {(product.slug === 'cintas-flexograficas' || 
-  product.slug === 'precintos' || 
-  product.slug === 'selladora-silos') && product.specs?.caracteristicas && (
+                        {product.specs?.caracteristicas && (
     <div className="mt-8 space-y-6">
       <h4 className="text-xl font-bold text-green-800 mb-4">Características Detalladas</h4>
       {product.specs.caracteristicas.map((caracteristica, i) => (
@@ -456,9 +366,7 @@ export default function ProductoDetalle({ product }: ProductPageProps) {
 )}
                         
                         {/* Tabla de especificaciones */}
-                        {(product.slug === 'cintas-flexograficas' || 
-  product.slug === 'precintos' || 
-  product.slug === 'selladora-silos') && product.specs?.tabla && (
+                        {product.specs?.tabla && (
                             <div className="mt-8">
                                 <h4 className="text-xl font-bold text-green-800 mb-4">{product.specs.tabla.titulo}</h4>
                                 <div className="overflow-x-auto">
@@ -489,15 +397,11 @@ export default function ProductoDetalle({ product }: ProductPageProps) {
                         )}
                         
                         {/* Cuándo utilizar */}
-                        {(product.slug === 'cintas-flexograficas' || 
-  product.slug === 'precintos' || 
-  product.slug === 'selladora-silos') && product.specs?.cuandoUtilizar && (
+                        {product.specs?.cuandoUtilizar && (
     <div className="mt-8 bg-green-700 text-white rounded-xl p-5">
       <h4 className="text-xl font-bold mb-3 flex items-center">
         <span className="mr-2 text-xl">✅</span>
-        {product.slug === 'precintos' ? '¿Cómo elegir el precinto correcto?' : 
-        product.slug === 'selladora-silos' ? '¿Cuándo utilizar este sistema?' :
-        '¿Cuándo utilizar este producto?'}
+        ¿Cómo elegir el precinto correcto?
       </h4>
       <ul className="list-disc pl-8 space-y-1">
         {product.specs.cuandoUtilizar.map((item, i) => (

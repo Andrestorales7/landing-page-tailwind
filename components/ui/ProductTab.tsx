@@ -46,8 +46,8 @@ const ProductTab: React.FC<ProductTabProps> = ({
             key={product.id}
             className={`whitespace-nowrap px-4 py-2 font-medium transition-all rounded-md ${
               activeTab === product.id
-                ? `bg-${accentColor}-600 text-white shadow-sm`
-                : `text-gray-700 hover:text-${accentColor}-700 hover:bg-${accentColor}-50 border border-gray-200`
+                ? `bg-${accentColor}-100 text-${accentColor}-900 shadow-sm font-semibold border border-${accentColor}-200`
+                : `text-gray-700 hover:text-${accentColor}-900 hover:bg-${accentColor}-50 border border-gray-200`
             }`}
             onClick={() => setActiveTab(product.id)}
             aria-selected={activeTab === product.id}
@@ -70,7 +70,7 @@ const ProductTab: React.FC<ProductTabProps> = ({
               transition={{ duration: 0.3 }}
               role="tabpanel"
             >
-              <h2 className={`text-2xl font-semibold text-${accentColor}-900 mb-6`}>{product.title}</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">{product.title}</h2>
               
               {/* Product image grid */}
               <div className="space-y-6">
@@ -78,7 +78,7 @@ const ProductTab: React.FC<ProductTabProps> = ({
                   {(Array.isArray(product.imageSrc) ? product.imageSrc : [product.imageSrc]).map((src, index) => (
                     <div 
                       key={index}
-                      className={`relative aspect-square bg-gray-50 cursor-pointer rounded-lg overflow-hidden ${
+                      className={`relative aspect-[4/3]  cursor-pointer rounded-lg overflow-hidden ${
                         Array.isArray(product.imageSrc) && product.imageSrc.length === 1 ? 'md:col-span-2' : ''
                       }`}
                       onClick={() => handleImageClick(src)}
@@ -87,7 +87,7 @@ const ProductTab: React.FC<ProductTabProps> = ({
                         src={src}
                         alt={Array.isArray(product.imageAlt) ? product.imageAlt[index] || '' : product.imageAlt}
                         fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        sizes="(max-width: 768px) 95vw, (max-width: 768px) 95vw"
                         className="object-contain p-4 transition-transform duration-300 hover:scale-[1.02]"
                         priority={activeTab === products[0].id && index === 0}
                       />
