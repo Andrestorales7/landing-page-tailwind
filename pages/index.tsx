@@ -48,7 +48,8 @@ export default function HomePage() {
         notices={[
           {
             id: 1,
-            text: "📅 Congreso de Exposición de la Asociación Rural del Paraguay (CEA) 2025 - Octubre 2025"
+            text: "📅 Congreso de Exposición de la Asociación Rural del Paraguay (CEA) 2025 - Dia 27 - 28 de Octubre 2025",
+            link: "https://congresocea.com.py"
           }
         ]}
       />

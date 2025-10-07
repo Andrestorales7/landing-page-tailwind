@@ -124,7 +124,13 @@ const NoticeSlider: React.FC<NoticeSliderProps> = ({
         >
           {allNotices.map((notice, index) => (
             <span key={`${notice.id}-1-${index}`} className="notice-item">
-              {notice.text}
+              {notice.link ? (
+                <a href={notice.link} target="_blank" rel="noopener noreferrer" className="notice-link">
+                  {notice.text}
+                </a>
+              ) : (
+                notice.text
+              )}
               {index !== allNotices.length - 1 && (
                 <span className="separator">•</span>
               )}
@@ -139,7 +145,13 @@ const NoticeSlider: React.FC<NoticeSliderProps> = ({
         >
           {allNotices.map((notice, index) => (
             <span key={`${notice.id}-2-${index}`} className="notice-item">
-              {notice.text}
+              {notice.link ? (
+                <a href={notice.link} target="_blank" rel="noopener noreferrer" className="notice-link">
+                  {notice.text}
+                </a>
+              ) : (
+                notice.text
+              )}
               {index !== allNotices.length - 1 && (
                 <span className="separator">•</span>
               )}
@@ -169,6 +181,17 @@ const styles = `
     z-index: 9999;
     font-size: 0.9rem;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  .notice-link {
+    color: #2d5a27;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .notice-link:hover {
+    opacity: 0.7;
+    text-decoration: underline;
   }
 
   .marquee-container {
