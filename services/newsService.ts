@@ -16,8 +16,88 @@ export interface Article {
 export const fetchArticles = async (): Promise<Article[]> => {
   const articles = [
     {
+      id: 12,
+      title: "CMP se presentó en el CEA 2025: Acompañamos al productor paraguayo con innovación y compromiso ",
+      description: "Durante el CEA 2025, la especialista Janaina Martuscello compartió su visión sobre la importancia de las pasturas tropicales en el futuro de la ganadería.",
+      category: "Eventos",
+      author: "CMP Noticias",
+      date: "2025-11-10",
+      image: "/images/eventos/CEA2025/portada-cea.jpeg",
+      authorImage: "/images/eventos/noticias-logo.png",
+      content: `
+        <article class="news-content">
+          <h2 class="text-2xl font-bold mb-4">CMP Agro presente en el CEA 2025</h2>
+          <p class="mb-4">
+            <strong>Acompañamos al productor paraguayo con innovación y compromiso</strong>
+          </p>
+
+          <p class="mb-4">
+            En CMP Agro participamos del <strong>Congreso de Exposición de la Asociación Rural del Paraguay (CEA 2025)</strong>, el evento ganadero más importante del país, donde presentamos nuestras tecnologías y soluciones diseñadas para impulsar la productividad y el bienestar del sector.
+          </p>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4">Soluciones innovadoras presentadas:</h3>
+          <ul class="list-none space-y-3 mb-6">
+            <li>🔹 <span class="ml-2"><strong>Inoculantes SupraSil:</strong> optimizan el silo y mejoran el aprovechamiento del alimento, generando mayor producción de carne y leche.</span></li>
+            <li>🔹 <span class="ml-2"><strong>Biosales Genofeed:</strong> innovación en bionutrición ruminal que mejora digestibilidad y rendimiento.</span></li>
+            <li>🔹 <span class="ml-2"><strong>Comederos resistentes:</strong> facilitan la alimentación diaria del ganado.</span></li>
+            <li>🔹 <span class="ml-2"><strong>Geomembranas y reservorios:</strong> soluciones eficientes para el almacenamiento de agua y efluentes.</span></li>
+            <li>🔹 <span class="ml-2"><strong>Medias sombras:</strong> diseñadas para mejorar el confort animal y la productividad en condiciones extremas.</span></li>
+          </ul>
+
+          <figure class="my-8">
+            <img src="/images/eventos/CEA2025/CEA-BIOSALES.jpg" alt="Productos Biosales presentados en CEA 2025" class="rounded-xl w-full shadow-lg" />
+          </figure>
+
+          <p class="mb-4">
+            Con más de 25 años de trayectoria, en CMP Agro reafirmamos nuestro compromiso con el desarrollo del sector ganadero paraguayo, acercando innovación y tecnología internacional al productor local.
+          </p>
+
+          <p class="mb-4">
+            Nuestra participación en el CEA 2025 refuerza nuestro propósito de seguir acompañando al productor con soluciones reales, duraderas y adaptadas al campo paraguayo.
+          </p>
+
+          <h2 class="text-2xl font-bold mt-12 mb-4">El buen establecimiento de pasturas: una inversión para el futuro de la ganadería paraguaya</h2>
+          
+          <p class="mb-4">
+            El establecimiento adecuado de pasturas es una de las bases más importantes para garantizar una ganadería eficiente, rentable y sostenible. En un contexto donde el productor enfrenta el desafío de producir más en menos espacio, la planificación y el manejo responsable del suelo se vuelven esenciales para mejorar la alimentación del ganado y cuidar el ambiente.
+          </p>
+
+          <figure class="my-8">
+            <img src="/images/eventos/CEA2025/janina-martuscello.jpg" alt="Janaina Martuscello en el CEA 2025" class="rounded-xl w-full shadow-lg" />
+          </figure>
+
+          <p class="mb-4">
+            Durante el <strong>33° Congreso CEA 2025</strong>, la especialista <strong>Janaina Martuscello</strong> compartió su visión sobre la importancia de las pasturas tropicales en el futuro de la ganadería, destacando la necesidad de una correcta planificación, análisis del suelo y reposición constante de nutrientes.
+          </p>
+
+          <blockquote class="bg-gray-50 p-6 rounded-lg border-l-4 border-green-500 my-6">
+            <p class="font-semibold mb-2">"El suelo no es un recurso infinito; necesitamos reponer los nutrientes que el sistema extrae para sostener la productividad"</p>
+            <p class="text-sm">- Janaina Martuscello, especialista en pasturas tropicales</p>
+          </blockquote>
+
+          <p class="mb-4">
+            Martuscello resaltó que un buen manejo de pasturas incrementa la capacidad forrajera, la carga animal y la sostenibilidad del sistema ganadero.
+          </p>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4">Compromiso con el futuro ganadero</h3>
+          <p class="mb-4">
+            En CMP Agro, coincidimos plenamente con esta visión: <strong>cada buen pasto establecido hoy es una inversión en el futuro de la producción ganadera paraguaya</strong>.
+          </p>
+
+          <p class="mb-4">
+            Por eso seguimos trabajando junto al productor, acercando soluciones que potencien la eficiencia del campo y el cuidado del suelo.
+          </p>
+
+          <blockquote class="bg-gray-50 p-6 rounded-lg border-l-4 border-blue-500 my-6">
+            <p class="font-semibold mb-2">¡Juntos construimos el futuro del agro paraguayo!</p>
+            <p>Para más información sobre nuestras soluciones y participación en eventos, contáctenos a través de nuestros canales oficiales.</p>
+          </blockquote>
+        </article>
+      `,
+    },
+    {
       id: 11,
-      title: "CMP Agro presente en el CEA 2025",
+      title: "CMP Agro Estará presente en el CEA 2025",
       description: "Participamos en el evento ganadero más importante del país, presentando soluciones innovadoras para el sector productivo.",
       category: "Eventos",
       author: "CMP Noticias",

@@ -48,8 +48,11 @@ export default function HomePage() {
         notices={[
           {
             id: 1,
-            text: "📅 Congreso de Exposición de la Asociación Rural del Paraguay (CEA) 2025 - Dia 27 - 28 de Octubre 2025",
-            link: "https://congresocea.com.py"
+            text: "🌱 CMP Agro - Tu partner en soluciones agrícolas, ganaderas e industriales. Calidad garantizada desde 2010.",
+          },
+          {
+            id: 2,
+            text: "🚚 Envíos a todo Paraguay | 📞 Asesoramiento técnico especializado | 💼 Productos de calidad internacional",
           }
         ]}
       />
