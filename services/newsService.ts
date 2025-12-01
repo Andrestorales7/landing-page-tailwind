@@ -23,7 +23,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
       author: "CMP Noticias",
       date: "2025-11-15",
       image: "/images/eventos/feria-sanpedro/feria-hero.webp",
-      authorImage: "/images/eventos/noticias-logo.png",
+      authorImage: "/images/eventos/noticias-logo.webp",
       content: `
         <article class="news-content">
           <h2 class="text-2xl font-bold mb-4">Un encuentro auténtico con el productor paraguayo</h2>
@@ -103,8 +103,8 @@ export const fetchArticles = async (): Promise<Article[]> => {
       category: "Eventos",
       author: "CMP Noticias",
       date: "2025-11-10",
-      image: "/images/eventos/CEA2025/portada-cea.jpeg",
-      authorImage: "/images/eventos/noticias-logo.png",
+      image: "/images/eventos/CEA2025/portada-cea.webp",
+      authorImage: "/images/eventos/noticias-logo.webp",
       content: `
         <article class="news-content">
           <h2 class="text-2xl font-bold mb-4">CMP Agro presente en el CEA 2025</h2>
@@ -126,7 +126,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
           </ul>
 
           <figure class="my-8">
-            <img src="/images/eventos/CEA2025/CEA-BIOSALES.jpg" alt="Productos Biosales presentados en CEA 2025" class="rounded-xl w-full shadow-lg" />
+            <img src="/images/eventos/CEA2025/CEA-BIOSALES.webp" alt="Productos Biosales presentados en CEA 2025" class="rounded-xl w-full shadow-lg" />
           </figure>
 
           <p class="mb-4">
@@ -144,7 +144,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
           </p>
 
           <figure class="my-8">
-            <img src="/images/eventos/CEA2025/janina-martuscello.jpg" alt="Janaina Martuscello en el CEA 2025" class="rounded-xl w-full shadow-lg" />
+            <img src="/images/eventos/CEA2025/janina-martuscello.webp" alt="Janaina Martuscello en el CEA 2025" class="rounded-xl w-full shadow-lg" />
           </figure>
 
           <p class="mb-4">
@@ -183,8 +183,8 @@ export const fetchArticles = async (): Promise<Article[]> => {
       category: "Eventos",
       author: "CMP Noticias",
       date: "2025-10-02",
-      image: "/images/eventos/congreso-ganaderia2025/portada2.jpeg",
-      authorImage: "/images/eventos/noticias-logo.png",
+      image: "/images/eventos/congreso-ganaderia2025/portada2.webp",
+      authorImage: "/images/eventos/noticias-logo.webp",
       content: `
         <article class="news-content">
           <h2 class="text-2xl font-bold mb-4">CMP Agro presente en el Congreso de Exposición de la Asociación Rural del Paraguay</h2>
@@ -230,8 +230,8 @@ export const fetchArticles = async (): Promise<Article[]> => {
       category: "Eventos",
       author: "CMP Noticias",
       date: "2025-09-09",
-      image: "/images/eventos/expo-norte/expo-portada.JPEG",
-      authorImage: "/images/eventos/noticias-logo.png",
+      image: "/images/eventos/expo-norte/expo-portada.webp",
+      authorImage: "/images/eventos/noticias-logo.webp",
       content: `
         <article class="news-content">
           <h2 class="text-2xl font-bold mb-4">CMP Agro presente en la Expo Norte Concepción 2025</h2>
@@ -242,7 +242,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
             Durante la feria, presentamos nuestras soluciones para las distintas necesidades de los productores, acercándonos un año más a nuestros clientes y amigos de la zona.
           </p>
           <figure class="my-8">
-            <img src="/images/eventos/expo-norte/expo-1.JPEG" alt="Stand de CMP Agro en la Expo Norte Concepción 2025" class="rounded-xl w-full shadow-lg" />
+            <img src="/images/eventos/expo-norte/expo-1.webp" alt="Stand de CMP Agro en la Expo Norte Concepción 2025" class="rounded-xl w-full shadow-lg" />
           </figure>
 
           <h3 class="text-xl font-semibold mt-8 mb-4">Una semana de innovación y negocios</h3>
@@ -253,7 +253,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
             Durante los días de exposición, nuestro equipo tuvo la oportunidad de interactuar directamente con productores de la región, conocer sus necesidades específicas y presentar las mejores soluciones tecnológicas para optimizar sus procesos productivos.
           </p>
           <figure class="my-8">
-            <img src="/images/eventos/expo-norte/expo-2.JPEG" alt="Interacción con productores en la Expo Norte Concepción" class="rounded-xl w-full shadow-lg" />
+            <img src="/images/eventos/expo-norte/expo-2.webp" alt="Interacción con productores en la Expo Norte Concepción" class="rounded-xl w-full shadow-lg" />
           </figure>
 
           <h3 class="text-xl font-semibold mt-8 mb-4">Fortaleciendo vínculos en el norte del país</h3>
@@ -264,7 +264,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
             La Expo Norte Concepción se consolida año tras año como un evento fundamental para el sector agropecuario del norte del país, y nuestra participación reafirma el compromiso de acompañar a los productores con soluciones innovadoras y de calidad.
           </p>
           <figure class="my-8">
-            <img src="/images/eventos/expo-norte/expo-3.JPEG" alt="Actividades y presentaciones en la Expo Norte Concepción 2025" class="rounded-xl w-full shadow-lg" />
+            <img src="/images/eventos/expo-norte/expo-3.webp" alt="Actividades y presentaciones en la Expo Norte Concepción 2025" class="rounded-xl w-full shadow-lg" />
           </figure>
 
           <p class="mb-4">
@@ -285,9 +285,9 @@ export const fetchArticles = async (): Promise<Article[]> => {
       category: "Institucional",
       author: "CMP Noticias",
       date: "2025-08-08",
-      image: "/images/eventos/sucursal-minga/portada-sucursal.png",
+      image: "/images/eventos/sucursal-minga/portada-sucursal.webp",
 
-      authorImage: "/images/eventos/noticias-logo.png",
+      authorImage: "/images/eventos/noticias-logo.webp",
       content: `
         <article class="news-content">
           <h2 class="text-2xl font-bold mb-4">Expansión estratégica para estar más cerca del productor</h2>
@@ -298,7 +298,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
             Este nuevo punto de atención reafirma nuestro compromiso con los trabajadores del campo, acercando soluciones más eficientes, innovadoras y sustentables para el productor paraguayo.
           </p>
           <figure class="my-8">
-            <img src="/images/eventos/sucursal-minga/portada-sucursal.jpeg" alt="Fachada de la nueva sucursal de CMP Agro en Minga Guazú" class="rounded-xl w-full shadow-lg" />
+            <img src="/images/eventos/sucursal-minga/portada-sucursal.webp" alt="Fachada de la nueva sucursal de CMP Agro en Minga Guazú" class="rounded-xl w-full shadow-lg" />
           </figure>
 
           <h3 class="text-xl font-semibold mt-8 mb-4">Ubicación estratégica</h3>
@@ -333,8 +333,8 @@ export const fetchArticles = async (): Promise<Article[]> => {
       category: "Productos",
       author: "CMP Noticias",
       date: "2025-08-08",
-      image: "/images/eventos/rafitec/lateral-view.jpg",
-      authorImage: "/images/eventos/noticias-logo.png",
+      image: "/images/eventos/rafitec/lateral-view.webp",
+      authorImage: "/images/eventos/noticias-logo.webp",
       content: `
         <article class="news-content">
           <h2 class="text-2xl font-bold mb-4">Innovación en soluciones de empaque premium</h2>
@@ -350,7 +350,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
             Gracias a su tecnología de impresión y laminación interna, asegura la seguridad alimentaria, mientras que el diseño de vista lateral permite mostrar el producto real, generando un fuerte impacto visual y aumentando la efectividad del marketing en el punto de venta.
           </p>
           <figure class="my-8 flex justify-center">
-            <img src="/images/eventos/rafitec/portada-rafitec.jpg" alt="Bolsas Sacaria Lateral View de Rafitec" class="rounded-xl w-3/4 md:w-2/3 lg:w-1/2" />
+            <img src="/images/eventos/rafitec/portada-rafitec.webp" alt="Bolsas Sacaria Lateral View de Rafitec" class="rounded-xl w-3/4 md:w-2/3 lg:w-1/2" />
           </figure>
 
           <h3 class="text-xl font-semibold mt-8 mb-4">Sacaria Special Coating</h3>
@@ -361,7 +361,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
             El efecto metálico impide que la luz degrade la materia prima, asegurando su integridad y calidad durante más tiempo, además de ofrecer una imagen diferenciadora en el mercado.
           </p>
           <figure class="my-8">
-            <img src="/images/eventos/rafitec/special-coating.jpg" alt="Bolsas Sacaria Special Coating con efecto metalizado" class="rounded-xl w-full" />
+            <img src="/images/eventos/rafitec/special-coating.webp" alt="Bolsas Sacaria Special Coating con efecto metalizado" class="rounded-xl w-full" />
           </figure>
 
           <h3 class="text-xl font-semibold mt-8 mb-4">Disponibles en Paraguay</h3>
@@ -386,8 +386,8 @@ export const fetchArticles = async (): Promise<Article[]> => {
       category: "Eventos",
       author: "CMP Noticias",
       date: "2025-08-07",
-      image: "/images/eventos/congreso-semillas/portada-congreso.jpg",
-      authorImage: "/images/eventos/noticias-logo.png",
+      image: "/images/eventos/congreso-semillas/portada-congreso.webp",
+      authorImage: "/images/eventos/noticias-logo.webp",
       content: `
         <article class="news-content">
           <h2 class="text-2xl font-bold mb-4">CMP Agro y Rafitec: Protagonistas en el VI Congreso Paraguayo de Semillas</h2>
@@ -421,7 +421,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
             El congreso también sirvió como plataforma para conocer las últimas tendencias e innovaciones en el sector semillero, permitiéndonos alinear nuestras soluciones con las necesidades actuales y futuras de los productores.
           </p>
           <figure class="my-8">
-            <img src="/images/eventos/congreso-semillas/congreso3.jpg" alt="Equipo de CMP Agro y Rafitec interactuando con visitantes" class="rounded-xl w-full" />
+            <img src="/images/eventos/congreso-semillas/congreso3.webp" alt="Equipo de CMP Agro y Rafitec interactuando con visitantes" class="rounded-xl w-full" />
           </figure>
 
           <p class="mb-4">
@@ -441,8 +441,8 @@ export const fetchArticles = async (): Promise<Article[]> => {
       category: "Eventos",
       author: "CMP Noticias",
       date: "2025-06-20",
-      image: "/images/eventos/cooprolanda025/portadacoopro1.JPG",
-      authorImage: "/images/eventos/noticias-logo.png",
+      image: "/images/eventos/cooprolanda025/portadacoopro1.webp",
+      authorImage: "/images/eventos/noticias-logo.webp",
       content: `
   <article class="news-content">
     <h2 class="text-2xl font-bold mb-4">CMP Agro dice presente en Cooprolanda 2025</h2>
@@ -483,7 +483,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
     </ul>
     
     <figure class="my-8">
-      <img src="/images/eventos/cooprolanda025/fieldcoopro.jpg" alt="Stand de CMP AGRO en Cooprolanda 2025" class="rounded-xl w-full" />
+      <img src="/images/eventos/cooprolanda025/fieldcoopro.webp" alt="Stand de CMP AGRO en Cooprolanda 2025" class="rounded-xl w-full" />
     </figure>
 
     <p class="mb-4">
@@ -503,8 +503,8 @@ export const fetchArticles = async (): Promise<Article[]> => {
       category: "Eventos",
       author: "CMP Noticias",
       date: "2025-05-28",
-      image: "/images/eventos/pioneros2025/portada-pioneros.JPG",
-      authorImage: "/images/eventos/noticias-logo.png",
+      image: "/images/eventos/pioneros2025/portada-pioneros.webp",
+      authorImage: "/images/eventos/noticias-logo.webp",
       content: `
         <article class="news-content">
           <h2 class="text-2xl font-bold mb-4">Exitosa participación en la Expo Pioneros 2025</h2>
@@ -515,7 +515,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
             Durante los cuatro días de exposición, nuestro stand se convirtió en un espacio de encuentro e intercambio con <strong>productores, técnicos, asesores y aliados estratégicos</strong>, quienes se acercaron para conocer de cerca nuestras propuestas orientadas a la <strong>eficiencia, sustentabilidad y rentabilidad</strong> del trabajo en el campo.
           </p>
           <figure class="my-8">
-            <img src="/images/eventos/pioneros2025/content1.JPG" alt="Stand de CMP AGRO en la Expo Pioneros 2025" class="rounded-xl w-full" />
+            <img src="/images/eventos/pioneros2025/content1.webp" alt="Stand de CMP AGRO en la Expo Pioneros 2025" class="rounded-xl w-full" />
           </figure>
 
           <h3 class="text-xl font-semibold mt-8 mb-4">Soluciones innovadoras presentadas</h3>
@@ -554,8 +554,8 @@ export const fetchArticles = async (): Promise<Article[]> => {
       category: "Innovación",
       author: "CMP Noticias",
       date: "2025-03-18",
-      image: "/images/eventos/innovar2025/innovar1.jpg",
-      authorImage: "/images/eventos/noticias-logo.png",
+      image: "/images/eventos/innovar2025/innovar1.webp",
+      authorImage: "/images/eventos/noticias-logo.webp",
       content: `
         <article class="news-content">
           <h2 class="text-2xl font-bold mb-4">INNOVAR: La feria que impulsa el futuro del agro</h2>
@@ -569,7 +569,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
             Este evento de gran relevancia para el sector contará con la destacada presencia de <strong>CMP AGRO</strong>, líder en soluciones para horticultura, ganadería, ensilaje, confinamiento y transporte. Nuestro compromiso es brindar soluciones eficientes e innovadoras que optimicen cada eslabón de la cadena agropecuaria.
           </p>
           <figure class="my-8">
-            <img src="/images/eventos/innovar2025/innovar2.jpg" alt="Vista general del stand de CMP AGRO en Innovar 2025" class="rounded-xl w-full" />
+            <img src="/images/eventos/innovar2025/innovar2.webp" alt="Vista general del stand de CMP AGRO en Innovar 2025" class="rounded-xl w-full" />
           </figure>
 
           <h3 class="text-xl font-semibold mt-8 mb-4">¿Cuál es el objetivo de INNOVAR?</h3>
@@ -583,7 +583,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
             <li>✅ <span class="ml-2">Posicionar a Paraguay entre los países más competitivos del mundo en producción agropecuaria.</span></li>
           </ul>
           <figure class="my-8">
-            <img src="/images/eventos/innovar2025/innovar1.jpeg" alt="Equipos en exhibición y demostración práctica" class="rounded-xl w-full" />
+            <img src="/images/eventos/innovar2025/innovar1.webp" alt="Equipos en exhibición y demostración práctica" class="rounded-xl w-full" />
           </figure>
 
           <h3 class="text-xl font-semibold mt-8 mb-4">¡Visítanos en INNOVAR!</h3>
@@ -591,7 +591,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
             Te esperamos en el stand de CMP AGRO, donde nuestro equipo de expertos estará listo para asesorarte y mostrarte de primera mano nuestras soluciones diseñadas para maximizar tu productividad.
           </p>
           <figure class="my-8">
-            <img src="/images/eventos/innovar2025/innovar3.jpg" alt="Personal de CMP AGRO asesorando a productores" class="rounded-xl w-full" />
+            <img src="/images/eventos/innovar2025/innovar3.webp" alt="Personal de CMP AGRO asesorando a productores" class="rounded-xl w-full" />
           </figure>
         </article>
       `,
@@ -603,8 +603,8 @@ export const fetchArticles = async (): Promise<Article[]> => {
       category: "Tendencias",
       author: "CMP Noticias",
       date: "2025-02-21",
-      image: "/images/eventos/cta/cta1.jpg",
-      authorImage: "/images/eventos/noticias-logo.png",
+      image: "/images/eventos/cta/cta1.webp",
+      authorImage: "/images/eventos/noticias-logo.webp",
       content: `
         <article class="news-content">
           <h2 class="text-2xl font-bold mb-4">Malla CTA Aluminet: La clave para un entorno saludable y productivo</h2>
@@ -612,7 +612,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
             El estrés calórico es uno de los mayores desafíos en la agroindustria, afectando directamente la salud, el bienestar y el rendimiento de los animales. La <strong>Malla CTA Aluminet</strong> de CMP AGRO ofrece una solución eficaz y comprobada para reducir significativamente la temperatura en corrales y establos, optimizando la producción ganadera.
           </p>
           <figure class="my-8">
-            <img src="/images/eventos/cta/cta2.jpg" alt="Malla CTA Aluminet instalada en corral" class="rounded-xl w-full" />
+            <img src="/images/eventos/cta/cta2.webp" alt="Malla CTA Aluminet instalada en corral" class="rounded-xl w-full" />
           </figure>
 
           <h3 class="text-xl font-semibold mt-8 mb-4">¿Cómo funciona?</h3>
@@ -644,8 +644,8 @@ export const fetchArticles = async (): Promise<Article[]> => {
       category: "Tendencias",
       author: "CMP Noticias",
       date: "2025-01-05",
-      image: "/images/eventos/cta/mediasombra.jpeg",
-      authorImage: "/images/eventos/noticias-logo.png",
+      image: "/images/eventos/cta/mediasombra.webp",
+      authorImage: "/images/eventos/noticias-logo.webp",
       content: `
         <article class="news-content">
           <h2 class="text-2xl font-bold mb-4">Nuevas soluciones para la protección de cultivos</h2>
@@ -681,8 +681,8 @@ export const fetchArticles = async (): Promise<Article[]> => {
       category: "Tecnología",
       author: "CMP Noticias",
       date: "2024-12-28",
-      image: "/images/eventos/cta/silobolsas.jpeg",
-      authorImage: "/images/eventos/noticias-logo.png",
+      image: "/images/eventos/cta/silobolsas.webp",
+      authorImage: "/images/eventos/noticias-logo.webp",
       content: `
         <article class="news-content">
           <h2 class="text-2xl font-bold mb-4">Nuevas soluciones para la conservación y almacenamiento de cultivos</h2>
@@ -693,7 +693,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
             En respuesta a esta necesidad, CMP AGRO ha establecido alianzas estratégicas con los mayores fabricantes de silobolsas de la región, brindando una solución de almacenamiento optimizado para granos y forrajes.
           </p>
           <figure class="my-8">
-            <img src="/images/eventos/cta/silobolsas2.jpeg" alt="Silobolsas CMP AGRO en campo" class="rounded-xl w-full" />
+            <img src="/images/eventos/cta/silobolsas2.webp" alt="Silobolsas CMP AGRO en campo" class="rounded-xl w-full" />
           </figure>
 
           <h3 class="text-xl font-semibold mt-8 mb-4">Ventajas de las silobolsas en la cosecha de granos</h3>
