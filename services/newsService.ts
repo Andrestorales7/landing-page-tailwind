@@ -16,6 +16,87 @@ export interface Article {
 export const fetchArticles = async (): Promise<Article[]> => {
   const articles = [
     {
+      id: 13,
+      title: "CMP Agro presente en la Expo Feria San Pedro 2025",
+      description: "Un espacio de encuentro real con el productor paraguayo, donde confirmamos la búsqueda de soluciones duraderas y adaptadas al clima local.",
+      category: "Eventos",
+      author: "CMP Noticias",
+      date: "2025-11-15",
+      image: "/images/eventos/feria-sanpedro/feria-hero.webp",
+      authorImage: "/images/eventos/noticias-logo.png",
+      content: `
+        <article class="news-content">
+          <h2 class="text-2xl font-bold mb-4">Un encuentro auténtico con el productor paraguayo</h2>
+          <p class="mb-4">
+            La <strong>Expo Feria de San Pedro 2025</strong>, realizada del <strong>12 al 15 de noviembre en Santa Rosa del Aguaray</strong>, fue mucho más que un evento ganadero: fue un espacio de encuentro real con el productor paraguayo, donde entendimos de primera mano sus desafíos, necesidades y esperanzas para esta nueva temporada de calor.
+          </p>
+
+          <p class="mb-4">
+            Para CMP Agro, participar de esta edición significó confirmar algo que escuchamos una y otra vez en cada charla: <strong>el productor paraguayo busca soluciones duraderas, confiables y adaptadas al clima que enfrenta en el día a día.</strong>
+          </p>
+
+          <figure class="my-8">
+            <img src="/images/eventos/feria-sanpedro/feria-content1.webp" alt="Stand de CMP Agro en la Expo Feria San Pedro 2025" class="rounded-xl w-full shadow-lg" />
+          </figure>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4">Conexión directa con el campo paraguayo</h3>
+          <p class="mb-4">
+            Durante todos los días de feria, nuestro stand recibió a productores, ganaderos, técnicos y amigos del campo que se acercaron para conversar, compartir experiencias y conocer más sobre las tecnologías que ponemos al servicio del agro nacional.
+          </p>
+
+          <p class="mb-4">
+            Cada intercambio reforzó nuestro compromiso de seguir acompañando al sector con productos que realmente marcan la diferencia en el rendimiento y bienestar del campo.
+          </p>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4">Desafíos y necesidades del productor</h3>
+          <p class="mb-4">
+            Muchos productores nos contaron sus preocupaciones por:
+          </p>
+          <ul class="list-none space-y-3 mb-6">
+            <li>🌡️ <span class="ml-2"><strong>La sequía y el calor extremo</strong> que afecta la productividad</span></li>
+            <li>🐄 <span class="ml-2"><strong>El manejo del ganado</strong> en condiciones adversas</span></li>
+            <li>⚡ <span class="ml-2"><strong>La necesidad de soluciones prácticas</strong> para hacer más eficiente su trabajo</span></li>
+          </ul>
+
+          <p class="mb-4">
+            Otros productores compartieron cómo las herramientas de CMP Agro ya les están ayudando en sus sistemas productivos. Estas conversaciones fueron valiosas y nos impulsan a seguir innovando para brindar un respaldo cada vez más fuerte.
+          </p>
+
+          <figure class="my-8">
+            <img src="/images/eventos/feria-sanpedro/feria-content2.webp" alt="Interacción con productores en la Expo Feria San Pedro 2025" class="rounded-xl w-full shadow-lg" />
+          </figure>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4">Compromiso renovado con el agro paraguayo</h3>
+          <p class="mb-4">
+            La Expo Feria San Pedro 2025 nos recordó algo fundamental: <strong>cuando el productor gana, el campo paraguayo avanza.</strong>
+          </p>
+
+          <p class="mb-4">
+            Y nuestro compromiso es estar a su lado, en cada campaña, con tecnología internacional y soluciones pensadas para los desafíos reales del país.
+          </p>
+
+          <blockquote class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500 my-6">
+            <p class="font-semibold mb-2 text-green-800">💚 Cuando el productor gana, el campo paraguayo avanza.</p>
+            <p class="text-green-700">Nuestro compromiso es estar a su lado, en cada campaña, con tecnología internacional y soluciones pensadas para los desafíos reales del país.</p>
+          </blockquote>
+
+          <p class="mb-4">
+            Cerramos esta edición con la satisfacción de haber compartido cuatro días de conexión, aprendizaje y crecimiento conjunto.
+          </p>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4">Agradecimiento y compromiso futuro</h3>
+          <p class="mb-4">
+            Gracias a todos los que nos visitaron. En CMP Agro seguiremos trabajando para ofrecer soluciones que impulsen la productividad, el bienestar y la sostenibilidad del campo paraguayo.
+          </p>
+
+          <blockquote class="bg-gray-50 p-6 rounded-lg border-l-4 border-blue-500 my-6">
+            <p class="font-semibold mb-2">CMP Agro – Soluciones duraderas para tu campo</p>
+            <p>Para conocer más sobre nuestras tecnologías y soluciones, contáctenos a través de nuestros canales oficiales.</p>
+          </blockquote>
+        </article>
+      `,
+    },
+    {
       id: 12,
       title: "CMP se presentó en el CEA 2025: Acompañamos al productor paraguayo con innovación y compromiso ",
       description: "Durante el CEA 2025, la especialista Janaina Martuscello compartió su visión sobre la importancia de las pasturas tropicales en el futuro de la ganadería.",
