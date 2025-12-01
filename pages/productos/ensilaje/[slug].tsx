@@ -115,7 +115,7 @@ const products = [
 <span class="font-semibold">Ensilado de Forrajes:</span> Pasturas, sorgo, maíz forrajero y otros cultivos destinados a la alimentación animal.
 `,
     details: ['6 pies x 60 m', '6.5 pies x 60 m', '9 pies x 60 m', '9 pies x 75 m', '9 pies x 100 m'],
-    logo: '/images/logos/agrinpex-logo.png',
+    logo: '/images/logos/agrinpex-logo.webp',
   },
   {
     name: 'Selladora de Silobolsas',
