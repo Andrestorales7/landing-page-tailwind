@@ -56,14 +56,14 @@ const NewsCard = ({
       )}
       
       {image && (
-        <Link href={href} className="block overflow-hidden h-56">
-          <div className="h-full w-full overflow-hidden">
+        <Link href={href} className="block overflow-hidden h-56 rounded-t-xl">
+          <div className="h-full w-full overflow-hidden rounded-t-xl">
             <Image
               src={image.src}
               alt={image.alt}
               width={image.width || 400}
               height={image.height || 300}
-              className="h-full w-full object-contain transform group-hover:scale-105 transition-transform duration-500"
+              className="h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-500 rounded-t-xl"
             />
           </div>
         </Link>

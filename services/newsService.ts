@@ -16,6 +16,66 @@ export interface Article {
 export const fetchArticles = async (): Promise<Article[]> => {
   const articles = [
     {
+      id: 14,
+      title: "\"Flexografía del Futuro\":",
+      description: "La industria de la impresión flexográfica avanza a pasos firmes hacia mayor precisión y eficiencia, y Paraguay no se queda atrás. CMP Agro organizó el evento \"Flexografía del Futuro\", una jornada técnica que reunió a profesionales del sector.",
+      category: "Eventos",
+      author: "CMP Noticias",
+      date: "2025-12-02",
+      image: "/images/eventos/evento-flexografia/portada-evento.webp",
+      authorImage: "/images/eventos/noticias-logo.webp",
+      content: `
+        <article class="news-content">
+          <h2 class="text-2xl font-bold mb-4">CMP Agro presente en "Flexografía del Futuro": innovación, tecnología y alianzas estratégicas para elevar la calidad de impresión</h2>
+          <p class="mb-4">
+            La industria de la impresión flexográfica avanza a pasos firmes hacia mayor precisión y eficiencia, y Paraguay no se queda atrás. Por eso, <strong>CMP Agro organizó el evento "Flexografía del Futuro"</strong>, una jornada técnica que reunió a profesionales del sector para explorar las nuevas herramientas y tendencias que están transformando el proceso de impresión.
+          </p>
+
+          <p class="mb-4">
+            En esta edición, contamos con la destacada presentación de <strong>TESA</strong>, líder mundial en soluciones adhesivas para la industria gráfica. Además, el evento fue apoyado por marcas internacionales de prestigio como <strong>Rossini y Siegwerk</strong>, fortaleciendo aún más el intercambio de conocimientos y la transferencia de tecnología de primer nivel.
+          </p>
+
+          <figure class="my-8">
+            <img src="/images/eventos/evento-flexografia/content-evento.webp" alt="Jornada técnica Flexografía del Futuro organizada por CMP Agro" class="rounded-xl w-full shadow-lg" />
+          </figure>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4">🔹 Innovaciones técnicas que impulsan calidad y eficiencia</h3>
+          <p class="mb-4">
+            Durante la jornada, se abordaron temas esenciales para optimizar el desempeño en impresión flexográfica:
+          </p>
+
+          <h4 class="text-lg font-semibold mt-6 mb-3">🔸 Cintas de montaje de alta precisión – Presentación de TESA</h4>
+          <p class="mb-4">
+            TESA compartió sus avances en cintas de montaje, fundamentales para asegurar estabilidad, consistencia y una impresión más limpia. Se destacó cómo la correcta selección de la cinta puede mejorar el registro, reducir errores y acortar tiempos de preparación.
+          </p>
+
+          <h4 class="text-lg font-semibold mt-6 mb-3">🔸 Twinlock: el sistema reutilizable que transforma el montaje</h4>
+          <p class="mb-4">
+            Se presentó la tecnología <strong>Twinlock</strong>, una solución que elimina la necesidad de cintas convencionales gracias a su superficie autoadherente reutilizable. Una innovación que reduce costos, agiliza procesos y contribuye a la sostenibilidad del sistema de impresión.
+          </p>
+
+          <h4 class="text-lg font-semibold mt-6 mb-3">🔸 Flexografía tecnológica y control del proceso</h4>
+          <p class="mb-4">
+            El evento también profundizó en la flexografía tecnológica, destacando buenas prácticas para lograr mayor estabilidad, menos vibraciones, transferencia óptima de tinta y resultados de alta definición.
+          </p>
+
+          <p class="mb-4">
+            La presencia y respaldo de <strong>Rossini y Siegwerk</strong> permitió ampliar la visión técnica y aportar soluciones integradas que complementan todo el flujo productivo.
+          </p>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4">🤝 Compromiso con la innovación en Paraguay</h3>
+          <p class="mb-4">
+            Con la organización de este encuentro, CMP Agro reafirma su compromiso con el desarrollo del sector gráfico paraguayo, acercando tecnología de vanguardia, capacitación profesional y alianzas estratégicas que impulsan eficiencia, calidad y sostenibilidad.
+          </p>
+
+          <blockquote class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500 my-6">
+            <p class="font-semibold mb-2 text-green-800">💚 En CMP Agro creemos en el valor de unir marcas, conocimiento y tecnología para acompañar el crecimiento del país.</p>
+            <p class="text-green-700">CMP Agro – Innovación que transforma la industria.</p>
+          </blockquote>
+        </article>
+      `,
+    },
+    {
       id: 13,
       title: "CMP Agro presente en la Expo Feria San Pedro 2025",
       description: "Un espacio de encuentro real con el productor paraguayo, donde confirmamos la búsqueda de soluciones duraderas y adaptadas al clima local.",
@@ -183,7 +243,7 @@ export const fetchArticles = async (): Promise<Article[]> => {
       category: "Eventos",
       author: "CMP Noticias",
       date: "2025-10-02",
-      image: "/images/eventos/congreso-ganaderia2025/portada2.webp",
+      image: "/images/eventos/CEA2025/portada-cea.webp",
       authorImage: "/images/eventos/noticias-logo.webp",
       content: `
         <article class="news-content">

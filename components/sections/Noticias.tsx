@@ -89,9 +89,9 @@ const AnimatedCard: React.FC<{ article: any }> = ({ article }) => {
         >
             {/* Hacemos que toda la tarjeta sea clickeable */}
             <Link href={`/noticias/${article.id}`} className="flex flex-col h-full">
-                <div className="relative h-56 overflow-hidden flex-shrink-0">
+                <div className="relative h-56 overflow-hidden flex-shrink-0 rounded-t-2xl">
                     <Image
-                        className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 rounded-t-2xl"
                         src={article.image}
                         alt={article.title}
                         fill

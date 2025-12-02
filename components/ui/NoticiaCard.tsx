@@ -67,12 +67,12 @@ const NoticiaCard: React.FC<NoticiaCardProps> = ({ noticia }) => {
       onClick={handleCardClick}
     >
       {/* Imagen de la noticia */}
-      <div className="relative h-64 w-full overflow-hidden">
+      <div className="relative h-64 w-full overflow-hidden rounded-t-lg">
         <Image
           src={imageSrc}
           alt={noticia.titulo}
           fill
-          className="object-cover transform group-hover:scale-105 transition-transform duration-500"
+          className="object-cover transform group-hover:scale-105 transition-transform duration-500 rounded-t-lg"
           sizes="(max-width: 768px) 100vw, 400px"
           priority
         />
