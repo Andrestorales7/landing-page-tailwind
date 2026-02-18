@@ -177,7 +177,7 @@ export default function Contacto() {
           "addressRegion": "Boquerón",
           "addressCountry": "PY"
         },
-        "telephone": "+595-986-778-771",
+        "telephone": "+595-987-290-819",
         "openingHours": "Mo-Fr 07:30-17:00"
       }
     ]
@@ -263,7 +263,7 @@ export default function Contacto() {
       id: 3,
       nombre: "Loma Plata",
       direccion: "Oficina 4 - Predio Plasti Chaco",
-      telefono: "(0986) 778 771",
+      telefono: "(0987) 290 819",
       horario: "Lun - Vie: 07:30 - 17:00",
       coordenadas: "-22.3796, -59.8327",
     },
